@@ -104,14 +104,14 @@
               <p>
                 <h6>열정스터디카페 포인트</h6>
                 <strong class="mine-point">
-                  <a href="my_point.html" class="mine-mypoint">2000</a>
+                  <a href="../mypage/onclick/mypage_point.html" class="mine-mypoint">2000</a>
                   <span>P</span>
                 </strong>
               </p>
               <p>
                 <h6>내 쿠폰</h6>
                 <strong class="mine-coupon-count">
-                  <a href="my_coupon.html" calss="mine-mycoupon">2</a>
+                  <a href="../mypage/todo/my_coupon.html" calss="mine-mycoupon">2</a>
                   <span>개</span>
                 </strong>
               </p>
