@@ -11,6 +11,7 @@
   border: 1px solid;
 }
 
+/* Reservation.html ------Start----- */
 /* 방 몇인실 예약할지 */
 .container .container_room ul {
   margin: 0 60px 70px 60px;
@@ -99,7 +100,9 @@
 .for_space2 {
   margin-left: 15%;
 }
+/* Reservation.html ------End----- */
 
+/* reservation_userinfo.html ------Start----- */
 /* 예약 공간 */
 .reservation_space_title {
   padding: 5px 10px;
@@ -168,13 +171,13 @@
   margin-top: 10px;
 }
 .reservation_information_subtitle {
-  padding-left: 30px;
+  padding-left: 50px;
   width: 250px;
   height: 50px;
   font-weight: bold;
 }
 .reservation_information_result {
-  padding-right: 30px;
+  padding-right: 70px;
   width: 450px;
   height: 50px;
   text-align: right;
@@ -220,7 +223,7 @@ input::placeholder {
 /* 이용약관 */
 .reseller_join_box {
   width: 95%;
-  padding: 10px 0 10px 40px;
+  padding: 10px 0 10px 60px;
   font-size: 15px;
   margin: 0;
 }
@@ -275,38 +278,57 @@ input::placeholder {
   background-color: #ffcc00;
   color: white;
 }
+/* reservation_userinfo.html ------End----- */
 
-/*payment*/
-
+/*payment.html ------Start-----*/
 .payment_section {
-  height: 1700px;
+  height: 2700px;
 }
 
-/* 환불규정 안내, 결제 예정금액 */
-.refund_regulations_title {
-  padding: 5px 10px;
-  font-weight: bold;
-}
-.payment_method_title,
-.payment_amount_title {
-  padding: 40px 10px 5px 10px;
-  font-weight: bold;
-}
+/* 환불규정 안내, 최종 예약 정보, 쿠폰 사용, 포인트 사용, 최종 결제 금액,  */
 .refund_regulations {
   margin-top: 10px;
 }
-.payment_method,
-.payment_amount {
+.final_reservation_info {
+  margin-top: 10px;
+  height: 380px;
+}
+.coupon_use,
+.point_use {
+  margin-top: 10px;
+  height: 260px;
+}
+.final_payment_amount {
+  margin-top: 10px;
+  height: 370px;
+}
+.payment_method {
   margin-top: 10px;
   height: 400px;
 }
 
-.refund_regulations_content {
-  padding:  0 30px;
-  font-size: 16px;
+
+.refund_regulations_title {
+  padding: 5px 10px;
+  font-weight: bold;
 }
+.final_reservation_info_title,
+.coupon_use_title,
+.point_use_title,
+.final_payment_amount_title,
+.payment_method_title {
+  padding: 40px 10px 5px 10px;
+  font-weight: bold;
+}
+
+.title_coupon_number {
+  color: #757575;
+  font-weight: bold;
+}
+
+.refund_regulations_content,
 .info {
-  padding: 0 30px;
+  padding: 0 40px;
   font-size: 16px;
 }
 .subline {
@@ -315,20 +337,71 @@ input::placeholder {
   margin-left: 30px;
 }
 .info_list {
-  padding: 0 40px;
+  padding: 0 50px;
 }
 .title {
   position: absolute;
   padding-top: 2px;
   vertical-align: middle;
 }
+.coupon_title {
+  position: absolute;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
 .data {
   vertical-align: top;
   line-height: 28px;
-  margin-left: 170px;
+  margin-left: 220px;
 }
 
-/* 결제방법 선택 */
+.price_data {
+  vertical-align: top;
+  line-height: 28px;
+  float: right;
+  margin-right: 50px;
+  color: #ffcc00;
+}
+
+.info_list button {
+  width: 90px;
+  height: 30px;
+  margin: 2px 0;
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+  
+}
+.info_list button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.all_payment_amount{
+  height: 50px;
+  margin: 0 40px;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: white;
+}
+.all_payment_amount_title {
+  position: absolute;
+  padding-top: 2px;
+  vertical-align: middle;
+}
+.all_payment_amount_data {
+  vertical-align: top;
+  line-height: 28px;
+  margin-left: 220px;
+}
+
+
+/* 결제수단*/
 .payment_method_list {
   padding: 35px 100px 10px 100px;
   width: 100%;
@@ -339,7 +412,7 @@ input::placeholder {
   font-size: 17px;
   position: relative;
   display: table;
-  padding: 20px 20px 20px 65px;
+  padding: 20px 20px 20px 75px;
   height: 30px;
   color: black;
   background-color: #fbfbef;
@@ -347,15 +420,37 @@ input::placeholder {
 }
 .payment_method_img {
   position: absolute;
-  left: 10px;
+  left: 20px;
+  bottom: 10px;
   width: 40px;
   height: 40px;
 }
-.payment_method_name {
+.card_payment_method,
+.mobile_payment_method,
+.scene_payment_method,
+.money_payment_method {
   display: table-cell;
   vertical-align: middle;
   max-width: 100%;
 }
+#con {
+  padding: 10px 110px;
+  width: 100%;
+}
+#con span {
+  font-size: 15px;
+  font-weight: bold;
+}
+.card_info_first,
+.card_info_second,
+.card_info_third,
+.card_info_fourth,
+.selected-month,
+.selected-year {
+  margin: 10px 0 20px 0;
+  width: 170px;
+}
+
 
 /* 이용약관 */
 .join_box {
@@ -386,26 +481,11 @@ input::placeholder {
   margin-top: 5px;
 }
 
-/* 결제 예정금액 결제쪽 */
-.amount {
-  float: right;
-  padding: 10px 60px 10px 10px;
-}
-.amount_list {
-  padding: 7px 20px;
-}
-.amount_title {
-  padding-top: 2px;
-  vertical-align: middle;
-}
-.amount_data {
-  vertical-align: top;
-  line-height: 28px;
-}
+
 
 /* 다음단계 버튼 */
 .btn_payment {
-  margin-top: 150px;
+  margin-top: 50px;
   padding: 0 325px;
   position: absolute;
 }
