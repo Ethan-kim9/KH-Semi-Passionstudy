@@ -124,9 +124,10 @@
               id="mainInteriorImg"
               class="mainContainerContents mainFloatRight imgFullDiv"
             >
-              <img
+              <!--<img
                 src="https://img-sumaiweb.com/wp-content/uploads/2015/10/shutterstock_305711921-640x427.jpg"
-              />
+              />-->
+              <img src="../images/rooms/rounge.jpg" >
             </div>
           </div>
           <div id="mainService" class="mainContainer">
@@ -142,12 +143,13 @@
               id="mainServiceChar"
               class="mainContainerContents mainFloatRight"
             >
-              <h3>INTERIOR</h3>
-              <h1>PASSION DESIGN</h1>
-              <p>열정 스터디 카페의 공간 노하우가 집약된</p>
-              <p>개방적인 분위기의 카페가 탄생되었습니다</p>
-              <p>클래식한 인테리어와 자유로운 분위기를 경험해보세요</p>
-              <a href="">바로가기></a>
+            <h3>SERVICE</h3>
+            <h1>PERFECT SERVICE</h1>
+            <p>열정 회원이라면 업계 1위의 교육 자료를</p>
+            <p>무료로 배포해드립니다.</p>
+            <p>학습과 취업에 필요한 자료를 제공하는</p>
+            <p>열정의 서비스를 이용해보세요.</p>
+            <a href="">바로가기></a>
             </div>
           </div>
         </div>
