@@ -6,7 +6,7 @@
       <link rel = "stylesheet" href="../../CSS/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-      <title>mypage-메인페이지</title>
+      <title>mypage-회원정보수정/비밀번호변경</title>
       <script src="https://code.jquery.com/jquery-3.5.1.js" 
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
       crossorigin="anonymous"></script>
@@ -90,10 +90,10 @@
     </div>
 
     <!-- 회원 정보수정 -->
-    <section class="section">
-      <div class="container">
+    <section class="mypage-section">
+      <div class="mypage-container">
         <!-- 예약확인, 취소내역 감싸는 div -->
-        <div class="container_reservation-management edit_btns">
+        <div class="container_mypage-management edit_btns">
           <ul>
             <li>
                 <button class="edit-button1 on">회원정보 수정 </button>
@@ -125,6 +125,7 @@
               <label class="edit-user-form_email">이메일</label>
               <input class="edit-user-form_email-text1" type="text" /> @
               <input class="edit-user-form_email-text2" type="text" />
+              <p class="edit-user-form-email-warn">관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_phone">휴대폰번호</label>

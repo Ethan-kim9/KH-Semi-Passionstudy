@@ -1,44 +1,10 @@
-/* 1대1 문의 css 스타일 */
-/*두 번째 탭 감싸는 ul*/
-.container .container_mypage-management ul {
-  margin: 0 0 20px 0;
-}
-
-/*두 번째 탭 사이즈 조절하는 코드*/
-.container .container_mypage-management li {
-  display: inline-block;
-  width: 480px;
-}
-.container .container_mypage-management button {
-  width: 100%;
-  height: 35px;
-  background-color: rgb(190, 190, 190);
-  border: 0;
-  font-weight: 900;
-  font-family: "Montserrat", Noto Sans KR, sans-serif;
-  cursor: pointer;
-  font-size: 15px;
-}
-.container .container_mypage-management li a {
-  text-decoration: none;
-}
-.container .container_mypage-management button a {
-  color: black;
-}
-.container .container_mypage-management button:hover {
-  background-color: #ffcc00;
-  color: white;
-}
-
-/* 부메뉴-------------------------------------------------------- */
-
+/* mypage 설정 탭 조절 */
 .tabtype .mypage_tabtype_wrapper li {
   display: inline-block;
   width: 24.5%;
 }
-
+/* mypage 메인 */
 .mypage-main_wrap {
-  /* border: 1px solid  #ebe6e6; */
   width: 600px;
   padding: 50px;
   margin: 50px auto;
@@ -59,8 +25,6 @@
   font-weight: bold;
   font-size: 25px;
 }
-
-/*  */
 .mypage-main-mine {
   text-align: center;
 }
@@ -78,19 +42,28 @@
   margin-top: 55px;
 }
 
-/* ---------------나의 예약관리- 예약확인/취소내역 -----------------*/
+/* mypage 부메뉴 탭 조절*/
 .mypage-section {
   text-align: center;
 }
-.mypage-container .container_reservation-management ul {
+.mypage-reservation-secion-pop {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.mypage-container .container_mypage-management ul {
   margin: 0 0 20px 0;
 }
-/*두 번째 탭 사이즈 조절하는 코드*/
-.mypage-container .container_reservation-management li {
+.mypage-container .container_mypage-management li {
   display: inline-block;
   width: 500px;
 }
-.mypage-container .container_reservation-management button {
+.mypage-container .container_mypage-management .mypage-single-menu {
+  display: inline-block;
+  width: 1000px;
+}
+
+.mypage-container .container_mypage-management button {
   width: 100%;
   height: 35px;
   background-color: rgb(190, 190, 190);
@@ -100,7 +73,7 @@
   cursor: pointer;
   font-size: 15px;
 }
-.mypage-container .container_reservation-management button:hover {
+.mypage-container .container_mypage-management button:hover {
   background-color: #ffcc00;
   color: white;
 }
@@ -108,7 +81,8 @@
   background-color: #202020;
   color: #ffffff;
 }
-/*------------ 나의 예약 관리 - 테이블 -----------*/
+
+/*mypage 예약 관리 - 테이블*/
 .reservation-state_table {
   width: 1000px;
   text-align: center;
@@ -117,6 +91,7 @@
 }
 .reservation-state_table th {
   height: 40px;
+  line-height: 40px;
   background-color: #e4e4e4;
   margin: 30px 0;
   border-top: 1px solid #bbbbbb;
@@ -140,7 +115,7 @@
   border: none;
 }
 
-/* ------------ 나의 예약 관리 - 페이징 ----------- */
+/* mypage 예약 관리 - 페이징  */
 .reservation-management-pages-count div,
 .reservation-management-pages-count ul,
 .reservation-management-pages-count li {
@@ -161,75 +136,15 @@
   font-weight: bold;
 }
 
-/* 나의 활동 예약에 관련된 부분 */
-.reservation-confirm-tool_container {
-  display: flex;
-  background-color: #eeecec;
-  margin: 0 0 55px 0;
-}
-.reservation-confirm-tool_container > div:nth-child(1) {
-  flex-basis: 100px;
-  /* flex-grow: 1; */
-}
-.reservation-confirm-tool_container > div:nth-child(2) {
-  flex-basis: 800px;
-  /* flex-grow: 2.5; */
-}
-.reservation-confirm-tool_container > div:nth-child(3) {
-  flex-basis: 70px;
-  /* flex-grow: 0.5; */
-}
-.reservation-confirm-tool-title {
-  text-align: center;
-  margin: 33px 0 0 0;
-  font-weight: bold;
-}
-/* 가운데 박스 */
-.reservation-confirm-tool-period {
-  height: 125px;
-  padding: 10px;
-}
-.reservation-confirm-tool-period > div {
-  margin: 20px 0;
-}
-.selected-month > button {
-  width: 60px;
-  height: 30px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 4px;
-  background-color: white;
-}
-.selected-ymd > select {
-  width: 80px;
-  height: 30px;
-  border-radius: 4px;
-  border: 1px solid #cfcdcd;
-}
-.selected-ymd > .until {
-  margin: 0 20px;
-}
-.selected-ymd > label {
-  margin-right: 8px;
-}
-.reservation-confirm-tool-lookup {
-  margin: 0 auto;
-  margin-right: 0;
-  padding: 32px 0 0 0;
-  text-align: center;
-  font-weight: bold;
-  background-color: #4e4e4e;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  color: white;
-}
-/* ---------------------------------------날짜 선택 하는 폼 완료------ */
+/* 1대1 문의 내역 ------ */
 .mypage-inquery-nothing {
   text-align: center;
   height: 300px;
   border: 3px solid #c4c4c4;
   border-left: none;
   border-right: none;
+  margin: 50px auto 70px;
+  width: 1000px;
 }
 .mypage-inquery-nothing #Capa_1 {
   margin: 80px 0 20px;
@@ -244,13 +159,16 @@
   border: 3px solid #c4c4c4;
   border-left: none;
   border-right: none;
+  width: 1000px;
+  margin: 50px auto;
 }
 
 .state-complete {
   position: relative;
   height: 40px;
-  padding: 20px 0 20px 30px;
+  padding: 20px 0 27px 10px;
   font-weight: bold;
+  text-align: left;
 }
 .state-complete {
   cursor: pointer;
@@ -309,15 +227,19 @@
   text-align: center;
   background-color: #5dbbf1;
   border-radius: 6px;
-  margin: 100px auto 10px;
+  margin: 100px auto 50px;
 }
 .go-inquery_button {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  margin-bottom: 30px;
+}
+.go-inquery_button:hover {
+  text-decoration: none;
 }
 
-/*  회원 정보수정 관련 */
+/*  mypage - 회원 정보수정 */
 .edit-user-info {
   margin: 50px auto;
   width: 1000px;
@@ -340,11 +262,10 @@
   color: #d6d5d5;
   text-decoration: underline;
 }
-/* -------------------------------------------정보수정/탈퇴 작업 완료 */
+
 .edit-user-form {
   width: 800px;
   height: 50px;
-  /* border: 1px solid gray; */
   margin: 50px;
   margin-left: 80px;
 }
@@ -368,9 +289,15 @@
   border-radius: 6px;
 }
 .edit-user-form_email-text2 {
+  width: 195px;
   height: 40px;
   border: 1px solid #bebcbc;
   border-radius: 6px;
+}
+.edit-user-form-email-warn {
+  color: #d80909;
+  font-weight: bold;
+  display: none;
 }
 .edit-user-form_phone-text {
   width: 500px;
@@ -407,7 +334,7 @@
   border-radius: 6px;
 }
 
-/*회원 비밀번호 수정 관련*/
+/* mypage - 비밀번호 변경 */
 .edit-pwd_wrap {
   margin: 50px auto;
   width: 1000px;
@@ -465,8 +392,8 @@
 .edit-pwd_newform-confirm_warn {
   color: #f01515;
   margin-top: 10px;
+  display: none;
 }
-/* -----------------------------------form------------ */
 .edit-pwd-button {
   background-color: #5dbbf1;
   width: 750px;
@@ -478,16 +405,13 @@
   margin-bottom: 30px;
 }
 
-/*회원 삭제*/
-
-/* 부메뉴-------------------------------------------------------- */
-.withdrawal_wrap,
-.withdrawal-fin_wrap {
-  /* border: 1px solid  #ebe6e6; */
+/* mypage - 회원탈퇴 */
+.withdrawal_wrap {
   width: 600px;
   padding: 50px;
   margin: 50px auto;
 }
+
 .withdrawal-front,
 .withdrawal-fin-front {
   text-align: center;
@@ -527,6 +451,7 @@
   font-size: small;
   padding-left: 10px;
   font-weight: bold;
+  display: none;
 }
 .withdrawal-button {
   background-color: #c21e1e;
@@ -538,7 +463,6 @@
   border-style: none;
   margin: 25px auto 65px;
 }
-/* -------------------------------------------------- */
 .withdrawal-fin-front_check {
   margin-bottom: 30px;
 }
@@ -562,5 +486,346 @@
 }
 .withdrawal-fin-button a {
   color: white;
+}
+.withdrawal-fin-button a:hover {
   text-decoration: none;
+}
+
+/* mypage - 예약 상세 조회 */
+.reservation-back-button {
+  background-color: #202020;
+  color: #ffffff;
+}
+.reservation-state_table td:nth-child(5) {
+  width: 120px;
+  color: tomato;
+}
+.reservation-state_table img {
+  width: 200px;
+  height: 160px;
+}
+.reservation-state_table p {
+  display: inline;
+}
+.reservation-state_table .table-body-title,
+.table-body-explanation {
+  border-bottom: none;
+  padding: 0;
+  text-align: left;
+  font-weight: bold;
+  color: #363636;
+}
+
+.table-check-state-information {
+  color: #3a3939;
+  width: 80px;
+  height: 33px;
+  line-height: 32px;
+  border: none;
+  font-weight: bold;
+}
+/* mypage - 예약 상세 조회 (주문정보테이블 css) */
+.reservation-order-information {
+  font-size: 1.5rem;
+  height: 50px;
+  margin: 20px 0 10px;
+  color: #464545;
+}
+.reservation-order_table {
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.reservation-order_table th {
+  height: 40px;
+  line-height: 40px;
+  background-color: #e4e4e4;
+  margin: 30px 0;
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+}
+.reservation-order_table td {
+  height: 40px;
+  padding: 5px;
+  border-bottom: 1px solid #bbbbbb;
+  font-weight: bold;
+  color: #363636;
+}
+/* mypage - 예약 상세 조회 (결제정보테이블 css) */
+.reservation-payment-information {
+  font-size: 1.5rem;
+  height: 50px;
+  margin: 20px 0 10px;
+  color: #464545;
+}
+.reservation-payment_table {
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.reservation-payment_table th {
+  height: 40px;
+  line-height: 40px;
+  background-color: #e4e4e4;
+  margin: 30px 0;
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+}
+.reservation-payment_table td {
+  height: 40px;
+  padding: 5px;
+  border-bottom: 1px solid #bbbbbb;
+  font-weight: bold;
+  color: tomato;
+}
+.reservation-payment_table td:nth-child(4),
+.reservation-payment_table td:nth-child(4) p {
+  color: #e42706;
+}
+.reservation-payment_table td:nth-child(5) {
+  color: #535353;
+}
+.reservation-payment_table p {
+  display: inline;
+}
+.reservation-get-point {
+  text-align: right;
+  background-color: #f1f1f1;
+  height: 50px;
+  line-height: 50px;
+  color: #5f5f5f;
+  border-bottom: 1px solid #bbbbbb;
+  width: 1000px;
+}
+.reservation-get-point p,
+.reservation-get-point h4 {
+  display: inline;
+  font-size: 14px;
+}
+.reservation-get-point span,
+.reservation-get-point p {
+  color: tomato;
+}
+.reservation-get-point span {
+  margin: 0 10px 0 0;
+}
+.reservation-management-list {
+  width: 125px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 60px auto;
+  background-color: #444444;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.reservation-management-list .list-button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* mypage - 내포인트 */
+.mypage-point {
+  width: 1000px;
+  margin: 100px auto;
+  text-align: left;
+}
+.available-point {
+  height: 60px;
+  margin-top: 70px;
+  border-bottom: 1px solid #c5c5c5;
+  position: relative;
+}
+.available-point .point-amount {
+  position: absolute;
+  right: 20px;
+}
+.available-point strong {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.point-list-intro {
+  height: 60px;
+  margin-top: 40px;
+  position: relative;
+}
+.point-list-intro p {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.point-list-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border-bottom: 1px solid #c5c5c5;
+  border-top: 1px solid #c5c5c5;
+}
+.point-list-container .point-minus {
+  position: absolute;
+  right: 20px;
+}
+.point-state {
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cc1010;
+  margin: 30px 50px 70px 25px;
+  color: #cc1010;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.state-plus {
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #325cac;
+  margin: 30px 50px 70px 25px;
+  color: #325cac;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.point-list-container .point-plus {
+  position: absolute;
+  right: 20px;
+}
+.point-plus {
+  margin: 30px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #325cac;
+}
+
+.point-detail {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.point-detail li:nth-child(2) {
+  margin: 15px 0 13px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-bottom: none;
+  color: #353535;
+}
+.point-detail li:nth-child(3) {
+  font-size: small;
+}
+.point-minus {
+  margin: 30px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #cc1010;
+}
+
+/* mypage - 내 쿠폰 */
+.coupon-feed {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+.coupon-feed-register {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin: 50px 0 20px;
+  height: 110px;
+  text-align: center;
+}
+.coupon-feed-register-title {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  color: #505050;
+}
+.coupon-feed-register-input {
+  width: 350px;
+  height: 45px;
+  border: 1px solid #c0bebe;
+  margin: 35px 20px 35px 20px;
+}
+.coupon-feed-register-input::placeholder {
+  padding-left: 10px;
+  color: #747171;
+}
+.coupon-feed-register-button {
+  width: 100px;
+  height: 45px;
+  background-color: #444444;
+  color: white;
+  border-radius: 6px;
+}
+
+.coupon-mold {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+.coupon-item {
+  flex-basis: 230px;
+  height: 315px;
+  padding: 20px;
+  background-color: #ebeef0;
+  margin: 10px 10px;
+  border-radius: 6px;
+}
+.coupon-item_title {
+  font-size: 23px;
+  font-weight: bold;
+}
+.coupon-item_price {
+  font-size: 30px;
+  margin: 15px 0;
+}
+.coupon-item_price-number {
+  font-weight: bold;
+  font-size: 34px;
+  color: #5dbbf1;
+}
+.coupon-item_price-won {
+  font-size: 18px;
+}
+.coupon-item_due-date {
+  margin-bottom: 15px;
+  color: #464646;
+}
+.coupon-item_due-date span {
+  font-size: 16px;
+}
+.coupon-item_studyroom-list {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4e77b9;
+}
+.coupon-item_status-get {
+  background-color: #5dbbf1;
+  margin: 23px 0;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+.coupon-item_status-done {
+  background-color: #505152;
+  margin: 23px 0;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+}
+.coupon-done {
+  border-bottom: 1px solid #dbdcdd;
+}
+.coupon-done .coupon-item {
+  margin-bottom: 50px;
 }
