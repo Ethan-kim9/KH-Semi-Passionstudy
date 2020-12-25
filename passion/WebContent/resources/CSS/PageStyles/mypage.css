@@ -1,0 +1,566 @@
+/* 1대1 문의 css 스타일 */
+/*두 번째 탭 감싸는 ul*/
+.container .container_mypage-management ul {
+  margin: 0 0 20px 0;
+}
+
+/*두 번째 탭 사이즈 조절하는 코드*/
+.container .container_mypage-management li {
+  display: inline-block;
+  width: 480px;
+}
+.container .container_mypage-management button {
+  width: 100%;
+  height: 35px;
+  background-color: rgb(190, 190, 190);
+  border: 0;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+}
+.container .container_mypage-management li a {
+  text-decoration: none;
+}
+.container .container_mypage-management button a {
+  color: black;
+}
+.container .container_mypage-management button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+
+/* 부메뉴-------------------------------------------------------- */
+
+.tabtype .mypage_tabtype_wrapper li {
+  display: inline-block;
+  width: 24.5%;
+}
+
+.mypage-main_wrap {
+  /* border: 1px solid  #ebe6e6; */
+  width: 600px;
+  padding: 50px;
+  margin: 50px auto;
+}
+.mypage-main-front {
+  text-align: center;
+}
+.mypage-main-front .mypage-main-front-svg {
+  margin-bottom: 40px;
+}
+.mypage-main-front_user {
+  color: #3a3a3a;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.mypage-main-front-user-name {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+/*  */
+.mypage-main-mine {
+  text-align: center;
+}
+.mypage-main-mine h6 {
+  display: inline-block;
+  font-size: 17px;
+  color: #313233;
+}
+.mypage-main-mine a {
+  font-size: 30px;
+  margin-left: 15px;
+  color: #c21e1e;
+}
+.mypage-main-mine .mypage-main-front-svg {
+  margin-top: 55px;
+}
+
+/* ---------------나의 예약관리- 예약확인/취소내역 -----------------*/
+.mypage-section {
+  text-align: center;
+}
+.mypage-container .container_reservation-management ul {
+  margin: 0 0 20px 0;
+}
+/*두 번째 탭 사이즈 조절하는 코드*/
+.mypage-container .container_reservation-management li {
+  display: inline-block;
+  width: 500px;
+}
+.mypage-container .container_reservation-management button {
+  width: 100%;
+  height: 35px;
+  background-color: rgb(190, 190, 190);
+  border: 0;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+}
+.mypage-container .container_reservation-management button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+.mypage-container button.on {
+  background-color: #202020;
+  color: #ffffff;
+}
+/*------------ 나의 예약 관리 - 테이블 -----------*/
+.reservation-state_table {
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 75px;
+}
+.reservation-state_table th {
+  height: 40px;
+  background-color: #e4e4e4;
+  margin: 30px 0;
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+}
+.reservation-state_table td {
+  height: 40px;
+  padding: 5px;
+  border-bottom: 1px solid #bbbbbb;
+}
+.reservation-state_table .reservation-state-cancel {
+  color: #ce0d0d;
+  font-weight: bold;
+}
+.table-check-details-information {
+  background-color: #54a8ec;
+  color: white;
+  width: 100px;
+  height: 33px;
+  line-height: 32px;
+  border: none;
+}
+
+/* ------------ 나의 예약 관리 - 페이징 ----------- */
+.reservation-management-pages-count div,
+.reservation-management-pages-count ul,
+.reservation-management-pages-count li {
+  display: inline;
+}
+.reservation-management-pages-count {
+  text-align: center;
+  margin: 190px 0px 60px;
+}
+.reservation-management-pages-count li {
+  margin: 0 20px;
+  color: #2b2b2b;
+  font-weight: bold;
+}
+.reservation-management-pages-count .page-number {
+  text-decoration: none;
+  color: #2b2b2b;
+  font-weight: bold;
+}
+
+/* 나의 활동 예약에 관련된 부분 */
+.reservation-confirm-tool_container {
+  display: flex;
+  background-color: #eeecec;
+  margin: 0 0 55px 0;
+}
+.reservation-confirm-tool_container > div:nth-child(1) {
+  flex-basis: 100px;
+  /* flex-grow: 1; */
+}
+.reservation-confirm-tool_container > div:nth-child(2) {
+  flex-basis: 800px;
+  /* flex-grow: 2.5; */
+}
+.reservation-confirm-tool_container > div:nth-child(3) {
+  flex-basis: 70px;
+  /* flex-grow: 0.5; */
+}
+.reservation-confirm-tool-title {
+  text-align: center;
+  margin: 33px 0 0 0;
+  font-weight: bold;
+}
+/* 가운데 박스 */
+.reservation-confirm-tool-period {
+  height: 125px;
+  padding: 10px;
+}
+.reservation-confirm-tool-period > div {
+  margin: 20px 0;
+}
+.selected-month > button {
+  width: 60px;
+  height: 30px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+}
+.selected-ymd > select {
+  width: 80px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #cfcdcd;
+}
+.selected-ymd > .until {
+  margin: 0 20px;
+}
+.selected-ymd > label {
+  margin-right: 8px;
+}
+.reservation-confirm-tool-lookup {
+  margin: 0 auto;
+  margin-right: 0;
+  padding: 32px 0 0 0;
+  text-align: center;
+  font-weight: bold;
+  background-color: #4e4e4e;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: white;
+}
+/* ---------------------------------------날짜 선택 하는 폼 완료------ */
+.mypage-inquery-nothing {
+  text-align: center;
+  height: 300px;
+  border: 3px solid #c4c4c4;
+  border-left: none;
+  border-right: none;
+}
+.mypage-inquery-nothing #Capa_1 {
+  margin: 80px 0 20px;
+}
+.mypage-inquery-nothing p {
+  font-size: 0.9rem;
+  color: #414141;
+}
+
+/* 문의 내역이 있을 경우*/
+.mypage-inquery {
+  border: 3px solid #c4c4c4;
+  border-left: none;
+  border-right: none;
+}
+
+.state-complete {
+  position: relative;
+  height: 40px;
+  padding: 20px 0 20px 30px;
+  font-weight: bold;
+}
+.state-complete {
+  cursor: pointer;
+}
+.state-complete .state-date {
+  position: absolute;
+  right: 60px;
+  color: #2f3236;
+}
+.state-complete strong {
+  display: inline-block;
+  text-align: center;
+  margin: -4px 20px 0 0;
+  background-color: #5dbbf1;
+  color: white;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+  border: none;
+}
+.expansion {
+  background-color: #f5f5f5;
+  display: none;
+}
+.expansion .question {
+  padding: 25px 30px 25px 35px;
+}
+.expansion .question p {
+  margin-top: 30px;
+}
+.expansion .answer {
+  padding: 25px 30px 25px 35px;
+}
+.expansion .answer p {
+  margin-top: 30px;
+}
+.answer {
+  position: relative;
+  border-top: 1px solid #c9c9c9;
+}
+.answer .answer-date {
+  position: absolute;
+  right: 60px;
+  color: #2f3236;
+}
+.answer > strong {
+  font-weight: bold;
+  color: #5dbbf1;
+}
+
+.go-inquery {
+  width: 130px;
+  height: 45px;
+  line-height: 43px;
+  text-align: center;
+  background-color: #5dbbf1;
+  border-radius: 6px;
+  margin: 100px auto 10px;
+}
+.go-inquery_button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*  회원 정보수정 관련 */
+.edit-user-info {
+  margin: 50px auto;
+  width: 1000px;
+  border: 1px solid #d6d5d5;
+  margin-bottom: 100px;
+}
+.edit-user-header {
+  padding: 45px 40px;
+}
+.edit-user-header_title {
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 2.3rem;
+  color: #292929;
+  margin-left: 80px;
+}
+.edit-user-header_withdrawal {
+  float: right;
+  padding-bottom: 20px;
+  color: #d6d5d5;
+  text-decoration: underline;
+}
+/* -------------------------------------------정보수정/탈퇴 작업 완료 */
+.edit-user-form {
+  width: 800px;
+  height: 50px;
+  /* border: 1px solid gray; */
+  margin: 50px;
+  margin-left: 80px;
+}
+.edit-user-form label {
+  width: 130px;
+  margin: 30px 30px 30px 50px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: #414040;
+}
+.edit-user-form_name-text {
+  width: 500px;
+  height: 40px;
+  border: 1px solid #bebcbc;
+  border-radius: 6px;
+}
+.edit-user-form_email-text1 {
+  width: 280px;
+  height: 40px;
+  border: 1px solid #bebcbc;
+  border-radius: 6px;
+}
+.edit-user-form_email-text2 {
+  height: 40px;
+  border: 1px solid #bebcbc;
+  border-radius: 6px;
+}
+.edit-user-form_phone-text {
+  width: 500px;
+  height: 40px;
+  border: 1px solid #bebcbc;
+  border-radius: 6px;
+}
+.edit-user-form-ad {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: #414040;
+  margin: 80px 0px 65px 130px;
+}
+.edit-user-form-ad label {
+  color: #414040;
+  font-size: 15px;
+}
+.ad_option-email {
+  margin-right: 15px;
+  font-weight: lighter;
+}
+.ad_option-sms {
+  margin: 0 15px 0 90px;
+}
+.edit-user-form_button {
+  width: 680px;
+  height: 50px;
+  margin-left: 50px;
+  color: white;
+  border: none;
+  background-color: #58a2df;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  border-radius: 6px;
+}
+
+/*회원 비밀번호 수정 관련*/
+.edit-pwd_wrap {
+  margin: 50px auto;
+  width: 1000px;
+  border: 1px solid #d6d5d5;
+  margin-bottom: 100px;
+  padding: 45px 40px;
+}
+.edit-pwd-content {
+  margin-left: 80px;
+}
+.edit-pwd_title {
+  font-size: 35px;
+  font-weight: bold;
+}
+.edit-pwd-change {
+  margin-top: 50px;
+}
+.edit-pwd_newform {
+  margin: 30px 0 30px;
+}
+.edit-pwd_form_title,
+.edit-pwd_newform_title,
+.edit-pwd_newform_title {
+  font-weight: bold;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 19px;
+}
+.edit-pwd_newform_sub-title {
+  font-size: 15px;
+  margin: 5px 0;
+}
+.edit-pwd_form-group,
+.edit-pwd_newform-group,
+.edit-pwd_newform-confirm {
+  margin: 10px 0;
+}
+.edit-pwd_form-group_box input,
+.edit-pwd_newform-group_box input,
+.edit-pwd_newform-confirm_box input {
+  width: 750px;
+  height: 50px;
+  border: 1px solid #c0bfbf;
+  border-radius: 6px;
+}
+.edit-pwd_form-group_box input::placeholder,
+.edit-pwd_newform-group_box input::placeholder,
+.edit-pwd_newform-confirm_box input::placeholder {
+  font-size: smaller;
+  padding-left: 10px;
+  color: #c0bfbf;
+}
+.edit-pwd_form-group_warn,
+.edit-pwd_newform-group_warn,
+.edit-pwd_newform-confirm_warn {
+  color: #f01515;
+  margin-top: 10px;
+}
+/* -----------------------------------form------------ */
+.edit-pwd-button {
+  background-color: #5dbbf1;
+  width: 750px;
+  height: 50px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  border-style: none;
+  margin-bottom: 30px;
+}
+
+/*회원 삭제*/
+
+/* 부메뉴-------------------------------------------------------- */
+.withdrawal_wrap,
+.withdrawal-fin_wrap {
+  /* border: 1px solid  #ebe6e6; */
+  width: 600px;
+  padding: 50px;
+  margin: 50px auto;
+}
+.withdrawal-front,
+.withdrawal-fin-front {
+  text-align: center;
+}
+.withdrawal-front-svg,
+.withdrawal-fin-front-svg {
+  margin-bottom: 40px;
+}
+.withdrawal-front_g1,
+.withdrawal-front_g2 {
+  color: #3a3a3a;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.withdrawal-front_g2 {
+  color: #db1a1a;
+}
+.withdrawal-pwd-group_box input {
+  width: 500px;
+  height: 40px;
+  line-height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #d6d2d2;
+  margin: 30px auto 10px;
+}
+
+.withdrawal-pwd-group_box input::placeholder {
+  font-size: smaller;
+  padding-left: 10px;
+  color: #c0bfbf;
+  font-weight: bold;
+}
+.withdrawal-pwd-group_warn {
+  color: #db1a1a;
+  font-size: small;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.withdrawal-button {
+  background-color: #c21e1e;
+  width: 500px;
+  height: 40px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  border-style: none;
+  margin: 25px auto 65px;
+}
+/* -------------------------------------------------- */
+.withdrawal-fin-front_check {
+  margin-bottom: 30px;
+}
+.withdrawal-fin-front_g1 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.withdrawal-fin-front_g2 {
+  font-size: smaller;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+.withdrawal-fin-button {
+  background-color: #5dbbf1;
+  width: 500px;
+  height: 40px;
+  font-weight: bold;
+  border-radius: 6px;
+  border-style: none;
+  margin: 25px auto 65px;
+}
+.withdrawal-fin-button a {
+  color: white;
+  text-decoration: none;
+}

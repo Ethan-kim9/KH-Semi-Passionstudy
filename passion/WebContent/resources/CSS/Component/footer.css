@@ -1,0 +1,106 @@
+footer {
+  background: #202020;
+  /* min-height: 200px; */
+}
+footer .wrapper {
+  /* position: relative; */
+  width: 1200px;
+  margin: 0 auto;
+  padding: 70px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+footer .wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+footer .wrapper .right-section,
+footer .wrapper .left-section {
+  float: left;
+  /* width: 50%; */
+}
+footer .wrapper .left-section span {
+  font-size: 13px;
+  color: #fff;
+  line-height: 26px;
+}
+footer .wrapper .left-section span.normal {
+  color: rgba(255, 255, 255, 0.75);
+}
+footer .wrapper .left-section span.copyright,
+footer .wrapper .left-section span.normal {
+  font-weight: 300;
+  letter-spacing: 0.07em;
+}
+footer .wrapper .left-section span.bold {
+  padding-left: 5px;
+  font-weight: 200;
+  letter-spacing: 0.07em;
+  /* word-break: keep-all; */
+}
+footer .wrapper .left-section span.divide {
+  /* display: inline-block; */
+  margin: 0 5px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 100;
+}
+footer .wrapper .right-section {
+  float: right;
+  width: 37%;
+  /* vertical-align: top; */
+}
+footer .wrapper .right-section ul.menu > li {
+  display: inline-block;
+  padding-right: 50px;
+  vertical-align: top;
+  /* color: #fff; */
+}
+footer .wrapper .right-section ul.menu > li > ul {
+  padding-top: 20px;
+  list-style: none;
+}
+footer .wrapper .right-section ul.menu > li > a {
+  /* position: relative; */
+  font-size: 16px;
+  font-weight: 300;
+  /* z-index: 1; */
+}
+footer .wrapper .right-section li a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .wrapper .right-section ul.menu > li > ul li a {
+  /* display: block; */
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 200;
+  line-height: 24px;
+  /* transition: color 0.3s ease; */
+}
+footer .wrapper .right-section ul.menu > li > ul li a:hover {
+  color: #ffffff;
+}
+footer .wrapper .right-section .family_site {
+  margin-top: 20px;
+  text-align: right;
+}
+footer .wrapper .right-section select.passionstudy_site {
+  /* position: relative; */
+  width: 200px;
+  height: 35px;
+  padding: 0 15px;
+  background-color: transparent;
+  /* box-shadow: none !important; */
+  /* border-radius: 0; */
+  font-size: 13px;
+  color: #ffffff;
+  /* text-align: left; */
+  /* line-height: 35px; */
+}
+footer .wrapper .right-section select.passionstudy_site option {
+  /* width: 200px; */
+  /* height: 35px; */
+  /* font-size: 13px; */
+  color: #202020;
+  /* line-height: 35px; */
+}

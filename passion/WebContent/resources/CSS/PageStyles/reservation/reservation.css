@@ -1,0 +1,414 @@
+.section {
+  width: 1000px;
+  margin: 0 auto;
+}
+.container {
+  padding: 0 30px 0 30px;
+  margin: 50px 0 50px 0;
+}
+
+.line {
+  border: 1px solid;
+}
+
+/* 방 몇인실 예약할지 */
+.container .container_room ul {
+  margin: 0 60px 70px 60px;
+}
+.container .container_room li {
+  display: inline-block;
+  width: 200px;
+}
+.container .container_room button {
+  width: 100%;
+  height: 30px;
+  /* box-shadow: 0 20px 40px rgba(17, 20, 39, 0.10); */
+  background-color: rgb(190, 190, 190);
+  border: 0;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+}
+.container .container_room li a {
+  text-decoration: none;
+}
+.container .container_room button a {
+  color: black;
+}
+.container .container_room button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+.container button.on {
+  background-color: #202020;
+  color: #ffffff;
+}
+/* 방 사진 */
+.container .container_room_img ul {
+  margin: 0 0 25px 0;
+}
+.container .container_room_img li {
+  display: inline-block;
+  padding: 0 5px 0 5px;
+}
+/* 방 버튼 */
+.container .container_room_button {
+  margin: 0 20px 0 20px;
+}
+.container .container_room_button ul {
+  margin: 0 0 50px 0;
+}
+.container .container_room_button ul .second_room,
+.container .container_room_button ul .third_room {
+  margin: 0 0 0 65px;
+}
+
+.container .container_room_button li {
+  display: inline-block;
+  width: 100px;
+  margin: 0px 10px 0 22px;
+}
+
+.container .container_room_button button {
+  width: 90%;
+  height: 25px;
+  /* box-shadow: 0 20px 40px rgba(17, 20, 39, 0.10); */
+  background-color: rgb(190, 190, 190);
+  border: 0;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 13px;
+}
+.container .container_room_button li a {
+  text-decoration: none;
+}
+.container .container_room_button button a {
+  color: black;
+}
+.container .container_room_button button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.for_space1 {
+  margin-left: 10%;
+}
+
+.for_space2 {
+  margin-left: 15%;
+}
+
+/* 예약 공간 */
+.reservation_space_title {
+  padding: 5px 10px;
+  font-weight: bold;
+}
+.reservation_space_content {
+  width: 950px;
+  text-align: left;
+}
+.room_img {
+  padding: 10px;
+}
+
+.room_title,
+.room_introduce,
+.room_item {
+  background-color: #fbfbef;
+  padding: 0 10px;
+  vertical-align: middle;
+}
+
+.room_title .room_person_number {
+  text-align: left;
+}
+.room_title .room_time_price {
+  text-align: right;
+}
+.room_introduce {
+  font-size: 15px;
+}
+.room_item li {
+  float: left;
+  font-size: 13px;
+}
+.room_item_list li {
+  position: relative;
+  display: table;
+  padding: 0 20px 0 45px;
+  height: 36px;
+  margin-top: 10px;
+  color: black;
+}
+.room_item_img {
+  position: absolute;
+  left: 5px;
+}
+.room_item_name {
+  display: table-cell;
+  vertical-align: middle;
+  max-width: 100%;
+  padding-left: 45px;
+}
+/* */
+
+.reservation_information_title,
+.reseller_information_title {
+  padding: 40px 10px 5px 10px;
+  font-weight: bold;
+}
+
+/* 예약정보 */
+.reservation_information_content {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+.reservation_information_subtitle {
+  padding-left: 30px;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+}
+.reservation_information_result {
+  padding-right: 30px;
+  width: 450px;
+  height: 50px;
+  text-align: right;
+}
+
+/* 예약자정보 */
+.reseller_information_content {
+  width: 100%;
+  height: 350px;
+  padding-top: 15px;
+}
+.reseller_information_subtitle {
+  padding: 0 50px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.reseller {
+  margin-bottom: 15px;
+  width: 720px;
+  height: 30px;
+}
+
+.tel_second,
+.tel_third,
+.email,
+.email_dns {
+  margin-bottom: 15px;
+  width: 230px;
+  height: 30px;
+}
+input::placeholder {
+  padding-left: 10px;
+}
+.tel_first,
+.emailaddr {
+  width: 230px;
+  height: 30px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+/* 이용약관 */
+.reseller_join_box {
+  width: 95%;
+  padding: 10px 0 10px 40px;
+  font-size: 15px;
+  margin: 0;
+}
+.checkBox,
+.checkBox ul {
+  position: relative;
+}
+.checkBox ul li {
+  float: left;
+}
+.checkBox ul li:first-child {
+  width: 95%;
+  padding: 15px;
+  font-weight: 600;
+  color: black;
+}
+.txt_required {
+  color: #ff3a48;
+}
+.chkAll,
+.checkBtn {
+  position: absolute;
+  right: 30px;
+  margin-top: 5px;
+}
+.checkBox textarea {
+  width: 95%;
+  height: 100px;
+  margin: 0 2%;
+  background-color: #f7f7f7;
+  color: #888;
+  border: none;
+}
+
+/* 다음단계 버튼 */
+.next_button {
+  padding: 20px 425px 0 425px;
+}
+.next_button button {
+  width: 100px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 15px;
+}
+.next_button button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+
+/*payment*/
+
+.payment_section {
+  height: 1700px;
+}
+
+/* 환불규정 안내, 결제 예정금액 */
+.refund_regulations_title {
+  padding: 5px 10px;
+  font-weight: bold;
+}
+.payment_method_title,
+.payment_amount_title {
+  padding: 40px 10px 5px 10px;
+  font-weight: bold;
+}
+.refund_regulations {
+  margin-top: 10px;
+}
+.payment_method,
+.payment_amount {
+  margin-top: 10px;
+  height: 400px;
+}
+
+.refund_regulations_content {
+  padding:  0 30px;
+  font-size: 16px;
+}
+.info {
+  padding: 0 30px;
+  font-size: 16px;
+}
+.subline {
+  width: 90%;
+  color: gray;
+  margin-left: 30px;
+}
+.info_list {
+  padding: 0 40px;
+}
+.title {
+  position: absolute;
+  padding-top: 2px;
+  vertical-align: middle;
+}
+.data {
+  vertical-align: top;
+  line-height: 28px;
+  margin-left: 170px;
+}
+
+/* 결제방법 선택 */
+.payment_method_list {
+  padding: 35px 100px 10px 100px;
+  width: 100%;
+  height: 115px;
+}
+.payment_method_list li {
+  float: left;
+  font-size: 17px;
+  position: relative;
+  display: table;
+  padding: 20px 20px 20px 65px;
+  height: 30px;
+  color: black;
+  background-color: #fbfbef;
+  border: 1px solid rgb(190, 190, 190);
+}
+.payment_method_img {
+  position: absolute;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+.payment_method_name {
+  display: table-cell;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+/* 이용약관 */
+.join_box {
+  width: 100%;
+  padding: 10px 100px;
+  font-size: 15px;
+}
+.checkBox,
+.checkBox ul {
+  position: relative;
+}
+.checkBox ul li {
+  float: left;
+}
+.checkBox ul li:first-child {
+  width: 95%;
+  padding: 15px 0;
+  font-weight: 600;
+  color: black;
+}
+.txt_required {
+  color: #ff3a48;
+}
+.chkAll,
+.checkBtn {
+  position: absolute;
+  right: 30px;
+  margin-top: 5px;
+}
+
+/* 결제 예정금액 결제쪽 */
+.amount {
+  float: right;
+  padding: 10px 60px 10px 10px;
+}
+.amount_list {
+  padding: 7px 20px;
+}
+.amount_title {
+  padding-top: 2px;
+  vertical-align: middle;
+}
+.amount_data {
+  vertical-align: top;
+  line-height: 28px;
+}
+
+/* 다음단계 버튼 */
+.btn_payment {
+  margin-top: 150px;
+  padding: 0 325px;
+  position: absolute;
+}
+.cancel {
+  margin-right: 95px;
+}

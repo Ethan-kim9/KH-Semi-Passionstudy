@@ -1,0 +1,162 @@
+.mainPaddingBottom {
+  padding-bottom: 100px;
+}
+.mainContainer {
+  height: 350px;
+  width: 1200px;
+}
+.mainContainerContents {
+  height: 350px;
+  width: 600px;
+}
+.mainSideMenu img {
+  height: 50px;
+  width: 50px;
+}
+.mainExplanations {
+  box-sizing: border-box;
+  float: left;
+  height: 350px;
+  width: 300px;
+  background-color: lightgray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.mainExplanations > h2 {
+  text-align: center;
+}
+
+.mainExplanations > img {
+  height: 50px;
+  width: 50px;
+  padding-left: 95px;
+}
+
+.mainFloatLeft {
+  float: left;
+}
+.mainFloatRight {
+  float: right;
+}
+
+.imgFullDiv img {
+  width: 100%;
+  height: 350px;
+}
+
+.swipeImageButton {
+  border-radius: 100px;
+}
+
+.mainpageSection{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#showMainContainer{
+  margin-top: 150px;
+}
+
+#mainExplanations{
+  margin-bottom: 150px;
+}
+
+#mainHowToCome{
+  margin-bottom: 150px;
+}
+
+#swipeImage {
+  position: relative;
+  height: 300px;
+  width: 1200px;
+}
+
+#swipeImage > #swipeImageButtonDiv {
+  position: absolute;
+  top: 75%;
+  left: 45%;
+}
+
+#swipeImage > #swipeImageButtonLeft {
+  position: absolute;
+  top: 38%;
+  left: 2%;
+  height: 50px;
+  font-size: 2rem;
+}
+
+#swipeImage > #swipeImageButtonRight {
+  position: absolute;
+  top: 38%;
+  left: 96%;
+  height: 50px;
+  font-size: 2rem;
+}
+
+#swipeImage > #swipeImageTitle {
+  position: absolute;
+  top: 15%;
+  left: 7%;
+}
+#swipeImage > #swipeImageTitle > #swipeImageTitlePassion {
+  color: red;
+  font-size: 3rem;
+}
+#swipeImage > #swipeImageTitle > #swipeImageTitleStudyCafe {
+  color: white;
+  font-size: 3rem;
+}
+
+#sideSelectMenu {
+  position: fixed;
+  width: 175px;
+  display: inline-block;
+  left: 93%; /* 창에서 오른쪽 길이 */
+  top: 50%; /* 창에서 위에서 부터의 높이 */
+  background-color: transparent;
+  margin: 0;
+}
+#sideSelectMenu li {
+  list-style: none;
+}
+
+#mainInteriorChar {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-top: 20px;
+}
+#mainInteriorChar > a {
+  position: absolute;
+  top: 300px;
+  left: 500px;
+}
+
+#mainServiceChar {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+#mainServiceChar > a {
+  position: absolute;
+  top: 300px;
+  left: 500px;
+}
+
+#mainHowToComeMap > img {
+  height: 350px;
+  width: 450px;
+}
+
+#mainHowToComeExplanations {
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: lightgray;
+  line-height: 15px;
+}

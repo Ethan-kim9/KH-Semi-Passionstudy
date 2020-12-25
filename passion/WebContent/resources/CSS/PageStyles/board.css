@@ -1,0 +1,105 @@
+section .section-left {
+  float: left;
+  line-height: 2;
+}
+section .section-left .title span {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 3;
+}
+section .section-left > ul > li strong {
+  float: left;
+  width: 90px;
+}
+section .section-left > ul > li .pre_line {
+  display: inline-block;
+  white-space: pre-line;
+  color: #928989;
+  font-size: 13px;
+}
+section .section-right {
+  text-align: end;
+  margin: 0 0 50px;
+}
+section .section-right img {
+  width: 55%;
+}
+
+/* 부메뉴-------------------------------------------------------- */
+
+
+#board_main {
+  min-width: 1500px;
+  padding-bottom: 120px;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+#main_table {
+  text-align: center;
+  min-width: 700px;
+  
+}
+
+#buttons {
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.search-btn {
+  width: 50px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+  color:#fff;
+  margin-left: 2px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+.search-btn:hover{
+  border: 1px solid #ffcc00;
+  background-color: #ffcc00;
+  color: white;
+}
+
+.write_btn {
+  width: 90px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+  color: #fff;
+  margin-left: 2px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.board_write_btn {
+  text-align: center;
+}
+
+.write_btn:hover {
+  border: 1px solid #ffcc00;
+  background-color: #ffcc00;
+  color: white;
+}
+
+.remove_btn {
+  width: 70px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+  color: #fff;
+  margin-left: 2px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.search_bar {
+  text-align: right;
+}

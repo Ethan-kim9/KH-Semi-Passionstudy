@@ -1,0 +1,130 @@
+/*STUDY CAFE 검은색 헤더 부분*/
+
+.PassionStudy_header {
+  background: #202020;
+  position: relative;
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  height: 82px;
+  /* background: rgba(0, 0, 0, 0); */
+  border-bottom: 2px solid #fff;
+  z-index: 9;
+}
+.PassionStudy_header > .header_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1200px;
+  margin-top: -3.4px;
+  transform: translateX(-50%);
+}
+.PassionStudy_header > .header_inner .logo_img {
+  /* display: inline-block; */
+  /* left: 0; */
+  float: left;
+  /* cursor: pointer; */
+}
+.PassionStudy_header > .header_inner .logo_img img {
+  width: 40px;
+  height: 21px;
+}
+.PassionStudy_header > .header_inner .logo_img a {
+  font-size: 33px;
+  color: #fff;
+  text-decoration: none;
+  line-height: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+.PassionStudy_header > .header_inner .menu_wrapper {
+  float: right;
+}
+ul {
+  list-style: none;
+}
+.PassionStudy_header #PassionStudy_header_menu ul {
+  margin-bottom: -6px; 
+}
+.PassionStudy_header #PassionStudy_header_menu li {
+  float: left;
+  width: 110px;
+  text-align: center;
+}
+.PassionStudy_header #PassionStudy_header_menu li a {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+.PassionStudy_header .floting_bar {
+  position: absolute;
+  top: 43px;
+  width: 110px;
+  height: 2px;
+  background: #ffcc00;
+  transition: 0.5s all;
+}
+.PassionStudy_header #PassionStudy_header_menu li.on a {
+  color: #ffcc00;
+}
+.PassionStudy_header #PassionStudy_header_menu li:hover a {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/*STUDY CAFE 메뉴바 폰트와 메뉴 클릭시 이미지 처리 부분*/
+
+.cont_header {
+  background: #202020;
+  padding: 50px;
+  align-items: center;
+}
+.cont_header .cont_wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  text-align: center;
+  color: #fff;
+}
+.cont_header .cont_wrapper h1 {
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.tabtype {
+  margin: 50px 0 50px 0;
+}
+.tabtype_wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+.tabtype .tabtype_wrapper li {
+  display: inline-block;
+  width: 19.3%;
+}
+.tabtype .tabtype_wrapper button {
+  width: 100%;
+  height: 40px;
+   /* box-shadow: 0 20px 40px rgba(17, 20, 39, 0.1); */
+  /* background-color: #fff; */
+  background-color: rgb(190, 190, 190);
+  color: black;
+  border: 0;
+  font-weight: 900;
+  font-family: "Montserrat", Noto Sans KR, sans-serif;
+  cursor: pointer;
+  font-size: 20px;
+}
+.tabtype .tabtype_wrapper li a {
+  text-decoration: none;
+}
+.tabtype .tabtype_wrapper button:hover {
+  background-color: #ffcc00;
+  color: white;
+}
+.tabtype button.on {
+  background-color: #202020;
+  color: #ffffff;
+}
+
