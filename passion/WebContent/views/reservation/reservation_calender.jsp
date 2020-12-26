@@ -6,7 +6,7 @@
     <title>:: JavaScript 캘린더 ::</title>
     <link
       rel="stylesheet"
-      href="../../CSS/PageStyles/reservation/calender.css"
+      href="../../resources/CSS/PageStyles/reservation/calender.css"
     />
   </head>
   <body>
@@ -37,5 +37,5 @@
       <tbody></tbody>
     </table>
   </body>
-  <script src="../../JS/calender.js"></script>
+  <script src="../../resources/JS/calender.js"></script>
 </html>

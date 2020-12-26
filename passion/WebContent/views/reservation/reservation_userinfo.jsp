@@ -3,67 +3,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <title>예약/결제</title>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" ></script>
   </head>
 
   <body>
-    <header class="PassionStudy_header">
-      <div class="header_inner">
-        <div class="logo_img">
-          <a href="">🔥 열정 스터디</a>
-        </div>
-
-        <div class="menu_wrapper">
-          <nav id="PassionStudy_header_menu">
-            <ul id="menu-main" class="menu menu-main">
-              <li class="main">
-                <a href="../index.html"><span>메인</span></a>
-              </li>
-              <li class="roomlist">
-                <a href="../facilities/facilities_rooms.html"
-                  ><span>시설소개</span></a
-                >
-              </li>
-              <li class="guide">
-                <a href="../facilities/facilities_extra.html"
-                  ><span>이용안내</span></a
-                >
-              </li>
-              <li class="reserve on">
-                <a href="./reservation.html"><span>예약/결제</span></a>
-              </li>
-              <li class="community">
-                <a href=""><span>커뮤니티</span></a>
-              </li>
-              <li class="mypage">
-                <a href=""><span>마이페이지</span></a>
-              </li>
-              <li class="login">
-                <a href="../member/member_login.html"><span>로그인</span></a>
-              </li>
-              <div class="floting_bar" style="left: 400px"></div>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>예약 / 결제</h1>
       </div>
     </div>
+
 
     <div class="tabtype btn_align_center">
       <div class="tabtype_wrapper">
@@ -92,7 +43,7 @@
             <tr>
               <td class="room_img" rowspan="3">
                 <img
-                  src="../../resources/images/rooms/6-8_Room01.jpg"
+                  src="resources/images/rooms/6-8_Room01.jpg"
                   width="480px"
                   height="400px"
                 />
@@ -120,7 +71,7 @@
                 <ul class="room_item_list">
                   <li>
                     <img
-                      src="../../resources/images/icon/multi.png"
+                      src="resources/images/icon/multi.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -131,7 +82,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/projector.png"
+                      src="resources/images/icon/projector.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -140,7 +91,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/monitor.png"
+                      src="resources/images/icon/monitor.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -149,7 +100,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/hdmi-cable.png"
+                      src="resources/images/icon/hdmi-cable.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -160,7 +111,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/whiteboard.png"
+                      src="resources/images/icon/whiteboard.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -171,7 +122,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/wifi.png"
+                      src="resources/images/icon/wifi.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -180,7 +131,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../resources/images/icon/socket.png"
+                      src="resources/images/icon/socket.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -295,7 +246,7 @@
                     <input type="checkbox" name="chk" class="checkBtn" />
                   </li>
                 </ul>
-                <textarea name="" id="">
+                <textarea>
  (개인정보 수집 동의)
 
   1. 기본수집항목: [필수] 아이디, 이름, (휴대)전화번호, 이메일 주소
@@ -315,18 +266,13 @@
 
   4. 동의 거부권 등에 대한 고지: 정보주체는 개인정보의 수집 및 이용 동의를 거부할 권리가 있으나, 이 경우 상품 및 
      서비스 예약이 제한될 수 있습니다.
-                  </textarea
-                >
+                  </textarea>
               </li>
               <li class="checkBox check03">
                 <ul class="clearfix">
-                  <li>
-                    개인정보 제공동의
-                    <span class="txt_required">(필수)</span>
-                    <input type="checkbox" name="chk" class="checkBtn" />
-                  </li>
+                  <li>개인정보 제공동의<span class="txt_required">(필수)</span><input type="checkbox" name="chk" class="checkBtn" /></li>
                 </ul>
-                <textarea name="" id="">
+                <textarea>
  (개인정보 제공 동의)
 
   1. 개인정보를 제공받는 자 : 열정 스터디카페 
@@ -347,129 +293,16 @@
                     
   5. 동의 거부권 등에 대한 고지 : 정보주체는 개인정보 제공 동의를 거부할 권리가 있으나, 이 경우 상품 및 서비스 예약이 
      제한될 수 있습니다.
-                  </textarea
-                >
+                  </textarea>
               </li>
             </ul>
           </form>
         </div>
         <div class="next_button">
-          <a href="reservation_payment.jsp"><button class="next">다음단계</button></a>
+          <a href="index.jsp?inc=./views/reaservation/reservation_payment.jsp"><button class="next">다음단계</button></a>
         </div>
       </div>
     </section>
-
-    <footer class="pc">
-      <div class="wrapper">
-        <div class="left-section">
-          <div>
-            <span class="normal">상호명 :</span>
-            <span class="bold">열정스터디</span>
-            <span class="divide">|</span>
-            <span class="normal">대표 :</span>
-            <span class="bold">최주영</span>
-            <span class="dovide">|</span>
-            <span class="normal">Tel :</span>
-            <span class="bold">010-****-****</span>
-          </div>
-          <div>
-            <span class="normal">사업자등록번호 :</span>
-            <span class="bold">123-45-67890</span>
-            <span class="divide">|</span>
-            <span class="normal">통신판매업 신고번호 :</span>
-            <span class="bold">제 2017-서울종로-0105호</span>
-          </div>
-          <div>
-            <span class="normal">개인정보관리처리자 :</span>
-            <span class="bold">최주빵</span>
-            <span class="divide">|</span>
-            <span class="normal">Email</span>
-            <span class="bold">wndud0159@naver.com</span>
-          </div>
-          <div>
-            <span class="normal">직업정보제공사업 신고번호 :</span>
-            <span class="bold">서울청 제2017-1호</span>
-          </div>
-          <div>
-            <span class="normal">Address :</span>
-            <span class="bold address"
-              >서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F
-              열정스터디</span
-            >
-          </div>
-          <div>
-            <p>.</p>
-            <p>.</p>
-          </div>
-          <div>
-            <span class="copyright"
-              >copyright 2019 PASSIONSTUDY. ALL Rights Reserved.</span
-            >
-          </div>
-        </div>
-
-        <div class="right-section">
-          <ul class="menu">
-            <li class="product">
-              <a href="">Space</a>
-              <ul class="sub-depth">
-                <li>
-                  <a href="">여기</a>
-                </li>
-                <li>
-                  <a href="">에</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="">Mentoring</a>
-              <ul class="sub-depth">
-                <li>
-                  <a href="">무</a>
-                </li>
-                <li>
-                  <a href="">엇</a>
-                </li>
-                <li>
-                  <a href="">을</a>
-                </li>
-                <li>
-                  <a href="">?</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="">Connect</a>
-              <ul class="sub-depth">
-                <li>
-                  <a href="">넣</a>
-                </li>
-                <li>
-                  <a href="">을</a>
-                </li>
-                <li>
-                  <a href="">까</a>
-                </li>
-                <li>
-                  <a href="">요</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-          <div class="family_site">
-            <select class="passionstudy_site">
-              <option>Passion Family</option>
-              <option value="">강미선, 김민진</option>
-              <option value="">김종구, 정우혁</option>
-              <option value="">차예진, 최주영, 한아현</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
   <!-- 약관동의 전체 선택 -->
   <script>
