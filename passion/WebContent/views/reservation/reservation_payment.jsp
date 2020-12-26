@@ -20,7 +20,7 @@
       <header class="PassionStudy_header">
         <div class="header_inner">
           <div class="logo_img">
-            <a href="">🔥 열정 스터디</a>
+            <a href="">🔥 열정 스터디굿</a>
           </div>
   
           <div class="menu_wrapper">
