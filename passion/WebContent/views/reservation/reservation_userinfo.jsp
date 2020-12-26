@@ -299,7 +299,7 @@
           </form>
         </div>
         <div class="next_button">
-          <a href="index.jsp?inc=./views/reaservation/reservation_payment.jsp"><button class="next">다음단계</button></a>
+          <a href="index.jsp?inc=./views/reservation/reservation_payment.jsp"><button class="next">다음단계</button></a>
         </div>
       </div>
     </section>

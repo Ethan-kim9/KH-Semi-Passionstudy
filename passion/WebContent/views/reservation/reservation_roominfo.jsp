@@ -471,7 +471,7 @@
         </tr>
         <tr>
           <td colspan="2" class="next_button">
-            <a href="index.jsp?inc=./views/reaservation/reservation_userinfo.jsp"><button class="next">다음단계</button></a>
+            <a href="index.jsp?inc=./views/reservation/reservation_userinfo.jsp"><button class="next">다음단계</button></a>
           </td>
         </tr>
       </table>
