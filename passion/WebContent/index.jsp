@@ -196,14 +196,9 @@
       <div id="mainHowToCome" class="mainContainer">
         <div id="mainHowToComeMap" class="mainContainerContents mainFloatLeft">
           여기 대충 지도 api
-          <img
-            src="https://dimg.donga.com/wps/NEWS/IMAGE/2019/12/25/98961520.1.jpg"
-          />
+          <img src="https://dimg.donga.com/wps/NEWS/IMAGE/2019/12/25/98961520.1.jpg"/>
         </div>
-        <div
-          id="mainHowToComeExplanations"
-          class="mainContainerContents mainFloatRight"
-        >
+        <div id="mainHowToComeExplanations" class="mainContainerContents mainFloatRight">
           <h3>오시는길</h3>
           <p>버스</p>
           <p>선유고등학교/(구)강서세무서</p>
