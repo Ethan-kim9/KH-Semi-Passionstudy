@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" href="../../../CSS/styles.css">
+      <link rel = "stylesheet" href="../../../resources/CSS/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <title>내 포인트</title>
@@ -18,7 +18,7 @@
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="my_point.html"><button class="first-teb-button on">내 포인트</button></a>
+              <a href="mypage_point.jsp"><button class="first-teb-button on">내 포인트</button></a>
             </li>
           </ul>
         </div>
@@ -65,4 +65,6 @@
     </section>
 
   </body>
+  <script src="../../../resources/JS/menubar.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

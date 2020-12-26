@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
@@ -73,20 +73,20 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
         <ul>
           <li>
-            <a href="mypage.html"><button class="btn1">나의 정보</button></a>
+            <a href="mypage.jsp"><button class="btn1">나의 정보</button></a>
           </li>
           <li>
-            <a href="mypage_reservation.html"
+            <a href="mypage_reservation.jsp"
               ><button class="btn2 on">나의 예약 관리</button></a
             >
           </li>
           <li>
-            <a href="mypage_1on1.html"
+            <a href="mypage_1on1.jsp"
               ><button class="btn3">나의 활동</button></a
             >
           </li>
           <li>
-            <a href="mypage_edit.html"><button class="btn4">설정</button></a>
+            <a href="mypage_edit.jsp"><button class="btn4">설정</button></a>
           </li>
         </ul>
       </div>
@@ -136,7 +136,7 @@
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='onclick/mypage_reservation_detail.html'"
+                    onclick="location.href='./onclick/mypage_reservation_detail.jsp'"
                   >
                     상세조회
                   </button>
@@ -188,7 +188,7 @@
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='onclick/mypage_reservation_detail.html'"
+                    onclick="location.href='./onclick/mypage_reservation_detail.jsp'"
                   >
                     상세조회
                   </button>
@@ -324,7 +324,7 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/pagesjs/mypage_reservation_click.js"></script>
-  <script src="../../JS/menubar.js"></script>
+  <script src="../../resources/JS/pagesjs/mypage_reservation_click.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

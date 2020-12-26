@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" href="../../../CSS/styles.css">
+      <link rel = "stylesheet" href="../../../resources/CSS/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <title>mypage-회원탈퇴</title>
@@ -16,7 +18,7 @@
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="../mypage_edit.html"><button class="first-teb-button on">돌아가기</button></a>
+              <a href="../mypage_edit.jsp"><button class="first-teb-button on">돌아가기</button></a>
             </li>
           </ul>
         </div>
@@ -42,7 +44,7 @@
                 <h6 class="withdrawal-fin-front_g1">회원탈퇴가 안전하게 완료되었습니다.</h3>
                 <h6 class="withdrawal-fin-front_g2">보다 나은 서비스로 다시 찾아 뵙겠습니다.</h3>
               </div>
-              <button class="withdrawal-fin-button"><a href="../../index.html">열정카페 첫 화면</a></button>
+              <button class="withdrawal-fin-button"><a href="../../../index.jsp">열정카페 첫 화면</a></button>
             </div>
 
           </div>
@@ -52,6 +54,6 @@
       </div>
     </section>
   </body>
-  <script src="../../../JS/pagesjs/mypage_withdrawal.js"></script>
+  <script src="../../../resources/JS/pagesjs/mypage_withdrawal.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

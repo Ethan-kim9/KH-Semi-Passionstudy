@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" href="../../CSS/styles.css">
+      <link rel = "stylesheet" href="../../resources/CSS/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
       <title>mypage-메인페이지</title>
@@ -68,16 +68,16 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="mypage.html"><button class="btn1 on">나의 정보</button></a>
+                <a href="mypage.jsp"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
-                <a href="mypage_reservation.html"><button class="btn2">나의 예약 관리</button></a>
+                <a href="mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>
             </li>
             <li>
-                <a href="mypage_1on1.html"><button class="btn3">나의 활동</button></a>
+                <a href="mypage_1on1.jsp"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="mypage_edit.html"><button class="btn4">설정</button></a>
+              <a href="mypage_edit.jsp"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
@@ -104,14 +104,14 @@
               <p>
                 <h6>열정스터디카페 포인트</h6>
                 <strong class="mine-point">
-                  <a href="../mypage/onclick/mypage_point.html" class="mine-mypoint">2000</a>
+                  <a href="../mypage/onclick/mypage_point.jsp" class="mine-mypoint">2000</a>
                   <span>P</span>
                 </strong>
               </p>
               <p>
                 <h6>내 쿠폰</h6>
                 <strong class="mine-coupon-count">
-                  <a href="../mypage/todo/my_coupon.html" calss="mine-mycoupon">2</a>
+                  <a href="../mypage/onclick/mypage_my_coupon.jsp" calss="mine-mycoupon">2</a>
                   <span>개</span>
                 </strong>
               </p>
@@ -238,6 +238,6 @@
          </div>
        </footer>
   </body>
-  <script src="../../JS/menubar.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

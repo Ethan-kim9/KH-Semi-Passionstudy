@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" href="../../CSS/styles.css">
+      <link rel = "stylesheet" href="../../resources/CSS/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
       <title>mypage-회원정보수정/비밀번호변경</title>
@@ -68,20 +68,20 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
         <ul>
           <li>
-            <a href="mypage.html"><button class="btn1">나의 정보</button></a>
+            <a href="mypage.jsp"><button class="btn1">나의 정보</button></a>
           </li>
           <li>
-            <a href="mypage_reservation.html"
+            <a href="mypage_reservation.jsp"
               ><button class="btn2">나의 예약 관리</button></a
             >
           </li>
           <li>
-            <a href="mypage_1on1.html"
+            <a href="mypage_1on1.jsp"
               ><button class="btn3">나의 활동</button></a
             >
           </li>
           <li>
-            <a href="my_inform_edit.html"
+            <a href="my_inform_edit.jsp"
               ><button class="btn4 on">설정</button></a
             >
           </li>
@@ -111,7 +111,7 @@
         <div class="edit-user-info">
           <div class="edit-user-header">
             <div class="edit-user-header_title">회원정보수정</div>
-            <a class="edit-user-header_withdrawal" href="onclick/mypage_withdrawal.html"
+            <a class="edit-user-header_withdrawal" href="onclick/mypage_withdrawal.jsp"
               >탈퇴하기</a
             >
           </div>
@@ -317,7 +317,7 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/pagesjs/mypage_edit_click.js"></script>
-  <script src="../../JS/menubar.js"></script>
+  <script src="../../resources/JS/pagesjs/mypage_edit_click.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

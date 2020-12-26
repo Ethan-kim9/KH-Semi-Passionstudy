@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -75,20 +75,20 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
         <ul>
           <li>
-            <a href="mypage.html"><button class="btn1">나의 정보</button></a>
+            <a href="mypage.jsp"><button class="btn1">나의 정보</button></a>
           </li>
           <li>
-            <a href="mypage_reservation.html"
+            <a href="mypage_reservation.jsp"
               ><button class="btn2">나의 예약 관리</button></a
             >
           </li>
           <li>
-            <a href="mypage_1on1.html"
+            <a href="mypage_1on1.jsp"
               ><button class="btn3 on">나의 활동</button></a
             >
           </li>
           <li>
-            <a href="mypage_edit.html"><button class="btn4">설정</button></a>
+            <a href="mypage_edit.jsp"><button class="btn4">설정</button></a>
           </li>
         </ul>
       </div>
@@ -121,6 +121,11 @@
             <path d="m258.344 137.783h34.444v206.674h-34.444z" />
           </svg>
           <p>작성하신 문의 내역이 없습니다.</p>
+        </div>
+        <div class="go-inquery">
+          <a href="../board/1on1/board_1on1.jsp" class="go-inquery_button">
+            1:1문의하기
+          </a>
         </div>
       </div>
     </section>
@@ -172,7 +177,7 @@
         </div>
 
         <div class="go-inquery">
-          <a href="민진님1:1문의페이지.html" class="go-inquery_button">
+          <a href="../../board/1on1/board_1on1.jsp" class="go-inquery_button">
             1:1문의하기
           </a>
         </div>
@@ -291,7 +296,7 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/pagesjs/mypage_1on1_click.js"></script>
-  <script src="../../JS/menubar.js"></script>
+  <script src="../../resources/JS/pagesjs/mypage_1on1_click.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
