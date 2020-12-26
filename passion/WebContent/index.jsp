@@ -33,40 +33,6 @@
             <h1 id="swipeImageTitleStudyCafe">STUDY CAFE</h1>
           </div>
         </div>
-          <!--  버튼
-          <button type="button" id="swipeImageButtonLeft">〈</button>
-          <button type="button" id="swipeImageButtonRight">〉</button>
-          <div id="swipeImageButtonDiv">
-            <button
-              type="button"
-              class="swipeImageButton"
-              id="swipeImageButton01"
-            >
-              1
-            </button>
-            <button
-              type="button"
-              class="swipeImageButton"
-              id="swipeImageButton02"
-            >
-              2
-            </button>
-            <button
-              type="button"
-              class="swipeImageButton"
-              id="swipeImageButton03"
-            >
-              3
-            </button>
-            <button
-              type="button"
-              class="swipeImageButton"
-              id="swipeImageButton04"
-            >
-              4
-            </button>
-        </div>
-          -->
           
         </div>
         <div id="showMainContainer" class="mainPaddingBottom">
