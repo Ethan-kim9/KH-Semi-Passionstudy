@@ -28,7 +28,7 @@
     <!-- -->
 
     <div class="tabtype">
-      <div class="tabtype_wrapper">
+<div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
             <button class="btn1 on">시설 이용 안내</button>
