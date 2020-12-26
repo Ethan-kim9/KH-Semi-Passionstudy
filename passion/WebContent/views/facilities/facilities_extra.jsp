@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
-    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -94,7 +94,7 @@
       </div>
       <div class="section-body">
         <img
-          src="https://i.pinimg.com/originals/7e/25/65/7e2565951387291c85127b653e4c9919.jpg"
+          src="../../resources/images/rooms/rounge.jpg"
           alt=""
         />
       </div>
@@ -149,7 +149,7 @@
       </div>
       <div class="section-body">
         <img
-          src="https://lh3.googleusercontent.com/proxy/zzmxCqp2Uy6zGI_gS31HtCpvfGPVGLuR7FtPWoIeTsnbnZAP1NItsbPGYUYXc4PGUZHmanEaMDHBvtgEVbE9JHHR1dN1KaOFzouQKSNHKVpY0PFuqdu3pQ"
+          src="../../resources/images/rooms/12_Room01"
           alt=""
         />
       </div>
