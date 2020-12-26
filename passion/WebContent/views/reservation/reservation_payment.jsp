@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
       <header class="PassionStudy_header">
         <div class="header_inner">
           <div class="logo_img">
-            <a href="">🔥 열정 스터디굿</a>
+            <a href="">🔥 열정 스터디</a>
           </div>
   
           <div class="menu_wrapper">
@@ -68,12 +68,12 @@
         <div class="tabtype_wrapper">
           <ul>
             <li style="width: 33%;">
-              <a href="reservation_roominfo.html">
+              <a href="reservation_roominfo.jsp">
                 <button class="btn1">예약하기</button>
               </a>
             </li>
             <li style="width: 33%;">
-              <a href="reservation_userinfo.html">
+              <a href="reservation_userinfo.jsp">
               <button class="btn2">예약자 정보입력</button>
             </a>
           </li>
@@ -261,19 +261,19 @@
           <div class="payment_method_content">
               <ul class="payment_method_list">
                 <li class="card">
-                  <img src="../../images/icon/credit-card.png" class="payment_method_img" >
+                  <img src="../../resources/images/icon/credit-card.png" class="payment_method_img" >
                   <input type="radio" class="card_payment_method" name="card_payment" value="card" onclick="div_onoff(this.value,'con');"/>  카드결제
                 </li>
                 <li class="mobile">
-                  <img src="../../images/icon/mobile-payment.png" class="payment_method_img" >
+                  <img src="../../resources/images/icon/mobile-payment.png" class="payment_method_img" >
                   <input type="radio" class="mobile_payment_method" name="mobile_payment" value="mobile" />  무통장입금
                 </li>
                 <li class="scene">
-                  <img src="../../images/icon/scene.png" class="payment_method_img" >
+                  <img src="../../resources/images/icon/scene.png" class="payment_method_img" >
                   <input type="radio" class="scene_payment_method" name="scene_payment" value="scene"/>  현장결제
                 </li>
                 <li class="point">
-                  <img src="../../images/icon/money.png" class="payment_method_img" >
+                  <img src="../../resources/images/icon/money.png" class="payment_method_img" >
                   <input type="radio" class="money_payment_method" name="money_payment" value="money"/>  현금결제
                 </li>
               </ul>
@@ -347,7 +347,7 @@
           </div>
           <div class="next_button btn_payment">
             <div>
-              <a href="./reservation.html"><button class="cancel"> 취소하기 </button></a>
+              <a href="./reservation.jsp"><button class="cancel"> 취소하기 </button></a>
               <button class="payment"> 결제하기 </button>
             </div>
           </div>
@@ -470,8 +470,8 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/menubar.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="../../JS/pagesjs/reservation_payment.js"></script>
+  <script src="../../resources/JS/pagesjs/reservation_payment.js"></script>
   </html>
 

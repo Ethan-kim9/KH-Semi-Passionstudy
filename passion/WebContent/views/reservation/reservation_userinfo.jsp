@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -69,7 +69,7 @@
       <div class="tabtype_wrapper">
         <ul>
           <li style="width: 33%;">
-            <a href="reservation_roominfo.html" >
+            <a href="reservation_roominfo.jsp" >
               <button class="btn1">예약하기</button>
             </a>
           </li>
@@ -92,7 +92,7 @@
             <tr>
               <td class="room_img" rowspan="3">
                 <img
-                  src="../../images/rooms/6-8_Room01.jpg"
+                  src="../../resources/images/rooms/6-8_Room01.jpg"
                   width="480px"
                   height="400px"
                 />
@@ -120,7 +120,7 @@
                 <ul class="room_item_list">
                   <li>
                     <img
-                      src="../../images/icon/multi.png"
+                      src="../../resources/images/icon/multi.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -131,7 +131,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/projector.png"
+                      src="../../resources/images/icon/projector.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -140,7 +140,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/monitor.png"
+                      src="../../resources/images/icon/monitor.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -149,7 +149,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/hdmi-cable.png"
+                      src="../../resources/images/icon/hdmi-cable.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -160,7 +160,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/whiteboard.png"
+                      src="../../resources/images/icon/whiteboard.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -171,7 +171,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/wifi.png"
+                      src="../../resources/images/icon/wifi.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -180,7 +180,7 @@
                   </li>
                   <li>
                     <img
-                      src="../../images/icon/socket.png"
+                      src="../../resources/images/icon/socket.png"
                       class="room_item_img"
                       width="30px"
                       height="30px"
@@ -281,7 +281,7 @@
                     <input
                       type="checkbox"
                       name="chkAll"
-                      id="chk"
+                      id="check_all"
                       class="chkAll"
                     />
                   </li>
@@ -354,7 +354,7 @@
           </form>
         </div>
         <div class="next_button">
-          <a href="Payment.html"><button class="next">다음단계</button></a>
+          <a href="reservation_payment.jsp"><button class="next">다음단계</button></a>
         </div>
       </div>
     </section>
@@ -471,4 +471,16 @@
       </div>
     </footer>
   </body>
+  <!-- 약관동의 전체 선택 -->
+  <script>
+  	$(".reseller_join_box").on("click","#check_all", function() {
+	    var checked = $(this).is(":checked");
+
+	    if(checked){
+	      $(this).parents(".reseller_join_box").find('input').prop("checked",true);
+	    } else {
+	      $(this).parents(".reseller_join_box").find('input').prop("checked",false);
+	    }
+	});
+  </script>
 </html>

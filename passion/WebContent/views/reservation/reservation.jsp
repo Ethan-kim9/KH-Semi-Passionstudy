@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -107,21 +107,21 @@
           <ul>
             <li>
               <img
-                src="../../images/rooms/3-5_Room01.jpeg"
+                src="../../resources/images/rooms/3-5_Room01.jpeg"
                 width="299px"
                 height="300px"
               />
             </li>
             <li>
               <img
-                src="../../images/rooms/3-5_Room02.jpg"
+                src="../../resources/images/rooms/3-5_Room02.jpg"
                 width="299px"
                 height="300px"
               />
             </li>
             <li>
               <img
-                src="../../images/rooms/3-5_Room03.jpeg"
+                src="../../resources/images/rooms/3-5_Room03.jpeg"
                 width="299px"
                 height="300px"
               />
@@ -131,32 +131,32 @@
         <div class="container_room_button">
           <ul>
             <li>
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
             <li class="second_room">
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
             <li class="third_room">
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html">
+              <a href="reservation_roominfo.jsp">
                 <button class="room_reservation">예약하기</button></a
               >
             </li>
@@ -172,14 +172,14 @@
           <ul>
             <li>
               <img
-                src="../../images/rooms/4-6_Room01.jpeg"
+                src="../../resources/images/rooms/4-6_Room01.jpeg"
                 width="457px"
                 height="300px"
               />
             </li>
             <li>
               <img
-                src="../../images/rooms/4-6_Room02.jpeg"
+                src="../../resources/images/rooms/4-6_Room02.jpeg"
                 width="457px"
                 height="300px"
               />
@@ -190,23 +190,23 @@
           <ul>
             <span class="for_space1"></span>
             <li>
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
@@ -222,14 +222,14 @@
           <ul>
             <li>
               <img
-                src="../../images/rooms/6-8_Room01.jpg"
+                src="../../resources/images/rooms/6-8_Room01.jpg"
                 width="457px"
                 height="300px"
               />
             </li>
             <li>
               <img
-                src="../../images/rooms/6-8_Room02.jpeg"
+                src="../../resources/images/rooms/6-8_Room02.jpeg"
                 width="457px"
                 height="300px"
               />
@@ -240,23 +240,23 @@
           <ul>
             <span class="for_space1"></span>
             <li>
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
@@ -273,14 +273,14 @@
           <ul>
             <li>
               <img
-                src="../../images/rooms/12_Room01.jpg"
+                src="../../resources/images/rooms/12_Room01.jpg"
                 width="457px"
                 height="300px"
               />
             </li>
             <li>
               <img
-                src="../../images/rooms/12_Room02.jpeg"
+                src="../../resources/images/rooms/12_Room02.jpeg"
                 width="457px"
                 height="300px"
               />
@@ -291,23 +291,23 @@
           <ul>
             <span class="for_space1"></span>
             <li>
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
-              <a href="../facilities/facilities_rooms.html"
+              <a href="../facilities/facilities_rooms.jsp"
                 ><button class="facilities_introduction">시설소개</button></a
               >
             </li>
             <li>
-              <a href="reservation_roominfo.html"
+              <a href="reservation_roominfo.jsp"
                 ><button class="room_reservation">예약하기</button></a
               >
             </li>
@@ -428,7 +428,7 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/menubar.js"></script>
-  <script src="../../JS/pagesjs/reservation_room_click.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
+  <script src="../../resources/JS/pagesjs/reservation_room_click.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

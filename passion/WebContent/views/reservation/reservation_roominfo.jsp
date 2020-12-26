@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
+    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -285,7 +285,7 @@
         <tr>
           <td class="room_img">
             <img
-              src="../../images/rooms/12_Room01.jpg"
+              src="../../resources/images/rooms/12_Room01.jpg"
               width="500px"
               height="425px"
             />
@@ -520,7 +520,7 @@
         </tr>
         <tr>
           <td colspan="2" class="next_button">
-            <a href="./reservation_userinfo.html"
+            <a href="./reservation_userinfo.jsp"
               ><button class="next">다음단계</button></a
             >
           </td>
@@ -640,7 +640,7 @@
       </div>
     </footer>
   </body>
-  <script src="../../JS/menubar.js"></script>
-  <script src="../../JS/pagesjs/reservation_calender.js"></script>
+  <script src="../../resources/JS/menubar.js"></script>
+  <script src="../../resources/JS/pagesjs/reservation_calender.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

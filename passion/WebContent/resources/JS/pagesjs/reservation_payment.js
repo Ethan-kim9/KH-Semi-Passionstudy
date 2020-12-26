@@ -10,11 +10,11 @@ $(".join_box").on("click","#check_all", function() {
 });
 // 카드결제 선택 시
 function div_onoff(v,id){
-if(v == "card"){
-    document.getElementById(id).style.display="";
-} else{
-    document.getElementById(id).style.display="none";
-}
+	if(v == "card"){
+	    document.getElementById(id).style.display="";
+	} else{
+	    document.getElementById(id).style.display="none";
+	}
 }
 
 // 무통장 입금 선택 시
