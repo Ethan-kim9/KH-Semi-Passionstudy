@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -69,10 +67,10 @@
           <div class="tabtype_wrapper">
             <ul>
               <li>
-                <button class="btn1 on">아이디로 찾기</button>
+                <button class="btn1 on">아이디 찾기</button>
               </li>
               <li>
-                <button class="btn2">비밀번호로 찾기</button>
+                <button class="btn2">비밀번호 찾기</button>
               </li>
             </ul>
           </div>
@@ -87,17 +85,42 @@
             </p>
             <br />
             <div class="field_id_box">
-              <section class="btn_password_push">
+              <section class="btn_id_push">
                 <div class="inpbx">
                   <input
                     type="text"
-                    id="userid"
-                    placeholder="아이디(이메일)"
-                    formcontrolname="userid"
+                    id="username"
+                    placeholder="이름"
                     autocorrect="off"
                     autocapitalize="none"
+                    required
+                    autofocus
                   />
                 </div>
+                <div class="inpbx">
+                  <input
+                    type="text"
+                    id="userphnumber"
+                    placeholder="연락처(전화번호)"
+                    autocorrect="off"
+                    autocapitalize="none"
+                    required
+                  />
+                </div>
+              </section>
+
+              <section class="btn_password_push">
+                  
+                  <div class="inpbx">
+                    <input
+                      type="text"
+                      id="userid"
+                      placeholder="아이디"
+                      autocorrect="off"
+                      autocapitalize="none"
+                      required
+                    />
+                  </div>
               </section>
             </div>
           </div>
