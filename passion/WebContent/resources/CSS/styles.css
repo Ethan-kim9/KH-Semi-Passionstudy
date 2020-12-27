@@ -5,10 +5,10 @@
 
 /* 페이지 별 CSS 나눔 */
 
-@import "PageStyles/index.css"; /* 메인 페이지 */
-@import "PageStyles/facilities.css"; /* 시설소개와 이용안내 */
-@import "PageStyles/manager.css"; /* 관리자 영역 */
-@import "PageStyles/member.css"; /* 로그인, 회원가입 영역 */
-@import "PageStyles/reservation/reservation.css"; /*예약관련 영역*/
-@import "PageStyles/mypage.css"; /*마이페이지 css 적용*/
-@import "PageStyles/board.css"; /*board*/
+@import "PageStyles/index.css"; 						/* 메인 페이지 */
+@import "PageStyles/facilities.css"; 					/* 시설소개와 이용안내 */
+@import "PageStyles/manager.css"; 						/* 관리자 영역 */
+@import "PageStyles/member.css"; 						/* 로그인, 회원가입 영역 */
+@import "PageStyles/reservation/reservation.css"; 		/*예약관련 영역*/
+@import "PageStyles/mypage.css"; 						/*마이페이지 css 적용*/
+@import "PageStyles/board.css"; 						/*board*/
