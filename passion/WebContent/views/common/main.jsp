@@ -123,6 +123,7 @@
           <p>🚝지하철 2, 9호선 당산역 12번 출구 400m</p>
         </div>
       </div>
+      <!--  
       <div id="sideSelectMenu">
         <ul>
           <li>
@@ -151,6 +152,7 @@
           </li>
         </ul>
       </div>
+      -->
     </main>
 
 </body>

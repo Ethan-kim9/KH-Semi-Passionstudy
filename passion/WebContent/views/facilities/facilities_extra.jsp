@@ -7,13 +7,12 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
+  
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>이용안내</h1>
       </div>
     </div>
-
-    <!-- -->
 
     <div class="tabtype">
 		<div class="tabtype_wrapper" style="text-align: center;">
@@ -89,7 +88,7 @@
         </p>
       </div>
       <div class="section-body">
-        <img src="resources/images/rooms/12_Room01"/>
+        <img src="resources/images/rooms/12_Room01.jpg"/>
       </div>
       <div class="section-foot-left">
         <h2>운영시간</h2>

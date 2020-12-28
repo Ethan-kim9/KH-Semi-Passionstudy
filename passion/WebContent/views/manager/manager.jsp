@@ -5,17 +5,6 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
-    <link rel="stylesheet" href="../../CSS/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
@@ -422,5 +411,4 @@
   </body>
 
   <script src="resources/JS/pagesjs/manager_managing_click.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </html>

@@ -5,8 +5,6 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -73,12 +71,10 @@
                 </ruler-sicial-login-kakao>
               </div>
             </div>
-            <a href="./member_signin.html" class="member_go"
-              >계정이 없으신가요? 간편가입하기</a
-            >
+            <a href="index.jsp?inc=./views/member/member_signin.jsp" class="member_go">계정이 없으신가요? 간편가입하기</a>
             <ul class="linkarea">
-              <li><a href="./member_find.html">아이디 (이메일) 찾기</a></li>
-              <li><a href="./member_find.html">비밀번호 찾기</a></li>
+              <li><a href="index.jsp?inc=./views/member/member_find.jsp">아이디 (이메일) 찾기</a></li>
+              <li><a href="index.jsp?inc=./views/member/member_find.jsp">비밀번호 찾기</a></li>
             </ul>
           </div>
         </form>
