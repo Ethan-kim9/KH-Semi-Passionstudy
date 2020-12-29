@@ -1,0 +1,152 @@
+.time_table {
+	z-index: 9000!important;
+    position: absolute;
+    display: block;
+    width: 920px;
+    margin: 0 10px;
+    background-color: #fff;
+    border-top: 1px solid #ffcc00;
+    border-bottom: 2px solid rgba(0,0,0,.1);
+}
+<!-- -->
+.time_header {
+	padding: 30px 30px 0;
+	border-right: 1px solid #ffcc00;
+    border-left: 1px solid #ffcc00;
+}
+.sub_title {
+	font-weight: 600;
+	font-size: 14px;
+}
+<!-- -->
+.time_body {
+	padding: 15px 30px 0;
+	border-right: 1px solid #ffcc00;
+    border-left: 1px solid #ffcc00;
+}
+.am, 
+.pm {
+	position: relative;
+}
+ .am .tit, .pm .tit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 6px;
+    width: 54px;
+    vertical-align: top;
+    color: #666;
+}
+.tit {
+    font-size: 16px;
+    font-weight: 700;
+}
+.am .lst_time, .pm .lst_time {
+    padding-left: 54px;
+}
+.am .lst_time .item, 
+.pm .lst_time .item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.am .lst_time .item>.anchor, .pm .lst_time .item>.anchor {
+    display: block;
+    width: 58px;
+    height: 35px;
+    box-sizing: border-box;
+}
+.anchor {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.am .lst_time .item>.anchor .time_info_box, .pm .lst_time .item>.anchor .time_info_box {
+    position: relative;
+    display: block;
+    width: 58px;
+    height: 35px;
+    background-color: beige;
+    border: 1px solid #ffcc00;
+    font-size: 13px;
+    line-height: 33px;
+    text-align: center;
+    color: black;
+    box-sizing: border-box;
+}
+.am .lst_time .item>.anchor.on .time_info_box, .pm .lst_time .item>.anchor.on .time_info_box {
+    background-color: #ffcc00;
+    border: 1px solid #ffcc00;
+    color: #fff;
+}
+
+.calendar_info {
+    margin-top: 5px;
+    padding: 0 0 1px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: transparent;
+    text-align: right;
+}
+.calendar_info .list_calendar_info {
+	display: inline-block;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.calendar_info .list_calendar_info .item {
+    margin: 0 9px 4px;
+    color: #999;
+    line-height: 13px;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+}
+.calendar_info .list_calendar_info .item .date_label {
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+}
+.date_label.color2 {
+	border: 1px solid #ffcc00;
+    background-color: #ffcc00;
+}
+.date_label.color3 {
+	border: 1px solid #e3e3e3;
+    background-color: #eaeaea;
+}
+<!-- -->
+.time_footer {
+	padding: 20px 309px 25px;
+    border-right: 1px solid #ffcc00;
+    border-left: 1px solid #ffcc00;
+    border-bottom: 1px solid #ffcc00;
+}
+.btn_srch {
+    height: 51px;
+    width: 300px;
+    font-size: 14px;
+    display: block;
+    border: 1px solid #ffcc00;
+    line-height: 26px;
+    color: #ffcc00;
+    box-sizing: border-box;
+    text-align: center;
+    background: 0 0;
+    font-weight: 600;
+}
+
+.btn_srch .fn {
+    margin-right: 3px;
+}
+.btn_srch .fn-search {
+    font-size: 24px;
+    vertical-align: -8px;
+    color: #ffcc00;
+    font-weight: 700;
+}
+.fn {
+    height: 1em;
+}
+.fn, .fn:before {
+    display: inline-block;
+    line-height: 1em;
+}
