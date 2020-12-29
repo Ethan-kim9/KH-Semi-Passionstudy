@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
+  </head>
+  <body>
 <div class="cont_header">
       <div class="cont_wrapper">
-        <h1>Ä¿¹Â´ÏÆ¼</h1>
+        <h1>ì»¤ë®¤ë‹ˆí‹°</h1>
       </div>
     </div>
 
@@ -19,17 +18,17 @@
         <ul>
           <li>
             <a href="../Notice/board_notice.html"
-              ><button class="btn1">°øÁö»çÇ×</button></a
+              ><button class="btn1">ê³µì§€ì‚¬í•­</button></a
             >
           </li>
           <li>
             <a href="board_faq.html"
-              ><button class="btn2">ÀÚÁÖÇÏ´Â Áú¹®</button></a
+              ><button class="btn2">ìžì£¼í•˜ëŠ” ì§ˆë¬¸</button></a
             >
           </li>
           <li>
             <a href="../1on1/board_1on1.html"
-              ><button class="btn3 on">1:1¹®ÀÇ</button></a
+              ><button class="btn3 on">1:1ë¬¸ì˜</button></a
             >
           </li>
         </ul>
@@ -41,35 +40,35 @@
         <div id="board_main">
             <div id="another_buttons">
                 <button type="button" class="modify_btn yb" style="float: none">
-                ¼öÁ¤
+                ìˆ˜ì •
                 </button>           
                 <button type="button" class="remove_btn yb" style="float: none">
-                  »èÁ¦
+                  ì‚­ì œ
                 </button>
               </div>
           <table class="table" id="table_title">
             <tr>
-              <th>Á¦¡¡¸ñ</th>
-              <td>¾È³çÇÏ¼¼¿ä °í°´´Ô, ´äº¯µå¸³´Ï´Ù.</td>
+              <th>ì œã€€ëª©</th>
+              <td>ì•ˆë…•í•˜ì„¸ìš” ê³ ê°ë‹˜, ë‹µë³€ë“œë¦½ë‹ˆë‹¤.</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <!-- Ã¹¹øÂ° ÁÙ ½ÃÀÛ-->
-              <th>ÀÛ¼ºÀÚ</th>
-              <td>°ü¸®ÀÚ</td>
+              <!-- ì²«ë²ˆì§¸ ì¤„ ì‹œìž‘-->
+              <th>ìž‘ì„±ìž</th>
+              <td>ê´€ë¦¬ìž</td>
               <td></td>
               <td></td>
             </tr>
-            <!-- Ã¹¹øÂ° ÁÙ ³¡-->
+            <!-- ì²«ë²ˆì§¸ ì¤„ ë-->
             <tr>
-              <!-- µÎ¹øÂ° ÁÙ ½ÃÀÛ-->
-              <th>ÀÛ¼ºÀÏ</th>
+              <!-- ë‘ë²ˆì§¸ ì¤„ ì‹œìž‘-->
+              <th>ìž‘ì„±ì¼</th>
               <td>2020.12.25</td>
               <td></td>
               <td></td>
             </tr>
-            <!-- µÎ¹øÂ° ÁÙ ³¡-->
+            <!-- ë‘ë²ˆì§¸ ì¤„ ë-->
             <tr>
               <td></td>
               <td></td>
@@ -79,7 +78,7 @@
           </table>
           <div class="table_inner">
             <p>
-              ÀüÃ¼ ¿¹¾à¹®ÀÇ´Â 010-****-****·Î ¿¬¶ôºÎÅ¹µå¸³´Ï´Ù.
+              ì „ì²´ ì˜ˆì•½ë¬¸ì˜ëŠ” 010-****-****ë¡œ ì—°ë½ë¶€íƒë“œë¦½ë‹ˆë‹¤.
             </p>
           </div>
           </table>
