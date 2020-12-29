@@ -29,7 +29,6 @@ public class FacilitiesRoomsPageController extends HttpServlet {
 		// TODO Auto-generated method stub\
 		//DAO(정제된 데이터)
 		//파라미터 값으로 데이터를 받음
-		//
 		
 		request.getRequestDispatcher("index.jsp?inc=./views/facilities/facilities_rooms.jsp").forward(request, response);
 	}
