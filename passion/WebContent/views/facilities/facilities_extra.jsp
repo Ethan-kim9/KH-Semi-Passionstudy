@@ -5,30 +5,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
-    <link rel="stylesheet" href="../../resources/CSS/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
-
+  
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>이용안내</h1>
       </div>
     </div>
 
-    <!-- -->
-
     <div class="tabtype">
-<div class="tabtype_wrapper" style="text-align: center;">
+		<div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
             <button class="btn1 on">시설 이용 안내</button>
@@ -49,10 +36,7 @@
         </p>
       </div>
       <div class="section-body">
-        <img
-          src="../../resources/images/rooms/rounge.jpg"
-          alt=""
-        />
+        <img src="resources/images/rooms/rounge.jpg"/>
       </div>
       <div class="section-foot-left">
         <h2>운영시간</h2>
@@ -104,10 +88,7 @@
         </p>
       </div>
       <div class="section-body">
-        <img
-          src="../../resources/images/rooms/12_Room01"
-          alt=""
-        />
+        <img src="resources/images/rooms/12_Room01.jpg"/>
       </div>
       <div class="section-foot-left">
         <h2>운영시간</h2>
@@ -128,5 +109,4 @@
 
   </body>
   <script src="resources/JS/pagesjs/facilities_extra_click.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
