@@ -171,7 +171,7 @@
                           />
                         </span>
                       </div>
-                      <button type="button" class="btn_next_step sign_btn_1" disabled onclick=" ">
+                      <button type="button" class="btn_next_step sign_btn_1" onclick=" ">
                         동의하고 가입하기
                       </button>
 
@@ -440,4 +440,5 @@
   </body>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin_checkbox.js"></script>
+  <script src="resources/JS/pagesjs/member_signin_onvalid.js"></script>
 </html>
