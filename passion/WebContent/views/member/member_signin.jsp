@@ -12,6 +12,7 @@
 <form class="form_wrap_signup" name= "MemberSignin" method="post" action="/MemberSignin">
   <section class="signin_sction signin_sction1">
         <div class="signup_wrap">
+            <form class="form_wrap_signup">
               <section>
                 <h2 class="title_signup">간편가입</h2>
                 <div class="step_wrap">
@@ -24,75 +25,85 @@
                         <br />
                         이용약관에 동의해주세요.
                       </h3>
-                          <div class="ckjoinbox">
-                              <input
-                                type="checkbox"
-                                id="allckbox"
-                              />
-                              <label title="모두 동의 (선택 정보 포함)">
-                                모두 동의 (선택 정보 포함)
-                              </label>
-                          </div>
-                          <div class="cklist">
-                            <span class="ckbox1">
-                              <input
-                                type="checkbox"
-                                name="chktmp"
-                                id="ckbox1"
-                                value="check"
-                                required
+                        <form id="form_ckbox" name="form_ckbox" method="POST" action="">
+                          <div class="checkbox_group">  
+                              <div class="ckjoinbox">
+                                <input
+                                  type="checkbox"
+                                  id="allckbox"
                                 />
-                              <label title="[필수] 만 14세 이상" class="checkbox_msg">
-                                [필수] 만 14세 이상
-                              </label>
-                            </span>
-                            <span>
+                                <label for="allckbox" title="모두 동의 (선택 정보 포함)">
+                                  모두 동의 (선택 정보 포함)
+                                </label>
+                              </div>
+                              
+                             <div class="cklist">
                               <span class="ckbox1">
                                 <input
                                   type="checkbox"
                                   name="chktmp"
-                                  id="ckbox2"
+                                  id="ckbox1"
                                   value="check"
-                                  required
-                                />
-                                <label title="[필수] 이용약관 동의" class="checkbox_msg">
-                                  [필수] 이용약관 동의
-                                  <button type="button" class="btn_check" data-toggle="modal" data-target="#exampleModalScrollable">보기</button>
-                                  <!---->
+                                  class="checkbox_msg"
+                                  />
+                                <label for="ckbox1" title="[필수] 만 14세 이상" >
+                                  [필수] 만 14세 이상
                                 </label>
+                              </span>
+                              <span>
+                                <span class="ckbox1">
+                                  <input
+                                    type="checkbox"
+                                    name="chktmp"
+                                    id="ckbox2"
+                                    value="check"
+                                    class="checkbox_msg"
+                                  />
+                                  <label for="ckbox2" title="[필수] 이용약관 동의">
+                                    [필수] 이용약관 동의
+                                    <button type="button" class="btn_check" data-toggle="modal" data-target="#exampleModalScrollable">보기</button>
+                                    <!---->
+                                  </label>
 
-                                  <!---->
-                                
+                                    <!---->
+                                  
+                                </span>
                               </span>
-                            </span>
-                            <span>
-                              <span class="ckbox1">
-                                <input
-                                  type="checkbox"
-                                  name="chktmp"
-                                  id="ckbox3"
-                                  value="check"
-                                  required
-                                />
-                                <label title="[필수] 개인정보 처리방침 동의" class="checkbox_msg">
-                                  [필수] 개인정보 처리방침 동의
-                                  <button type="button" class="btn_check2" data-toggle="modal" data-target="#exampleModalScrollable1">보기</button>
-                                </label>
+                              <span>
+                                <span class="ckbox1">
+                                  <input
+                                    type="checkbox"
+                                    name="chktmp"
+                                    id="ckbox3"
+                                    value="check"
+                                    class="checkbox_msg"
+                                    required
+                                  />
+                                  <label for="ckbox3" title="[필수] 개인정보 처리방침 동의">
+                                    [필수] 개인정보 처리방침 동의
+                                    <button type="button" class="btn_check2" data-toggle="modal" data-target="#exampleModalScrollable1">보기</button>
+                                  </label>
+                                </span>
                               </span>
-                            </span>
-                            <span>
-                              <span class="ckbox1">
-                                <input
-                                  type="checkbox"
-                                  name="chktmp"
-                                  id="ckbox4"
-                                  value="check"
-                                />
-                                <label title="[선택] 광고성 정보 수신 및 마케팅 활용 동의" class="checkbox_msg">
-                                  [선택] 광고성 정보 수신 및 마케팅 활용 동의
-                                  <button type="button" class="btn_check3" data-toggle="modal" data-target="#exampleModalScrollable2">보기</button>
-                                </label>
-                              </span>
+                              
+                              <span>
+                                <span class="ckbox1">
+                                  <input
+                                    type="checkbox"
+                                    name="chktmp"
+                                    id="ckbox4"
+                                    value="check"
+                                    class="checkbox_msg"
+                                  />
+                                  <label for="ckbox4" title="[선택] 광고성 정보 수신 및 마케팅 활용 동의">
+                                    [선택] 광고성 정보 수신 및 마케팅 활용 동의
+                                    <button type="button" class="btn_check3" data-toggle="modal" data-target="#exampleModalScrollable2">보기</button>
+                                  </label>
+                                </span>
+                              </span> 
+                            </div>   
+                          </div>    
+                        </form>
 
                       <!-- 1번 약관 -->
                       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -106,6 +117,8 @@
                               </div>
                               <div class="modal-body">
                                 <p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p><p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('열정스터디')</em> 은(는) 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p><p class="ls2">○ 본 방침은부터 <em class="emphasis">2020</em>년 <em class="emphasis">1</em>월 <em class="emphasis">3</em>일부터 시행됩니다.</p></br><p class='lh6 bs4'><strong>1. 개인정보의 처리 목적 <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</strong></p><ul class="list_indent2 mgt10"><p class="ls2">가. 홈페이지 회원가입 및 관리</p><p class="ls2">회원 가입의사 확인, 서비스 부정이용 방지, 각종 고지·통지 등을 목적으로 개인정보를 처리합니다.</p></br></ul>
+                        
+                        
                               </div>
                             </div>
                           </div>
@@ -123,8 +136,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p class="ls2 lh6 bs5 ts4">
-                                  <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p><p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('열정스터디')</em> 은(는) 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p><p class="ls2">○ 본 방침은부터 <em class="emphasis">2020</em>년 <em class="emphasis">1</em>월 <em class="emphasis">3</em>일부터 시행됩니다.</p></br><p class='lh6 bs4'><strong>1. 개인정보의 처리 목적 <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</strong></p><ul class="list_indent2 mgt10"><p class="ls2">가. 홈페이지 회원가입 및 관리</p><p class="ls2">회원자격 유지·관리, 제한적 본인확인제 시행에 따른 본인확인, 서비스 부정이용 방지, 각종 고지·통지 등을 목적으로 개인정보를 처리합니다.</p></br></ul>    
+                                  <p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p><p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('열정스터디')</em> 은(는) 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p><p class="ls2">○ 본 방침은부터 <em class="emphasis">2020</em>년 <em class="emphasis">1</em>월 <em class="emphasis">3</em>일부터 시행됩니다.</p></br><p class='lh6 bs4'><strong>1. 개인정보의 처리 목적 <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</strong></p><ul class="list_indent2 mgt10"><p class="ls2">가. 홈페이지 회원가입 및 관리</p><p class="ls2">회원자격 유지·관리, 제한적 본인확인제 시행에 따른 본인확인, 서비스 부정이용 방지, 각종 고지·통지 등을 목적으로 개인정보를 처리합니다.</p></br></ul>    
                                 </div>
                               </div>
                             </div>
@@ -141,31 +153,36 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p class="ls2 lh6 bs5 ts4"><em class="emphasis">
-                                  <(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p><p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('열정스터디')</em> 은(는) 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p><p class="ls2">○ 본 방침은부터 <em class="emphasis">2020</em>년 <em class="emphasis">1</em>월 <em class="emphasis">3</em>일부터 시행됩니다.</p></br><p class='lh6 bs4'><strong>1. 개인정보의 처리 목적 <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</strong></p><ul class="list_indent2 mgt10"><p class="ls2">가. 마케팅 및 광고에의 활용</p><p class="ls2">신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 서비스의 유효성 확인 등을 목적으로 개인정보를 처리합니다.</p></br></ul>
+                                  <p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p><p class="ls2 lh6 bs5 ts4"><em class="emphasis"><(주)열정스터디>('열정스터디')</em> 은(는) 회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.</p><p class="ls2">○ 본 방침은부터 <em class="emphasis">2020</em>년 <em class="emphasis">1</em>월 <em class="emphasis">3</em>일부터 시행됩니다.</p></br><p class='lh6 bs4'><strong>1. 개인정보의 처리 목적 <em class="emphasis"><(주)열정스터디>('www.열정스터디.net'이하  '열정스터디')</em>은(는) 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</strong></p><ul class="list_indent2 mgt10"><p class="ls2">가. 마케팅 및 광고에의 활용</p><p class="ls2">신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 서비스의 유효성 확인 등을 목적으로 개인정보를 처리합니다.</p></br></ul>
                                 </div>
                               </div>
                             </div>
                           </div>
-
-
-
-                          <input type="hidden" value="F"/>
-                          <input type="hidden" value="F"/>
+                          
+                          <input
+                            type="hidden"
+                            formcontrolname="receive_sms"
+                            value="F"
+                          />
+                          <input
+                            type="hidden"
+                            formcontrolname="receive_eamil"
+                            value="F"
+                          />
                         </span>
                       </div>
-  
-                        <button type="button" class="btn_next_step sign_btn_1" disabled onclick=" ">
-                          동의하고 가입하기
-                        </button>
+                      <button type="button" class="btn_next_step sign_btn_1" disabled onclick=" ">
+                        동의하고 가입하기
+                      </button>
 
                     </li>
                   </ul>
                 </div>
               </section>
-        
-          </div>
-  </section>
+              </form>
+			</div>
+		</section>
+
 
 <!-- 아이디 입력 부분 -->
 <section class="signin_sction signin_sction2">
