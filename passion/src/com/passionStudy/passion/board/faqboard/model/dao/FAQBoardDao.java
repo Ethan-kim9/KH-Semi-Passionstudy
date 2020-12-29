@@ -1,5 +1,5 @@
-package com.passionStudy.passion.member;
+package com.passionStudy.passion.board.faqboard.model.dao;
 
-public class MemberDao {
+public class FAQBoardDao {
 
 }

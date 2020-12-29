@@ -1,4 +1,4 @@
-package com.passionStudy.passion.member;
+package com.passionStudy.passion.reservation.model.vo;
 
 public class MemberVo {
 

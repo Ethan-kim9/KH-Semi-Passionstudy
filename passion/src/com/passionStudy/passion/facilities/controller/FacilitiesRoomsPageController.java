@@ -26,7 +26,11 @@ public class FacilitiesRoomsPageController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub\
+		//DAO(정제된 데이터)
+		//파라미터 값으로 데이터를 받음
+		//
+		
 		request.getRequestDispatcher("index.jsp?inc=./views/facilities/facilities_rooms.jsp").forward(request, response);
 	}
 

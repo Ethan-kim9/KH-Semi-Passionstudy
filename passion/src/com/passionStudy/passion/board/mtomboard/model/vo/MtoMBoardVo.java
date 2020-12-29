@@ -1,5 +1,5 @@
-package com.passionStudy.passion.member;
+package com.passionStudy.passion.board.mtomboard.model.vo;
 
-public class MemberVo {
+public class MtoMBoardVo {
 
 }

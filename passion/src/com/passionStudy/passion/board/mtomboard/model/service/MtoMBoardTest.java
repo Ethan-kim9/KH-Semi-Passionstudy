@@ -1,5 +1,5 @@
-package com.passionStudy.passion.member;
+package com.passionStudy.passion.board.mtomboard.model.service;
 
-public class MemberTest {
+public class MtoMBoardTest {
 	String name;
 }

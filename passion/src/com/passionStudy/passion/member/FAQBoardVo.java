@@ -1,5 +1,5 @@
 package com.passionStudy.passion.member;
 
-public class MemberVo {
+public class FAQBoardVo {
 
 }
