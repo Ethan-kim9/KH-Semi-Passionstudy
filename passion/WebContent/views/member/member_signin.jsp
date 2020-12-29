@@ -185,7 +185,8 @@
 
 
 <!-- 아이디 입력 부분 -->
-<section class="signin_sction signin_sction2">
+
+  <section class="signin_sction signin_sction2">
   <div class="signup_wrap">
       <div class="form_wrap_signup">
           <h2 class="title_signup">간편가입</h2>
@@ -198,23 +199,35 @@
                           <br/>
                           아이디를 입력해주세요.
                       </h3>
-                      <div class="signup_step_box">
+                      <div class="field_signup_wrap_pwd">
                           <label for="userid" class="blind signup_step">아이디 (이메일) 입력</label>
-                          <div class="field signup_step_box">
                               <div class="inpbx">
-                                  <input type="email" id="userid" placeholder="아이디 (이메일) 입력" class="field_signupbox_id" required/>
-                              </div>
-                          </div>
+                                  <input type="email" 
+                                         id="userid" 
+                                         placeholder="아이디 (이메일) 입력" 
+                                         formcontrolname="userid"
+                                         autocorrect="off" 
+                                         class="field_signupbox_id"
+                                         required/>
+                              <!---->
+                            </div>
+                          <p class="field_vali">
+                            <span class="signup_wrap" id="email_check"><!--msg--></span>
+                          </p>
                       </div>
-                      <button type="button" class="btn_next_step sign_btn_2">다음</button>
+
+                      <button type="submit" class="btn_next_step sign_btn_2">다음</button>
+
                   </li>
               </ul>
           </div>
         </div>
   </div>
   </section>
+
 <!-- 이름과 연락처 -->
-<section class="signin_sction signin_sction3">
+
+  <section class="signin_sction signin_sction3">
   <div class="signup_wrap">
       <div class="form_wrap_signup">
           <h2 class="title_signup">간편가입</h2>
@@ -227,19 +240,32 @@
                           <br/>
                           입력해주세요.
                       </h3>
-                      <div class="signup_step_box">
+                      <div class="field_signup_wrap_pwd">
                           <label for="usernm" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input type="text" id="usernm"  placeholder="이름" />
+                              <input rulerfocuson type="text" 
+                                                  id="usernm" 
+                                                  placeholder="이름" 
+                                                  formcontrolname="usernm"/>
                               <!---->
                           </div>
+                          <p class="field_vali">
+                            <span class="signup_wrap" id="name_check"><!--msg--></span>
+                        </p>
                       </div>
-                      <div class="signup_step_box">
+                      <div class="field_signup_wrap_pwd">
                           <label for="userphnumber" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input type="text" id="userphnumber" placeholder="연락처 (전화번호)" />
+                              <input rulerfocuson type="text" 
+                                                  id="userphnumber" 
+                                                  placeholder="연락처 (전화번호)" 
+                                                  formcontrolname="userphnumber"/>
                               <!---->
                           </div>
+
+                          <p class="field_vali">
+                            <span class="signup_wrap" id="phone_check"><!--msg--></span>
+                        </p>
                       </div>
 
                           <button type="button" class="btn_next_step sign_btn_3">다음</button>
@@ -249,9 +275,12 @@
           </div>
         </div>
   </div>
+
+
   </section>
 <!--비밀번호 입력 및 확인 -->
-<section class="signin_sction signin_sction4">
+
+  <section class="signin_sction signin_sction4">
   <div class="signup_wrap">
       <div class="form_wrap_signup">
           <h2 class="title_signup">간편가입</h2>
@@ -268,23 +297,29 @@
                           <label for="user_password" class="blind signup_step"></label>
                           <div class="field_signup_wrap_pwd">
                               <div class="inpbx">
-                                  <input type="password" id="user_password"  placeholder="비밀번호 입력" />
+                                  <input rulerfocuson type="password" 
+                                                      id="user_password" 
+                                                      placeholder="비밀번호 입력" 
+                                                      formcontrolname="user_password"/>
                                   <!---->
                               </div>
+
                               <p class="field_vali">
-                                  <span class="signup_wrap">영문포함</span>
-                                  <span class="signup_wrap">숫자포함</span>
-                                  <span class="signup_wrap">8~20자 이내</span>
+                                  <span class="signup_wrap" id="pw_check"><!--영문포함--></span>
                               </p>
                           </div>
                           <label for="confirm_password" class="blind signup_step"></label>
                           <div class="field_signup_wrap_pwd">
                               <div class="inpbx">
-                                  <input  type="password" id="confirm_password" placeholder="비밀번호 확인"/>
+                                  <input rulerfocuson type="password" 
+                                                      id="confirm_password" 
+                                                      placeholder="비밀번호 확인" 
+                                                      formcontrolname="confirm_password"/>
                                   <!---->
                               </div>
+
                               <p class="field_vali">
-                                  <span class="signup_wrap">비밀번호 일치</span>
+                                  <span class="signup_wrap" id="pw2_check"><!--비밀번호 일치--></span>
                               </p>
                           </div>
                       </div>
@@ -294,6 +329,7 @@
           </div>
         </div>
   </div>
+
   </section>
 
 <!--추천인 입력 선택 -->
