@@ -14,9 +14,9 @@ DROP TABLE "NOTICE";
 
 CREATE TABLE "MEMBER" (
                           "MEMBER_NO"        NUMBER             	 		        NOT NULL,
-                          "MEMBER_NAME"      VARCHAR2(100)      		 		    NOT NULL,
                           "MEMBER_ID"        VARCHAR2(100)      	 		        NOT NULL,
                           "MEMBER_PWD"       VARCHAR2(100)      		 		    NOT NULL,
+                          "MEMBER_NAME"      VARCHAR2(100)      		 		    NOT NULL,
                           "MEMBER_PHONE"     VARCHAR2(100)      			 		    NULL,
                           "MEMBER_DATE"      DATE DEFAULT SYSDATE            	    NOT NULL,
                           "ADMIN_CHECK"      VARCHAR2(20)       DEFAULT 'Y'         NOT NULL,
@@ -247,11 +247,7 @@ ALTER TABLE "RESERVATION" ADD CONSTRAINT "FK_MEMBER_TO_RE" FOREIGN KEY ("MEMBER_
 ALTER TABLE "RESERVATION" ADD CONSTRAINT "FK_PRODUCT_TO_RE" FOREIGN KEY ( "PRODUCT_NO") REFERENCES "PRODUCT_TABLE" ( "PRODUCT_NO")  ON DELETE CASCADE ;
 
 
-/*우혁, 아현 어디 테이블을 어떻게 수정했는지*/
-UPDATE 행 두개 삭제하는부분
-
-
-COMMIT;
+/* 12/29 민진 주영 게시판 DB테이블 수정*/
 
 /* 12/29일 NOTICE 테이블 수정: 1. 조회수 추가, 2. 글상태 삭제 */
 ALTER TABLE notice ADD NOTICE_COUNT NUMBER DEFAILT 0; 
@@ -264,4 +260,5 @@ ALTER TABLE faq DROP COLUMN BOARD_COUNT;
 /* 12/29일 QNA 테이블 수정: 1. 조회수 삭제, 2. 글상태 삭제 */
 ALTER TABLE qna DROP COLUMN BOARD_COUNT;
 ALTER TABLE qna DROP COLUMN BOARD_CONDITION;
+
 COMMIT;

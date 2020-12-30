@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
+  </head>
+  <body>
 
 <div class="cont_header">
       <div class="cont_wrapper">
-        <h1>Ä¿¹Â´ÏÆ¼</h1>
+        <h1>ì»¤ë®¤ë‹ˆí‹°</h1>
       </div>
     </div>
 
@@ -19,17 +19,17 @@
         <ul>
           <li>
             <a href="../Notice/board_notice.html"
-              ><button class="btn1">°øÁö»çÇ×</button></a
+              ><button class="btn1">ê³µì§€ì‚¬í•­</button></a
             >
           </li>
           <li>
             <a href="board_faq.html"
-              ><button class="btn2 on">ÀÚÁÖÇÏ´Â Áú¹®</button></a
+              ><button class="btn2 on">ìžì£¼í•˜ëŠ” ì§ˆë¬¸</button></a
             >
           </li>
           <li>
             <a href="../1on1/board_1on1.html"
-              ><button class="btn3">1:1¹®ÀÇ</button></a
+              ><button class="btn3">1:1ë¬¸ì˜</button></a
             >
           </li>
         </ul>
@@ -41,29 +41,29 @@
         <div id="board_main">
             <div id="another_buttons">
                 <button type="button" class="modify_btn yb" style="float: none">
-                    ¼öÁ¤
+                    ìˆ˜ì •
                 </button>
                 
                 <button type="button" class="remove_btn yb" style="float: none">
-                  »èÁ¦
+                  ì‚­ì œ
                 </button>
               </div>
           <table class="table" id="table_title">
             <tr>
-              <th>Ä«Å×°í¸®</th>
-              <td>È¸¿ø¹®ÀÇ</td>
+              <th>ì¹´í…Œê³ ë¦¬</th>
+              <td>íšŒì›ë¬¸ì˜</td>
               <td></td>
               <td></td>
             </tr>
-            <!-- Ã¹¹øÂ° ÁÙ ³¡-->
+            <!-- ì²«ë²ˆì§¸ ì¤„ ë-->
             <tr>
-              <!-- µÎ¹øÂ° ÁÙ ½ÃÀÛ-->
-              <th>Á¦¡¡¡¡¸ñ</th>
-              <td>¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£´Â ¾î¶»°Ô Ã£À» ¼ö ÀÖ³ª¿ä?</td>
+              <!-- ë‘ë²ˆì§¸ ì¤„ ì‹œìž‘-->
+              <th>ì œã€€ã€€ëª©</th>
+              <td>ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ëŠ” ì–´ë–»ê²Œ ì°¾ì„ ìˆ˜ ìžˆë‚˜ìš”?</td>
               <td></td>
               <td></td>
             </tr>
-            <!-- µÎ¹øÂ° ÁÙ ³¡-->
+            <!-- ë‘ë²ˆì§¸ ì¤„ ë-->
             <tr>
               <td></td>
               <td></td>
@@ -73,7 +73,7 @@
           </table>
           <div class="table_inner">
             <p>
-              ³»¿ë Ùí
+              ë‚´ìš© ç„¡
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 package com.passionStudy.passion.manager.model.service;
 
-public class ManagerMemberServer {
+public class ManagerMemberService {
 
 }
