@@ -3,7 +3,7 @@ package com.passionStudy.passion.manager.model.vo;
 import java.sql.Date;
 import java.sql.Time;
 
-public class ManagerReservationVo {
+public class ManagerSalesVo {
 	/*예약 관련*/
 	private int memNo; 				//회원식별자
 	private int productNo;			//상품식별자
