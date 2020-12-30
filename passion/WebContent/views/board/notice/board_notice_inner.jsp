@@ -18,19 +18,13 @@
       <div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="../Notice/board_notice.html"
-              ><button class="btn1 on">공지사항</button></a
-            >
+            <a href="../Notice/board_notice.html"><button class="btn1 on">공지사항</button></a>
           </li>
           <li>
-            <a href="board_faq.html"
-              ><button class="btn2">자주하는 질문</button></a
-            >
+            <a href="board_faq.html"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
-            <a href="../1on1/board_1on1.html"
-              ><button class="btn3">1:1문의</button></a
-            >
+            <a href="../1on1/board_1on1.html"><button class="btn3">1:1문의</button></a>
           </li>
         </ul>
       </div>
