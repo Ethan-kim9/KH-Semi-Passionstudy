@@ -33,3 +33,23 @@ $(".container_room .room_4").click(function (event) {
   $(".container_room .room_1").attr("class", "room_1");
   $(".room_section4").css("display", "block");
 });
+
+/*$(document).ready(function() {
+	$(".container_room_button .room_3-5_reservation").on("click", function(){
+		$(".choose_room").write($(this).attr("value"));
+	});
+});*/
+
+/*$(document).ready(function() {
+	$(".container_room_button .room_3-5_reservation").click(function(){
+		$(".choose_room").attr({action:"reservation_roominfo.jsp?value="+$(this).val(),method:"post"})
+		.submit();
+	});
+});*/
+
+/*$(document).ready(function() {
+	$(".container_room_button .room_3-5_reservation").click(function(){
+		var value = $(".container_room_button .room_3-5_reservation").val();
+		$(".result .choose_room").val(value);
+	});
+});*/
