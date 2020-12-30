@@ -92,9 +92,53 @@
       }
       .calender_price {
         font-weight: bold;
-        padding: 0 405px 0 0;
+        padding: 0 400px 0 0;
       }
       /* */
+	  
+	  /* 예약시간 */
+      .reservation_time {
+      	height: 260px;
+      	
+      }
+      .reservation_time_title{
+      	float: left;
+      	margin: 10px 400px 10px 25px;
+      	font-size: 18px;
+      	font-weight: bold;
+      }
+      .reservation_time_content {
+      	height: 110px;
+      }
+      .reservation_time_content li {
+      	float: left;
+      	margin-left: 20px;
+      	margin-bottom: 10px;
+      }
+      
+      
+      .reservation_time button {
+      	background-color: black;
+	    color: white;
+	    border: 0;
+	    border-radius: 4px;
+	    font-weight: 500;
+	    font-family: "Montserrat", Noto Sans KR, sans-serif;
+	    cursor: pointer;
+      }
+      .reservation_time button:hover {
+      	background-color: #ffcc00;
+  		color: white;
+      }
+      .time_select {
+        width: 120px;
+	    height: 30px;
+	    font-size: 14px;
+      	margin: 10px 25px 10px 355px;
+      }
+      
+	  /*  */
+		
 
       .change_price {
         font-weight: bold;
@@ -198,6 +242,7 @@
         background-color: #ffcc00;
         color: white;
       }
+      
     </style>
   </head>
 
@@ -225,9 +270,8 @@
     </div>
 
     <section class="section">
-      <!--jsp로 값 가져와야함-->
       <div class="result">
-        <h4 class="choose_room">사용자가 예약하려고 선택한 방</h4>
+        <h4 class="choose_room"> <%=request.getParameter("value") %> </h4>
         <br />
         <h5 class="choose_day">날짜와 시간을 선택하세요.</h5>
         <br />
@@ -247,6 +291,49 @@
               <span class="color_disable">예약불가</span>
               <span class="color_today">오늘</span>
               <span class="color_select">선택</span>
+            </div>
+            <br />
+            <br />
+            <div class="reservation_time" id="reservation_time">
+              <h8 class="reservation_time_title">예약시간</h8>
+              <br />
+              <ul class="reservation_time_content">
+              	<li class="timetable">
+              		<span class="time_title">FirstTime</span><br>
+              		<button class="first_time">08:00~10:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">SecondTime</span><br>
+              		<button class="second_time">10:00~12:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">ThirdTime</span><br>
+              		<button class="third_time">12:00~14:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">BreakTime</span><br>
+              		<button class="break_time" style="cursor:not-allowed; background-color: #e5e5e5; color: gray;">14:00~15:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">FourthTime</span><br>
+              		<button class="fourth_time">15:00~17:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">FiveTime</span><br>
+              		<button class="five_time">17:00~19:00</button>
+              	</li>
+              	<li class="timetable">
+              		<span class="time_title">LastTime</span><br>
+              		<button class="last_time">19:00~21:00</button>
+              	</li>
+              </ul>
+              <br />
+              <div class="color_desc">
+	              <span class="color_disable">예약불가</span>
+	              <span class="color_select">선택</span>
+              </div>
+              <br />
+              <button class="time_select">예약시간 선택</button>
             </div>
             <br />
             <br />
@@ -433,14 +520,14 @@
               <br />
               <br />
               <select name="count" class="count">
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
               <br />
-              <h8 class="change_price">2,000원</h8>
+              <h8 class="change_price" name="change_price"> 원</h8>
             </div>
 
             <div class="option_box_projecter">
@@ -458,14 +545,14 @@
               <br />
               <br />
               <select name="count" class="count">
-                <option value="one">1</option>
-                <option value="two">2</option>
-                <option value="three">3</option>
-                <option value="four">4</option>
-                <option value="five">5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
               <br />
-              <h8 class="change_price">2,000원</h8>
+              <h8 class="change_price" name="change_price"> 원</h8>
             </div>
           </td>
         </tr>
@@ -477,6 +564,20 @@
       </table>
     </section>
   </body>
+  <script type="text/javascript">
+	function getItem() {
+		var i = document.getElementByName('count').value;
+		var price = prices[i];
+
+		document.getElementByName('change_price').innerHTML = price;
+	}
+
+	/* $(".scriptCalendar tr td").click(function (event){
+		$(".reservation_time").toggle();
+	}); */
+
+  </script>
   <script src="resources/JS/pagesjs/reservation_calender.js"></script>
+  <script src="resources/JS/pagesjs/reservation_room_click.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

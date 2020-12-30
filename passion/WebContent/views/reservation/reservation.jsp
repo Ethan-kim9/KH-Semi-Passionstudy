@@ -59,19 +59,19 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_3-5_reservation">예약하기</button></a>
             </li>
             <li class="second_room">
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_3-5_reservation">예약하기</button></a>
             </li>
             <li class="third_room">
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_3-5_reservation">예약하기</button></a>
             </li>
           </ul>
         </div>
@@ -98,14 +98,14 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_4-6_reservation">예약하기</button></a>
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_4-6_reservation">예약하기</button></a>
             </li>
           </ul>
         </div>
@@ -132,14 +132,14 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_6-8_reservation">예약하기</button></a>
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_6-8_reservation">예약하기</button></a>
             </li>
           </ul>
         </div>
@@ -175,14 +175,14 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_12_reservation">예약하기</button></a>
             </li>
             <span class="for_space2"></span>
             <li class="second_room">
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_reservation">예약하기</button></a>
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp"><button class="room_12_reservation">예약하기</button></a>
             </li>
           </ul>
         </div>
@@ -190,4 +190,11 @@
     </section>
   </body>
   <script src="resources/JS/pagesjs/reservation_room_click.js"></script>
+  <!-- <script type="text/javascript">
+ 	$(function () {
+ 		$(".room_3-5_reservation").click(function (){
+			$(".container_room_button").load("reservation_roominfo.jsp",{value:"3~5인실"});
+ 	 	});	
+ 	});
+  </script> -->
 </html>
