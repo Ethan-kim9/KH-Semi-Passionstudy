@@ -17,10 +17,10 @@
     <div class="tabtype">
 		<div class="tabtype_wrapper" style="text-align: center;">
         <ul>
-          <li>
+          <li style="width: 49.3%;">
             <button class="btn1 on">시설 이용 안내</button>
           </li>
-          <li>
+          <li style="width: 49.3%;">
             <button class="btn2">스터디룸 이용안내</button>
           </li>
         </ul>
@@ -30,7 +30,7 @@
     <!-- 이용안내 카페 부분-->
     <section class="passion_notice passion_notice_1">
       <div class="section-header">
-        <p>
+        <p style="text-align: center;">
           3인실부터~12인실까지 "독립된 모임공간" (회의실, 스터디룸,
           강의실,세미나실) 입니다.
         </p>
@@ -78,19 +78,21 @@
 
     <section class="passion_notice passion_notice_2">
       <div class="section-header">
-        <p>
+        <p style="text-align: center;">
           스터디카페는 도서관보다는 자유롭게 일반 카페보다는 조용하게 개인공부
           또는 개인 노트북 동영상 시청 등에 맞는 공간입니다.
         </p>
-        <p>대화불가 & 문서작업을 위한 키보드와 마우스 사용은 안됩니다.</p>
-        <p>
+        <p style="text-align: center;">
+        대화불가 & 문서작업을 위한 키보드와 마우스 사용은 안됩니다.
+        </p>
+        <p style="text-align: center;">
           독립된 스터디룸으로 이용 원하시면 스터디룸 이용 안내를 참고해주세요
         </p>
       </div>
       <div class="section-body">
         <img src="resources/images/rooms/12_Room01.jpg"/>
       </div>
-      <div class="section-foot-left">
+      <div class="section-foot-left" style="margin: 0 81px;">
         <h2>운영시간</h2>
         <p>연중무휴</p>
         <p>월 ~ 일 8:00~24:00</p>
