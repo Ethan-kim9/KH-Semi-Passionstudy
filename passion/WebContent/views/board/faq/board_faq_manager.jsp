@@ -56,10 +56,12 @@
             </select>
           </div>
           <table class="table" id="main_table" width="50%">
-            <th><input type="checkbox" class="checkbox" /></th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th></th>
+            <tr>
+	            <th><input type="checkbox" class="checkbox" /></th>
+	            <th>카테고리</th>
+	            <th>제목</th>
+	            <th></th>
+            </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
               <td><input type="checkbox" class="checkbox" /></td>
