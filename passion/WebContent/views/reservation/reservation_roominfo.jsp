@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <title>예약/결제</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" ></script>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
     <style>
       .section {
         width: 1000px;
@@ -260,10 +259,10 @@
             <button class="btn1 on" disabled>예약하기</button>
           </li>
           <li style="width: 33%;">
-            <button class="btn2" disabled>예약자 정보입력</button>
+            <button class="btn2" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>예약자 정보입력</button>
           </li>
           <li style="width: 33%;">
-            <button class="btn3" disabled>결제하기</button>
+            <button class="btn3" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>결제하기</button>
           </li>
         </ul>
       </div>

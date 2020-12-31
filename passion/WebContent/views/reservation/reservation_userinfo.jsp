@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <title>예약/결제</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" ></script>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
   </head>
 
   <body>
@@ -20,7 +19,7 @@
       <div class="tabtype_wrapper">
         <ul>
           <li style="width: 33%;">
-            <a href="reservation_roominfo.jsp" >
+            <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp" >
               <button class="btn1">예약하기</button>
             </a>
           </li>
@@ -28,7 +27,7 @@
             <button class="btn2 on" disabled>예약자 정보입력</button>
           </li>
           <li style="width: 33%;">
-            <button class="btn3" disabled>결제하기</button>
+            <button class="btn3" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>결제하기</button>
           </li>
         </ul>
       </div>
@@ -288,7 +287,7 @@
      및 맞춤 서비스 제공, 민원처리 등 고객상담, 고객관리, 서비스 이용에 따른 설문조사 및 혜택 제공, 분쟁조정을 위한 
      기록보존
                     
-  4. 개인정보를 제공받는 자의 개인정보 보유 및 이용기간 : 네이버 회원탈퇴 시 또는 위 개인정보 이용목적 달성 시 까지 
+  4. 개인정보를 제공받는 자의 개인정보 보유 및 이용기간 : 회원탈퇴 시 또는 위 개인정보 이용목적 달성 시 까지 
      이용합니다.
                     
   5. 동의 거부권 등에 대한 고지 : 정보주체는 개인정보 제공 동의를 거부할 권리가 있으나, 이 경우 상품 및 서비스 예약이 
@@ -304,36 +303,5 @@
       </div>
     </section>
   </body>
-  
-  <script>
- 	<!-- 약관동의 전체 선택 -->
-  	$(".reseller_join_box").on("click","#check_all", function() {
-	    var checked = $(this).is(":checked");
-
-	    if(checked){
-	      $(this).parents(".reseller_join_box").find('input').prop("checked",true);
-	    } else {
-	      $(this).parents(".reseller_join_box").find('input').prop("checked",false);
-	    }
-	});
-  	<!-- 이메일 select 시 자동입력 -->
-  	function selectEmail(ele){ 
-  	  	var $ele = $(ele); 
-  	  	var $email_dns = $('input[name=email_dns]'); 
-  	  	// '1'인 경우 직접입력 
-  	  	if($ele.val() == "1"){ 
-  	  	  	$email_dns.attr('readonly', false); 
-  	  	  	$email_dns.val(''); 
-  	  	} else { 
-  	  	  	$email_dns.attr('readonly', true); 
-  	  	  	$email_dns.val($ele.val()); 
-  	  	} 
-  	}
-  	<!-- 연락처 숫자만 입력 -->
-  	$(function(){
-		$(".tel_second,.tel_third").keyup(function() {
-			$(this).val($(this).val().replace(/[^0-9]/g,""));
-		});
-  	});
-  </script>
+  <script src="resources/JS/pagesjs/reservation_userinfo.js"></script>
 </html>

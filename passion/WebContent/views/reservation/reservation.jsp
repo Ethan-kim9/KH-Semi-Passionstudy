@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <title>예약/결제</title>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
       <div class="tabtype_wrapper">
         <ul>
           <li style="width: 33%;"><button class="btn1 on" disabled>예약하기</button></li>
-          <li style="width: 33%;"><button class="btn2" disabled>예약자 정보입력</button></li>
-          <li style="width: 33%;"><button class="btn3" disabled>결제하기</button></li>
+          <li style="width: 33%;"><button class="btn2" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>예약자 정보입력</button></li>
+          <li style="width: 33%;"><button class="btn3" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>결제하기</button></li>
         </ul>
       </div>
     </div>

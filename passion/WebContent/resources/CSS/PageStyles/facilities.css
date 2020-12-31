@@ -9,7 +9,7 @@
   float: left;
   line-height: 2;
 }
-.passion_facility > .section-left .title span {
+.passion_facility > .section-left > titles > span {
   font-size: 30px;
   font-weight: 700;
   line-height: 3;

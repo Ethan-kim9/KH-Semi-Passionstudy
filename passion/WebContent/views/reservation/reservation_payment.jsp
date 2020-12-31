@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <title>예약/결제</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" ></script>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
   </head>
   
     <body>  
@@ -19,12 +18,12 @@
         <div class="tabtype_wrapper">
           <ul>
             <li style="width: 33%;">
-              <a href="reservation_roominfo.jsp">
+              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
                 <button class="btn1">예약하기</button>
               </a>
             </li>
             <li style="width: 33%;">
-              <a href="reservation_userinfo.jsp">
+              <a href="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
               <button class="btn2">예약자 정보입력</button>
             </a>
           </li>
@@ -231,10 +230,10 @@
               <div id="con" style="display: none;">
                 <span>카드 번호</span> 
                 <br>
-                <input type="text" name="card_info_first" class="card_info_first"> -
-                <input type="text" name="card_info_second" class="card_info_second"> -
-                <input type="text" name="card_info_third" class="card_info_third"> -
-                <input type="text" name="card_info_fourth" class="card_info_fourth">
+                <input type="number" name="card_info_first" class="card_info_first" maxlength="4" oninput="maxLengthCheck(this)"> -
+                <input type="password" name="card_info_second" class="card_info_second" maxlength="4"> -
+                <input type="password" name="card_info_third" class="card_info_third" maxlength="4"> -
+                <input type="number" name="card_info_fourth" class="card_info_fourth" maxlength="4" oninput="maxLengthCheck(this)">
                 <br>
                 <span>유효기간</span>
                 <br>
@@ -311,5 +310,5 @@
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>
-  </html>
+</html>
 
