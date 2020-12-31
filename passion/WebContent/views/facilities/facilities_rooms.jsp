@@ -41,7 +41,8 @@
     <section class="passion_facility passion_facility_1">
       <div class="section-left">
         <div class="titles">
-          <span>LOUNGE</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >LOUNGE</span>
         </div>
         <ul>
           <li class="people">
@@ -74,7 +75,8 @@
     <section class="passion_facility passion_facility_2">
       <div class="section-left">
         <div class="titles">
-          <span>5인실 ROOM 01</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -104,7 +106,8 @@
 
       <div class="section-left">
         <div class="titles">
-          <span>5인실 ROOM 02</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -134,7 +137,8 @@
 
       <div class="section-left">
         <div class="titles">
-          <span>5인실 ROOM 03</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 03</span>
         </div>
         <ul>
           <li class="people">
@@ -168,7 +172,8 @@
     <section class="passion_facility passion_facility_3">
       <div class="section-left">
         <div class="titles">
-          <span>6인실 ROOM 01</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >6인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -198,7 +203,8 @@
 
       <div class="section-left">
         <div class="titles">
-          <span>6인실 ROOM 02</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >6인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -231,7 +237,8 @@
     <section class="passion_facility passion_facility_4">
       <div class="section-left">
         <div class="titles">
-          <span>8인실 ROOM 01</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >8인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -261,7 +268,8 @@
 
       <div class="section-left">
         <div class="titles">
-          <span>8인실 ROOM 02</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >8인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -294,7 +302,8 @@
     <section class="passion_facility passion_facility_5">
       <div class="section-left">
         <div class="titles">
-          <span>12인실 ROOM 01</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >12인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -322,7 +331,8 @@
 
       <div class="section-left">
         <div class="titles">
-          <span>12인실 ROOM 02</span>
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >12인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
