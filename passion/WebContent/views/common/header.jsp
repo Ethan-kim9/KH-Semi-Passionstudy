@@ -46,10 +46,10 @@
               	<a href="index.jsp"><span>메인</span></a>
               </li>
               <li class="roomlist">	
-              	<a href="facilitiesRooms"><span>시설소개</span></a>
+              	<a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><span>시설소개</span></a>
               </li>
               <li class="guide">
-              	<a href="facilitiesExtra"><span>이용안내</span></a>
+              	<a href="index.jsp?inc=./views/facilities/facilities_extra.jsp"><span>이용안내</span></a>
               </li>
               <li class="reserve">
                 <a href="index.jsp?inc=./views/reservation/reservation.jsp"><span>예약/결제</span></a>
