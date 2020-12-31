@@ -265,3 +265,5 @@ COMMIT;
 
 /* 1/1 NOTICE 테이블 수정: 1. 등록일자 추가 */
 ALTER TABLE notice ADD REGDATE TIMESTAMP; 
+
+COMMIT;
