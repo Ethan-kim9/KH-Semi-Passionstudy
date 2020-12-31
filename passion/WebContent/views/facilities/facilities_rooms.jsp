@@ -40,8 +40,9 @@
 
     <section class="passion_facility passion_facility_1">
       <div class="section-left">
-        <div class="title">
-          <span>LOUNGE</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >LOUNGE</span>
         </div>
         <ul>
           <li class="people">
@@ -52,8 +53,8 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              한달 이용권 : 10만원 10회 이용권 : 4만 5천원
+            <div class="pre_line" style="white-space: pre-line;">한달 이용권 : 10만원 
+            10회 이용권 : 4만 5천원
             </div>
           </li>
         </ul>
@@ -73,8 +74,9 @@
 
     <section class="passion_facility passion_facility_2">
       <div class="section-left">
-        <div class="title">
-          <span>5인실 ROOM 01</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -85,9 +87,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시) 
+            주중 1,500원/1H (19시~22시) 
+            주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -103,8 +105,9 @@
       </div>
 
       <div class="section-left">
-        <div class="title">
-          <span>5인실 ROOM 02</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -115,9 +118,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시) 
+            주중 1,500원/1H (19시~22시) 
+            주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -133,8 +136,9 @@
       </div>
 
       <div class="section-left">
-        <div class="title">
-          <span>5인실 ROOM 03</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >5인실 ROOM 03</span>
         </div>
         <ul>
           <li class="people">
@@ -145,9 +149,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시) 
+            주중 1,500원/1H (19시~22시) 
+            주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -167,8 +171,9 @@
 
     <section class="passion_facility passion_facility_3">
       <div class="section-left">
-        <div class="title">
-          <span>6인실 ROOM 01</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >6인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -179,9 +184,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시)
+             주중 1,500원/1H (19시~22시) 
+             주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -197,8 +202,9 @@
       </div>
 
       <div class="section-left">
-        <div class="title">
-          <span>6인실 ROOM 02</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >6인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -209,9 +215,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시)
+             주중 1,500원/1H (19시~22시) 
+             주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -230,8 +236,9 @@
 
     <section class="passion_facility passion_facility_4">
       <div class="section-left">
-        <div class="title">
-          <span>8인실 ROOM 01</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >8인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -242,9 +249,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시) 
+            주중 1,500원/1H (19시~22시) 
+            주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -260,8 +267,9 @@
       </div>
 
       <div class="section-left">
-        <div class="title">
-          <span>8인실 ROOM 02</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >8인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -272,9 +280,9 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">
-              주중 1,300원/1H (9시~19시) 주중 1,500원/1H (19시~22시) 주말
-              1,700원/1H 최소이용시간 : 2H
+            <div class="pre_line" style="white-space: pre-line;">주중 1,300원/1H (9시~19시) 
+            주중 1,500원/1H (19시~22시) 
+            주말 1,700원/1H 최소이용시간 : 2H
             </div>
           </li>
         </ul>
@@ -293,8 +301,9 @@
     
     <section class="passion_facility passion_facility_5">
       <div class="section-left">
-        <div class="title">
-          <span>12인실 ROOM 01</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >12인실 ROOM 01</span>
         </div>
         <ul>
           <li class="people">
@@ -305,7 +314,8 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">15,000원/1H 최소이용시간 : 2H</div>
+            <div class="pre_line" style="white-space: pre-line;">15,000원/1H 최소이용시간 : 2H
+            </div>
           </li>
         </ul>
         <ul>
@@ -320,8 +330,9 @@
       </div>
 
       <div class="section-left">
-        <div class="title">
-          <span>12인실 ROOM 02</span>
+        <div class="titles">
+          <span style="font-size: 30px;font-weight: 700;line-height: 4;"
+          >12인실 ROOM 02</span>
         </div>
         <ul>
           <li class="people">
@@ -332,7 +343,8 @@
         <ul>
           <li class="cost">
             <strong>이용금액</strong>
-            <div class="pre_line">15,000원/1H 최소이용시간 : 2H</div>
+            <div class="pre_line" style="white-space: pre-line;">15,000원/1H 최소이용시간 : 2H
+            </div>
           </li>
         </ul>
         <ul>
