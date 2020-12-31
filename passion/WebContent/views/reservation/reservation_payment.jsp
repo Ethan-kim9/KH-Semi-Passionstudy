@@ -230,10 +230,10 @@
               <div id="con" style="display: none;">
                 <span>카드 번호</span> 
                 <br>
-                <input type="text" name="card_info_first" class="card_info_first"> -
-                <input type="text" name="card_info_second" class="card_info_second"> -
-                <input type="text" name="card_info_third" class="card_info_third"> -
-                <input type="text" name="card_info_fourth" class="card_info_fourth">
+                <input type="number" name="card_info_first" class="card_info_first" maxlength="4" oninput="maxLengthCheck(this)"> -
+                <input type="password" name="card_info_second" class="card_info_second" maxlength="4"> -
+                <input type="password" name="card_info_third" class="card_info_third" maxlength="4"> -
+                <input type="number" name="card_info_fourth" class="card_info_fourth" maxlength="4" oninput="maxLengthCheck(this)">
                 <br>
                 <span>유효기간</span>
                 <br>
@@ -310,5 +310,5 @@
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>
-  </html>
+</html>
 
