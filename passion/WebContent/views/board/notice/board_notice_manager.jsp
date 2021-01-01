@@ -46,15 +46,17 @@
             </button>
           </div>
           <table class="table" id="main_table" width="50%">
-            <th><input type="checkbox" class="checkbox" /></th>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회</th>
+	         <tr>  
+	            <th><input type="checkbox" class="checkbox" /></th>
+	            <th>번호</th>
+	            <th>제목</th>
+	            <th>작성자</th>
+	            <th>작성일</th>
+	            <th>조회</th>
+	         </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
-              <th><input type="checkbox" class="checkbox" /></th>
+              <td><input type="checkbox" class="checkbox" /></td>
               <td>공지</td>
               <td>개인정보처리방침 개정 내용 사전안내</td>
               <td>관리자</td>

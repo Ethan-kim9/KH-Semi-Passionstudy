@@ -41,10 +41,12 @@
             >
           </div>
           <table class="table" id="main_table" width="50%">
-            <th>NO</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
+            <tr>
+	            <th>NO</th>
+	            <th>제목</th>
+	            <th>작성자</th>
+	            <th>작성일</th>
+            </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
               <td>2</td>
