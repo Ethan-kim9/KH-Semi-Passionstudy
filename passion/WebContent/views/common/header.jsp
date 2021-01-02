@@ -46,22 +46,22 @@
               	<a href="index.jsp"><span>메인</span></a>
               </li>
               <li class="roomlist">	
-              	<a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><span>시설소개</span></a>
+              	<a href="menu.facilitiesRooms"><span>시설소개</span></a>
               </li>
               <li class="guide">
-              	<a href="index.jsp?inc=./views/facilities/facilities_extra.jsp"><span>이용안내</span></a>
+              	<a href="menu.facilitiesExtra"><span>이용안내</span></a>
               </li>
               <li class="reserve">
-                <a href="index.jsp?inc=./views/reservation/reservation.jsp"><span>예약/결제</span></a>
+                <a href="menu.Reservation"><span>예약/결제</span></a>
               </li>
               <li class="community">
-                <a href="index.jsp?inc=./views/board/notice/board_notice.jsp"><span>커뮤니티</span></a>
+                <a href="menu.Board"><span>커뮤니티</span></a>
               </li>
               <li class="mypage">
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><span>마이페이지</span></a>
+                <a href="menu.MyPage"><span>마이페이지</span></a>
               </li>
               <li class="login">
-                <a href="index.jsp?inc=./views/member/member_login.jsp"><span>로그인</span></a>
+                <a href="menu.Login"><span>로그인</span></a>
               </li>
               <div class="floting_bar" style="left: 430px"></div>
             </ul>
