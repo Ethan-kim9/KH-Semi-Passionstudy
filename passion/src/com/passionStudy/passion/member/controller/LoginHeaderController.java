@@ -1,4 +1,4 @@
-package com.passionStudy.passion.facilities.controller;
+package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FacilitiesRoomsPageController
+ * Servlet implementation class LoginHeaderController
  */
-@WebServlet("/menu.facilitiesRooms")
-public class FacilitiesRoomsPageController extends HttpServlet {
+@WebServlet("/menu.Login")
+public class LoginHeaderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FacilitiesRoomsPageController() {
+    public LoginHeaderController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class FacilitiesRoomsPageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/facilities/facilities_rooms.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp?inc=./views/member/member_login.jsp").forward(request, response);
 	}
 
 	/**
