@@ -9,9 +9,9 @@
   </head>
 <%
 	int qna_no = 1;
-	String qna_title = request.getParameter("title");
-	String qna_writer = request.getParameter("writer");
-	String qna_content = request.getParameter("content");
+	String qna_title = request.getParameter("qna_title");
+	String qna_writer = request.getParameter("qna_writer");
+	String qna_content = request.getParameter("qna_content");
 	String qna_date = "2021-01-02";
 %>
   <body>

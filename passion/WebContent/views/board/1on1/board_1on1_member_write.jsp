@@ -30,10 +30,10 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/1on1/board_1on1.jsp" method="post">
+            <form id="board_form_title" action="index.jsp?inc=./views/board/1on1/insert.jsp" method="post">
               <input
                 type="text"
-                name="title"
+                name="qna_title"
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
@@ -42,7 +42,7 @@
                 <textarea
                   class="form-control"
                   rows="10"
-                  name="content"
+                  name="qna_content"
                   placeholder="내용을 입력해주세요"
                   required
                 ></textarea>
