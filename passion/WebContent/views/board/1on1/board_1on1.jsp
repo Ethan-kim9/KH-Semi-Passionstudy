@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
   </head>
+<%
+	int qna_no = 1;
+	String qna_title = request.getParameter("title");
+	String qna_writer = request.getParameter("writer");
+	String qna_content = request.getParameter("content");
+	String qna_date = "2021-01-02";
+%>
   <body>
 
     <div class="cont_header">
@@ -34,7 +42,7 @@
       <div id="board">
         <div id="board_main">
           <div id="buttons">
-            <a href="1대1문의(글쓰기).html">
+            <a href="index.jsp?inc=./views/board/1on1/board_1on1_member_write.jsp">
               <button type="button" class="write_btn yb" style="float: none">
                 문의하기
               </button></a
@@ -49,10 +57,10 @@
             </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
-              <td>2</td>
-              <td>단체예약 문의드립니다.</td>
-              <td>김열정</td>
-              <td>2020-12-25</td>
+              <td><%=qna_no %></td>
+              <td><%=qna_title %></td>
+              <td><%=qna_writer %></td>
+              <td><%=qna_date %></td>
             </tr>
             <!-- 첫번째 줄 끝-->
             <tr>
