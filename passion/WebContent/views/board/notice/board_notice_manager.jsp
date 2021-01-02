@@ -36,7 +36,7 @@
       <div id="board">
         <div id="board_main">
           <div id="buttons">
-            <a href="notice(관리자글쓰기).html">
+            <a href="index.jsp?inc=./views/board/notice/board_notice_manager_write.jsp">
               <button type="button" class="write_btn yb" style="float: none">
                 글쓰기
               </button></a
