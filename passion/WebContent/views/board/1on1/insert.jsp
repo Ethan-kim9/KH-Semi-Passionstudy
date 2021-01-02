@@ -27,7 +27,7 @@
 		stmt=con.createStatement();
 		String sql = "INSERT INTO QNA_BOARD"+
 					"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE)"+
-					"VALUES(9, '작성자1', '"+board_title+"', '"+board_content+"', SYSDATE)";
+					"VALUES(QNA_BOARD_SEQ.NEXTVAL, '작성자1', '"+board_title+"', '"+board_content+"', SYSDATE)";
 		int result = stmt.executeUpdate(sql);
 		
 		if (result==1) {

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,9 +8,9 @@
   </head>
 <%
 	int qna_no = 1;
-	String qna_title = request.getParameter("title");
-	String qna_writer = request.getParameter("writer");
-	String qna_content = request.getParameter("content");
+	String qna_title = request.getParameter("qna_title");
+	String qna_writer = request.getParameter("qna_writer");
+	String qna_content = request.getParameter("qna_content");
 	String qna_date = "2021-01-02";
 %>
   <body>
@@ -26,10 +25,10 @@
 <div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice.jsp"><button class="btn1">공지사항</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq.jsp"><button class="btn2">자주하는 질문</button></a>
+            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
             <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3 on">1:1문의</button></a>

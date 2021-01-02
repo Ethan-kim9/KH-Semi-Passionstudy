@@ -18,7 +18,7 @@
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="mypage_my_coupon.jsp"><button class="first-teb-button on">내 쿠폰</button></a>
+              <button class="first-teb-button on" style="cursor:not-allowed; pointer-events:none;">내 쿠폰</button>
             </li>
           </ul>
         </div>

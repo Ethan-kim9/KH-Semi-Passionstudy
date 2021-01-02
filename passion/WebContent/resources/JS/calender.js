@@ -1,6 +1,7 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         buildCalendar();
+		document.getElementById("selectCalendarDate").value = today.getFullYear()+autoLeftPad(today.getMonth() + 1,2) + autoLeftPad(date.getDate(),2);
       });
 
       var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
@@ -38,13 +39,11 @@
         let doMonth = new Date(today.getFullYear(), today.getMonth(), 1);
         let lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
+		
         let tbCalendar = document.querySelector(".scriptCalendar > tbody");
 
         document.getElementById("calYear").innerText = today.getFullYear(); // @param YYYY월
-        document.getElementById("calMonth").innerText = autoLeftPad(
-          today.getMonth() + 1,
-          2
-        ); // @param MM월
+        document.getElementById("calMonth").innerText = autoLeftPad(today.getMonth() + 1,2 ); // @param MM월
 
         // @details 이전 캘린더의 출력결과가 남아있다면, 이전 캘린더를 삭제한다.
         while (tbCalendar.rows.length > 0) {
@@ -109,8 +108,8 @@
                 column.style.color = "#A9A9A9";
               }
 
-              // @details 현재일보다 이후이면서 2주 뒤를 포함되는 일인경우
-              else if (date.getDate() < day && date.getDate()+14 >= day) {
+              // @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
+              else if (date.getDate() < day && lastDate.getDate() >= day) {
                 column.style.backgroundColor = "#FFFFFF";
                 column.style.cursor = "pointer";
                 column.onclick = function () {
@@ -118,18 +117,12 @@
                 };
               }
 
-			  // @details 현재일의 2주 뒤 이후이면서 현재월을 포함되는 일인경우
-			  else if (date.getDate()+14 < day && lastDate.getDate() >= day) {
-                column.style.backgroundColor = "#E5E5E5";
-                column.style.color = "#A9A9A9";
-              }	
-
               // @details 현재일인 경우
               else if (date.getDate() == day) {
                 column.style.backgroundColor = "#FFFFE6";
                 column.style.cursor = "pointer";
                 column.onclick = function () {
-                  calendarChoiceDay(this);
+                 calendarChoiceDay(this);
                 };
               }
 
@@ -144,8 +137,11 @@
             // @details 현재월보다 이후인경우
             else {
               if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-                column.style.backgroundColor = "#E5E5E5";
-                column.style.color = "#A9A9A9";
+                column.style.backgroundColor = "#FFFFFF";
+                column.style.cursor = "pointer";
+                column.onclick = function () {
+                 calendarChoiceDay(this);
+                };
               }
             }
           }
@@ -164,7 +160,7 @@
               column.style.backgroundColor = "#FFFFFF";
               column.style.cursor = "pointer";
               column.onclick = function () {
-                calendarChoiceDay(this);
+	             calendarChoiceDay(this);
               };
             }
           }
@@ -178,14 +174,11 @@
        * @details 사용자가 선택한 날짜에 체크표시를 남긴다.
        */
       function calendarChoiceDay(column) {
+		document.getElementById("selectCalendarDate").value = today.getFullYear()+autoLeftPad(today.getMonth() + 1,2) + column.innerText;
         // @param 기존 선택일이 존재하는 경우 기존 선택일의 표시형식을 초기화 한다.
         if (document.getElementsByClassName("choiceDay")[0]) {
-          document.getElementsByClassName(
-            "choiceDay"
-          )[0].style.backgroundColor = "#FFFFFF";
-          document
-            .getElementsByClassName("choiceDay")[0]
-            .classList.remove("choiceDay");
+          document.getElementsByClassName("choiceDay")[0].style.backgroundColor = "#FFFFFF";
+          document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
         }
 
         // @param 선택일 체크 표시

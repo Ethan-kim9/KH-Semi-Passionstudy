@@ -76,7 +76,7 @@
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='./onclick/mypage_reservation_detail.jsp'"
+                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'"
                   >
                     상세조회
                   </button>
@@ -128,8 +128,7 @@
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='./onclick/mypage_reservation_detail.jsp'"
-                  >
+                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'">
                     상세조회
                   </button>
                 </td>

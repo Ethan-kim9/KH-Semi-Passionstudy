@@ -18,7 +18,7 @@
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="mypage_point.jsp"><button class="first-teb-button on">내 포인트</button></a>
+              <button class="first-teb-button on" style="cursor:not-allowed; pointer-events:none;">내 포인트</button>
             </li>
           </ul>
         </div>

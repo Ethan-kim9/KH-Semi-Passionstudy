@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
+	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
   </head>
 
   <body>
@@ -149,7 +150,7 @@
             <tr>
               <td class="reservation_information_subtitle">예약날짜</td>
               <td class="reservation_information_result">
-                2020.00.00 (월) 0시 ~ 0시
+                ${param.room_no } .00.00 (월) 0시 ~ 0시
               </td>
             </tr>
             <tr>
@@ -161,7 +162,7 @@
         <div class="reseller_information">
           <h5 class="reseller_information_title">예약자 정보</h5>
           <hr class="line" />
-          <form action="">
+          <form name='formInfoData' method='post'>
             <table class="reseller_information_content">
               <tr>
                 <td colspan="2"></td>
@@ -171,7 +172,7 @@
                 <td class="reseller_information_textbox">
                   <input
                     type="text"
-                    name="name"
+                    name="reservationName"
                     class="reseller"
                     placeholder="이름을 적어주세요."
                     required
@@ -217,8 +218,7 @@
                     name="feedback"
                     rows="10"
                     cols="100"
-                    placeholder="남기고 싶은 말을 적어주세요."
-                  >
+                    placeholder="남기고 싶은 말을 적어주세요.">
                   </textarea>
                 </td>
               </tr>
@@ -295,13 +295,27 @@
                   </textarea>
               </li>
             </ul>
+	 		<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='text' name='userID' value='${param.userID }'/>
+			<input type='text' name='room_no' value='${param.room_no }'/>
+			<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
+			<input type='text' name='SecondTimeData' value='${param.SscondTimeData }'/>
+			<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
+			<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
+			<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
+			<input type='text' name='lastTimeData' value='${param.lastTimeData }'/>
+			<input type='text' name='countUsers' value='${param.countUsers }'/>
+			<input type='text' name='monitor' value='${param.monitor }'/>
+			<input type='text' name='computer' value='${param.computer }'/>
+			<input type='text' name='projector' value='${param.projector }'/>
           </form>
         </div>
         <div class="next_button">
-          <a href="index.jsp?inc=./views/reservation/reservation_payment.jsp"><button class="next">다음단계</button></a>
+          <input type='button' class="next" id='userinfo_to_payment' value='다음단계'/>
         </div>
       </div>
     </section>
   </body>
+  <script>reservation_change_page()</script>
   <script src="resources/JS/pagesjs/reservation_userinfo.js"></script>
 </html>
