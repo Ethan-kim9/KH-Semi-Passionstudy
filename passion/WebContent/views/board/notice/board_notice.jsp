@@ -18,13 +18,13 @@
       <div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="javascript:void(0);" onclick="fn_goMove('./views/board/notice/board_notice_manager.jsp')"><button class="btn1 on">공지사항</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1 on">공지사항</button></a>
           </li>
           <li>
-            <a href="javascript:void(0);" onclick="fn_goMove('./views/board/1on1/board_faq_manager.jsp')"><button class="btn2">자주하는 질문</button></a>
+            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
-            <a href="javascript:void(0);" onclick="fn_goMove('./views/board/1on1/board_1on1.jsp')"><button class="btn3">1:1문의</button></a>
+            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
           </li>
         </ul>
       </div>
@@ -74,16 +74,6 @@
       </div>
     </section>
 
-<form id="testFrm" name="testFrm" method="post">
-	<input type="hidden" id="inc" name="inc" value="./views/board/faq/board_faq.jsp"/>
-</form>
-<script>
-	function fn_goMove(url){
-		document.getElementById("inc").value = url;
-		document.getElementById("testFrm").action = "./index.jsp";
-		document.getElementById("testFrm").submit();
-	}
-</script>
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

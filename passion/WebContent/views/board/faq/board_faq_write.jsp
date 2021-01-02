@@ -18,10 +18,10 @@
 <div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice.jsp"><button class="btn1">공지사항</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq.jsp"><button class="btn2 on">자주하는 질문</button></a>
+            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2 on">자주하는 질문</button></a>
           </li>
           <li>
             <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
