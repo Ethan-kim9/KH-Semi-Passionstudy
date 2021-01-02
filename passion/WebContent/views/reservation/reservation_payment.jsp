@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
+	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
   </head>
   
     <body>  
@@ -307,6 +308,25 @@
         
       </div>
     </section>
+		<input type='text' name='userID' value='${param.userID }'/>
+		<input type='text' name='room_no' value='${param.room_no }'/>
+		<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
+		<input type='text' name='SecondTimeData' value='${param.SscondTimeData }'/>
+		<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
+		<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
+		<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
+		<input type='text' name='lastTimeData' value='${param.lastTimeData }'/>
+		<input type='text' name='countUsers' value='${param.countUsers }'/>
+		<input type='text' name='monitor' value='${param.monitor }'/>
+		<input type='text' name='computer' value='${param.computer }'/>
+		<input type='text' name='projector' value='${param.projector }'/>
+		<input type='text' name='reservationName' value='${param.reservationName }'/>
+		<input type='text' name='tel_first' value='${param.tel_first }'/>
+		<input type='text' name='tel_second' value='${param.tel_second }'/>
+		<input type='text' name='tel_third' value='${param.tel_third }'/>
+		<input type='text' name='email' value='${param.email }'/>
+		<input type='text' name='emailaddr' value='${param.emailaddr }'/>
+		<input type='text' name='feedback' value='${param.feedback }'/>
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>

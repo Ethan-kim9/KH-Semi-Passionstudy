@@ -225,7 +225,7 @@
       }
 
       /* 다음단계 버튼 */
-      .next_button button {
+      .next_button input {
         width: 100px;
         height: 40px;
         background-color: black;
@@ -237,12 +237,13 @@
         cursor: pointer;
         font-size: 15px;
       }
-      .next_button button:hover {
+      .next_button input:hover {
         background-color: #ffcc00;
         color: white;
       }
       
     </style>
+	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
   </head>
 
   <body>
@@ -557,12 +558,27 @@
         </tr>
         <tr>
           <td colspan="2" class="next_button">
-            <a href="index.jsp?inc=./views/reservation/reservation_userinfo.jsp"><button class="next">다음단계</button></a>
+          <input type='button' class="next" id='roominfo_to_userinfo' value='다음단계'/>
           </td>
         </tr>
       </table>
     </section>
+	<form name='formSqlData' method='post'>
+		<input type='text' name='userID' value='${param.userID }'/>
+		<input type='text' name='room_no' value='${param.room_no }'/>
+		<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
+		<input type='text' name='SecondTimeData' value='${param.SscondTimeData }'/>
+		<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
+		<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
+		<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
+		<input type='text' name='lastTimeData' value='${param.lastTimeData }'/>
+		<input type='text' name='countUsers' value='${param.countUsers }'/>
+		<input type='text' name='monitor' value='${param.monitor }'/>
+		<input type='text' name='computer' value='${param.computer }'/>
+		<input type='text' name='projector' value='${param.projector }'/>
+	</form>
   </body>
+  <script>reservation_change_page()</script>
   <script type="text/javascript">
 	function getItem() {
 		var i = document.getElementByName('count').value;

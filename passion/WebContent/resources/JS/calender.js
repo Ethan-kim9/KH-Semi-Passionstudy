@@ -109,20 +109,14 @@
                 column.style.color = "#A9A9A9";
               }
 
-              // @details 현재일보다 이후이면서 2주 뒤를 포함되는 일인경우
-              else if (date.getDate() < day && date.getDate()+14 >= day) {
+              // @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
+              else if (date.getDate() < day && lastDate.getDate() >= day) {
                 column.style.backgroundColor = "#FFFFFF";
                 column.style.cursor = "pointer";
                 column.onclick = function () {
                   calendarChoiceDay(this);
                 };
               }
-
-			  // @details 현재일의 2주 뒤 이후이면서 현재월을 포함되는 일인경우
-			  else if (date.getDate()+14 < day && lastDate.getDate() >= day) {
-                column.style.backgroundColor = "#E5E5E5";
-                column.style.color = "#A9A9A9";
-              }	
 
               // @details 현재일인 경우
               else if (date.getDate() == day) {
@@ -144,8 +138,11 @@
             // @details 현재월보다 이후인경우
             else {
               if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-                column.style.backgroundColor = "#E5E5E5";
-                column.style.color = "#A9A9A9";
+                column.style.backgroundColor = "#FFFFFF";
+                column.style.cursor = "pointer";
+                column.onclick = function () {
+                  calendarChoiceDay(this);
+                };
               }
             }
           }
@@ -194,6 +191,7 @@
         // @param 선택일 클래스명 변경
 
         column.classList.add("choiceDay");
+		
       }
 
       /**

@@ -34,7 +34,9 @@
           <td>토</td>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+      <input type='text' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+      </tbody>
     </table>
   </body>
   <script src="../../resources/JS/calender.js"></script>
