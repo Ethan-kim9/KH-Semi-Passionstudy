@@ -88,16 +88,14 @@
             <!-- 두번째 줄 끝-->
           </table>
           <div class="search_bar">
-            <input type="checkbox" id="name" name="name"/>
-            <label for="name">이름　</label>
-            <input type="checkbox" name="title" />
-            <label for="title">제목　</label>
-            <input type="checkbox" name="contents" />
-            <label for="contents">내용　</label>
-            <input type="text" id="search-box" />
-            <button type="button" class="search-btn yb" style="float: none;">
-              검색
-            </button>
+            <select name="f">
+              <option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
+              <option ${(param.f == "title")?"selected":""} value="noticeContent">내용</option>
+            </select>
+          <input type="text" name="q" value="${param.q}" id="search-box" />
+          <button type="button" class="search-btn yb" style="float: none;">
+            검색
+          </button>
           </div>
         </div>
       </div>
