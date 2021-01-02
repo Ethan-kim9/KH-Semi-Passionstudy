@@ -22,7 +22,7 @@
     </div>
 
     <div class="tabtype">
-<div class="tabtype_wrapper" style="text-align: center;">
+	<div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
             <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>

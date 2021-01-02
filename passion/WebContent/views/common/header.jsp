@@ -41,6 +41,8 @@
 
         <div class="menu_wrapper">
           <nav id="PassionStudy_header_menu">
+          
+
             <ul id="menu-main" class="menu menu-main">
               <li class="main on">	
               	<a href="index.jsp"><span>메인</span></a>
@@ -58,11 +60,24 @@
                 <a href="menu.Board"><span>커뮤니티</span></a>
               </li>
               <li class="mypage">
+              <% if(session.getAttribute("adminCheck") == "A"){%>
+              <a href="menu.Manager"><span>관리 페이지</span></a>
+              <% } else{%>
                 <a href="menu.MyPage"><span>마이페이지</span></a>
-              </li>
+                <% } %>
+              <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
+            </li>
+            
+            
               <li class="login">
-                <a href="menu.Login"><span>로그인</span></a>
+          <% if(session.getAttribute("memberId") == null){ %>
+          	<a href="menu.Login"><span>로그인</span></a>
+          	<% }else{%>
+          		<a href="menu.Logout"><span>로그아웃</span></a>
+          <%}%>
               </li>
+              <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->
+              
               <div class="floting_bar" style="left: 430px"></div>
             </ul>
           </nav>
