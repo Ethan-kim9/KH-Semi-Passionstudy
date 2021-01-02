@@ -3,16 +3,16 @@ package com.passionStudy.passion.manager.model.vo;
 import java.sql.Date;
 
 public class ManagerMemberVo {
-		private int memNo;				// 회원 식별자
+		private int	   memNo;		    // 회원 식별자
 		private String memId;			// 회원 아이디
 		private String memPwd;			// 회원 비밀번호
 		private String memName;			// 회원 이름
 		private String memPhone;		// 회원 전화번호
-		private Date   memDate;			// 회원 가입일
+		private Date   memDate;			// 회원 가입일 								-제거될수도?
 		private int    memRecomCount;	// 회원 추천횟수
 		private String memStatus;		// 회원 계정상태  B블라인드 N일반 D삭제된계정
 		private String memAdAgree;		// 회원 광고동의 여부 Y동의 N비동의
-		private String memRecomCode;	// 회원 추천번호 (이메일?)
+		private String memRecomCode;	// 회원 추천번호 (이메일?)					-제거될수도?
 		private int    memPoint;		// 회원 포인트
 		private String memToken1;		// 네이버 가입토큰
 		private String memToken2;		// 카카오 가입토큰
