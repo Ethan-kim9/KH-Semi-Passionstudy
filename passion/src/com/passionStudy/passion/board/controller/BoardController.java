@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class ReservationHeaderController
  */
 @WebServlet("/menu.Board")
-public class ReservationBoardController extends HttpServlet {
+public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReservationBoardController() {
+    public BoardController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class ReservationBoardController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager.jsp").forward(request, response);
 	}
 
 	/**
