@@ -318,7 +318,7 @@
               		<button class="fourth_time">15:00~17:00</button>
               	</li>
               	<li class="timetable">
-              		<span class="time_title">FiveTime</span><br>
+              		<span class="time_title">FifthTime</span><br>
               		<button class="five_time">17:00~19:00</button>
               	</li>
               	<li class="timetable">
