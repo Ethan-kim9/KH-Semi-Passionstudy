@@ -4,7 +4,6 @@
 <html>
   <head>
       <title>mypage- 1대1 문의</title>
-      <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -62,7 +61,7 @@
           <p>작성하신 문의 내역이 없습니다.</p>
         </div>
         <div class="go-inquery">
-          <a href="../board/1on1/board_1on1.jsp" class="go-inquery_button">
+          <a href="views/board/1on1/board_1on1.jsp" class="go-inquery_button">
             1:1문의하기
           </a>
         </div>
@@ -116,7 +115,7 @@
         </div>
 
         <div class="go-inquery">
-          <a href="../../board/1on1/board_1on1.jsp" class="go-inquery_button">
+          <a href="views/board/1on1/board_1on1.jsp" class="go-inquery_button">
             1:1문의하기
           </a>
         </div>
@@ -125,5 +124,4 @@
 
   </body>
   <script src="resources/JS/pagesjs/mypage_1on1_click.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
