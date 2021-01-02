@@ -295,6 +295,7 @@
                   </textarea>
               </li>
             </ul>
+	 		<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
 			<input type='text' name='userID' value='${param.userID }'/>
 			<input type='text' name='room_no' value='${param.room_no }'/>
 			<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
