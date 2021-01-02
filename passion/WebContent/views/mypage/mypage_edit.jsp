@@ -55,7 +55,7 @@
         <div class="edit-user-info">
           <div class="edit-user-header">
             <div class="edit-user-header_title">회원정보수정</div>
-            <a class="edit-user-header_withdrawal" href="onclick/mypage_withdrawal.jsp"
+            <a class="edit-user-header_withdrawal" href="views/mypage/onclick/mypage_withdrawal.jsp"
               >탈퇴하기</a
             >
           </div>
@@ -142,7 +142,7 @@
                   </div>
                 </div>
               </div>
-              <button class="edit-pwd-button">비밀번호 변경</button>
+              <a href="/passion/index.jsp?inc=./views/mypage/mypage.jsp"><button class="edit-pwd-button">비밀번호 변경</button></a>
             </form>
           </div>
         </div>

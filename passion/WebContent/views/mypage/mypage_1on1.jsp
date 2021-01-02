@@ -39,7 +39,7 @@
         <div class="container_mypage-management container_mypage-1on1">
           <ul>
             <li class="mypage-single-menu">
-              <button class="first-teb-button on">1:1 문의 내역</button>
+              <button class="first-teb-button on" style="cursor:not-allowed; pointer-events:none;">1:1 문의 내역</button>
             </li>
           </ul>
         </div>
