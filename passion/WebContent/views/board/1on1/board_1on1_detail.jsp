@@ -29,7 +29,6 @@
 		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
 		stmt = conn.createStatement(); //Statment타입의 객체 생성
 		String sql = "SELECT QNA_TITLE, QNA_WRITER, QNA_CONTENT, QNA_DATE FROM QNA_BOARD WHERE QNA_NO=" + idx; // board테이블에 있는 no,title,writer,date 값을 가져오되 
-		String sqlDelete ="UPDATE FROM QNA_BOARD WHERE QNA_NO=" + idx;
 		result = stmt.executeQuery(sql); // SQL실행
 		if(result.next()); {
 			String title = result.getString(1);

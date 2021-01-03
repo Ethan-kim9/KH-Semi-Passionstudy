@@ -37,9 +37,5 @@
 		out.println(e.toString());
 	}	
 %>
-<script>
-	self.window.alert("해당 글을 삭제하였습니다.");
-	location.href="index.jsp?inc=./views/board/1on1/board_1on1.jsp";
-</script>
 </body>
 </html>
