@@ -12,6 +12,9 @@
         <h1>커뮤니티</h1>
       </div>
     </div>
+	
+	<div class="tabtype">
+    </div>
 
     <section>
       <div id="board">

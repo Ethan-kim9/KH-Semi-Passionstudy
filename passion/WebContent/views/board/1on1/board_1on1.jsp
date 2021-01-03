@@ -1,19 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
   </head>
-<%
-	int qna_no = 1;
-	String qna_title = request.getParameter("qna_title");
-	String qna_writer = request.getParameter("qna_writer");
-	String qna_content = request.getParameter("qna_content");
-	String qna_date = "2021-01-02";
-%>
   <body>
+<%
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String id = "passion";
+	String pw = "passion";
+	int total = 0;
+	
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet result = null;
+	
+	try {
+		Class.forName(driver); // JDBC드라이버 로딩
+		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
+		stmt = conn.createStatement(); //Statment타입의 객체 생성
+		String sqlCount = "SELECT COUNT(*) FROM QNA_BOARD"; //DB내의 자료개수를 찾는 SQL문
+		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE FROM QNA_BOARD ORDER BY QNA_NO DESC"; // board테이블에 있는 no,title,writer,date 값을 가져오되 no 기준으로 내림차순 정렬
+		result = stmt.executeQuery(sqlCount); // SQL실행
+		
+		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
+			total = result.getInt(1); //자료의 개수를 total에 대입한다
+		}
+		result = stmt.executeQuery(sqlList);
+
+%>
 
     <div class="cont_header">
       <div class="cont_wrapper">
@@ -54,24 +73,40 @@
 	            <th>작성자</th>
 	            <th>작성일</th>
             </tr>
-            <tr>
-              <!-- 첫번째 줄 시작-->
-              <td><%=qna_no %></td>
-              <td><%=qna_title %></td>
-              <td><%=qna_writer %></td>
-              <td><%=qna_date %></td>
-            </tr>
-            <!-- 첫번째 줄 끝-->
-            <tr>
-              <!-- 두번째 줄 시작-->
-              <td>1</td>
-              <td>
-                <img src="resources/images/icon/1on1_answer.gif"/> 안녕하세요 고객님, 답변드립니다.
-              </td>
-              <td>관리자</td>
-              <td>2020-12-25</td>
-            </tr>
-            <!-- 두번째 줄 끝-->
+<%
+	if(total == 0) { // total 즉 , 자료가 없다면
+%>
+			<tr align="center" bgcolor="#FFFFFF" height="30">
+				<td colspan="4">등록된 글이 없습니다</td>
+			</tr>
+<%
+	} else { // total이 0이 아닌 즉, 자료가 1개이상 있다면
+		
+			while(result.next()) {
+				int no = result.getInt(1); //1은 첫번째 즉 qna_num값을 no라는 변수에 대입
+				String title = result.getString(2); // qna_title
+				String writer = result.getString(3); // qna_writer
+				String date = result.getString(4); // qna_date
+
+%>
+			<tr>
+				<td><%=no %></td>
+				<td><a href="index.jsp?inc=./views/board/1on1/board_1on1_detail.jsp?idx=<%=no %>"><%=title %></a></td>
+				<td><%=writer %></td>
+				<td><%=date %></td>
+			</tr>
+	
+<%
+			} //while
+	} // else
+	result.close();
+	stmt.close();
+	conn.close();
+	} catch(SQLException e) {
+		out.println(e.toString()); // 에러 날 경우 에러출력
+	}
+
+%>
           </table>
         </div>
       </div>
