@@ -28,14 +28,16 @@
 		Class.forName(driver); // JDBC드라이버 로딩
 		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
 		stmt = conn.createStatement(); //Statment타입의 객체 생성
-		String sql = "SELECT QNA_TITLE, QNA_WRITER, QNA_CONTENT, QNA_DATE FROM QNA_BOARD WHERE QNA_NO=" + idx; // board테이블에 있는 no,title,writer,date 값을 가져오되 
+		String sql = "SELECT QNA_TITLE, QNA_WRITER, QNA_CONTENT, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD WHERE QNA_NO=" + idx; // board테이블에 있는 no,title,writer,date 값을 가져오되 
 		result = stmt.executeQuery(sql); // SQL실행
 		if(result.next()); {
 			String title = result.getString(1);
 			String writer = result.getString(2);
 			String content = result.getString(3);		
 			String date = result.getString(4);		
-
+			String answerTitle = result.getString(5); //answer_title
+			String answerContent = result.getString(6); //answer_content
+			int boardAnswer = result.getInt(7); // board_answer
 %>
 
 <div class="cont_header">
@@ -51,16 +53,11 @@
       <div id="board">
         <div id="board_main">
             <div id="another_buttons">
-                <input type="button" value="수정" class="remove_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_member_modifyWrite.jsp?idx=<%=idx%>'">
-                <input type="button" value="삭제" class="remove_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/delete.jsp?idx=<%=idx%>'">
+                <input type="button" value="수정" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_member_modifyWrite.jsp?idx=<%=idx%>'">
+                <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/delete.jsp?idx=<%=idx%>'">
+                <input type="button" value="답변달기" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_manager_write.jsp?idx=<%=idx%>'">
               </div>
           <table class="table" id="table_title">
-            <tr>
-              <th>번 호</th>
-              <td><%=idx %></td>
-              <td></td>
-              <td></td>
-            </tr>
             <tr>
             <tr>
               <th>제　목</th>
@@ -96,11 +93,16 @@
               <%=content %>
             </p>
           </div>
+<%
+	if(boardAnswer != 0) {
+%>
           <table>
-            <th><a href="board_1on1_manager_inner.html" style="text-decoration: none;"><strong>[답변완료]　
+
+            <th><a href="index.jsp?inc=./views/board/1on1/board_1on1_manager_detail.jsp?idx=<%=idx%>" style="text-decoration: none;"><strong>[답변완료]　
               <img src="resources/images/icon/1on1_answer.gif">
-              　안녕하세요 고객님, 답변드립니다.
+              　		<%=answerTitle %>
             </strong></a></th>
+
             <tr>
               <td></td>
               <td></td>
@@ -109,6 +111,9 @@
             </tr>
 
           </table>
+<%
+	}
+%>
         </div>
       </div>
     </section>

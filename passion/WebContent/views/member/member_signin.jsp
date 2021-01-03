@@ -171,7 +171,7 @@
                           />
                         </span>
                       </div>
-                      <button type="button" class="btn_next_step sign_btn_1" onclick=" ">
+                      <button type="button" class="btn_next_step sign_btn_1" onclick="sendIt();">
                         동의하고 가입하기
                       </button>
 
@@ -216,7 +216,7 @@
                           </p>
                       </div>
 
-                      <button type="submit" class="btn_next_step sign_btn_2">다음</button>
+                      <button type="button" class="btn_next_step sign_btn_2" onclick="sendIt();">다음</button>
 
                   </li>
               </ul>
@@ -268,7 +268,7 @@
                         </p>
                       </div>
 
-                          <button type="button" class="btn_next_step sign_btn_3">다음</button>
+                          <button type="button" class="btn_next_step sign_btn_3" onclick="sendIt();">다음</button>
 
                   </li>
               </ul>
@@ -323,7 +323,7 @@
                               </p>
                           </div>
                       </div>
-                          <button type="button" class="btn_next_step sign_btn_4">다음</button>
+                          <button type="button" class="btn_next_step sign_btn_4" onclick="sendIt();">다음</button>
                   </li>
               </ul>
           </div>
@@ -354,10 +354,10 @@
                                   추천자, 추천인 모두에게 1000포인트 지급
                               </li>
                           </ul>
-                        <button type="button" class="btn_next_step on verify_info btn_fix sign_btn_6">
+                        <button type="button" class="btn_next_step on verify_info btn_fix sign_btn_6" onclick="sendIt();">
                                   혜택 없이 계속 가입하기
                         </button>
-                        <button type="button" class="btn_next_step on verify_info sign_btn_5">
+                        <button type="button" class="btn_next_step on verify_info sign_btn_5" onclick="sendIt();">
                                   추천인 입력하고 혜택받기
                         </button>
                       </div>
@@ -386,7 +386,7 @@
                               </div>
                           </div>
                       </div>
-                          <button type="button" class="btn_next_step sign_btn_7">다음</button>
+                          <button type="button" class="btn_next_step sign_btn_7" onclick="sendIt();">다음</button>
 
                   </li>
               </ul>
@@ -424,7 +424,7 @@
                           <div class="login_dsc">
                               <!-- 로그인 화면 링크 -->
                               <a href="index.jsp?inc=./views/member/member_login.jsp" class="member_go">
-                                  <input type="submit" class="btn_next_step" value="로그인 하기"></button>
+                                  <input type="button" class="btn_next_step" value="로그인 하기"></button>
                               </a>
                           </div>
                       </div>
