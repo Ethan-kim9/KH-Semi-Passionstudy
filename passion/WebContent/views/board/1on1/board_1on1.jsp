@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -24,7 +25,7 @@
 		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
 		stmt = conn.createStatement(); //Statment타입의 객체 생성
 		String sqlCount = "SELECT COUNT(*) FROM QNA_BOARD"; //DB내의 자료개수를 찾는 SQL문
-		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD ORDER BY QNA_NO DESC"; // board테이블에 있는 no,title,writer,date 값을 가져오되 no 기준으로 내림차순 정렬
+		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD"; // board테이블에 있는 no,title,writer,date 값을 가져오되 no 기준으로 내림차순 정렬
 		result = stmt.executeQuery(sqlCount); // SQL실행
 		
 		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
@@ -93,7 +94,7 @@
 %>
 			<tr>
 				<td><%=no %></td>
-				<td align="left"><a style="text-decoration: none;" href="index.jsp?inc=./views/board/1on1/board_1on1_detail.jsp?idx=<%=no %>"><%=title %></a></td>
+				<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/1on1/board_1on1_detail.jsp?idx=<%=no %>"><%=title %></a></td>
 				<td><%=writer %></td>
 				<td><%=date %></td>
 			</tr>	
