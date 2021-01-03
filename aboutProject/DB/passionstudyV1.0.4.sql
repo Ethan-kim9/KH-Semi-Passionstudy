@@ -19,7 +19,7 @@ CREATE TABLE "MEMBER" (
                           "MEMBER_NAME"      VARCHAR2(100)      		 		    NOT NULL,
                           "MEMBER_PHONE"     VARCHAR2(100)      			 		    NULL,
                           "MEMBER_DATE"      DATE DEFAULT SYSDATE            	    NOT NULL,
-                          "ADMIN_CHECK"      VARCHAR2(20)       DEFAULT 'Y'         NOT NULL,
+                          "ADMIN_CHECK"      VARCHAR2(20)       DEFAULT 'N'         NOT NULL,
                           "RECOM_COUNT"      NUMBER             DEFAULT 0           NOT NULL,
                           "MEMBER_STATUS"    VARCHAR2(20)       DEFAULT 'Y'   	        NULL,
                           "AD_AGREE"         VARCHAR2(20)       DEFAULT 'N'   	        NULL,
@@ -250,7 +250,7 @@ ALTER TABLE "RESERVATION" ADD CONSTRAINT "FK_PRODUCT_TO_RE" FOREIGN KEY ( "PRODU
 /* 12/29 민진 주영 게시판 DB테이블 수정*/
 
 /* 12/29일 NOTICE 테이블 수정: 1. 조회수 추가, 2. 글상태 삭제 */
-ALTER TABLE NOTICE ADD NOTICE_COUNT NUMBER DEFAILT 0; 
+ALTER TABLE NOTICE ADD NOTICE_COUNT NUMBER DEFAULT 0; 
 ALTER TABLE NOTICE DROP COLUMN NOTICE_CONDITION;
 
 /* 12/29일 FAQ 테이블 수정: 1. 조회수 삭제, 2. 글상태 삭제 */
