@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.passionStudy.web.entity.Notice;
-import com.newlecture.web.entity.NoticeView;
+import com.passionStudy.passion.board.noticeboard.model.vo.NoticeView;
+import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+
 
 public class NoticeService {
 		public int removeNoticeAll(int[] ids){
@@ -22,21 +23,20 @@ public class NoticeService {
 			
 			return 0;
 		}
-		public int insertNotice(Notice notice){
+		public int insertNotice(NoticeVo notice){
 			int result = 0;
 			
 			
-	    	String sql = "INSERT INTO NOTICE(TITLE, CONTENT, WRITER_ID, PUB) VALUES(?,?,?,?)";
+	    	String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, MEMBER_NO) VALUES(?,?,?)";
 	    	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection(url,"system","oracle");
+				Connection con = DriverManager.getConnection(url,"passion","passion");
 				PreparedStatement st = con.prepareStatement(sql);
-				st.setString(1, notice.getTitle());
-				st.setString(2, notice.getContent());
-				st.setString(3, notice.getWriterId());
-				st.setBoolean(4, notice.getPub());
+				st.setString(1, notice.getNoticeTitle());
+				st.setString(2, notice.getNoticeContent());
+				st.setInt(3, notice.getMemberNo());
 				
 				result = st.executeUpdate();	
 				
@@ -57,23 +57,23 @@ public class NoticeService {
 			
 			return 0;
 		}
-		public int updateNotice(Notice notice){
+		public int updateNotice(NoticeVo notice){
 			
 			return 0;
 		}
-		List<Notice> getNoticeNewestList(){
+		List<NoticeVo> getNoticeNewestList(){
 			
 			return null;
 		}
 		
 		
 		public List<NoticeView> getNoticeList(){
-			return getNoticeList("title", "", 1);
+			return getNoticeList("noticeTitle", "", 1);
 		
 		}
 		
 		public List<NoticeView> getNoticeList(int page){
-			return getNoticeList("title", "", page);
+			return getNoticeList("noticeTitle", "", page);
 		
 		}
 		
@@ -93,7 +93,7 @@ public class NoticeService {
 				
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection(url,"system","oracle");
+				Connection con = DriverManager.getConnection(url,"passion","passion");
 				PreparedStatement st = con.prepareStatement(sql);
 				st.setString(1, "%"+query+"%");
 				st.setInt(2, 1+(page-1)*10);
@@ -101,26 +101,20 @@ public class NoticeService {
 				ResultSet rs = st.executeQuery();	
 				
 			while(rs.next()) {
-				int id = rs.getInt("id");
-				String title = rs.getString("TITLE");
-				String writerId = rs.getString("WRITER_ID");
+				int noticeId = rs.getInt("NOTICE_NO");
+				String noticeTitle = rs.getString("NOTICE_TITLE");
+				int memberNo = rs.getInt("MEMBER_NO");
 				Date regdate = rs.getDate("REGDATE");
-				int hit = rs.getInt("HIT");
-				String files = rs.getString("FILES");
+				int noticeCount = rs.getInt("noticeCount");
 				//String content = rs.getString("CONTENT");
-				int cmtCount = rs.getInt("CMT_COUNT");
-				boolean pub = rs.getBoolean("PUB");
 				
-			NoticeView notice = new NoticeView(
-					id, 
-					title,
-					writerId,
+			NoticeVo noticevo = new NoticeVo(
+					noticeId, 
+					noticeTitle,
+					memberNo,
 					regdate,
-					hit,
-					files,
-					pub,
-					//content,
-					cmtCount
+					noticeCount
+					//content
 					);
 			list.add(notice);
 			}
@@ -178,8 +172,8 @@ public class NoticeService {
 			return count;
 		}
 		
-		public Notice getNotice(int id) { //게시글 번호
-			Notice notice = null;
+		public NoticeVo getNotice(int id) { //게시글 번호
+			NoticeVo noticevo = null;
 			
 			String sql = "SELECT * FROM NOTICE WHERE ID=?";
 			
@@ -194,24 +188,20 @@ public class NoticeService {
 				ResultSet rs = st.executeQuery();	
 				
 			if(rs.next()) {
-				int nid = rs.getInt("ID");
-				String title = rs.getString("TITLE");
-				String writerId = rs.getString("WRITER_ID");
+				int  noticeNo= rs.getInt("NOTICE_NO");
+				String noticeTitle = rs.getString("NOTICE_TITLE");
+				int memberNo = rs.getInt("MEMBER_NO");
 				Date regdate = rs.getDate("REGDATE");
-				int hit = rs.getInt("HIT");
-				String files = rs.getString("FILES");
+				int noticeCount = rs.getInt("NOTICE_COUNT");
 				String content = rs.getString("CONTENT");
-				boolean pub = rs.getBoolean("PUB");
-				
-				notice = new Notice(
-						nid, 
-						title,
-						writerId,
+
+				noticevo = new NoticeVo(
+						noticeNo, 
+						noticeTitle,
+						memberNo,
 						regdate,
-						hit,
-						files,
-						content,
-						pub
+						noticeCount,
+						content
 						);
 			
 			}
@@ -226,11 +216,11 @@ public class NoticeService {
 
 			e.printStackTrace();
 		}
-			return notice;
+			return noticevo;
 		}
 		
-		public Notice getNextNotice(int id){ 
-			Notice notice = null;
+		public NoticeVo getNextNotice(int id){ 
+			NoticeVo noticevo = null;
 
 	    	String sql = "SELECT * FROM NOTICE "
 	    				+ "WHERE ID = "
@@ -258,7 +248,7 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				boolean pub = rs.getBoolean("PUB");
 				
-				notice = new Notice(
+				noticevo = new NoticeVo(
 						nid, 
 						title,
 						writerId,
@@ -310,7 +300,7 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				boolean pub = rs.getBoolean("PUB");
 				
-				notice = new Notice(
+				noticevo = new NoticeVo(
 						nid, 
 						title,
 						writerId,
