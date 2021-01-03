@@ -7,35 +7,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
+
 /**
  * Servlet implementation class ReservationHeaderController
  */
-@WebServlet("/menu.Board")
-public class BoardController extends HttpServlet {
+@WebServlet("/FAQWriteController")
+public class FAQWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BoardController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_notice_list_manager.jsp").forward(request, response);
+		//전달받은 값의 인코딩 타입을 세팅합니다.
+		request.setCharacterEncoding("EUC-KR");
+		//데이터 베이스 접근을 담당하는 DAO에 INSERT 를 호출합니다.
+		FAQBoardDao.insert(request, response);
+		//데이터 베이스 접근을 담당하는 DAO에 SELECT 를 호출합니다.
+		FAQBoardDao.select(request, response);
+		//request에 값을 담아 View페이지로 이동 합니다.
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// POST로 데이터가 올 경우, doGet에서 처리합니다.
 		doGet(request, response);
 	}
 
 }
+
+// 테스트중.......

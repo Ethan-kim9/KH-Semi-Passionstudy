@@ -3,70 +3,71 @@ package com.passionStudy.passion.board.faqboard.model.vo;
 import java.util.Date;
 
 public class FaqBoardVo {
-		private int faqNo; //자주묻는질문 식별자
-		private String faqCategory;//자주묻는질문 카테고리
-		private String faqTitle; //자주묻는질문 제목
-		private String faqContent; //자주묻는질문 내용
-		private Date faqRegdate; //작성일
+		private int faq_No; //자주묻는질문 식별자
+		private String faq_Category;//자주묻는질문 카테고리
+		private String faq_Title; //자주묻는질문 제목
+		private String faq_Content; //자주묻는질문 내용
+		private Date faq_Regdate; //작성일
 		
 		public FaqBoardVo() {
 			
 		}
 
-		public FaqBoardVo(int faqNo, String faqCategory, String faqTitle, String faqContent, Date faqRegdate) {
+		public FaqBoardVo(int faq_No, String faq_Category, String faq_Title, String faq_Content, Date faq_Regdate) {
 			super();
-			this.faqNo = faqNo;
-			this.faqCategory = faqCategory;
-			this.faqTitle = faqTitle;
-			this.faqContent = faqContent;
-			this.faqRegdate = faqRegdate;
+			this.faq_No = faq_No;
+			this.faq_Category = faq_Category;
+			this.faq_Title = faq_Title;
+			this.faq_Content = faq_Content;
+			this.faq_Regdate = faq_Regdate;
 		}
 		
 		
-		public int getFaqNo() {
-			return faqNo;
+
+		public int getFaq_No() {
+			return faq_No;
 		}
 
-		public void setFaqNo(int faqNo) {
-			this.faqNo = faqNo;
+		public void setFaq_No(int faq_No) {
+			this.faq_No = faq_No;
 		}
 
-		public String getFaqCategory() {
-			return faqCategory;
+		public String getFaq_Category() {
+			return faq_Category;
 		}
 
-		public void setFaqCategory(String faqCategory) {
-			this.faqCategory = faqCategory;
+		public void setFaq_Category(String faq_Category) {
+			this.faq_Category = faq_Category;
 		}
 
-		public String getFaqTitle() {
-			return faqTitle;
+		public String getFaq_Title() {
+			return faq_Title;
 		}
 
-		public void setFaqTitle(String faqTitle) {
-			this.faqTitle = faqTitle;
+		public void setFaq_Title(String faq_Title) {
+			this.faq_Title = faq_Title;
 		}
 
-		public String getFaqContent() {
-			return faqContent;
+		public String getFaq_Content() {
+			return faq_Content;
 		}
 
-		public void setFaqContent(String faqContent) {
-			this.faqContent = faqContent;
+		public void setFaq_Content(String faq_Content) {
+			this.faq_Content = faq_Content;
 		}
 
-		public Date getFaqRegdate() {
-			return faqRegdate;
+		public Date getFaq_Regdate() {
+			return faq_Regdate;
 		}
 
-		public void setFaqRegdate(Date faqRegdate) {
-			this.faqRegdate = faqRegdate;
+		public void setFaq_Regdate(Date faq_Regdate) {
+			this.faq_Regdate = faq_Regdate;
 		}
 
 		@Override
 		public String toString() {
-			return "FaqBoardVo [faqNo=" + faqNo + ", faqCategory=" + faqCategory + ", faqTitle=" + faqTitle
-					+ ", faqContent=" + faqContent + ", faqRegdate=" + faqRegdate + "]";
+			return "FaqBoardVo [faq_No=" + faq_No + ", faq_Category=" + faq_Category + ", faq_Title=" + faq_Title
+					+ ", faq_Content=" + faq_Content + ", faq_Regdate=" + faq_Regdate + "]";
 		}
 		
 		

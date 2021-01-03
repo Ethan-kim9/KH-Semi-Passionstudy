@@ -10,32 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ReservationHeaderController
  */
-@WebServlet("/menu.Board")
-public class BoardController extends HttpServlet {
+@WebServlet("/FAQListController")
+public class FAQListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BoardController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+    
+	public FAQListController() {
+		super();
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_notice_list_manager.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_write.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// POST로 데이터가 올 경우, doGet에서 처리합니다.
 		doGet(request, response);
 	}
 
 }
+
+//테스트중.......

@@ -46,7 +46,7 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="writerAction" method="post">
+            <form id="board_form_title" action="FAQWriteController" method="post">
               <input
                 type="text"
                 name="bdTitle"
@@ -65,7 +65,7 @@
               </div>
               <div class="board_write_btn">
                 <a href="notice.html">
-                  <button type="button" class="write_btn yb">
+                  <button type="submit" class="write_btn yb">
                     등록하기
                   </button></a>
               </div>
