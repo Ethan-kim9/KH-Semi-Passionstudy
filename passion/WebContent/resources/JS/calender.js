@@ -4,6 +4,7 @@
 		document.getElementById("selectCalendarDate").value = today.getFullYear()+autoLeftPad(today.getMonth() + 1,2) + autoLeftPad(date.getDate(),2);
       });
 
+
       var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
       var date = new Date(); // @param 전역 변수, today의 Date를 세어주는 역할
 
