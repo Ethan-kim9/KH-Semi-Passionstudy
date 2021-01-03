@@ -29,11 +29,9 @@
 					"VALUES(QNA_BOARD_SEQ.NEXTVAL, '작성자1', '"+board_title+"', '"+board_content+"', SYSDATE)";
 		
 		stmt.executeUpdate(sql);
-		conn.commit();
 		
-		conn.close();
 		stmt.close();
-		
+		conn.close();
 			
 	} catch (Exception e) {
 		out.println(e.toString());
@@ -41,7 +39,7 @@
 %>
 
 <script>
-	self.window.alert("입력한 글을 저장하였습니다.");
+	self.window.alert("글을 저장하였습니다.");
 	location.href="index.jsp?inc=./views/board/1on1/board_1on1.jsp";
 </script>
 </body>
