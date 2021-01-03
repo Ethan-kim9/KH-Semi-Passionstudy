@@ -25,8 +25,8 @@
 		conn=DriverManager.getConnection(url,id,pw);
 		stmt=conn.createStatement();
 		String sql = "INSERT INTO QNA_BOARD"+
-					"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE,ANSWER_TITLE,ANSWER_CONTENT,BOARD_ANSWER)"+
-					"VALUES(QNA_BOARD_SEQ.NEXTVAL, 'test', '"+board_title+"', '"+board_content+"', SYSDATE, '?', '?', 0)";
+					"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE,ANSWER_TITLE,ANSWER_CONTENT,BOARD_ANSWER,PAGING_STACK)"+
+					"VALUES(QNA_BOARD_SEQ.NEXTVAL, 'test', '"+board_title+"', '"+board_content+"', SYSDATE, '?', '?', 0, 0)";
 		
 		stmt.executeUpdate(sql);
 		

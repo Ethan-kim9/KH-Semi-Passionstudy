@@ -1,7 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%
+	final int ROWSIZE = 4;
+	final int BLOCK = 5;
 
+	int pg = 1;
+	
+	if(request.getParameter("pg")!=null) {
+		pg = Integer.parseInt(request.getParameter("pg"));
+	}
+	
+	int start = (pg*ROWSIZE) - (ROWSIZE-1);
+	int end = (pg*ROWSIZE);
+	
+	int allPage = 0;
+	
+	int startPage = ((pg-1)/BLOCK*BLOCK)+1;
+	int endPage = ((pg-1)/BLOCK*BLOCK)+BLOCK;
+
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -24,15 +42,36 @@
 		Class.forName(driver); // JDBC드라이버 로딩
 		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
 		stmt = conn.createStatement(); //Statment타입의 객체 생성
+		Statement stmt1 = conn.createStatement();
+		String sql = "";
+		
 		String sqlCount = "SELECT COUNT(*) FROM QNA_BOARD"; //DB내의 자료개수를 찾는 SQL문
-		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD"; // board테이블에 있는 no,title,writer,date 값을 가져오되 no 기준으로 내림차순 정렬
 		result = stmt.executeQuery(sqlCount); // SQL실행
 		
 		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
 			total = result.getInt(1); //자료의 개수를 total에 대입한다
 		}
-		result = stmt.executeQuery(sqlList);
+		
+		int sort = 1;
+		String sqlSort = "SELECT QNA_NO FROM QNA_BOARD ORDER BY QNA_NO DESC";
+		result = stmt.executeQuery(sqlSort);
 
+		while(result.next()){
+			int stepNum = result.getInt(1);
+			sql= "UPDATE QNA_BOARD SET PAGING_STACK=" + sort + " WHERE QNA_NO=" + stepNum;
+		 	stmt1.executeUpdate(sql);
+		 	sort++;
+		} 
+
+		
+		allPage = (int)Math.ceil(total/(double)ROWSIZE);
+		
+		if(endPage > allPage) {
+			endPage = allPage;
+		}
+		
+		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD WHERE PAGING_STACK >="+start+" AND PAGING_STACK <="+end+" ORDER BY PAGING_STACK ASC";
+		result = stmt.executeQuery(sqlList);
 %>
 
     <div class="cont_header">
@@ -82,7 +121,7 @@
 			</tr>
 <%
 	} else { // total이 0이 아닌 즉, 자료가 1개이상 있다면
-		
+
 			while(result.next()) {
 				int no = result.getInt(1); //1은 첫번째 즉 qna_no값을 no라는 변수에 대입
 				String title = result.getString(2); // qna_title
@@ -121,6 +160,41 @@
 	}
 
 %>
+ 			<tr>
+				<td align="center" colspan="4">
+					<%
+						if(pg>BLOCK) {
+					%>
+						[<a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp?pg=1">◀◀</a>]
+						[<a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp?pg=<%=startPage-1%>">◀</a>]
+					<%
+						}
+					%>
+		
+					<%
+						for(int i=startPage; i<= endPage; i++){
+							if(i==pg){
+					%>
+								<u><b>[<%=i %>]</b></u>
+					<%
+							}else{
+					%>
+								[<a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp?pg=<%=i %>"><%=i %></a>]
+					<%
+							}
+						}
+					%>
+		
+					<%
+						if(endPage<allPage){
+					%>
+						[<a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp?pg=<%=endPage+1%>">▶</a>]
+						[<a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp?pg=<%=allPage%>">▶▶</a>]
+					<%
+						}
+					%>
+					</td>
+			</tr>
           </table>
         </div>
       </div>
