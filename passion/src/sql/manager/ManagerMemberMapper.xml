@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+<entry key="MemberSearch">
+	SELECT
+	    
+	      MEMBER_NO
+	    , MEMBER_ID
+	    , MEMBER_NAME
+	    , MEMBER_PHONE
+	    , MEMBER_DATE
+	    , MEMBER_STATUS
+	    , MEMBER_POINT
+	      				FROM 
+	      						MEMBER
+	                    WHERE
+	                    		MEMBER_NAME = ?
+</entry>
+
+
+<entry key="ChangePwd">
+	UPDATE 
+	    MEMBER 
+	        SET     
+	        		MEMBER_PWD = '12345678'
+	        WHERE   
+	        		MEMBER_NO = ?
+
+</entry>
+
+<entry key="ChangePoint">
+	UPDATE 
+	    MEMBER 
+	        SET     
+	        		MEMBER_POINT = ?
+	        WHERE   
+	        		MEMBER_NO = ?
+
+</entry>
+
+<entry key="MemberCouponModifier">
+
+</entry>
+<entry key="BlackListEnroll">
+	UPDATE 
+	    MEMBER 
+	        SET     
+	        		MEMBER_STATUS = ?
+	        WHERE   
+	        		MEMBER_NO = ?
+</entry>
+
 
 
 </properties>
