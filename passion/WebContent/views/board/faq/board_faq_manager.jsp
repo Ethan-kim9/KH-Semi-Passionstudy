@@ -23,8 +23,8 @@
 		Class.forName(driver); // JDBC드라이버 로딩
 		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
 		stmt = conn.createStatement(); //Statment타입의 객체 생성
-		String sqlCount = "SELECT COUNT(*) FROM FAQ_EX"; //DB내의 자료개수를 찾는 SQL문
-		String sqlList = "SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT,FAQ_REGDATE FROM FAQ_EX ORDER BY FAQ_NO DESC"; // board테이블에 있는 no,title,writer,date 값을 가져오되 no 기준으로 내림차순 정렬
+		String sqlCount = "SELECT COUNT(*) FROM FAQ_BOARD"; //DB내의 자료개수를 찾는 SQL문
+		String sqlList = "SELECT FAQ_NO, FAQ_TITLE, FAQ_CONTENT,FAQ_DATE FROM FAQ_BOARD ORDER BY FAQ_NO DESC"; 
 		result = stmt.executeQuery(sqlCount); // SQL실행
 		
 		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
@@ -60,14 +60,7 @@
       <div id="board">
         <div id="board_main">
           <div id="buttons">
-            <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp">
-              <button type="button" class="write_btn yb" style="float: none">
-                글쓰기
-              </button></a
-            >
-            <button type="button" class="remove_btn yb" style="float: none">
-              삭제
-            </button>
+            
             <select
               id="board_select"
               name="board_select"
@@ -91,21 +84,38 @@
             <%
 				if(total == 0) { // total 즉 , 자료가 없다면
 			%>
-				<tr align="center" bgcolor="#FFFFFF" height="30">
-					<td colspan="4">등록된 글이 없습니다</td>
-				</tr>
+						<tr align="center" bgcolor="#FFFFFF" height="30">
+							<td colspan="4">등록된 글이 없습니다</td>
+						</tr>
 			<%
 				} else { // total이 0이 아닌 즉, 자료가 1개이상 있다면
 					
-				while(result.next()) {
-					int no = result.getInt(1); //1은 첫번째 즉 qna_num값을 no라는 변수에 대입
-					String category = result.getString(2); //faq_category
-					String title = result.getString(3); // faq_title
-					String content = result.getString(4); // faq_content
-					String date = result.getString(5); // faq_regdate
-	
+						while(result.next()) {
+							int no = result.getInt(1); //1은 첫번째 즉 qna_no값을 no라는 변수에 대입
+							String title = result.getString(2); // FAQ_TITLE
+							String content = result.getString(3); //FAQ_CONTENT
+							String date = result.getString(4); // FAQ_DATE
 			%>
-            <tr>
+						<tr>
+							<td><%=no %></td>
+							<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=no %>"><%=title %></a></td>
+							<td><%=content %></td>
+							<td><%=date %></td>
+						</tr>	
+			
+			<%					
+							
+						} //while
+				} // else
+				result.close();
+				stmt.close();
+				conn.close();
+				} catch(SQLException e) {
+					out.println(e.toString()); // 에러 날 경우 에러출력
+				}
+			
+			%>
+           <%--  <tr>
             <!-- 첫번째 줄 시작-->
               <td><input type="checkbox" class="checkbox" /></td>
               <td>회원문의</td>
@@ -128,58 +138,19 @@
               <td>적립금은 유효기간이 있나요?</td>
               <td><%=date %></td>
             </tr>
-          	<!-- 세번째 줄 끝 -->
-          	<!--
-          	<c:forEach var="faqVar" items="${FAQ_EX }">
-          		<tr>
-          			<td>${faqVar.faq_No }</td>
-          			<td><a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp?FAQ_NO=${faqVar.faq_No }">${faqVar.faq_Category}</a></td>
-          			<td>${faqVar.faq_Title }</td>
-          			<td>${faqVar.faq_Regdate }</td>
-          		</tr>
-          	</c:forEach>   -->
-          	<tr>
-       			<td><%=no %></td>
-       			<td><a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp?idx=<%=no %>"><%=category %></a></td>
-       			<td><%=title %></td>
-       			<td><%=date %></td>
-       		</tr>
-       		<%
-			} //while
-				} // else
-				result.close();
-				stmt.close();
-				conn.close();
-				} catch(SQLException e) {
-					out.println(e.toString()); // 에러 날 경우 에러출력
-				}
-			
-			%>
-       		
-          	<%-- 
-			<%			
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (stmt != null) {
-					try {
-						stmt.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				if (con != null) {
-					try {
-						con.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		%> --%>
+          	<!-- 세번째 줄 끝 --> --%>
+         
 		</table>
+		  <div>
+		  	<a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp">
+              <button type="button" class="write_btn yb" style="float: none">
+                글쓰기
+              </button>
+            </a>
+            <button type="button" class="remove_btn yb" style="float: none; margin-right:500px">
+              삭제
+            </button>
+		  </div>
           <div class="search_bar">
             <select name="f">
               <option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
