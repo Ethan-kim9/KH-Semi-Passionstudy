@@ -43,9 +43,9 @@
 	        </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
-              <td>공지</td>
-              <td>개인정보처리방침 개정 내용 사전안내</td>
-              <td>관리자</td>
+              <td>${n.noticeNo}</td>
+              <td><a href="board_notice_manager_detail.jsp?noticeNo=${n.noticeNo}">${n.noticeTitle}</a></td>
+              <td>${n.memberNo}</td>
               <td>2020-10-02</td>
               <td>1000</td>
             </tr>

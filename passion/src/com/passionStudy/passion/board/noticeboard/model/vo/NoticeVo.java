@@ -2,7 +2,7 @@ package com.passionStudy.passion.board.noticeboard.model.vo;
 
 import java.util.Date;
 
-public class NoticeBoardVo {
+public class NoticeVo {
 	private int noticeNo; //공지사항 식별자
 	private int memberNo; //회원 식별자
 	private String noticeTitle; //공지사항 제목
@@ -10,9 +10,9 @@ public class NoticeBoardVo {
 	private int noticeCount; //조회수
 	private Date regdate; //작성일 
 	
-	public NoticeBoardVo() {}
+	public NoticeVo() {}
 
-	public NoticeBoardVo(int noticeNo, int memberNo, String noticeTitle, String noticeContent, int noticeCount,
+	public NoticeVo(int noticeNo, int memberNo, String noticeTitle, String noticeContent, int noticeCount,
 			Date regdate) {
 		super();
 		this.noticeNo = noticeNo;

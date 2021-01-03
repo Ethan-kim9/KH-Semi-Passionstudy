@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <%
+<%
 	request.setCharacterEncoding("UTF-8");
 	String board_title = request.getParameter("qna_title");
 	String board_content = request.getParameter("qna_content");
@@ -19,16 +19,16 @@
 	String pw = "passion";
 	Connection conn = null;
 	Statement stmt = null;
+	
+	int idx = Integer.parseInt(request.getParameter("idx"));
 
 	try {
 		Class.forName(driver);
 		conn=DriverManager.getConnection(url,id,pw);
 		stmt=conn.createStatement();
-		String sql = "INSERT INTO QNA_BOARD"+
-					"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE)"+
-					"VALUES(QNA_BOARD_SEQ.NEXTVAL, '작성자1', '"+board_title+"', '"+board_content+"', SYSDATE)";
+		String sqlUpdate = "UPDATE QNA_BOARD SET QNA_TITLE='"+board_title+"', QNA_CONTENT='"+board_content+"' WHERE QNA_NO=" + idx;
 		
-		stmt.executeUpdate(sql);
+		stmt.executeUpdate(sqlUpdate);
 		
 		stmt.close();
 		conn.close();
@@ -39,7 +39,7 @@
 %>
 
 <script>
-	self.window.alert("입력한 글을 저장하였습니다.");
+	self.window.alert("입력한 글을 수정하였습니다.");
 	location.href="index.jsp?inc=./views/board/1on1/board_1on1.jsp";
 </script>
 </body>

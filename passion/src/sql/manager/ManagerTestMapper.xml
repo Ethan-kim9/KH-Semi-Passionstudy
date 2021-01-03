@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<!-- 매니저 생성용 키 벨류 -->
+	<entry key="AdminInsertManager">
+				INSERT INTO MEMBER
+						    (
+						       MEMBER_NO 
+						     , MEMBER_ID 
+						     , MEMBER_PWD 
+						     , MEMBER_NAME
+						     , MEMBER_PHONE 
+						     , MEMBER_DATE 
+						     , ADMIN_CHECK 
+						     , RECOM_COUNT
+						     , MEMBER_STATUS
+						     , RECOM_CODE
+						     , MEMBER_POINT) 
+						        
+						        VALUES
+						                (
+						                  SEQ_MNO.nextval  
+						                , 'passion@passion.com' 
+						                , 'passion' 
+						                , '관리자'
+						                , '01012344321'
+						                , SYSDATE 
+						                , 'A'
+						                , 0
+						                , 'N'
+						                , 'hey00507'
+						                , 500);
+	</entry>
+	
+	<!-- 조회할 멤버 생성용 키 벨류 -->
+	
+	<entry key="AdminInsertMember">
+				INSERT INTO MEMBER
+						    (
+						       MEMBER_NO 
+						     , MEMBER_ID 
+						     , MEMBER_PWD 
+						     , MEMBER_NAME
+						     , MEMBER_PHONE 
+						     , MEMBER_DATE 
+						     , ADMIN_CHECK 
+						     , RECOM_COUNT
+						     , MEMBER_STATUS
+						     , RECOM_CODE
+						     , MEMBER_POINT
+						     
+						     ) VALUES
+						                (
+						                  SEQ_MNO.nextval  
+						                , 'passion1@passion.com' 
+						                , 'passion1' 
+						                , '김떡만'
+						                , '01043211234'
+						                , SYSDATE
+						                , 'N'
+						                , 0
+						                , 'N'
+						                , 'passion'
+						                , 500);
+	</entry>
+</properties>
