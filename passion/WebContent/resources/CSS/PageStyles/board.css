@@ -130,3 +130,10 @@ section .section-right img {
 .search_bar {
   text-align: right;
 }
+
+/* 페이징 -------------------- */
+
+.pageNum{
+  padding-top: 100px;
+  text-align: center !important;
+}

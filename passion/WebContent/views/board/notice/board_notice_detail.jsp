@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -37,14 +37,14 @@
           <table class="table" id="table_title">
             <tr>
               <th>제　목</th>
-              <td><%=request.getAttribute("nTitle")%></td>
+              <td>${n.nTitle}</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
               <th>작성자</th>
-              <td><%=request.getAttribute("nWriter")%></td>
+              <td>${n.nWriter}</td>
               <td></td>
               <td></td>
             </tr>
@@ -52,9 +52,9 @@
             <tr>
               <!-- 두번째 줄 시작-->
               <th>작성일</th>
-              <td><%=request.getAttribute("nDate")%></td>
+              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.nDate}"/></td>
               <th>조회수</th>
-              <td><%=request.getAttribute("nHit")%></td>
+              <td><fmt:formatNumber value="${n.nHit}"/></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
@@ -66,7 +66,7 @@
           </table>
           <div class="table_inner">
             <p>
-            <%=request.getAttribute("nContent")%>
+            ${n.nContent}
             </p>
           </div>
         </div>

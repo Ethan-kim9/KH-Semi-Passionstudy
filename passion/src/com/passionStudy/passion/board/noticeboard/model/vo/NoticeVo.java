@@ -3,79 +3,78 @@ package com.passionStudy.passion.board.noticeboard.model.vo;
 import java.util.Date;
 
 public class NoticeVo {
-	private int noticeNo; //공지사항 식별자
-	private int memberNo; //회원 식별자
-	private String noticeTitle; //공지사항 제목
-	private String noticeContent; //공지사항 내용
-	private int noticeCount; //조회수
-	private Date regdate; //작성일 
+	private int n_no;
+	private String nTitle;
+	private String nWriter;
+	private Date nDate;
+	private int nHit;
+	private String nContent;
 	
 	public NoticeVo() {}
 
-	public NoticeVo(int noticeNo, int memberNo, String noticeTitle, String noticeContent, int noticeCount,
-			Date regdate) {
+	public NoticeVo(int n_no, String nTitle, String nWriter, Date nDate, int nHit, String nContent) {
 		super();
-		this.noticeNo = noticeNo;
-		this.memberNo = memberNo;
-		this.noticeTitle = noticeTitle;
-		this.noticeContent = noticeContent;
-		this.noticeCount = noticeCount;
-		this.regdate = regdate;
+		this.n_no = n_no;
+		this.nTitle = nTitle;
+		this.nWriter = nWriter;
+		this.nDate = nDate;
+		this.nHit = nHit;
+		this.nContent = nContent;
 	}
 
-	public int getNoticeNo() {
-		return noticeNo;
+	public int getN_no() {
+		return n_no;
 	}
 
-	public void setNoticeNo(int noticeNo) {
-		this.noticeNo = noticeNo;
+	public void setN_no(int n_no) {
+		this.n_no = n_no;
 	}
 
-	public int getMemberNo() {
-		return memberNo;
+	public String getnTitle() {
+		return nTitle;
 	}
 
-	public void setMemberNo(int memberNo) {
-		this.memberNo = memberNo;
+	public void setnTitle(String nTitle) {
+		this.nTitle = nTitle;
 	}
 
-	public String getNoticeTitle() {
-		return noticeTitle;
+	public String getnWriter() {
+		return nWriter;
 	}
 
-	public void setNoticeTitle(String noticeTitle) {
-		this.noticeTitle = noticeTitle;
+	public void setnWriter(String nWriter) {
+		this.nWriter = nWriter;
 	}
 
-	public String getNoticeContent() {
-		return noticeContent;
+	public Date getnDate() {
+		return nDate;
 	}
 
-	public void setNoticeContent(String noticeContent) {
-		this.noticeContent = noticeContent;
+	public void setnDate(Date nDate) {
+		this.nDate = nDate;
 	}
 
-	public int getNoticeCount() {
-		return noticeCount;
+	public int getnHit() {
+		return nHit;
 	}
 
-	public void setNoticeCount(int noticeCount) {
-		this.noticeCount = noticeCount;
+	public void setnHit(int nHit) {
+		this.nHit = nHit;
 	}
 
-	public Date getRegdate() {
-		return regdate;
+	public String getnContent() {
+		return nContent;
 	}
 
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setnContent(String nContent) {
+		this.nContent = nContent;
 	}
 
 	@Override
 	public String toString() {
-		return "NoticeBoardVo [noticeNo=" + noticeNo + ", memberNo=" + memberNo + ", noticeTitle=" + noticeTitle
-				+ ", noticeContent=" + noticeContent + ", noticeCount=" + noticeCount + ", regdate=" + regdate + "]";
+		return "NoticeVo [n_no=" + n_no + ", nTitle=" + nTitle + ", nWriter=" + nWriter + ", nDate=" + nDate + ", nHit="
+				+ nHit + ", nContent=" + nContent + "]";
 	}
-
+	
 	
 }

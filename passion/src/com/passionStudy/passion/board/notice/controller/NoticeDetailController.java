@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+
 @WebServlet("/views/board/notice/board_notice_detail")
 public class NoticeDetailController extends HttpServlet{
 	@Override
@@ -38,12 +40,24 @@ public class NoticeDetailController extends HttpServlet{
 			int nHit = rs.getInt("N_HIT");
 			String nContent = rs.getString("N_CONTENT");
 			
+			NoticeVo noticeVo = new NoticeVo(
+					n_no,
+					nTitle,
+					nWriter,
+					nDate,
+					nHit,
+					nContent
+					);
+			
+			request.setAttribute("n", noticeVo);
+			/*
 			request.setAttribute("nTitle", nTitle);
 			request.setAttribute("nWriter", nWriter);
 			request.setAttribute("nDate", nDate);
 			request.setAttribute("nHit", nHit);
 			request.setAttribute("nContent", nContent);
-
+			*/
+			
 			rs.close();
 			st.close();
 			con.close();

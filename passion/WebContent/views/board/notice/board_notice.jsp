@@ -1,22 +1,9 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-
+<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<%
-String url = "jdbc:oracle:thin:@localhost:1521:xe";
-String sql = "SELECT * FROM NOTICE_B";
-
-Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con = DriverManager.getConnection(url,"passion","passion");
-Statement st = con.createStatement();
-ResultSet rs = st.executeQuery(sql);	
-
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -61,28 +48,75 @@ ResultSet rs = st.executeQuery(sql);
 	        </tr>
 	        </thead>
 	        <tbody>
-	        <%while(rs.next()){ %>
+	        <%-- <%
+	        List<NoticeVo> list = (List<NoticeVo>)request.getAttribute("list"); 
+	        for(NoticeVo n : list){
+	        	pageContext.setAttribute("n", n);
+	        %> --%>
+	        <c:forEach var="n" items="${list}">
+	        
             <tr>
-              <!-- 첫번째 줄 시작 "board_notice_manager_detail.jsp?noticeNo=${n.noticeNo} -->
-              <td><%=rs.getInt("N_NO")%></td>
-              <td><a href="board_notice_detail?n_no=<%=rs.getInt("N_NO")%>"><%=rs.getString("N_TITLE")%></a></td>
-              <td><%=rs.getString("N_WRITER")%></td>
-              <td><%=rs.getDate("N_DATE")%></td>
-              <td><%=rs.getInt("N_HIT")%></td>
+              <td>${n.n_no}</td>
+              <td><a href="board_notice_detail?n_no=${n.n_no}">${n.nTitle}</a></td>
+              <td>${n.nWriter}</td>
+              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.nDate}"/></td>
+              <td>${n.nHit}</td>
             </tr>
-            <!-- 첫번째 줄 끝-->
+            </c:forEach>
+            <%-- <%}%> --%>
             </tbody>
-            <%} %>
           </table>
           <div class="search_bar">
             <select name="f">
-              <option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
-              <option ${(param.f == "title")?"selected":""} value="noticeContent">내용</option>
+              <option ${(param.f == "n_title")?"selected":""} value="n_title">제목</option> <%-- 있는 그대로 --%>
+              <option ${(param.f == "n_content")?"selected":""} value="n_content">내용</option>
             </select>
           <input type="text" name="q" value="${param.q}" id="search-box" />
-          <button type="button" class="search-btn yb" style="float: none;">
-            검색
-          </button>
+          
+          <button type="submit" class="search-btn yb" style="float: none;">
+            검색 </button>
+          <%-- <input tyep="submit" class="search-btn yb" style="float: none;" value="검색"> --%>
+          </div>
+          
+          <%-- noticeCount --%>
+          <div class="indexer margin-top align-right">
+				<h3 class="hidden">현재 페이지</h3>
+				<div><span class="text-orange text-strong">1</span> / 1 pages</div>
+		  </div>
+          
+          <%-- pagination --%>
+          <div class="pageNum">
+          	<c:set var="page" value="${(param.p == null)?1:param.p}"/>
+          	<c:set var="startNum" value="${page-(page-1)%5}"/>
+          	<c:set var="lastNum" value="23"/>
+          	
+            <nav aria-label="Page navigation example" class="navpage">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+					
+					<c:if test="${starNum>1}">
+                    	<a href="?p=${starNum-1}&t=&q=" aria-hidden="true">&laquo;</a>
+                    </c:if>
+                    <c:if test="${starNum<=1}">
+                    	<span aria-hidden="true" onclick="alert('이전 페이지가 없습니다.');">&laquo;</span>
+                  	</c:if>
+                  </a>
+                </li>
+                <c:forEach var="i" begin="1" end="5"><%-- 다시보기 --%>
+                <li class="page-item"><a class="page-link" href="?p=${starNum+i}&f=${param.f}&q=${param.q}">${starNum+i}</a></li>
+              	</c:forEach>
+                  <a class="page-link" href="#" aria-label="Next">
+                  	<c:if test="${startNum+5<lastNum}">
+                    	<a href="?p=${starNum+5}&t=&q=" aria-hidden="true">&raquo;</a>
+                    </c:if>
+                    <c:if test="${startNum+5>=lastNum}">
+                    <span aria-hidden="true" onclick="alert('다음 페이지가 없습니다.');">&raquo;</span>
+                  	</c:if>
+                  </a>
+                </li>
+              </ul>
+            </nav> 
           </div>
         </div>
       </div>
@@ -91,8 +125,3 @@ ResultSet rs = st.executeQuery(sql);
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
-<%
-rs.close();
-st.close();
-con.close();
-%>
