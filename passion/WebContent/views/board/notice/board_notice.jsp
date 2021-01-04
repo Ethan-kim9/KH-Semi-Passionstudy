@@ -9,26 +9,14 @@
 
 <%
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
-String sql = "SELECT * FROM NOTICE";
+String sql = "SELECT * FROM NOTICE_B";
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
 Connection con = DriverManager.getConnection(url,"passion","passion");
 Statement st = con.createStatement();
 ResultSet rs = st.executeQuery(sql);	
 
-while(rs.next()){
-rs.getInt("NOTICE_NO")
-rs.getString("NOTICE_TITLE")
-rs.getInt("MEMBER_NO")
-rs.getDate("REGDATE")
-rs.getInt("NOTICE_COUNT")
-
-
-rs.close();
-st.close();
-con.close();
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -73,19 +61,18 @@ con.close();
 	        </tr>
 	        </thead>
 	        <tbody>
+	        <%while(rs.next()){ %>
             <tr>
               <!-- 첫번째 줄 시작 "board_notice_manager_detail.jsp?noticeNo=${n.noticeNo} -->
-              <td><%=rs.getInt("NOTICE_NO")%></td>
-              <td><a href="board_notice_detail.jsp"><%=rs.getString("NOTICE_TITLE")%></a></td>
-              <td><%=rs.getInt("MEMBER_NO")%></td>
-              <td><%=rs.getDate("REGDATE")%></td>
-              <td><%=rs.getInt("NOTICE_COUNT")%></td>
+              <td><%=rs.getInt("N_NO")%></td>
+              <td><a href="board_notice_detail?n_no=<%=rs.getInt("N_NO")%>"><%=rs.getString("N_TITLE")%></a></td>
+              <td><%=rs.getString("N_WRITER")%></td>
+              <td><%=rs.getDate("N_DATE")%></td>
+              <td><%=rs.getInt("N_HIT")%></td>
             </tr>
-            
-            <%}%>
             <!-- 첫번째 줄 끝-->
             </tbody>
-            
+            <%} %>
           </table>
           <div class="search_bar">
             <select name="f">
@@ -104,3 +91,8 @@ con.close();
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
+<%
+rs.close();
+st.close();
+con.close();
+%>

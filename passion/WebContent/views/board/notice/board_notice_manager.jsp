@@ -79,11 +79,11 @@ ResultSet rs = st.executeQuery(sql);
             <tr>
               <!-- 첫번째 줄 시작 "board_notice_manager_detail.jsp?noticeNo=${n.noticeNo} -->
               <td><input type="checkbox" class="checkbox" /></td>
-              <td><%=rs.getInt("N_NO")%></td>
-              <td><a href="index.jsp?inc=./views/board/notice/board_notice_manager_detail.jsp?n_no=<%=rs.getInt("N_NO")%>"><%=rs.getString("N_TITLE")%></a></td>
-              <td><%=rs.getString("N_WRITER")%></td>
-              <td><%=rs.getDate("N_DATE")%></td>
-              <td><%=rs.getInt("N_HIT")%></td>
+              <td><%=rs.getInt("NOTICE_NO")%></td>
+              <td><a href="index.jsp?inc=./views/board/notice/board_notice_manager_detail?noticeNo=<%=rs.getInt("NOTICE_NO")%>"><%=rs.getString("NOTICE_TITLE")%></a></td>
+              <td><%=rs.getInt("MEMBER_NO")%></td>
+              <td><%=rs.getDate("REGDATE")%></td>
+              <td><%=rs.getInt("NOTICE_COUNT")%></td>
             </tr>
             </tbody>
             <%}%>
