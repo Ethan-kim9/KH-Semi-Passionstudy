@@ -77,10 +77,8 @@
             </div>
             <div class="edit-user-form-ad">
               <p>광고성 정보 수신 동의</p>
-              <label
-                ><input class="ad_option-email" type="checkbox" />Email</label
-              >
-              <label><input class="ad_option-sms" type="checkbox" />SMS</label>
+              <label class="ad_option-yes"><input type="radio" name="ad-radio"/>예</label>
+              <label class="ad_option-no"><input type="radio" name="ad-radio"/>아니오</label>
             </div>
 
             <div class="edit-user-form">

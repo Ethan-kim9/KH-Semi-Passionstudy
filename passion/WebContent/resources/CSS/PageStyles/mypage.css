@@ -311,15 +311,16 @@
   color: #414040;
   margin: 80px 0px 65px 130px;
 }
-.edit-user-form-ad label {
+/* .edit-user-form-ad label {
   color: #414040;
   font-size: 15px;
-}
-.ad_option-email {
-  margin-right: 15px;
+} */
+
+.ad_option-yes {
+  margin-right: 50px;
   font-weight: lighter;
 }
-.ad_option-sms {
+.ad_option-no {
   margin: 0 15px 0 90px;
 }
 .edit-user-form_button {
