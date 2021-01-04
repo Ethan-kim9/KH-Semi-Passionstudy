@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.passionStudy.passion.member.model.service.MemberTest;
+import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @SuppressWarnings("serial")
@@ -29,7 +29,7 @@ public class MemberLoginController extends HttpServlet {
 		
 		MemberVo loginMember = null;
 		try {
-			loginMember = new MemberTest().loginMember(memId, memPwd);
+			loginMember = new MemberService().loginMember(memId, memPwd);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
