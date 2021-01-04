@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -7,34 +8,48 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-  
+    
+<%
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String id = "passion";
+	String pw = "passion";
+	
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet result = null;
+	
+	// 메인페이지에서 get 방식으로 idx값을 보냈던 그 변수가 getParameter("idx") 이곳에 들어간거고
+	// 그 값을 idx에 대입한것 get방식이든 post방식이든 넘어오게 되면 데이터타입이 String이 된다
+	// 그래서 형변환으로 Integer.parseInt를 사용한것
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	
+	try {
+		Class.forName(driver); // JDBC드라이버 로딩
+		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
+		stmt = conn.createStatement(); //Statment타입의 객체 생성
+		String sql = "SELECT FAQ_TITLE, FAQ_CONTENT FROM FAQ_BOARD WHERE FAQ_NO=" + idx; 
+		result = stmt.executeQuery(sql); // SQL실행
+		if(result.next()); {
+			String title = result.getString(1);
+			String content = result.getString(2);		
+
+%>  
+    
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>커뮤니티</h1>
       </div>
     </div>
-
-    <div class="tabtype">
-	  <div class="tabtype_wrapper" style="text-align: center;">
-        <ul>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2 on">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
-          </li>
-        </ul>
-      </div>
+	
+	<div class="tabtype">
     </div>
 
     <section>
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <select
+             <select
               id="board_select"
               name="board_select"
               title="문의선택"
@@ -46,13 +61,14 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/insert.jsp" method="post">
+            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/modify.jsp?idx=<%=idx%>" method="post">
               <input
                 type="text"
                 name="faq_title"
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
+                value="<%=title %>"
               />
               <div class="form-group">
                 <textarea
@@ -61,19 +77,27 @@
                   name="faq_content"
                   placeholder="내용을 입력해주세요"
                   required
-                ></textarea>
+                ><%=content %></textarea>
               </div>
               <div class="board_write_btn">
-                <a href="notice.html">
-                  <button type="submit" class="write_btn yb">
-                    등록하기
-                  </button></a>
+                  <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager.jsp'">
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
+<%
+	result.close();
+	stmt.close();
+	conn.close();
+		}
+		
+	} catch(SQLException e) {
+		out.println(e.toString());
+	}
+%>  
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

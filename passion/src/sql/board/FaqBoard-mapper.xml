@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="faqboardinsert">
-		INSERT INTO FAQ_EX(  FAQ_NO
-							, FAQ_CATEGORY
-							, FAQ_TITLE
-							, FAQ_CONTENT  )
-				   VALUES (  FAQ_SEQ.NEXTVA
-				   			, #{faq_category} 
-				   			, #{faq_title}
-				   			, #{faq_content} )	   		
-	</entry>
+	
 </properties>

@@ -7,7 +7,7 @@ import static com.passionStudy.passion.common.JDBCtemplate.*;
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-public class MemberTest {
+public class MemberService {
 	Connection conn = getConnection();
 	/** 로그인
 	 * @param memId

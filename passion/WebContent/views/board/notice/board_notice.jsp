@@ -1,5 +1,34 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
+<%
+String url = "jdbc:oracle:thin:@localhost:1521:xe";
+String sql = "SELECT * FROM NOTICE";
+
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con = DriverManager.getConnection(url,"passion","passion");
+Statement st = con.createStatement();
+ResultSet rs = st.executeQuery(sql);	
+
+while(rs.next()){
+rs.getInt("NOTICE_NO")
+rs.getString("NOTICE_TITLE")
+rs.getInt("MEMBER_NO")
+rs.getDate("REGDATE")
+rs.getInt("NOTICE_COUNT")
+
+
+rs.close();
+st.close();
+con.close();
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -34,6 +63,7 @@
       <div id="board">
         <div id="board_main">
           <table class="table" id="main_table" width="50%" >
+          	<thead>
           	<tr>
 	            <th>번호</th>
 	            <th>제목</th>
@@ -41,24 +71,21 @@
 	            <th>작성일</th>
 	            <th>조회</th>
 	        </tr>
+	        </thead>
+	        <tbody>
             <tr>
-              <!-- 첫번째 줄 시작-->
-              <td>${n.noticeNo}</td>
-              <td><a href="board_notice_manager_detail.jsp?noticeNo=${n.noticeNo}">${n.noticeTitle}</a></td>
-              <td>${n.memberNo}</td>
-              <td>2020-10-02</td>
-              <td>1000</td>
+              <!-- 첫번째 줄 시작 "board_notice_manager_detail.jsp?noticeNo=${n.noticeNo} -->
+              <td><%=rs.getInt("NOTICE_NO")%></td>
+              <td><a href="board_notice_detail.jsp"><%=rs.getString("NOTICE_TITLE")%></a></td>
+              <td><%=rs.getInt("MEMBER_NO")%></td>
+              <td><%=rs.getDate("REGDATE")%></td>
+              <td><%=rs.getInt("NOTICE_COUNT")%></td>
             </tr>
+            
+            <%}%>
             <!-- 첫번째 줄 끝-->
-            <tr>
-              <!-- 두번째 줄 시작-->
-              <td>공지</td>
-              <td>댓글 이벤트 당첨자 공지</td>
-              <td>관리자</td>
-              <td>2020-10-03</td>
-              <td>800</td>
-            </tr>
-            <!-- 두번째 줄 끝-->
+            </tbody>
+            
           </table>
           <div class="search_bar">
             <select name="f">

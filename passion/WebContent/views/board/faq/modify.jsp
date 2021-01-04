@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
- <%
+<%
 	request.setCharacterEncoding("UTF-8");
-	String board_title = request.getParameter("qna_title");
-	String board_content = request.getParameter("qna_content");
+	String faqboard_title = request.getParameter("faq_title");
+	String faqboard_content = request.getParameter("faq_content");
 	
 	String driver="oracle.jdbc.driver.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -19,16 +19,16 @@
 	String pw = "passion";
 	Connection conn = null;
 	Statement stmt = null;
+	
+	int idx = Integer.parseInt(request.getParameter("idx"));
 
 	try {
 		Class.forName(driver);
 		conn=DriverManager.getConnection(url,id,pw);
 		stmt=conn.createStatement();
-		String sql = "INSERT INTO QNA_BOARD"+
-					"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE,ANSWER_TITLE,ANSWER_CONTENT,BOARD_ANSWER,PAGING_STACK)"+
-					"VALUES(QNA_BOARD_SEQ.NEXTVAL, 'test', '"+board_title+"', '"+board_content+"', SYSDATE, '?', '?', 0, 0)";
+		String sqlUpdate = "UPDATE FAQ_BOARD SET FAQ_TITLE='"+faqboard_title+"', FAQ_CONTENT='"+faqboard_content+"' WHERE FAQ_NO=" + idx;
 		
-		stmt.executeUpdate(sql);
+		stmt.executeUpdate(sqlUpdate);
 		
 		stmt.close();
 		conn.close();
@@ -39,8 +39,8 @@
 %>
 
 <script>
-	self.window.alert("입력한 글을 저장하였습니다.");
-	location.href="index.jsp?inc=./views/board/1on1/board_1on1.jsp";
+	self.window.alert("입력한 글을 수정하였습니다.");
+	location.href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp";
 </script>
 </body>
 </html>
