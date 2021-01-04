@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -60,25 +61,25 @@
             >
           </div>
 
-          <form class="edit-user-set" action="#" method="POST" name="form-tag">
+          <form class="edit-user-set" action="EditProc" method="POST" name="form-tag">
             <div class="edit-user-form">
               <label class="edit-user-form_name">이름</label>
-              <input class="edit-user-form_name-text" type="text" />
+              <input class="edit-user-form_name-text" type="hidden" name="name" <%-- value="${}" --%>/>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_email">이메일</label>
-              <input class="edit-user-form_email-text1" type="text" /> @
-              <input class="edit-user-form_email-text2" type="text" />
+              <input class="edit-user-form_email-text1" type="text" name="email1" readonly/> @
+              <input class="edit-user-form_email-text2" type="text" name="email2"readonly/>
               <p class="edit-user-form-email-warn">관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_phone">휴대폰번호</label>
-              <input class="edit-user-form_phone-text" type="text" />
+              <input class="edit-user-form_phone-text" type="text" name="phone"/>
             </div>
             <div class="edit-user-form-ad">
               <p>광고성 정보 수신 동의</p>
-              <label class="ad_option-yes"><input type="radio" name="ad-radio"/>예</label>
-              <label class="ad_option-no"><input type="radio" name="ad-radio"/>아니오</label>
+              <label class="ad_option-yes"><input type="radio" name="adagree" value="Y"/>예</label>
+              <label class="ad_option-no"><input type="radio" name="adagree" value="N"/>아니오</label>
             </div>
 
             <div class="edit-user-form">

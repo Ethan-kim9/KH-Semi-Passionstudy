@@ -11,6 +11,8 @@ import java.util.Properties;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
+	
+	Connection conn;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
@@ -146,5 +148,26 @@ public class MemberDao {
 		return memNo;
 	}
 
+	
+	//////////////////////
+	// 회원정보수정
+	public void updateInfoMember(MemberVo vo) {
+		// 커넥션 연결 자동인가?
+		
+		try {
+			String sql = "update member set member_phone = ?, ad_agree = ? where member_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getMemPhone());
+			pstmt.setString(2, vo.getMemAdAgree());
+			
+			pstmt.executeUpdate();
+			
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 }

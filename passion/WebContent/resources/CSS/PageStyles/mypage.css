@@ -297,7 +297,7 @@
 .edit-user-form-email-warn {
   color: #d80909;
   font-weight: bold;
-  display: none;
+  /* display: none; */
 }
 .edit-user-form_phone-text {
   width: 500px;
