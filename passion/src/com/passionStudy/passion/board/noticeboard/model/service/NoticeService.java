@@ -17,13 +17,13 @@ public class NoticeService {
 	//공지사항 목록 구현 기능
 	public List<NoticeVo> getNoticeList(){
 		
-		return getNoticeList("nTitle", "", 1);
+		return getNoticeList("ntitle", "", 1);
 	}
 	
 	// 페이징처리 기능
 	public List<NoticeVo> getNoticeList(int page){
 		
-		return getNoticeList("nTitle", "", page);
+		return getNoticeList("ntitle", "", page);
 	}
 
 	// 검색 기능
@@ -33,7 +33,7 @@ public class NoticeService {
 
 		String sql = "SELECT * FROM ("
 					+ "    SELECT ROWNUM NUM, N.* "
-					+ "    FROM (SELECT * FROM NOTICE_B WHERE "+field+" LIKE ? ORDER BY N_DATE DESC) N"
+					+ "    FROM (SELECT * FROM NOTICE WHERE "+field+" LIKE ? ORDER BY REGDATE DESC) N"
 					+ ")"
 					+ "WHERE NUM BETWEEN ? AND ?";
 		
@@ -45,7 +45,7 @@ public class NoticeService {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"passion","passion");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
@@ -53,21 +53,21 @@ public class NoticeService {
 			ResultSet rs = st.executeQuery();	
 			
 			while(rs.next()){
-				int n_no = rs.getInt("N_NO");
-				String nTitle = rs.getString("N_TITLE");
-				String nWriter = rs.getString("N_WRITER");
-				Date nDate = rs.getDate("N_DATE");
-				int nHit = rs.getInt("N_HIT");
-				String nContent = rs.getString("N_CONTENT");
+				int nno = rs.getInt("NOTICE_NO");
+				String ntitle = rs.getString("NOTICE_TITLE");
+				int mno = rs.getInt("MEMBER_NO");
+				Date regdate = rs.getDate("REGDATE");
+				int ncount = rs.getInt("NOTICE_COUNT");
+				String ncontent = rs.getString("NOTICE_CONTENT");
 				
 				NoticeVo noticeVo = new NoticeVo(
-						n_no,
-						nTitle,
-						nWriter,
-						nDate,
-						nHit,
-						nContent
-						);
+						nno,
+						mno,
+						ntitle,
+						ncontent,
+						ncount,
+						regdate
+						); 
 				list.add(noticeVo);
 			}
 			
@@ -88,23 +88,23 @@ public class NoticeService {
 	//목록에 대한 개수
 	public int getNoticeCount() {
 		
-		return getNoticeCount("nTitle", "");
+		return getNoticeCount("ntitle", "");
 	}
 	
 	//페이징 없이 검색된 결과의 총 개수
 	public int getNoticeCount(String field, String query) {
 		
 		int count = 0; 
-		String sql = "SELECT COUNT(N_NO) COUNT FROM ("
+		String sql = "SELECT COUNT(NOTICE_NO) COUNT FROM ("
 					+ "    SELECT ROWNUM NUM, N.* "
-					+ "    FROM (SELECT * FROM NOTICE_B WHERE "+field+" LIKE ? ORDER BY N_DATE DESC) N"
+					+ "    FROM (SELECT * FROM NOTICE WHERE "+field+" LIKE ? ORDER BY REGDATE DESC) N"
 					+ ")"
 					+ "WHERE NUM BETWEEN 6 AND 10";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"passion","passion");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, "%"+query+"%");
 			ResultSet rs = st.executeQuery();	
@@ -127,37 +127,37 @@ public class NoticeService {
 	}
 	
 	//detail페이지에서 no값을 받아 detail.jsp를 보여주는 기능
-	public NoticeVo getNotice(int n_no) {
+	public NoticeVo getNotice(int nno) {
 		NoticeVo noticeVo = null;
 		
-		String sql = "SELECT * FROM NOTICE_B WHERE N_NO=?";
+		String sql = "SELECT * FROM NOTICE WHERE NOTICE_NO=?";
 
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"passion","passion");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setInt(1, n_no);
+			st.setInt(1, nno);
 
 			ResultSet rs = st.executeQuery();	
 			
 			if(rs.next()){
-				int nn_no = rs.getInt("N_NO");
-				String nTitle = rs.getString("N_TITLE");
-				String nWriter = rs.getString("N_WRITER");
-				Date nDate = rs.getDate("N_DATE");
-				int nHit = rs.getInt("N_HIT");
-				String nContent = rs.getString("N_CONTENT");
+				int nno1 = rs.getInt("NOTICE_NO");
+				String ntitle = rs.getString("NOTICE_TITLE");
+				int mno = rs.getInt("MEMBER_NO");
+				Date regdate = rs.getDate("REGDATE");
+				int ncount = rs.getInt("NOTICE_COUNT");
+				String ncontent = rs.getString("NOTICE_CONTENT");
 				
 				noticeVo = new NoticeVo(
-						nn_no,
-						nTitle,
-						nWriter,
-						nDate,
-						nHit,
-						nContent
-						);
+						nno1,
+						mno,
+						ntitle,
+						ncontent,
+						ncount,
+						regdate
+						); 
 			}
 			
 			rs.close();

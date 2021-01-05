@@ -20,42 +20,42 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 public class NoticeDetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int n_no = Integer.parseInt(request.getParameter("n_no"));
+		int nno = Integer.parseInt(request.getParameter("nno"));
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String sql = "SELECT * FROM NOTICE_B WHERE N_NO=?";
+		String sql = "SELECT * FROM NOTICE WHERE NOTICE_NO=?";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"passion","passion");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setInt(1,n_no);
+			st.setInt(1,nno);
 			
 			ResultSet rs = st.executeQuery();
 			
 			rs.next();
 			
-			String nTitle = rs.getString("N_TITLE");
-			String nWriter = rs.getString("N_WRITER");
-			Date nDate = rs.getDate("N_DATE");
-			int nHit = rs.getInt("N_HIT");
-			String nContent = rs.getString("N_CONTENT");
+			String ntitle = rs.getString("NOTICE_TITLE");
+			int mno = rs.getInt("MEMBER_NO");
+			Date regdate = rs.getDate("REGDATE");
+			int ncount = rs.getInt("NOTICE_COUNT");
+			String ncontent = rs.getString("NOTICE_CONTENT");
 			
 			NoticeVo noticeVo = new NoticeVo(
-					n_no,
-					nTitle,
-					nWriter,
-					nDate,
-					nHit,
-					nContent
-					);
+					nno,
+					mno,
+					ntitle,
+					ncontent,
+					ncount,
+					regdate
+					); 
 			
 			request.setAttribute("n", noticeVo);
 			/*
-			request.setAttribute("nTitle", nTitle);
-			request.setAttribute("nWriter", nWriter);
-			request.setAttribute("nDate", nDate);
-			request.setAttribute("nHit", nHit);
-			request.setAttribute("nContent", nContent);
+			request.setAttribute("ntitle", ntitle);
+			request.setAttribute("mno", mno);
+			request.setAttribute("regdate", regdate);
+			request.setAttribute("ncount", ncount);
+			request.setAttribute("ncontent", ncontent);
 			*/
 			
 			rs.close();
@@ -69,7 +69,7 @@ public class NoticeDetailController extends HttpServlet{
 			e.printStackTrace();
 			
 		}
-
+		
 		//forward
 		request
 		.getRequestDispatcher("/views/board/notice/board_notice_detail.jsp")
@@ -77,3 +77,4 @@ public class NoticeDetailController extends HttpServlet{
 	}
 
 }
+
