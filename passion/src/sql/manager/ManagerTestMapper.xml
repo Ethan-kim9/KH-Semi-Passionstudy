@@ -16,8 +16,8 @@
 						     , RECOM_COUNT
 						     , MEMBER_STATUS
 						     , RECOM_CODE
-						     , MEMBER_POINT) 
-						        
+						     , MEMBER_POINT
+						     ) 
 						        VALUES
 						                (
 						                  SEQ_MNO.nextval  
@@ -30,7 +30,8 @@
 						                , 0
 						                , 'N'
 						                , 'hey00507'
-						                , 500);
+						                , 500
+						                );
 	</entry>
 	
 	<!-- 조회할 멤버 생성용 키 벨류 -->
@@ -51,7 +52,8 @@
 						     , RECOM_CODE
 						     , MEMBER_POINT
 						     
-						     ) VALUES
+						     ) 
+						     	VALUES
 						                (
 						                  SEQ_MNO.nextval  
 						                , 'passion1@passion.com' 
@@ -63,6 +65,36 @@
 						                , 0
 						                , 'N'
 						                , 'passion'
-						                , 500);
+						                , 500
+						                );
+	</entry>
+	
+	<!-- 방을 조회하기 위해 필요한 인서트문 -->
+	<entry key="InsertRoomInfo">
+	
+					INSERT INTO ROOM
+									(
+					                  ROOM_NO
+					                , ROOM_NAME
+					                , ROOM_TYPE
+					                , ROOM_CAPACITY
+					                , ROOM_INFORMATION
+					                , ROOM_FILEPATH
+					                , ROOM_PRICE
+					                
+					                )
+					                   VALUES
+					                        (
+					                            SEQ_RNO.nextval
+					                        ,   '타오르는 열정'
+					                        ,   '단체실'
+					                        ,   12
+					                        ,   '가장 큰 방입니다.'
+					                        ,   '미정'
+					                        ,   30000
+					                        );
+					
+					SELECT * FROM ROOM;
+						
 	</entry>
 </properties>

@@ -19,6 +19,7 @@
 %>
 
 	<!-- header 영역 정적삽입-->
+	
 	<%@include file="views/common/header.jsp" %>
 	
 	<!-- 메인 contents 영역 동적삽입-->
