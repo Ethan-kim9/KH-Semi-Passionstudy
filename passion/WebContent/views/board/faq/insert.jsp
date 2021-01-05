@@ -25,8 +25,8 @@
 		conn=DriverManager.getConnection(url,id,pw);
 		stmt=conn.createStatement();
 		String sql = "INSERT INTO FAQ_BOARD"+
-					"(FAQ_NO,FAQ_TITLE,FAQ_CONTENT,FAQ_DATE)"+
-					"VALUES(FAQ_SEQ.NEXTVAL,'"+faqboard_title+"', '"+faqboard_content+"', SYSDATE)";
+					"(FAQ_NO,MEMBER_NO,FAQ_TITLE,FAQ_CONTENT,FAQ_DATE)"+
+					"VALUES(FAQ_SEQ.NEXTVAL, 0 ,'"+faqboard_title+"', '"+faqboard_content+"', SYSDATE)";
 		
 		stmt.executeUpdate(sql);
 		

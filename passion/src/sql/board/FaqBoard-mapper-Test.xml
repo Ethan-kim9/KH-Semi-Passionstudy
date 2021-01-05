@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	
+<!-- 관리자입장 -->
+<!-- 자주묻는질문 작성 -->
+<entry key="insertFaqboard">
+	INSERT 
+		INTO FAQ_BOARD
+			(
+			   FAQ_NO
+			 , MEMBER_NO
+			 , FAQ_TITLE
+			 , FAQ_CONTENT
+			 , FAQ_DATE
+			 )
+		VALUES
+		   (
+		       FAQ_SEQ.NEXTVAL
+		     , ? 
+		     , ?
+		     , ?
+		     , SYSDATE
+		     )
+</entry>
+<!-- 자주묻는질문 수정 -->
+<entry key="modifyFaqboard">
+	UPDATE   FAQ_BOARD
+		SET     FAQ_TITLE = ?,
+          	    FAQ_CONTENT = ?
+		WHERE   FAQ_NO = ?;
+</entry>
+<!-- 자주묻는질문 삭제 -->
+<entry key="deleteFaqboard">
+	DELETE
+		FROM   FAQ_BOARD
+		WHERE   FAQ_NO = ?;
+</entry>
+
+<!-- 유저입장 -->
+<!-- 데이터검색 -->
+<entry key="findDataFaqboard">
+	SELECT   
+   			FAQ_NO,
+   			FAQ_TITEL,
+   			FAQ_DATE
+	FROM   	FAQ_BOARD
+	WHERE   FAQ_TITLE LIKE %?%
+</entry>                                                
 </properties>

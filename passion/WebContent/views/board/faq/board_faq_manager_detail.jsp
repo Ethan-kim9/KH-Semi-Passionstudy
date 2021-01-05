@@ -71,8 +71,8 @@
               <td></td>
             </tr>
             <tr>
-              <th>내용</th>
-              <td><%=content %></td>
+              <th class="content" style="height: 150px">내용</th>
+              <td class="content" style="height: 150px"><%=content %></td>
               <td></td>
               <td></td>
             </tr>
