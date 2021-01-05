@@ -45,7 +45,6 @@ public class JDBCtemplate {
 	}
 	
 	public static void rollback(Connection conn) {
-		
 		try {
 			if(!conn.isClosed()&&conn!=null) {				
 				conn.rollback();
@@ -53,7 +52,6 @@ public class JDBCtemplate {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public static void close(Connection conn) {

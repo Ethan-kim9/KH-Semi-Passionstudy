@@ -4,8 +4,8 @@
 <% //로그인 정보를 받는 로직
 /*Member loginMember = (Member)session.getAttribute("loginMember");*/
 /* 	
-	int memNo;			회원번호
-	int localNo;		지역번호
+	int    memNo;		회원번호
+	int    localNo;		지역번호
 	String memUserId;	회원아이디
 	String memUserPwd;	회원비밀번호
 	String memName;		회원명
@@ -23,7 +23,6 @@
 	String leaveCheck;	회원탈퇴 유무(N, Y)
 	String managerCheck;관리자 유무(N, Y)
 */
-	String contextPath = request.getContextPath();
 %>        
     
 <!DOCTYPE html>
@@ -71,11 +70,12 @@
             
               <li class="login">
           <% if(session.getAttribute("memberId") == null){ %>
-          	<a href="menu.Login"><span>로그인</span></a>
+          		<a href="menu.Login"><span>로그인</span></a>
           	<% }else{%>
           		<a href="menu.Logout"><span>로그아웃</span></a>
           <%}%>
               </li>
+              
               <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->
               
               <div class="floting_bar" style="left: 430px"></div>

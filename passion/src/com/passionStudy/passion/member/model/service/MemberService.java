@@ -8,54 +8,65 @@ import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberService {
-	Connection conn = getConnection();
-	/** 로그인
+
+	Connection conn;
+
+	/**
+	 * 로그인
+	 * 
 	 * @param memId
 	 * @param memPwd
 	 * @return
-	 * @throws SQLException 
-	 * */
+	 * @throws SQLException
+	 */
 	public MemberVo loginMember(String memId, String memPwd) throws SQLException {
+		conn = getConnection();
 		MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
 		conn.close();
 		return mv;
 	}
-	
-	/** 회원가입
+
+	/**
+	 * 회원가입
+	 * 
 	 * @param mv
 	 * @return
-	 * @throws SQLException 
+	 * @throws SQLException
 	 * 
-	 * */
+	 */
 	public int insertMember(MemberVo mv) throws SQLException {
+		conn = getConnection();
 		int result = new MemberDao().insertMember(conn, mv);
-		if(result > 0) {
+		if (result > 0) {
 			commit(conn);
-		}else {
+		} else {
 			rollback(conn);
 		}
 		conn.close();
 		return result;
 	}
-	
-	/** 아이디 찾기
+
+	/**
+	 * 아이디 찾기
+	 * 
 	 * @param memName
 	 * @param memPhone
 	 * @return
 	 */
 	public String findIdMember(String memName, String memPhone) throws SQLException {
+		conn = getConnection();
 		String findId = new MemberDao().findIdMember(conn, memName, memPhone);
 		conn.close();
 		return findId;
 	}
-	
-	/** 비밀번호 찾기1
-	 * 본인인증을 위한 정보를 입력하면
-	 * 1. 앞 문자 4개만 보여주고 뒤는 * 처리 할지
-	 * 2. 이메일로 랜덤한 문자 보내주고 변경페이지 링크...?
+
+	/**
+	 * 비밀번호 찾기1 본인인증을 위한 정보를 입력하면 1. 앞 문자 4개만 보여주고 뒤는 * 처리 할지 2. 이메일로 랜덤한 문자 보내주고
+	 * 변경페이지 링크...?
 	 * 
-	 * */
+	 */
 	public int findPwdMember(MemberVo mv) throws SQLException {
+		conn = getConnection();
 		int memNo = new MemberDao().findPwdMember(conn, mv);
 		conn.close();
 		return memNo;

@@ -41,13 +41,13 @@
 <entry key="MemberCouponModifier">
 
 </entry>
+
 <entry key="BlackListEnroll">
 	UPDATE 
 	    MEMBER 
 	        SET     
-	        		MEMBER_STATUS = ?
+	        		MEMBER_STATUS = D
 	        WHERE   
 	        		MEMBER_NO = ?
 </entry>
-
 </properties>

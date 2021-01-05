@@ -36,6 +36,7 @@
 	<!-- 조회할 멤버 생성용 키 벨류 -->
 	
 	<entry key="AdminInsertMember">
+	
 				INSERT INTO MEMBER
 						    (
 						       MEMBER_NO 
