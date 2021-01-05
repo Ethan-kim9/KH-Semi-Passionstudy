@@ -79,7 +79,8 @@
 	            <th><input type="checkbox" class="checkbox" /></th>
 	            <th>카테고리</th>
 	            <th>제목</th>
-	            <th>날짜</th>
+	            <th>내용</th>
+	            <th>작성일</th>
             </tr>
             <%
 				if(total == 0) { // total 즉 , 자료가 없다면
@@ -92,12 +93,14 @@
 					
 						while(result.next()) {
 							int no = result.getInt(1); //1은 첫번째 즉 qna_no값을 no라는 변수에 대입
+							
 							String title = result.getString(2); // FAQ_TITLE
 							String content = result.getString(3); //FAQ_CONTENT
 							String date = result.getString(4); // FAQ_DATE
 			%>
 						<tr>
-							<td><%=no %></td>
+							<td><input type="checkbox" class="checkbox" /></td>
+							<td></td>
 							<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=no %>"><%=title %></a></td>
 							<td><%=content %></td>
 							<td><%=date %></td>

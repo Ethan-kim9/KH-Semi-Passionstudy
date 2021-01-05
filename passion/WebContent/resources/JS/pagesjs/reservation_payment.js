@@ -22,6 +22,12 @@ function maxLengthCheck(object){
       object.value = object.value.slice(0, object.maxLength);
     }    
 }
+/*연락처 숫자만 입력*/
+$(function(){
+	$(".card_user_birth").keyup(function() {
+		$(this).val($(this).val().replace(/[^0-9]/g,""));
+	});
+});
 // 무통장 입금 선택 시
 $(document).ready(function() {
 	$('.mobile_payment_method').click(function(){
@@ -39,11 +45,12 @@ $(document).ready(function() {
 // 현장결제 선택 시
 $(document).ready(function() {
 	$('.scene_payment_method').click(function(){
-	    if(!$('#scene_payment').is(':checked')){
-	    alert("메일로 보내주기 준비 중...")
+		$('input[type=radio]').removeAttr('checked');
+	    if($('input[name="scene_payment"]').filter("[value=scene]").prop("checked", true)){
+	     alert("메일로 보내주기 준비 중...")
 	    } 
 	});
-	return false;
+	//return false;
 });
 // 현금결제 선택 시
 $(document).ready(function() {

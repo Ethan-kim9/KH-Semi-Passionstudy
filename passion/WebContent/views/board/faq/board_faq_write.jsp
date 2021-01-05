@@ -34,11 +34,13 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
+          	<form name="form">
             <select
               id="board_select"
               name="board_select"
               title="문의선택"
               class="sel"
+              onChange="getSelectValue(this.form);"
             >
               <option value="member_inquiry">회원문의</option>
               <option value="reservation_inquiry">예약문의</option>
@@ -46,6 +48,8 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
+            <input type="text" name="textValue" />
+            </form>
             <form id="board_form_title" action="index.jsp?inc=./views/board/faq/insert.jsp" method="post">
               <input
                 type="text"
@@ -76,4 +80,9 @@
     </section>
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+	function getSelectValue(frm) {
+		frm.textValue.value = frm.board_select.options[frm.board_select.selectedIndex].text;
+	}
+  </script>
 </html>

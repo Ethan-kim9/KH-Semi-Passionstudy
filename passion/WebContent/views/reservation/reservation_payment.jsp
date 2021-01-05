@@ -263,6 +263,8 @@
                 <br>
                 <span>생년월일</span>
                 <br>
+                <input type="text" name="card_user_birth" class="card_user_birth" placeholder="6자리 입력"/>
+                <br>
 
               </div>
 
