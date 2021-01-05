@@ -169,7 +169,7 @@ public class MemberDao {
 		
 	}
 	
-	// 한 사람에 대한 정보를 리턴하는 메소드
+	// 한 사람에 대한 정보를 리턴하는 메소드(마이페이지)
 	public MemberVo oneSelectMember(int nNum) {
 		MemberVo vo = new MemberVo();
 		

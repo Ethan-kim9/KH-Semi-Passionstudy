@@ -3,6 +3,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+	MemberVo member = (MemberVo)request.getAttribute("mvo");
+	// 혹시 몰라서 겟으로 받는 코드 작성 (el태그가 데이터를 못받으면 <%= 이걸로 다시 받을 것) 
+
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -57,11 +64,11 @@
     <!-- 회원 정보 수정 -->
     <section class="member-edit-section member-edit-section1 member_info_edit">
         <div class="edit-user-info">
+        
           <div class="edit-user-header">
             <div class="edit-user-header_title">회원정보수정</div>
             <a class="edit-user-header_withdrawal" href="views/mypage/onclick/mypage_withdrawal.jsp"
-              >탈퇴하기</a
-            >
+              >탈퇴하기</a>
           </div>
 
           <form class="edit-user-set" action="EditProc" method="POST" name="form-tag">
@@ -71,8 +78,8 @@
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_email">이메일</label>
-              <input class="edit-user-form_email-text1" type="email" name="email1" readonly/><!--  @
-              <input class="edit-user-form_email-text2" type="text" name="email2"readonly/> -->
+              <input class="edit-user-form_email-text1" type="email" name="email1" value="${mvo.memId }" readonly/>
+              <!--  @<input class="edit-user-form_email-text2" type="text" name="email2"readonly/> -->
               <p class="edit-user-form-email-warn">이메일 변경을 원하실 경우 관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
