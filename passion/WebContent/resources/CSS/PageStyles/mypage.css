@@ -283,20 +283,21 @@
   border-radius: 6px;
 }
 .edit-user-form_email-text1 {
-  width: 280px;
+  width: 500px;
   height: 40px;
   border: 1px solid #bebcbc;
   border-radius: 6px;
 }
-.edit-user-form_email-text2 {
+/* .edit-user-form_email-text2 {
   width: 195px;
   height: 40px;
   border: 1px solid #bebcbc;
   border-radius: 6px;
-}
+} */
 .edit-user-form-email-warn {
   color: #d80909;
   font-weight: bold;
+  margin-left: 220px;
   /* display: none; */
 }
 .edit-user-form_phone-text {

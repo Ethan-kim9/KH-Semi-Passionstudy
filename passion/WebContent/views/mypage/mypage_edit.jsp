@@ -1,3 +1,5 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
+<%@page import="com.passionStudy.passion.member.model.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,6 +10,7 @@
       <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
+
 
     <div class="cont_header">
       <div class="cont_wrapper">
@@ -64,13 +67,13 @@
           <form class="edit-user-set" action="EditProc" method="POST" name="form-tag">
             <div class="edit-user-form">
               <label class="edit-user-form_name">이름</label>
-              <input class="edit-user-form_name-text" type="hidden" name="name" <%-- value="${}" --%>/>
+              <input class="edit-user-form_name-text" type="text" name="name" value="${mvo.memName}" readonly/>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_email">이메일</label>
-              <input class="edit-user-form_email-text1" type="text" name="email1" readonly/> @
-              <input class="edit-user-form_email-text2" type="text" name="email2"readonly/>
-              <p class="edit-user-form-email-warn">관리자에게 문의 바랍니다.</p>
+              <input class="edit-user-form_email-text1" type="email" name="email1" readonly/><!--  @
+              <input class="edit-user-form_email-text2" type="text" name="email2"readonly/> -->
+              <p class="edit-user-form-email-warn">이메일 변경을 원하실 경우 관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_phone">휴대폰번호</label>

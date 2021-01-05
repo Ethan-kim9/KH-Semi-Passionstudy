@@ -152,7 +152,6 @@ public class MemberDao {
 	//////////////////////
 	// 회원정보수정
 	public void updateInfoMember(MemberVo vo) {
-		// 커넥션 연결 자동인가?
 		
 		try {
 			String sql = "update member set member_phone = ?, ad_agree = ? where member_id = ?";
@@ -168,6 +167,41 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	// 한 사람에 대한 정보를 리턴하는 메소드
+	public MemberVo oneSelectMember(int nNum) {
+		MemberVo vo = new MemberVo();
+		
+		try {
+			String sql = "select * from member where member_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, nNum);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setMemNo(rs.getInt(1));
+				vo.setMemId(rs.getString(2));
+				vo.setMemPwd(rs.getString(3));
+				vo.setMemName(rs.getString(4));
+				vo.setMemPhone(rs.getString(5));
+				vo.setMemDate(rs.getDate(6));
+				vo.setAdminCheck(rs.getString(7));
+				vo.setMemRecomCount(rs.getInt(8));
+				vo.setMemStatus(rs.getString(9));
+				vo.setMemAdAgree(rs.getString(10));
+				vo.setMemRecomCode(rs.getString(11));
+				vo.setMemPoint(rs.getInt(12));
+				vo.setMemToken1(rs.getString(13));
+				vo.setMemToken2(rs.getString(14));
+			}
+			conn.close();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
 }

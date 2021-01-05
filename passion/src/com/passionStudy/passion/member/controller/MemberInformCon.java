@@ -12,43 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
+// 회원 정보 수정 페이지에 데이터 쏴주는 서블릿
+@WebServlet("/MemberInformCon")
+public class MemberInformCon extends HttpServlet {
 
-@WebServlet("/EditProc")
-public class MemberEditProc extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		reqPro(request, response);
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		reqPro(request, response);
 	}
 	
 	protected void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 한글처리
-		request.setCharacterEncoding("utf-8");
 		
 		int mNum = Integer.parseInt(request.getParameter("num"));
-		
+
 		MemberDao mdao = new MemberDao();
-		mdao.oneSelectMember(mNum);
+		MemberVo mvo = mdao.oneSelectMember(mNum);
 		
-		MemberVo vo = new MemberVo();
-		
-		
-		vo.setMemPhone(request.getParameter("phone"));
-		vo.setMemAdAgree(request.getParameter("adagree"));
-		
-		// 데이터베이스 객체 생성
-		MemberDao mdao = new MemberDao();
-		mdao.updateInfoMember(vo);
-		
-		// 회원정보가 수정됐다고 자바스크립트 alert창 띄워주고 다시 회원정보수정창으로 돌아와야 하는데...
+		// jsp쪽으로 넘겨줌
+		request.setAttribute("mvo", mvo);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("mypage_edit.jsp");
 		dis.forward(request, response);
+		
 	}
 
 }
