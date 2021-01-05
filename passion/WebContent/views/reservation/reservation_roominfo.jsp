@@ -28,7 +28,7 @@
      }
      .calender {
        border: 1px solid #d8d8d8;
-       padding-top: 0px;
+       padding-top: 20px;
      }
      .information {
        width: 500px;
@@ -55,7 +55,7 @@
      }
      /* 캘린더 css */
      .color_desc {
-       margin-left: 20px;
+       margin: 10px 0 0 25px;
        float: left;
      }
      .color_desc span {
@@ -96,7 +96,7 @@
      }
      /* */
   
-  /* 예약시간 */
+     /* 예약시간 */
      .reservation_time {
      	height: 260px;
      	
@@ -119,25 +119,37 @@
      
      .reservation_time input {
      	background-color: black;
-    color: white;
-    border: 0;
-    border-radius: 4px;
-    font-weight: 500;
-    font-family: "Montserrat", Noto Sans KR, sans-serif;
-    cursor: pointer;
+	    color: white;
+	    border: 0;
+	    border-radius: 4px;
+	    font-weight: 500;
+	    font-family: "Montserrat", Noto Sans KR, sans-serif;
+	    cursor: pointer;
      }
      .reservation_time input:hover {
      	background-color: #ffcc00;
  		color: white;
      }
+     
      .time_select {
-       width: 120px;
-    height: 30px;
-    font-size: 14px;
+       	width: 120px;
+	    height: 30px;
+	    font-size: 14px;
      	margin: 10px 25px 10px 355px;
+     	background-color: black;
+	    color: white;
+	    border: 0;
+	    border-radius: 4px;
+	    font-weight: 500;
+	    font-family: "Montserrat", Noto Sans KR, sans-serif;
+	    cursor: pointer;
+     }
+     .time_select:hover {
+     	background-color: #ffcc00;
+ 		color: white;
      }
      
-  /*  */
+     /*  */
 	
 
      .change_price {
@@ -244,24 +256,25 @@
      }
      
      .scriptCalendar {
-  text-align: center;
-  width: 480px;
-  height: 450px;
-}
-.scriptCalendar > thead > tr > td {
-  width: 50px;
-  height: 50px;
-}
-.scriptCalendar > thead > tr:first-child > td {
-  font-weight: bold;
-}
-.scriptCalendar > thead > tr:last-child > td {
-  background-color: #ffffe6;
-}
-.scriptCalendar > tbody > tr > td {
-  width: 50px;
-  height: 50px;
-}
+	   text-align: center;
+	   width: 480px;
+	   height: 450px;
+	   margin: 0;
+	 }
+	 .scriptCalendar > thead > tr > td {
+ 	   width: 50px;
+	   height: 50px;
+	 }
+	 .scriptCalendar > thead > tr:first-child > td {
+	   font-weight: bold;
+	 }
+	 .scriptCalendar > thead > tr:last-child > td {
+	   background-color: #ffffe6;
+	 }
+	 .scriptCalendar > tbody > tr > td {
+	   width: 50px;
+	   height: 50px;
+	 }
       
      
    </style>
@@ -294,14 +307,14 @@
      <div class="tabtype_wrapper">
        <ul>
          <li style="width: 33%;">
-  <button class="btn1 on" disabled>예약하기</button>
-</li>
-<li style="width: 33%;">
-<button class="btn2" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>예약자 정보입력</button>
-</li>
-<li style="width: 33%;">
-<button class="btn3" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>결제하기</button>
-      </li>
+		  <button class="btn1 on" disabled>예약하기</button>
+		 </li>
+		 <li style="width: 33%;">
+		  <button class="btn2" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>예약자 정보입력</button>
+		 </li>
+		 <li style="width: 33%;">
+		  <button class="btn3" style="cursor:not-allowed; background-color: rgb(190, 190, 190); color: black;" disabled>결제하기</button>
+        </li>
     </ul>
   </div>
 </div>
@@ -322,32 +335,32 @@
          height="425px"
        />
      </td>
-     <td class="calender" rowspan="2">
+     <td class="calender" rowspan="2" style="vertical-align: top;">
        	<table class="scriptCalendar">
-<thead>
-	<tr>
-		<td onClick="prevCalendar();"
-style="cursor: pointer; font-size: 20px">
-	&#60;&#60;</td>
-<td colspan="5" style="font-size: 28px">
-	<span id="calYear">YYYY</span>년
-	<span id="calMonth">MM</span>월
-</td>
-<td onClick="nextCalendar();" style="cursor: pointer">&#62;&#62;</td>
-		</tr>
-		<tr>
-			<td>일</td>
-			<td>월</td>
-			<td>화</td>
-			<td>수</td>
-			<td>목</td>
-			<td>금</td>
-			<td>토</td>
-		</tr>
-	</thead>
-	<tbody>
-	</tbody>
-</table>
+		<thead>
+			<tr>
+				<td onClick="prevCalendar();"
+				style="cursor: pointer; font-size: 20px">
+					&#60;&#60;</td>
+		<td colspan="5" style="font-size: 28px">
+			<span id="calYear">YYYY</span>년
+			<span id="calMonth">MM</span>월
+		</td>
+		<td onClick="nextCalendar();" style="cursor: pointer">&#62;&#62;</td>
+				</tr>
+				<tr>
+					<td>일</td>
+					<td>월</td>
+					<td>화</td>
+					<td>수</td>
+					<td>목</td>
+					<td>금</td>
+					<td>토</td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
         <div class="color_desc">
           <span class="color_disable">예약불가</span>
           <span class="color_today">오늘</span>
@@ -397,7 +410,6 @@ style="cursor: pointer; font-size: 20px">
             <button class="time_select">예약시간 선택</button>
           </div>
           <br />
-          <br />
           <div class="calender_payment">
             <h8 class="calender_price">0,000원</h8>
             <br />
@@ -417,6 +429,7 @@ style="cursor: pointer; font-size: 20px">
               <option value="twelve">12</option>
             </select>
           </div>
+          <br>
         </td>
       </tr>
       <tr>
@@ -734,7 +747,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
           //else if (date.getDate() < day && lastDate.getDate() >= day) {
-          // @details 현재일보다 이후이면서 2주 뒤를 포함되는 일인경우
+          // @details 현재일보다 이후이면서 3주 뒤를 포함되는 일인경우
           else if (date.getDate() < day && date.getDate()+21 >= day) {
             column.style.backgroundColor = "#FFFFFF";
             column.style.cursor = "pointer";
@@ -743,8 +756,8 @@ document.addEventListener("DOMContentLoaded", function () {
             };
           }
 
-		  // @details 현재일의 2주 뒤 이후이면서 현재월을 포함되는 일인경우
-		  else if (date.getDate()+14 < day && lastDate.getDate() >= day) {
+		  // @details 현재일의 3주 뒤 이후이면서 현재월을 포함되는 일인경우
+		  else if (date.getDate()+21 < day && lastDate.getDate() >= day) {
             column.style.backgroundColor = "#E5E5E5";
             column.style.color = "#A9A9A9";
           }	
@@ -756,6 +769,7 @@ document.addEventListener("DOMContentLoaded", function () {
             column.onclick = function () {
               calendarChoiceDay(this);
             };
+            
           }
           // @details 현재월보다 이전인경우
         } else if (today.getMonth() < date.getMonth()) {
@@ -767,13 +781,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // @details 현재월보다 이후인경우
         else {
           if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-            column.style.backgroundColor = "#FFFFFF";
-            column.style.cursor = "pointer";
-            column.onclick = function () {
-              calendarChoiceDay(this);
-            };
-            column.style.backgroundColor = "#E5E5E5";
-            column.style.color = "#A9A9A9";
+        	  column.style.backgroundColor = "#E5E5E5";
+              column.style.color = "#A9A9A9";
           }
         }
       }
