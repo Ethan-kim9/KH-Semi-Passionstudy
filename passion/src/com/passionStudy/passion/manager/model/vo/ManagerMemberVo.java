@@ -19,6 +19,11 @@ public class ManagerMemberVo {
 
 		
 		
+		public ManagerMemberVo() {
+			super();
+		}
+
+
 		public ManagerMemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, Date memDate,
 				int memRecomCount, String memStatus, String memAdAgree, String memRecomCode, int memPoint,
 				String memToken1, String memToken2, String memAdminCheck) {
