@@ -450,7 +450,11 @@ input::placeholder {
   margin: 10px 0 20px 0;
   width: 170px;
 }
-
+.card_user_birth {
+  margin-top: 15px;
+  width: 230px;
+  height: 30px;
+}
 /* 이용약관 */
 .join_box {
   width: 100%;
