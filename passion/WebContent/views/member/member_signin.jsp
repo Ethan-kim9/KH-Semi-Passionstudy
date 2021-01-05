@@ -31,7 +31,8 @@
                                 <input
                                   type="checkbox"
                                   id="allckbox"
-                                />
+                                  required
+                                >
                                 <label for="allckbox" title="모두 동의 (선택 정보 포함)">
                                   모두 동의 (선택 정보 포함)
                                 </label>
@@ -203,7 +204,8 @@
                           <label for="userid" class="blind signup_step">아이디 (이메일) 입력</label>
                               <div class="inpbx">
                                   <input type="email" 
-                                         id="userid" 
+                                         id="userid"
+                                         name="userid" 
                                          placeholder="아이디 (이메일) 입력" 
                                          formcontrolname="userid"
                                          autocorrect="off" 
@@ -241,12 +243,13 @@
                           입력해주세요.
                       </h3>
                       <div class="field_signup_wrap_pwd">
-                          <label for="usernm" class="blind signup_step"></label>
+                          <label for="username" class="blind signup_step"></label>
                           <div class="inpbx">
                               <input rulerfocuson type="text" 
-                                                  id="usernm" 
+                                                  id="username"
+                                                  name="username" 
                                                   placeholder="이름" 
-                                                  formcontrolname="usernm"/>
+                                                  formcontrolname="username"/>
                               <!---->
                           </div>
                           <p class="field_vali">
@@ -257,7 +260,8 @@
                           <label for="userphnumber" class="blind signup_step"></label>
                           <div class="inpbx">
                               <input rulerfocuson type="text" 
-                                                  id="userphnumber" 
+                                                  id="userphnumber"
+                                                  name="userphnumber" 
                                                   placeholder="연락처 (전화번호)" 
                                                   formcontrolname="userphnumber"/>
                               <!---->
@@ -294,13 +298,14 @@
                           비밀번호를 입력해주세요.
                       </h3>
                       <div>
-                          <label for="user_password" class="blind signup_step"></label>
+                          <label for="userpassword" class="blind signup_step"></label>
                           <div class="field_signup_wrap_pwd">
                               <div class="inpbx">
                                   <input rulerfocuson type="password" 
-                                                      id="user_password" 
+                                                      id="userpassword"
+                                                      name="userpassword" 
                                                       placeholder="비밀번호 입력" 
-                                                      formcontrolname="user_password"/>
+                                                      formcontrolname="userpassword"/>
                                   <!---->
                               </div>
 
@@ -424,7 +429,7 @@
                           <div class="login_dsc">
                               <!-- 로그인 화면 링크 -->
                               <a href="index.jsp?inc=./views/member/member_login.jsp" class="member_go">
-                                  <input type="button" class="btn_next_step" value="로그인 하기"></button>
+                                  <button type="button" class="btn_next_step" value="">로그인 하기</button>
                               </a>
                           </div>
                       </div>

@@ -14,7 +14,7 @@ import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @SuppressWarnings("serial")
-@WebServlet("/login")
+@WebServlet("")
 public class MemberLoginController extends HttpServlet {
 	public MemberLoginController() {
 		super();
@@ -25,7 +25,7 @@ public class MemberLoginController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 
 		String memId = req.getParameter("userid");
-		String memPwd = req.getParameter("userpwd");
+		String memPwd = req.getParameter("userpassword");
 		
 		MemberVo loginMember = null;
 		try {
@@ -37,7 +37,7 @@ public class MemberLoginController extends HttpServlet {
 
 			// 로그인 실패
 			req.setAttribute("loginFail", "아이디 혹은 비밀번호를 잘못 입력하셨거나 가입하지 않은 아이디 입니다.");
-			req.getRequestDispatcher("/views/member/member_login.jsp").forward(req, resp);
+			req.getRequestDispatcher("views/member/member_login.jsp").forward(req, resp);
 
 		}else { 
 

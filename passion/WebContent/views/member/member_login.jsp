@@ -7,13 +7,15 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-
+<%
+	String loginFail = (String)request.getAttribute("loginFail");
+%>
 
 
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
-        <form class="form_wrap_signup">
+        <form class="form_wrap_signup" action="" method="post">
           <h2 class="member_title">로그인</h2>
           <div class="login_box">
             <form class="login_main">
@@ -26,6 +28,7 @@
                   autocorrect="off"
                   autocapitalize="none"
                   class="login_main"
+                  required
                 />
               </div>
               <div class="inpbx">
@@ -35,9 +38,17 @@
                   formcontrolname="userpwd"
                   placeholder="비밀번호"
                   class="login_main"
+                  required
                 />
               </div>
-              <button type="submit" class="btn_login">로그인하기</button>
+              
+              <div>
+		            <!-- 로그인 오류시 출력문구 입력 -->
+		           	<% if(loginFail != null){ %>
+		           		<label id="p"><%= loginFail %></label>
+		           	<% } %>
+              </div>
+              <input type="submit" class="btn_login">로그인하기
             </form>
 
             <div class="sns_login">
