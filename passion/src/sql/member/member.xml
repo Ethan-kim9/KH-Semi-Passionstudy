@@ -73,16 +73,6 @@
 	   AND MEMBER_STATUS = 'N'
 </entry>
 
-<!-- 비밀번호찾기2 (비밀번호 수정) -->
-<entry key="updatePwdMember">
-	UPDATE 
-	       MEMBER
-	   SET MEMBER_PWD = ?
-	 WHERE MEMBER_ID = ?
-</entry>
-
-
-
 <!-- 회원정보수정(마이페이지) -->
 <entry key="editInfoMember">
 	UPDATE MEMBER
