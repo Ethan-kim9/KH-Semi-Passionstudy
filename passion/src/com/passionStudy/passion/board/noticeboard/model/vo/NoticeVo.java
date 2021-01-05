@@ -3,78 +3,79 @@ package com.passionStudy.passion.board.noticeboard.model.vo;
 import java.util.Date;
 
 public class NoticeVo {
-	private int n_no;
-	private String nTitle;
-	private String nWriter;
-	private Date nDate;
-	private int nHit;
-	private String nContent;
+   private int nno; //공지사항 식별자
+   private int mno; //회원 식별자
+   private String ntitle; //공지사항 제목
+   private String ncontent; //공지사항 내용
+   private int ncount; //조회수
+   private Date regdate; //작성일
+   
+   public NoticeVo() {}
+   
+   public NoticeVo(int nno, int mno, String ntitle, String ncontent, int ncount, Date regdate) {
+
+		this.nno = nno;
+		this.mno = mno;
+		this.ntitle = ntitle;
+		this.ncontent = ncontent;
+		this.ncount = ncount;
+		this.regdate = regdate;
+	}
+
+	public int getNno() {
+		return nno;
+	}
 	
-	public NoticeVo() {}
-
-	public NoticeVo(int n_no, String nTitle, String nWriter, Date nDate, int nHit, String nContent) {
-		super();
-		this.n_no = n_no;
-		this.nTitle = nTitle;
-		this.nWriter = nWriter;
-		this.nDate = nDate;
-		this.nHit = nHit;
-		this.nContent = nContent;
+	public void setNno(int nno) {
+		this.nno = nno;
 	}
-
-	public int getN_no() {
-		return n_no;
+	
+	public int getMno() {
+		return mno;
 	}
-
-	public void setN_no(int n_no) {
-		this.n_no = n_no;
+	
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
-
-	public String getnTitle() {
-		return nTitle;
+	
+	public String getNtitle() {
+		return ntitle;
 	}
-
-	public void setnTitle(String nTitle) {
-		this.nTitle = nTitle;
+	
+	public void setNtitle(String ntitle) {
+		this.ntitle = ntitle;
 	}
-
-	public String getnWriter() {
-		return nWriter;
+	
+	public String getNcontent() {
+		return ncontent;
 	}
-
-	public void setnWriter(String nWriter) {
-		this.nWriter = nWriter;
+	
+	public void setNcontent(String ncontent) {
+		this.ncontent = ncontent;
 	}
-
-	public Date getnDate() {
-		return nDate;
+	
+	public int getNcount() {
+		return ncount;
 	}
-
-	public void setnDate(Date nDate) {
-		this.nDate = nDate;
+	
+	public void setNcount(int ncount) {
+		this.ncount = ncount;
 	}
-
-	public int getnHit() {
-		return nHit;
+	
+	public Date getRegdate() {
+		return regdate;
 	}
-
-	public void setnHit(int nHit) {
-		this.nHit = nHit;
-	}
-
-	public String getnContent() {
-		return nContent;
-	}
-
-	public void setnContent(String nContent) {
-		this.nContent = nContent;
+	
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 
 	@Override
 	public String toString() {
-		return "NoticeVo [n_no=" + n_no + ", nTitle=" + nTitle + ", nWriter=" + nWriter + ", nDate=" + nDate + ", nHit="
-				+ nHit + ", nContent=" + nContent + "]";
+		return "NoticeVo [nno=" + nno + ", mno=" + mno + ", ntitle=" + ntitle + ", ncontent=" + ncontent + ", ncount="
+				+ ncount + ", regdate=" + regdate + "]";
 	}
-	
-	
+	   
+	   
+   
 }
