@@ -33,8 +33,7 @@ public class MemberInformCon extends HttpServlet {
 		
 		int mNum = Integer.parseInt(request.getParameter("num"));
 
-		MemberDao mdao = new MemberDao();
-		MemberVo mvo = mdao.oneSelectMember(mNum);
+		MemberVo mvo = new MemberDao().oneSelectMember(mNum);
 		
 		// jsp쪽으로 넘겨줌
 		if(mvo != null) {
