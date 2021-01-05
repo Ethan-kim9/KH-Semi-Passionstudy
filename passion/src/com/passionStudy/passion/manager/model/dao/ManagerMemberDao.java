@@ -27,7 +27,7 @@ public class ManagerMemberDao {
 		}
 	}
 	
-	public ArrayList<ManagerMemberVo> memberSearch(Connection conn) {
+	public ArrayList<ManagerMemberVo> memberSearch(Connection conn, String searchName) {
 		
 		ArrayList<ManagerMemberVo> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -36,7 +36,7 @@ public class ManagerMemberDao {
 		String sql = prop.getProperty("MemberSearch");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "name");
+			pstmt.setString(1, searchName);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
