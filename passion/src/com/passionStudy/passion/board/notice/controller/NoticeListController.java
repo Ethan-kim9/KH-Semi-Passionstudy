@@ -30,21 +30,23 @@ public class NoticeListController extends HttpServlet{
 		String query_ = request.getParameter("q");
 		String page_ = request.getParameter("p");
 		
-		String field = "ntitle";
-		if(field_ != null && field_.equals(""))
+		String field = "notice_title";
+		if(field_ != null && !field_.equals(""))
 			field = field_;
 		
 		String query = "";
-		if(query_ != null && field_.equals(""))
+		if(query_ != null && !query_.equals(""))
 			query = query_;
 		
 		int page = 1;
-		if(page_ != null)
+		if(page_ != null && !page_.equals(""))
 			page = Integer.parseInt(page_);
 		
 		NoticeService service = new NoticeService();
 		List<NoticeVo> list = service.getNoticeList(field, query, page);
 		
+		
+		/*
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String sql = "SELECT * FROM NOTICE";
 
@@ -85,7 +87,7 @@ public class NoticeListController extends HttpServlet{
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 
 		
 			request.setAttribute("list", list);

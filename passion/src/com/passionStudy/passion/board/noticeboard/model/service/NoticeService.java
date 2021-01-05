@@ -47,9 +47,11 @@ public class NoticeService {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
+			
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
 			st.setInt(3, page*10);
+			
 			ResultSet rs = st.executeQuery();	
 			
 			while(rs.next()){
@@ -87,8 +89,9 @@ public class NoticeService {
 	
 	//목록에 대한 개수
 	public int getNoticeCount() {
-		
+		//다른 점 발견 
 		return getNoticeCount("ntitle", "");
+		
 	}
 	
 	//페이징 없이 검색된 결과의 총 개수
@@ -98,15 +101,17 @@ public class NoticeService {
 		String sql = "SELECT COUNT(NOTICE_NO) COUNT FROM ("
 					+ "    SELECT ROWNUM NUM, N.* "
 					+ "    FROM (SELECT * FROM NOTICE WHERE "+field+" LIKE ? ORDER BY REGDATE DESC) N"
-					+ ")"
-					+ "WHERE NUM BETWEEN 6 AND 10";
+					+ ")";
+		
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
+			
 			st.setString(1, "%"+query+"%");
+			
 			ResultSet rs = st.executeQuery();	
 			
 			count = rs.getInt("count");
@@ -138,6 +143,7 @@ public class NoticeService {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
+			
 			st.setInt(1, nno);
 
 			ResultSet rs = st.executeQuery();	
@@ -174,6 +180,56 @@ public class NoticeService {
 		return noticeVo;
 	}
 	
+	public NoticeVo getPrevNotice(int id) {
+		NoticeVo noticeVo = null;
+		String sql = "SELECT ID FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC) "
+					+"WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID=?) "
+					+"AND ROWNUM = 1";
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = DriverManager.getConnection(url,"system","oracle");
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setInt(1, id);
+			
+			ResultSet rs = st.executeQuery();	
+			
+			
+			if(rs.next()) {
+				int nno1 = rs.getInt("NOTICE_NO");
+				String ntitle = rs.getString("NOTICE_TITLE");
+				int mno = rs.getInt("MEMBER_NO");
+				Date regdate = rs.getDate("REGDATE");
+				int ncount = rs.getInt("NOTICE_COUNT");
+				String ncontent = rs.getString("NOTICE_CONTENT");
+				
+				noticeVo = new NoticeVo(
+						nno1,
+						mno,
+						ntitle,
+						ncontent,
+						ncount,
+						regdate
+
+						);
+			
+			}
+			
+			rs.close();
+			st.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return noticeVo;
+	}
 	
 	/* detail.jsp에서 다음글/이전글 볼 수 있는 기능
  	public int getNextNotice(int id) {

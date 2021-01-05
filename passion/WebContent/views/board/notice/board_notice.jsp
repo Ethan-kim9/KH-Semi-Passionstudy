@@ -48,11 +48,6 @@
 	        </tr>
 	        </thead>
 	        <tbody>
-	        <%-- <%
-	        List<NoticeVo> list = (List<NoticeVo>)request.getAttribute("list"); 
-	        for(NoticeVo n : list){
-	        	pageContext.setAttribute("n", n);
-	        %> --%>
 	        
 	        <c:forEach var="n" items="${list}"> <%-- begin="1" end="3" varStatus="st" --%>
 	        
@@ -76,8 +71,8 @@
           		<ledgend class="hidden">공지사항 검색 필드</ledgend>
           		<label class="hidden">검색분류</label>
 	            <select name="f">
-	              <option ${(param.f == "ntitle")?"selected":""} value="ntitle">제목</option> 
-	              <option ${(param.f == "ncontent")?"selected":""} value="ncontent">내용</option>
+	              <option ${(param.f == "notice_title")?"selected":""} value="notice_title">제목</option> 
+	              <option ${(param.f == "notice_content")?"selected":""} value="notice_content">내용</option>
 	            </select>
 	          <input type="text" name="q" value="${param.q}" id="search-box" />
 	          
@@ -87,8 +82,38 @@
           	</fieldset>
           </form>
           </div>
-          
-          
+          	<nav aria-label="Page navigation example">
+			  <ul class="pagination">
+			    <li class="page-item">
+			    <c:set var="page" value="${(param.p == null)?1:param.p}"/>
+				<c:set var="startNum" value="${page-(page-1)%5}"/>
+				<c:set var="lastNum" value="23"/>
+			      <a class="page-link" href="#" aria-label="Previous">
+				      <c:if test="${startNum>1}">
+				      	<a href="?p=${startNum-1}&t=&q=" aria-hidden="true">&laquo;</a>
+				      </c:if>
+				      <c:if test="${startNum<=1}"> 
+				        <span aria-hidden="true" onclick="alert('이전 페이지가 없습니다.')">&laquo;</span>
+				      </c:if>
+			      </a>
+			    </li>
+				
+				<c:forEach var="i" begin="0" end="4">
+			    <li class="page-item"><a class="page-link" href="?p=${startNum+i}&f=${param.f}&q=${param.q}">${startNum+i}</a></li>
+			    </c:forEach>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next"></a>
+			      
+				      <c:if test="${startNum+5<lastNum}">
+				        <a href="?p=${startNum+5}&t=&q=" aria-hidden="true" >&raquo;</a>
+				      </c:if> 
+				      <c:if test="${startNum+5>=lastNum}">  
+				        <span aria-hidden="true" onclick="alert('다음 페이지가 없습니다.')">&raquo;</span>
+				      </c:if>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
         </div>
       </div>
     </section>
