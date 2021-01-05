@@ -62,7 +62,7 @@ var reservation_click_button = function() {
 			}
 		} else {
 			second_time_btn.onclick = function() {
-				secondTimeData.value = selectCalendarDate.value + '1';
+				secondTimeData.value = selectCalendarDate.value + '2';
 			}
 		}
 	}
@@ -75,7 +75,7 @@ var reservation_click_button = function() {
 			}
 		} else {
 			third_time_btn.onclick = function() {
-				thirdTimeData.value = selectCalendarDate.value + '1';
+				thirdTimeData.value = selectCalendarDate.value + '3';
 			}
 		}
 	}
@@ -88,7 +88,7 @@ var reservation_click_button = function() {
 			}
 		} else {
 			fourth_time_btn.onclick = function() {
-				fourthTimeData.value = selectCalendarDate.value + '1';
+				fourthTimeData.value = selectCalendarDate.value + '4';
 			}
 		}
 	}
@@ -101,7 +101,7 @@ var reservation_click_button = function() {
 			}
 		} else {
 			fifth_time_btn.onclick = function() {
-				fifthTimeData.value = selectCalendarDate.value + '1';
+				fifthTimeData.value = selectCalendarDate.value + '5';
 			}
 		}
 	}
@@ -114,7 +114,7 @@ var reservation_click_button = function() {
 			}
 		} else {
 			last_time_btn.onclick = function() {
-				lastTimeData.value = selectCalendarDate.value + '1';
+				lastTimeData.value = selectCalendarDate.value + '6';
 			}
 		}
 	}
