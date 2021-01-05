@@ -1,5 +1,12 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.passionStudy.passion.manager.model.vo.ManagerMemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  
+  <%
+  		ArrayList<ManagerMemberVo> list = (ArrayList<ManagerMemberVo>)request.getAttribute("list"); 
+  %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,11 +15,38 @@
   </head>
 
   <body>
+      <div class="tabtype btn_align_center tabtype_style_edit">
+      <div class="tabtype_wrapper">
+        <ul class="manager_ul_style">
+          <li>
+            <button class="btn1 on">회원 관리</button>
+          </li>
+          <li>
+            <button class="btn2">매출 조회</button>
+          </li>
+          <li>
+            <button class="btn3">상품 관리</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class= "DBtest">
+	    <% if(list.isEmpty()) { %>
+	    	<h1> 리스트가 비었습니다.</h1>
+	    <%}else{ %>
+	    	<h1> 성공하셨습니다 :)</h1>
+	    <% for(ManagerMemberVo mmv : list) {%>
+	    	<h2> 검색한 값은 : <%= mmv.getMemId() %></h2>
+	    	<%} %>
+	    <%} %>
+    </div>
+
 <div class="membersearch-box">
-        <form class="membersearch" method="post" action= "manager.MemberSearch" name="SearchName">
+        <form class="membersearch" method="post" action= "manager.MemberSearch">
           <label for="membersearch--input" class="membersearch--label">이름을 입력하세요</label>
           <br />
-          <input type="search" class="membersearch--input" id="SearchName"/>
+          <input type="input" class="membersearch--input" id="SearchName" name="SearchName"/>
           <input type="submit" value="검색" />
         </form>
       </div>

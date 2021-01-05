@@ -5,6 +5,11 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
+<style>
+.MemberSearch_default{
+	height: 50vh;
+}
+</style>
   </head>
 
   <body>
@@ -42,7 +47,19 @@
 
     <!-- 회원 관리와 관련된 박스-->
     <section class="manager_member__section manager_section">
-      <jsp:include page="<%=memberedit %>"/>
+    
+	<div class="membersearch-box MemberSearch_default">
+        <form class="membersearch" method="post" action= "manager.MemberSearch">
+          
+          <label for="membersearch--input" class="membersearch--label">조회할 회원의 이름을 입력하세요</label>
+          
+          <br />
+          
+          <input type="input" class="membersearch--input" id="SearchName" name="SearchName"/>
+          
+          <input type="submit" value="검색" />
+        </form>
+      </div>
     </section>
 
     <!-- 매출과 관련된 섹터 -->

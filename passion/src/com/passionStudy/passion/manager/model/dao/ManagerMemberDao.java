@@ -14,11 +14,12 @@ import java.util.Properties;
 import com.passionStudy.passion.manager.model.vo.ManagerMemberVo;
 
 public class ManagerMemberDao {
+	
 	private Properties prop = new Properties();
 	
 	public ManagerMemberDao() {
 		
-		String fileName = ManagerMemberDao.class.getResource("sql/manager/ManagerMemberMapper.xml").getPath();
+		String fileName = ManagerMemberDao.class.getResource("/sql/manager/managerMember-mapper.xml").getPath();
 		
 		try {
 			prop.loadFromXML(new FileInputStream(fileName));
@@ -33,7 +34,7 @@ public class ManagerMemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = prop.getProperty("MemberSearch");
+		String sql = prop.getProperty("memberSearch");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, searchName);
@@ -42,13 +43,12 @@ public class ManagerMemberDao {
 			if(rs.next()) {
 				ManagerMemberVo mmv = new ManagerMemberVo();
 				mmv.setMemNo(rs.getInt("MEMBER_NO"));
-				mmv.setMemId("MEMBER_ID");
-				mmv.setMemName("MEMBER_NAME");
-				mmv.setMemPhone("MEMBER_PHONE");
-				mmv.setMemDate(Date.valueOf("Member_Date"));
-				mmv.setMemStatus("MEMBER_STATUS");
+				mmv.setMemId(rs.getString("MEMBER_ID"));
+				mmv.setMemName(rs.getString("MEMBER_NAME"));
+				mmv.setMemPhone(rs.getString("MEMBER_PHONE"));
+				mmv.setMemDate(rs.getDate("Member_Date"));
+				mmv.setMemStatus(rs.getString("MEMBER_STATUS"));
 				mmv.setMemPoint(rs.getInt("MEMBER_POINT"));
-				
 				list.add(mmv);
 			}
 		} catch (SQLException e) {

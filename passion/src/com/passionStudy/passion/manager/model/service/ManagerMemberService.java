@@ -14,11 +14,13 @@ import com.passionStudy.passion.manager.model.vo.ManagerMemberVo;
 
 public class ManagerMemberService {
 	
-	Connection conn;
 	
 	public ArrayList<ManagerMemberVo> memberSearch(String searchName){
 		
-		conn = getConnection();
+		Connection conn = getConnection();
+		
+		System.out.println("DB 연결성공");
+		
 		ArrayList<ManagerMemberVo> list = new ManagerMemberDao().memberSearch(conn, searchName);
 		close(conn);
 		
