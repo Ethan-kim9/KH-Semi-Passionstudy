@@ -34,7 +34,7 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <form id="board_form_title" action="writerAction" method="post">
+            <form id="board_form_title" action="board_notice_manager_write" method="post">
               <input
                 type="text"
                 name="bdTitle"
@@ -53,7 +53,7 @@
               </div>
               <div class="board_write_btn">
                 <a href="notice.html">
-                  <button type="button" class="write_btn yb">
+                  <button type="sumbit" class="write_btn yb">
                     등록하기
                   </button></a>
               </div>
