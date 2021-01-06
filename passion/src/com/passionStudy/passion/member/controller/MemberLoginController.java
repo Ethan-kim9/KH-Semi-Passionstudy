@@ -31,27 +31,28 @@ public class MemberLoginController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		String logincheck;
 		String memId = request.getParameter("userid");
 		String memPwd = request.getParameter("userpwd");
-		
 		System.out.println("유저 입력 아이디 : " + memId);
 		System.out.println("유저 입력 비밀번호 : " + memPwd);
 		
 		MemberVo loginMember = new MemberService().loginMember(memId, memPwd);
 		
-		if(loginMember == null) { 
+		if(!(loginMember.getMemId() == memId && loginMember.getMemPwd() ==memPwd)) { 
 			
 			// 로그인 실패
 			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");
 			request.getRequestDispatcher("views/member/member_login.jsp").forward(request, response);
 			
 		}else { 
-
+			logincheck ="true";
 			// 로그인 성공
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
 			session.setAttribute("userid", memId);
 			session.setAttribute("userpwd", memPwd);
+			session.setAttribute("logincheck", logincheck);
 			session.setMaxInactiveInterval(-1);
 			response.sendRedirect(request.getContextPath());
 			

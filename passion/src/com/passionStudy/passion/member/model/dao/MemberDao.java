@@ -46,9 +46,9 @@ public class MemberDao {
 			if(rs.next()) {
 				mv = new MemberVo
 						(rs.getInt("MEMBER_NO"),
-						 rs.getString("MEMBER_NAME"),
 						 rs.getString("MEMBER_ID"),
 						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_NAME"),
 						 rs.getString("MEMBER_PHONE"),
 						 rs.getDate("MEMBER_DATE"),
 						 rs.getString("ADMIN_CHECK"),
@@ -61,6 +61,7 @@ public class MemberDao {
 						 rs.getString("TOKEN2")
 						);
 			}
+			System.out.println("아이디는 뭐니?" + mv.getMemId());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

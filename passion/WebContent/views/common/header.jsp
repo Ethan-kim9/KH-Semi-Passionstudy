@@ -1,8 +1,10 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String contextPathAdmin = request.getContextPath();
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 %>
 
 <% //로그인 정보를 받는 로직
@@ -62,26 +64,26 @@
               <li class="community">
                 <a href="<%= contextPathAdmin%>/menu.Board"><span>커뮤니티</span></a>
               </li>
-              <li class="mypage">
+<% if(loginMember == null){ %>
+              <li class="login">
+          		<a href="<%= contextPathAdmin%>/menu.Login"><span>로그인</span></a>
+              </li>
+          	<% }else{%>
               <% if(session.getAttribute("adminCheck") == "A"){%>
-              <a href="<%= contextPathAdmin%>/menu.Manager"><span>관리 페이지</span></a>
-              <% } else{%>
-                <a href="<%= contextPathAdmin%>/menu.MyPage"><span>마이페이지</span></a>
-                <% } %>
+              <li class="mypage">
+               <a href="<%= contextPathAdmin%>/menu.Manager"><span>관리 페이지</span></a>
               <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             </li>
-            
-            
-              <li class="login">
-          <% if(session.getAttribute("memberId") == null){ %>
-          		<a href="<%= contextPathAdmin%>/menu.Login"><span>로그인</span></a>
-          	<% }else{%>
+            <%} %>
+          	  <li class="mypage">
+                <a href="<%= contextPathAdmin%>/menu.MyPage"><span>마이페이지</span></a>
+              	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
+            	</li>
+            	<li class="login">
           		<a href="<%= contextPathAdmin%>/menu.Logout"><span>로그아웃</span></a>
-          <%}%>
-              </li>
-              
-              <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->
-              
+				</li>          
+<%}%>
+              <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->     
               <div class="floting_bar" style="left: 430px"></div>
             </ul>
           </nav>
