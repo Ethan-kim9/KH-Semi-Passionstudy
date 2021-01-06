@@ -41,6 +41,7 @@
                   <input
                     type="text"
                     id="username"
+                    name="username"
                     placeholder="이름"
                     autocorrect="off"
                     autocapitalize="none"
@@ -52,6 +53,7 @@
                   <input
                     type="text"
                     id="userphnumber"
+                    name="userphnumber"
                     placeholder="연락처(전화번호)"
                     autocorrect="off"
                     autocapitalize="none"
@@ -66,6 +68,7 @@
                     <input
                       type="text"
                       id="userid"
+                      name="userid"
                       placeholder="아이디"
                       autocorrect="off"
                       autocapitalize="none"

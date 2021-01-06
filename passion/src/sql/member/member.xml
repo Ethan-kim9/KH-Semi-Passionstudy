@@ -4,13 +4,23 @@
 <!-- 로그인 -->
 <entry key="loginMember">
 	SELECT 
-		*
-		  FROM 	
-		  		MEMBER
-		  WHERE 
-		  		MEMBER_ID = ? 
-		  AND 
-		  		MEMBER_PWD = ?  
+		   MEMBER_NO
+	     , MEMBER_NAME
+	     , MEMBER_ID
+	     , MEMBER_PWD
+	     , MEMBER_PHONE
+	     , MEMBER_DATE
+	     , ADMIN_CHECK
+	     , RECOM_COUNT
+	     , MEMBER_STATUS
+	     , AD_AGREE
+	     , RECOM_CODE
+	     , MEMBER_POINT
+	     , TOKEN1
+	     , TOKEN2
+	  FROM MEMBER
+	  WHERE MEMBER_ID = ? 
+	    AND MEMBER_PWD = ?
 </entry>
 
 <!-- 회원가입 -->
@@ -32,7 +42,7 @@
 	  , ?
 	  , ?
 	  , ?
-	  , DEFAULT
+	  , ?
 	  );
 </entry>
 

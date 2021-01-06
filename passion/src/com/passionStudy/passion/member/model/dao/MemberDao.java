@@ -1,6 +1,6 @@
 package com.passionStudy.passion.member.model.dao;
 
-import static com.passionStudy.passion.common.JDBCtemplate.close;
+import static com.passionStudy.passion.common.JDBCtemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,10 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Properties;
 
-import com.passionStudy.passion.common.JDBCtemplate;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
@@ -31,44 +29,59 @@ public class MemberDao {
 	}
 	
 	// 로그인
-	public int loginMember(Connection conn,String memId, String memPwd) throws SQLException {
+	public MemberVo loginMember(Connection conn, String memId, String memPwd) {
+		String sql = prop.getProperty("loginMember");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		String sql = prop.getProperty("loginMember");
+		MemberVo mv = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memId);
+			pstmt.setString(2, memPwd);
+			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				if(rs.getString(1).equals(memPwd)) {
-					return 1;	// 로그인 성공
-				}else {
-					return 0;	// 비밀번호 틀림
-				}
+				mv = new MemberVo
+						(rs.getInt("MEMBER_NO"),
+						 rs.getString("MEMBER_NAME"),
+						 rs.getString("MEMBER_ID"),
+						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_PHONE"),
+						 rs.getDate("MEMBER_DATE"),
+						 rs.getString("ADMIN_CHECK"),
+						 rs.getInt("RECOM_COUNT"),
+						 rs.getString("MEMBER_STATUS"),
+						 rs.getString("AD_AGREE"),
+						 rs.getString("RECOM_CODE"),
+						 rs.getInt("MEMBER_POINT"),
+						 rs.getString("TOKEN1"),
+						 rs.getString("TOKEN2")
+						);
 			}
-			return -1;	// 아이디 없음
-		}catch(Exception e) {
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		return -2;	// 데이터베이스 오류
+		
+		return mv;
 	}
+		
 	// 회원가입
 	public int insertMember(MemberVo mv) throws SQLException {
 		
-		String sql = prop.getProperty("insertMember");
+		int result = 0;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		
+		String sql = prop.getProperty("insertMember");
 		try {
-			conn = JDBCtemplate.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, mv.getMemNo());
 			pstmt.setString(2, mv.getMemName());
 			pstmt.setString(3, mv.getMemId());
@@ -76,15 +89,13 @@ public class MemberDao {
 			pstmt.setString(5, mv.getMemPhone());
 			pstmt.setString(6, mv.getMemAdAgree());
 			
-			return pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			try { if(conn != null) conn.close();}catch(Exception e) { e.printStackTrace(); }
-			try { if(pstmt != null) pstmt.close();}catch(Exception e) { e.printStackTrace(); }
-			try { if(rs != null) rs.close();}catch(Exception e) { e.printStackTrace(); }
+			close(pstmt);
 		}
-		return -1;	// 회원가입 실패
+		return result;
 		
 	}
 	

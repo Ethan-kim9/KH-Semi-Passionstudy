@@ -22,14 +22,17 @@ public class MemberVo {
 	public MemberVo() {
 	}
 
-	public MemberVo(int memNo, String memName, String memId, String memPwd, String memPhone, Date memDate,
-			String adminCheck, int memRecomCount, String memStatus, String memAdAgree, String memRecomCode, 
+
+	
+	
+	public MemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, Date memDate,
+			String adminCheck, int memRecomCount, String memStatus, String memAdAgree, String memRecomCode,
 			int memPoint, String memToken1, String memToken2) {
 		super();
 		this.memNo = memNo;
-		this.memName = memName;
 		this.memId = memId;
 		this.memPwd = memPwd;
+		this.memName = memName;
 		this.memPhone = memPhone;
 		this.memDate = memDate;
 		this.adminCheck = adminCheck;
@@ -41,8 +44,10 @@ public class MemberVo {
 		this.memToken1 = memToken1;
 		this.memToken2 = memToken2;
 	}
-	
-	
+
+
+
+
 	public MemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, String memAdAgree) {
 		super();
 		this.memNo = memNo;

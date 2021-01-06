@@ -7,9 +7,6 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-
-
-
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
@@ -21,10 +18,8 @@
                 <input
                   type="text"
                   id="userid"
-                  formcontrolname="userid"
                   placeholder="아이디 (이메일)"
                   name="userid"
-                  autocorrect="off"
                   autocapitalize="none"
                   class="login_main"
                   required
@@ -34,14 +29,13 @@
                 <input
                   type="password"
                   id="userpwd"
-                  formcontrolname="userpwd"
+               	  name ="userpwd"
                   placeholder="비밀번호"
-               	  name ="userpassword"
                   class="login_main"
                   required
                 />
               </div>
-
+			  
               <button type="submit" class="btn_login">로그인하기 </button>
             </form>
 
