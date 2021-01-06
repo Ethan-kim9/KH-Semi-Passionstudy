@@ -14,6 +14,27 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeView;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 
 public class NoticeService {
+	//전체 삭제
+	public int removeAll(int[] ids){
+		return 0;
+	}
+	
+	//게시물 등록
+	public int insertNotice(NoticeVo notice){
+		return 0;
+	}
+	
+	//게시물 삭제
+	public int deleteNotice(int id){
+		return 0;
+	}
+	
+	//게시물 수정
+	public int updateNotice(NoticeVo noticeVo){
+		return 0;
+	}
+	
+	
 	//공지사항 목록 구현 기능
 	public List<NoticeVo> getNoticeList(){
 		
@@ -114,7 +135,8 @@ public class NoticeService {
 			
 			ResultSet rs = st.executeQuery();	
 			
-			count = rs.getInt("count");
+			if(rs.next())
+				count = rs.getInt("count");
 			
 			
 			rs.close();

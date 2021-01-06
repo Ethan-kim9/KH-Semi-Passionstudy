@@ -44,53 +44,11 @@ public class NoticeListController extends HttpServlet{
 		
 		NoticeService service = new NoticeService();
 		List<NoticeVo> list = service.getNoticeList(field, query, page);
+		int count = service.getNoticeCount(field, query);
 		
-		
-		/*
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String sql = "SELECT * FROM NOTICE";
-
-		
-			try {
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection(url,"dbtest","1234");
-				Statement st = con.createStatement();
-				ResultSet rs = st.executeQuery(sql);
-				
-				
-				while(rs.next()){
-					int nno = rs.getInt("NOTICE_NO");
-					String ntitle = rs.getString("NOTICE_TITLE");
-					int mno = rs.getInt("MEMBER_NO");
-					Date regdate = rs.getDate("REGDATE");
-					int ncount = rs.getInt("NOTICE_COUNT");
-					String ncontent = rs.getString("NOTICE_CONTENT");
-					
-					NoticeVo noticeVo = new NoticeVo(
-							nno,
-							mno,
-							ntitle,
-							ncontent,
-							ncount,
-							regdate
-							); 
-					list.add(noticeVo);
-					
-				}
-				
-				rs.close();
-				st.close();
-				con.close();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-
 		
 			request.setAttribute("list", list);
+			request.setAttribute("count", count);
 		
 			request
 			.getRequestDispatcher("/views/board/notice/board_notice.jsp")
