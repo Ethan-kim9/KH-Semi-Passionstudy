@@ -218,7 +218,6 @@ function reservation_check_click_time() {
 
 	var totalTimeData = (firstTimeData.value + secondTimeData.value + thirdTimeData.value + fourthTimeData.value + fifthTimeData.value + lastTimeData.value + '1') * 1;
 	if (totalTimeData == 1) {
-		alert(totalTimeData);
 		roominfo_to_userinfo.disabled = 'disabled';
 	} else {
 		roominfo_to_userinfo.disabled = false;
