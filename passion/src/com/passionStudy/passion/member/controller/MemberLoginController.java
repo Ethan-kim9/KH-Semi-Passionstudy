@@ -42,7 +42,7 @@ public class MemberLoginController extends HttpServlet {
 		if(loginMember == null) { 
 			
 			// 로그인 실패
-			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.);</script>");
+			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");
 			request.getRequestDispatcher("views/member/member_login.jsp").forward(request, response);
 			
 		}else { 
