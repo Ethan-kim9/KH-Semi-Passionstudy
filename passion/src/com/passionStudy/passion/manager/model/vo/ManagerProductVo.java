@@ -1,27 +1,42 @@
 package com.passionStudy.passion.manager.model.vo;
 
 public class ManagerProductVo {
-	private int productNo; //상품 식별자
-	private int roomNo;	   // 룸테이블 식별자
-	private String roomName; // 룸테이블 (방 이름)
-	private String productCondition; // 상품판매상태 (Y이용가능 N이용불가)
 
+	private int 	roomNo; 	 	// 룸테이블 식별자
+	private String 	roomName; 		// 방 이름
+	private int 	roomCapacity; 	// 수용인원
+	private String 	roomInfo;		// 방 정보
+	private String 	roomFilePath; 	// 사진저장경로
+	private int		roomPrice;		// 방 가격
 	
-	public ManagerProductVo(int productNo, int roomNo, String roomName, String productCondition) {
+	
+	
+	
+	public ManagerProductVo() {
 		super();
-		this.productNo = productNo;
-		this.roomNo = roomNo;
-		this.roomName = roomName;
-		this.productCondition = productCondition;
 	}
 	
 	
-	public int getProductNo() {
-		return productNo;
+	public ManagerProductVo(int roomNo, String roomName, int roomCapacity, String roomInfo, String roomFilePath,
+			int roomPrice) {
+		super();
+		
+		this.roomNo 		= roomNo;
+		this.roomName 		= roomName;
+		this.roomCapacity 	= roomCapacity;
+		this.roomInfo 		= roomInfo;
+		this.roomFilePath 	= roomFilePath;
+		this.roomPrice 		= roomPrice;
 	}
-	public void setProductNo(int productNo) {
-		this.productNo = productNo;
+
+
+	@Override
+	public String toString() {
+		return "ManagerProductVo [roomNo=" + roomNo + ", roomName=" + roomName + ", roomCapacity=" + roomCapacity
+				+ ", roomInfo=" + roomInfo + ", roomFilePath=" + roomFilePath + ", roomPrice=" + roomPrice + "]";
 	}
+	
+	
 	public int getRoomNo() {
 		return roomNo;
 	}
@@ -34,10 +49,30 @@ public class ManagerProductVo {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-	public String getProductCondition() {
-		return productCondition;
+	public int getRoomCapacity() {
+		return roomCapacity;
 	}
-	public void setProductCondition(String productCondition) {
-		this.productCondition = productCondition;
+	public void setRoomCapacity(int roomCapacity) {
+		this.roomCapacity = roomCapacity;
 	}
-}
+	public String getRoomInfo() {
+		return roomInfo;
+	}
+	public void setRoomInfo(String roomInfo) {
+		this.roomInfo = roomInfo;
+	}
+	public String getRoomFilePath() {
+		return roomFilePath;
+	}
+	public void setRoomFilePath(String roomFilePath) {
+		this.roomFilePath = roomFilePath;
+	}
+	public int getRoomPrice() {
+		return roomPrice;
+	}
+	public void setRoomPrice(int roomPrice) {
+		this.roomPrice = roomPrice;
+	}
+	
+	
+}	
