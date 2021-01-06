@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="listProduct">
+	SELECT 
+			*
+			FROM
+				ROOM;
+</entry>
+
+<entry key="listProduct">
+	UPDATE 
+			*
+			FROM
+				ROOM
+			WHERE
+				ROOM_NO = ?;
+</entry>
+</properties>

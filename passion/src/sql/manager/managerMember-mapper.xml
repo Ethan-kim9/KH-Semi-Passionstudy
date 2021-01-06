@@ -38,9 +38,48 @@
 
 </entry>
 
-<entry key="memberCouponModifier">
-
+<entry key="listmemberCoupon">
+	SELECT 
+			*
+				FROM
+						COUPON
+				WHERE
+						MEMBER_NO = ?
 </entry>
+
+<entry key="insertCoupon">
+
+	INSERT INTO 
+		        COUPON
+		        (
+		            COUPON_NO
+		        ,   MEMBER_NO
+		        ,   COUPON_NAME
+		        ,   COUPON_VALID
+		        ,   COUPON_PRICE
+		        ,   COUPON_DATE
+		        ,   COUPON_CODE
+		        		)
+		            	VALUES
+				            (
+				                SEQ_CNO.nextval
+				            ,   ?
+				            ,   ?
+				            ,   'Y'
+				            ,   3000
+				            ,   SYSDATE + 30
+				            ,   ?
+				            );
+</entry>
+
+<entry key="deleteCoupon">
+	DELETE
+			FROM
+				COUPON
+			WHERE
+				COUPON_NO = ?
+</entry>
+
 
 <entry key="blackListEnroll">
 	UPDATE 
