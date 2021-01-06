@@ -17,11 +17,18 @@
   </head>
 
   <body>
+  
+      <div class="cont_header">
+      <div class="cont_wrapper">
+        <h1>관리메뉴</h1>
+      </div>
+    </div>
+  
       <div class="tabtype btn_align_center tabtype_style_edit">
       <div class="tabtype_wrapper">
         <ul class="manager_ul_style">
           <li>
-            <a href="manager.MemberSearch"><button class="btn1 on">회원 관리</button></a>
+            <a href="menu.Manager"><button class="btn1 on">회원 관리</button></a>
           </li>
           <li>
             <a href="manager.SalesSearch"><button class="btn2">매출 조회</button></a>

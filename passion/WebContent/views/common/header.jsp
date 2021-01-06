@@ -10,27 +10,22 @@
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 %>
 
-<% //로그인 정보를 받는 로직
+<%
 /*Member loginMember = (Member)session.getAttribute("loginMember");*/
 /* 	
-	int    memNo;		회원번호
-	int    localNo;		지역번호
-	String memUserId;	회원아이디
-	String memUserPwd;	회원비밀번호
-	String memName;		회원명
-	String memNickname;	회원닉네임
-	String memBirthday;	생일(6자리)
-	String memGender;	성별(남, 여)
-	String memPhone;	전화번호()
-	String memEmail;	이메일
-	String profilePath	프로필 사진 경로
-	String profileModifyname 	프로필 사진 수정명
-	String profileOrignname 	프로필 사진 원본명
-	String profileLoadname		경로 + 수정명?
-	Date memEnrollDate;	회원가입일
-	String bListCheck;	블랙리스트 유무(N, Y)
-	String leaveCheck;	회원탈퇴 유무(N, Y)
-	String managerCheck;관리자 유무(N, Y)
+		private int	   memNo;		    // 회원 식별자
+		private String memId;			// 회원 아이디
+		private String memPwd;			// 회원 비밀번호
+		private String memName;			// 회원 이름
+		private String memPhone;		// 회원 전화번호
+		private Date   memDate;			// 회원 가입일 
+		private int    memRecomCount;	// 회원 추천횟수
+		private String memStatus;		// 회원 계정상태  B블라인드 N일반 D삭제된계정
+		private String memAdAgree;		// 회원 광고동의 여부 Y동의 N비동의
+		private String memRecomCode;	// 회원 추천번호 (이메일?)		
+		private int    memPoint;		// 회원 포인트
+		private String memToken1;		// 네이버 가입토큰
+		private String memToken2;		// 카카오 가입토큰
 */
 %>        
     
