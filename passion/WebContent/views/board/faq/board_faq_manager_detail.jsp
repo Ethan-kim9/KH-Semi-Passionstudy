@@ -1,6 +1,15 @@
+<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
+<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+<%
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	int pg = Integer.parseInt(request.getParameter("pg"));
+	FAQBoardVo vo = dao.getView(idx);	
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,7 +17,7 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-<%
+<%-- <%
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "passion";
@@ -33,7 +42,7 @@
 			String title = result.getString(1);
 			String content = result.getString(2);		
 			String date = result.getString(3);		
-%>
+%> --%>
 
 <div class="cont_header">
       <div class="cont_wrapper">
@@ -59,20 +68,20 @@
             <tr>
               <!-- 두번째 줄 시작-->
               <th>제　목</th>
-              <td><%=title %></td>
+              <td><%=vo.getFaqTitle() %></td>
               <td></td>
               <td></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
               <th>작성일</th>
-              <td><%=date %></td>
+              <td><%=vo.getFaqDate() %></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <th class="content" style="height: 150px">내용</th>
-              <td class="content" style="height: 150px"><%=content %></td>
+              <td class="content" style="height: 150px"><%=vo.getFaqContent() %></td>
               <td></td>
               <td></td>
             </tr>
@@ -91,7 +100,7 @@
       </div>
     </section>
     </form>
-<%
+<%-- <%
 	result.close();
 	stmt.close();
 	conn.close();
@@ -100,6 +109,6 @@
 	} catch(SQLException e) {
 		out.println(e.toString());
 	}
-%>
+%> --%>
 </body>
 </html>

@@ -16,6 +16,10 @@ public class FAQBoardVo {
 		this.faqDate = faqDate;
 	}
 
+	public FAQBoardVo() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getFaqNo() {
 		return faqNo;
 	}
