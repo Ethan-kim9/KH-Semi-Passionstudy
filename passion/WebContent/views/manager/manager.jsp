@@ -55,7 +55,7 @@
           
           <br />
           
-          <input type="input" class="membersearch--input" id="SearchName" name="SearchName"/>
+          <input type="input" class="membersearch--input" id="SearchName" name = "SearchName"/>
           
           <input type="submit" value="검색" />
         </form>

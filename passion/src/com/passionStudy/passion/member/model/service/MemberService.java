@@ -2,8 +2,12 @@ package com.passionStudy.passion.member.model.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import static com.passionStudy.passion.common.JDBCtemplate.*;
+import static com.passionStudy.passion.common.JDBCtemplate.close;
+import static com.passionStudy.passion.common.JDBCtemplate.commit;
+import static com.passionStudy.passion.common.JDBCtemplate.getConnection;
+import static com.passionStudy.passion.common.JDBCtemplate.rollback;
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
@@ -17,10 +21,14 @@ public class MemberService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int loginMember(String memId, String memPwd) throws SQLException {
+	public ArrayList<MemberVo> loginMember(String memId, String memPwd) throws SQLException {
+		
 		Connection conn = getConnection();
-		int mv = new MemberDao().loginMember(memId, memPwd);
-		conn.close();
+		System.out.println("DB연결 성공");
+		ArrayList<MemberVo> mv = new MemberDao().loginMember(conn ,memId, memPwd);
+		
+		close(conn);
+		
 		return mv;
 	}
 

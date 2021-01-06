@@ -13,7 +13,7 @@
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
-        <form class="form_wrap_signup" action="login.do" method="post" onsubmit="return login();">
+        <form class="form_wrap_signup" onsubmit="return login();" action="login.do" method="post" >
           <h2 class="member_title">로그인</h2>
           <div class="login_box">
             <form class="login_main">
@@ -23,6 +23,7 @@
                   id="userid"
                   formcontrolname="userid"
                   placeholder="아이디 (이메일)"
+                  name="userid"
                   autocorrect="off"
                   autocapitalize="none"
                   class="login_main"
@@ -35,6 +36,7 @@
                   id="userpwd"
                   formcontrolname="userpwd"
                   placeholder="비밀번호"
+               	  name ="userpassword"
                   class="login_main"
                   required
                 />

@@ -5,9 +5,12 @@
 <entry key="loginMember">
 	SELECT 
 		*
-	  FROM 	MEMBER
-	  WHERE MEMBER_ID = ?
-	  WHERE MEMBER_PWD = ?  
+		  FROM 	
+		  		MEMBER
+		  WHERE 
+		  		MEMBER_ID = ? 
+		  AND 
+		  		MEMBER_PWD = ?  
 </entry>
 
 <!-- 회원가입 -->

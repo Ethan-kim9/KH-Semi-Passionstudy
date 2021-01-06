@@ -1,11 +1,14 @@
 package com.passionStudy.passion.member.model.dao;
 
+import static com.passionStudy.passion.common.JDBCtemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.passionStudy.passion.common.JDBCtemplate;
@@ -14,8 +17,6 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 public class MemberDao {
 	
 	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
 	
 	private Properties prop = new Properties();
 
@@ -30,37 +31,44 @@ public class MemberDao {
 	}
 	
 	// 로그인
-	public int loginMember(String memId, String memPwd) throws SQLException {
-		String sql = prop.getProperty("loginMember");
+	public ArrayList<MemberVo> loginMember(Connection conn,String memId, String memPwd) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
+		String sql = prop.getProperty("loginMember");
+		ArrayList<MemberVo> list = new ArrayList<>();
 		try {
-			conn = JDBCtemplate.getConnection();
+		
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memId);
+			pstmt.setString(2, memPwd);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				if(rs.getString(1).equals(memPwd)) {
-					return 1;	// 로그인 성공
-				}else {
-					return 0;	// 비밀번호 틀림
+				MemberVo mv = new MemberVo();
+				mv.setMemNo(rs.getInt("MEMBER_NO"));
+				if(mv.getMemNo()== 0) {
+					System.out.println("DB 조회 오류");
 				}
+				mv.setMemId(rs.getString("MEMBER_ID"));
+				mv.setMemName(rs.getString("MEMBER_NAME"));
+				list.add(mv);
 			}
-			return -1;	// 아이디 없음
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try { if(conn != null) conn.close();}catch(Exception e) { e.printStackTrace(); }
-			try { if(pstmt != null) pstmt.close();}catch(Exception e) { e.printStackTrace(); }
-			try { if(rs != null) rs.close();}catch(Exception e) { e.printStackTrace(); }
+			close(rs);
+			close(pstmt);
 		}
-		return -2;	// 데이터베이스 오류
+		return list;
 	}
 	// 회원가입
 	public int insertMember(MemberVo mv) throws SQLException {
 		
 		String sql = prop.getProperty("insertMember");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			conn = JDBCtemplate.getConnection();
@@ -88,7 +96,8 @@ public class MemberDao {
 	public String findIdMember(String memName, String memPhone) throws SQLException {
 		String findId = "";
 		String sql = prop.getProperty("findIdMember");
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -114,7 +123,8 @@ public class MemberDao {
 	public int findPwdMember(MemberVo mv) throws SQLException {
 		int memNo = 0;
 		String sql = prop.getProperty("findPwdMember");
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -140,7 +150,8 @@ public class MemberDao {
 	//////////////////////
 	// 회원정보수정
 	public void updateInfoMember(MemberVo vo) {
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			String sql = "update member set member_phone = ?, ad_agree = ? where member_id = ?";
 			
@@ -160,6 +171,8 @@ public class MemberDao {
 	// 한 사람에 대한 정보를 리턴하는 메소드(마이페이지)
 	public MemberVo oneSelectMember(int nNum) {
 		MemberVo vo = new MemberVo();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			String sql = "select * from member where member_no = ?";

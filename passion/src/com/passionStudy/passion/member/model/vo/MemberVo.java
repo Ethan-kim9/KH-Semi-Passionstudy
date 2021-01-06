@@ -52,8 +52,8 @@ public class MemberVo {
 		this.memPhone = memPhone;
 		this.memAdAgree = memAdAgree;
 	}
-
-
+	
+	
 	public int getMemNo() {
 		return memNo;
 	}
