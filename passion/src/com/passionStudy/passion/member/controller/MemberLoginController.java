@@ -40,8 +40,8 @@ public class MemberLoginController extends HttpServlet {
 		System.out.println("유저 입력 아이디 : " + memId);
 		System.out.println("유저 입력 비밀번호 : " + memPwd);
 		
-		MemberVo loginMember = new MemberService().loginMember(memId, memPwd);
-		
+		MemberVo loginMember = new MemberService().loginMember(memId, memPwd); //데이터가 담긴 MemberVo 객체
+
 		if(loginMember == null) { 
 			// 로그인 실패
 			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");

@@ -7,6 +7,7 @@ import static com.passionStudy.passion.common.JDBCtemplate.close;
 import static com.passionStudy.passion.common.JDBCtemplate.commit;
 import static com.passionStudy.passion.common.JDBCtemplate.getConnection;
 import static com.passionStudy.passion.common.JDBCtemplate.rollback;
+
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
@@ -22,7 +23,8 @@ public class MemberService {
 	 */
 	public MemberVo loginMember(String memId, String memPwd) {
 		Connection conn = getConnection();
-		MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
+		System.out.println("DB접속 성공");
+			MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
 		close(conn);
 		return mv;
 	}
