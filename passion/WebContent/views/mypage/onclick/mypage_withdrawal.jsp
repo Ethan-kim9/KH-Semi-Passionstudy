@@ -32,7 +32,7 @@
                 <h6 class="withdrawal-front_g2">정말로 회원탈퇴를 진행하시겠습니까?</h3>
               </div>
               <div class="withdrawl-pwd-group">
-                <div class="withdrawal-pwd-group_box"><input type="password" placeholder="비밀번호를 입력해주세요."></div>
+                <div class="withdrawal-pwd-group_box"><input type="password" name="password" placeholder="비밀번호를 입력해주세요."></div>
                 <div class="withdrawal-pwd-group_warn">비밀번호를 확인 후 다시 입력해주세요. (5회 이상 오류 시 로그인 차단)</div>
               </div>
               <button class="withdrawal-button">확인</button>

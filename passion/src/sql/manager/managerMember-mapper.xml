@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<entry key="MemberSearch">
+<entry key="memberSearch">
 	SELECT
 	    
 	      MEMBER_NO
@@ -18,7 +18,7 @@
 </entry>
 
 
-<entry key="ChangePwd">
+<entry key="changePwd">
 	UPDATE 
 	    MEMBER 
 	        SET     
@@ -28,7 +28,7 @@
 
 </entry>
 
-<entry key="ChangePoint">
+<entry key="changePoint">
 	UPDATE 
 	    MEMBER 
 	        SET     
@@ -38,11 +38,11 @@
 
 </entry>
 
-<entry key="MemberCouponModifier">
+<entry key="memberCouponModifier">
 
 </entry>
 
-<entry key="BlackListEnroll">
+<entry key="blackListEnroll">
 	UPDATE 
 	    MEMBER 
 	        SET     

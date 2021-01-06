@@ -15,7 +15,7 @@
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
-        <form class="form_wrap_signup" action="" method="post">
+        <form class="form_wrap_signup" action="menu.MemberLogin" method="post">
           <h2 class="member_title">로그인</h2>
           <div class="login_box">
             <form class="login_main">
@@ -48,7 +48,7 @@
 		           		<label id="p"><%= loginFail %></label>
 		           	<% } %>
               </div>
-              <input type="submit" class="btn_login">로그인하기
+              <button type="submit" class="btn_login">로그인하기 </button>
             </form>
 
             <div class="sns_login">
