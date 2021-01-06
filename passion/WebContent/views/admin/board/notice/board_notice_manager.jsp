@@ -57,7 +57,7 @@
 		        <tbody>
 	               <c:forEach var="n" items="${list}"> <%-- begin="1" end="3" varStatus="st" --%>
 		           <tr>
-		             <td><input type="checkbox" class="checkbox" name="del-nno" value="${n.nno}"/></td>
+		             <td><input type="checkbox" class="checkbox" name="del-id" value="${n.nno}"/></td>
 		             <td>${n.nno}</td>
 		             <td><a href="board_notice_detail?nno=${n.nno}">${n.ntitle}</a></td>
 		             <td>${n.mno}</td>
@@ -68,9 +68,10 @@
 	            </tbody>       
 	          </table>
 	          <div id="buttons">
-	            <a href="index.jsp?inc=./views/board/notice/board_notice_manager_write.jsp">
+	            <%--<a href="index.jsp?inc=./views/admin/board/notice/board_notice_manager_write.jsp"> --%>
+	            <a href="board_notice_manager_write">
 	              <button type="button" class="write_btn yb" style="float: none">
-	                글쓰기</a></button>
+	                글쓰기</button></a>
 	            <input type="submit" class="remove_btn yb" style="float: none" value="삭제">
 	          </div>
           </form>

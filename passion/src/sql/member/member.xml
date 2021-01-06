@@ -45,6 +45,19 @@
 	  , ?
 	  );
 </entry>
+<!-- 아이디체크용  -->
+<entry key="idDuplicatedCheck">
+	SELECT COUNT(*)
+	  FROM MEMBER
+	 WHERE MEMBER_ID = ?
+</entry>
+
+<!-- 전화번호 체크 -->
+<entry key="phoneDuplicatedCheck">
+	SELECT COUNT(*)
+	  FROM MEMBER
+	 WHERE MEMBER_PHONE = ?	
+</entry>
 
 <!-- 아이디 찾기 -->
 <entry key="findIdMember">

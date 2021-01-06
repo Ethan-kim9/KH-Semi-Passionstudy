@@ -23,6 +23,27 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 @WebServlet("/views/admin/board/notice/board_notice_manager")
 public class ListController extends HttpServlet{
 	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String[] delIds = request.getParameterValues("del-id");
+		String cmd = request.getParameter("cmd");
+		
+		/*for(String delId : delIds)
+			System.out.printf("del id : %s\n", delId);
+		*/
+		NoticeService service = new NoticeService();
+		int[] ids = new int[delIds.length];
+		for(int i=0; i<delIds.length; i++)
+			ids[i] = Integer.parseInt(delIds[i]);
+		
+		int result = service.deleteNoticeAll(ids);
+		
+		response.sendRedirect("list");
+
+		}
+	
+	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//list?f=title&q=a
 		

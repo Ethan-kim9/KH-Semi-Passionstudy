@@ -9,8 +9,8 @@
 <body>
 	<!-- 회원 탈퇴 실패 (비밀번호 틀림) -->
 	<script type="text/javascript">
-		request.getAttribute("msg");
-		location.href='mypage.jsp';
+		request.getAttribute("msg");	/* 스크립트 안에 있어도 되는지, 밖으로 빼야되는지 모르게음 */
+		location.href='mypage_withdrawal.jsp';
 	</script>
 </body>
 </html>

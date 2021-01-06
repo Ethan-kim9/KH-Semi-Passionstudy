@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/logout")
+@WebServlet("/menu.Logout")
 public class MemberLogOutController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,6 @@ public class MemberLogOutController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		session.invalidate();
-		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);	
 	}

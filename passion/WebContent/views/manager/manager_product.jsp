@@ -8,6 +8,30 @@
   </head>
 
   <body>
+  
+      <div class="cont_header">
+      <div class="cont_wrapper">
+        <h1>관리메뉴</h1>
+      </div>
+    </div>
+  
+   <div class="tabtype btn_align_center tabtype_style_edit">
+      <div class="tabtype_wrapper">
+        <ul class="manager_ul_style">
+          <li>
+            <a href="menu.Manager"><button class="btn1">회원 관리</button></a>
+          </li>
+          <li>
+            <a href="manager.SalesSearch"><button class="btn2">매출 조회</button></a>
+          </li>
+          <li>
+            <a href="manager.ProductSearch"><button class="btn3 on">상품 관리</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+  
  <div class="product_title_box">
         <h1>스터디룸 관리</h1>
       </div>

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
+<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+<%-- <%
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "passion";
@@ -36,6 +39,12 @@
 	} catch (Exception e) {
 		out.println(e.toString());
 	}	
+%> --%>
+<%
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	int pg = Integer.parseInt(request.getParameter("pg"));
+	dao.delete(idx);
+	
 %>
 <script>
 	self.window.alert("해당 글을 삭제하였습니다.");

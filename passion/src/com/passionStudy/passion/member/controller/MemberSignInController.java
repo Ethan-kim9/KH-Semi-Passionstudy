@@ -27,16 +27,17 @@ public class MemberSignInController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String memId = request.getParameter("userid");
-		String memPwd = request.getParameter("userpassword");
+		String memPwd = request.getParameter("userpwd");
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
-		String[] memAdAgree = request.getParameterValues("chktmp");	// .....광고 동의.....
+		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
 		
 		for (int i=0; i<memAdAgree.length; i++) {
 			if(memAdAgree[i] != "") {
-				String chktmp = memAdAgree[i] + "+" ;
+				String admit = memAdAgree[i] + "+" ;
 			}
 		}
 		MemberVo mv = new MemberVo();

@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		alert("수정이 완료 되었습니다.");
-		location.href="mypage.jsp";
+		location.href="views/mypage/mypage_edit.jsp";
 	</script>
 </body>
 </html>

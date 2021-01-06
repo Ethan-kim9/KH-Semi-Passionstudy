@@ -34,11 +34,12 @@ public class MyPageDao {
 	public void updateInfoMember(MemberVo vo) {
 		
 		try {
-			String sql = "update member set member_phone = ?, ad_agree = ? where member_id = ?";
+			String sql = "update member set member_phone = ?, ad_agree = ? where MEMBER_ID = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getMemPhone());
 			pstmt.setString(2, vo.getMemAdAgree());
+			pstmt.setString(3, vo.getMemId());
 			
 			pstmt.executeUpdate();
 			
@@ -50,13 +51,13 @@ public class MyPageDao {
 	}
 	
 	// 한 사람에 대한 정보를 리턴하는 메소드(마이페이지)
-	public MemberVo oneSelectMember(int nNum) {
+	public MemberVo oneSelectMember(String memberId) {
 		MemberVo vo = new MemberVo();
 		
 		try {
-			String sql = "select * from member where member_no = ?";
+			String sql = "select * from member where MEMBER_ID = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, nNum);
+			pstmt.setString(1, memberId);
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
@@ -85,16 +86,16 @@ public class MyPageDao {
 	}
 	
 	// 회원 탈퇴 메소드(회원 상태만 바꿔놓기)
-	public void deleteMember(int memberNum) {
+	public void deleteMember(String memberId) {
 		// 커넥션 연결은 service에서 하니까 여기서 안해도 됨.
 		
 		try {
 			
-			String sql = "update member set MEMBER_STATUS = 'B' where MEMBER_NO = ?";
+			String sql = "update member set MEMBER_STATUS = 'B' where MEMBER_ID = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, memberNum);
+			pstmt.setString(1, memberId);
 			
 			pstmt.executeUpdate();
 			
@@ -105,15 +106,15 @@ public class MyPageDao {
 	}
 	
 	// 한 회원의 패스워드 값을 리턴하는 메소드 작성
-	public String getPass(int memberNum) {
+	public String getPass(String memberId) {
 		String password = "";
 		
 		try {
 			
-			String sql = "select MEMBER_PWD from member where MEMBER_NO = ?";
+			String sql = "select MEMBER_PWD from member where MEMBER_ID = ?";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, memberNum);
+			pstmt.setString(1, memberId);
 			
 			rs = pstmt.executeQuery();
 			

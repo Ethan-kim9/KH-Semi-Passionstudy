@@ -1,7 +1,6 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,24 +27,25 @@ public class MemberLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
-		PrintWriter out = response.getWriter();
 		String memId = request.getParameter("userid");
 		String memPwd = request.getParameter("userpwd");
+		
 		System.out.println("유저 입력 아이디 : " + memId);
 		System.out.println("유저 입력 비밀번호 : " + memPwd);
 		
-		MemberVo loginMember = new MemberService().loginMember(memId, memPwd);
-		
+		MemberVo loginMember = new MemberService().loginMember(memId, memPwd); //데이터가 담긴 MemberVo 객체
+
 		if(loginMember == null) { 
 			// 로그인 실패
-			request.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");
-			request.getRequestDispatcher("views/member/member_login.jsp").forward(request, response);
+			request.setAttribute("loginFail", "아이디 또는 비밀번호를 확인해 주세요.");
+			request.getRequestDispatcher("/views/member/memberLoginForm.jsp").forward(request, response);
 			
 		}else { 
 			// 로그인 성공
-			request.setCharacterEncoding("UTF-8");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
 			session.setMaxInactiveInterval(-1);

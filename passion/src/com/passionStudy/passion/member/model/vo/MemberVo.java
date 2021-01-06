@@ -3,6 +3,7 @@ package com.passionStudy.passion.member.model.vo;
 import java.sql.Date;
 // DTO
 public class MemberVo {
+	
 	private int	   memNo;		    // 회원 식별자
 	private String memId;			// 회원 아이디
 	private String memPwd;			// 회원 비밀번호
@@ -19,6 +20,18 @@ public class MemberVo {
 	private String memToken2;		// 카카오 가입토큰
 
 	
+	@Override
+	public String toString() {
+		return "MemberVo [회원번호" + memNo + ", 아이디" + memId + ", memPwd=" + memPwd + ", memName=" + memName
+				+ ", memPhone=" + memPhone + ", memDate=" + memDate + ", adminCheck=" + adminCheck + ", memRecomCount="
+				+ memRecomCount + ", memStatus=" + memStatus + ", memAdAgree=" + memAdAgree + ", memRecomCode="
+				+ memRecomCode + ", memPoint=" + memPoint + ", memToken1=" + memToken1 + ", memToken2=" + memToken2
+				+ "]";
+	}
+
+
+
+
 	public MemberVo() {
 	}
 

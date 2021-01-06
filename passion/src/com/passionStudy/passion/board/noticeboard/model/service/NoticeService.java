@@ -20,10 +20,38 @@ public class NoticeService {
 	}
 	
 	//게시물 등록
-	public int insertNotice(NoticeVo notice){
-		return 0;
+	public int insertNotice(NoticeVo noticeVo){
+		
+		int result = 0;
+		
+		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, MEMBER_NO) VALUES(?,?,?,?)";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = con.prepareStatement(sql);
+			
+			st.setString(1, noticeVo.getNtitle());
+			st.setString(2, noticeVo.getNcontent());
+			st.setInt(3, noticeVo.getMno());
+			
+			result = st.executeUpdate();
+			
+			st.close();
+			con.close();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return result;
+
 	}
-	
+
 	//게시물 삭제
 	public int deleteNotice(int id){
 		return 0;
@@ -263,4 +291,38 @@ public class NoticeService {
 		
 		return null;
 	}*/
-}
+	
+	public int deleteNoticeAll(int[] ids) {
+		int result = 0;
+		
+		String params = "";
+		
+		for(int i=0; i<ids.length; i++) {
+			params += ids[i];
+			if(i < ids.length-1)
+				params += ",";
+		}
+		String sql = "DELETE NOTICE WHERE NOTICE_NO IN ("+params+")";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url,"dbtest","1234");
+			Statement st = con.createStatement();
+			
+			result = st.executeUpdate(sql);	
+			
+			st.close();
+			con.close();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return result;
+
+		}
+	}

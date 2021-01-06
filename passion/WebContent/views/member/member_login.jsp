@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String loginFail = (String)request.getAttribute("loginFail");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>

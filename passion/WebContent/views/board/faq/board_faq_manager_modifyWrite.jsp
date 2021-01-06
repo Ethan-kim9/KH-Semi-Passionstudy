@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
+<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+<jsp:useBean id="fv" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,7 +12,7 @@
   </head>
   <body>
     
-<%
+<%-- <%
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "passion";
@@ -34,7 +37,12 @@
 			String title = result.getString(1);
 			String content = result.getString(2);		
 
-%>  
+%>   --%>
+<%
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	int pg = Integer.parseInt(request.getParameter("pg"));
+	FAQBoardVo vo = dao.getView(idx);
+%>
     
     <div class="cont_header">
       <div class="cont_wrapper">
@@ -68,7 +76,7 @@
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
-                value="<%=title %>"
+                value="<%=vo.getFaqTitle %>"
               />
               <div class="form-group">
                 <textarea
@@ -77,7 +85,7 @@
                   name="faq_content"
                   placeholder="내용을 입력해주세요"
                   required
-                ><%=content %></textarea>
+                ><%=vo.getFaqContent %></textarea>
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
