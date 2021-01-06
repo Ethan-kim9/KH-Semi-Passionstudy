@@ -140,6 +140,22 @@
 	color: white;
 }
 
+.reservation_time .time_button_checked {
+	background-color: black;
+	color: white;
+	border: 0;
+	border-radius: 4px;
+	font-weight: 500;
+	font-family: "Montserrat", Noto Sans KR, sans-serif;
+	background-color: #ffcc00;
+	cursor: pointer;
+}
+
+.reservation_time .time_button_checked:hover {
+	background-color: black;
+	color: white;
+}
+
 .reservation_time .break_time {
 	cursor: not-allowed;
 	background-color: #e5e5e5;
@@ -313,13 +329,11 @@
 	height: 50px;
 }
 
-.break_time {
-	
-}
 </style>
-<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
 <script src="resources/JS/pagesjs/reservation_click_button.js"></script>
 <script src="resources/JS/pagesjs/reservation_room_click.js"></script>
+<script src="resources/JS/pagesjs/reservation_change_page.js"></script>
+<script src="resources/JS/calendar.js"></script>
 </head>
 
 <body>
@@ -329,19 +343,7 @@
 		</div>
 	</div>
 	<form name='formSqlData' method='post'>
-		<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-		<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
-		<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
-		<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
-		<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
-		<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
-		<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
-		<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
-		<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
-		<input type='text' id='countUsers' name='countUsers' value='${param.countUsers }' />
-		<input type='text' id='monitor' name='monitor' value='${param.monitor }' />
-		<input type='text' id='computer' name='computer' value='${param.computer }' />
-		<input type='text' id='projector' name='projector' value='${param.projector }' />
+
 	</form>
 	<div class="tabtype btn_align_center">
 		<div class="tabtype_wrapper">
@@ -364,6 +366,7 @@
 	</div>
 
 	<section class="section">
+		<form name='formSqlData' method='post' action="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
 		<div class="result">
 			<h4 class="choose_room">
 				<%=request.getParameter("value")%>
@@ -401,16 +404,19 @@
 						</tbody>
 					</table>
 					<div class="color_desc">
-						<span class="color_disable">예약불가</span> <span class="color_today">오늘</span>
+						<span class="color_disable">예약불가</span>
+						<span class="color_today">오늘</span>
 						<span class="color_select">선택</span>
-					</div> <br /> <br />
+					</div>
+					<br />
+					<br />
 					<div class="reservation_time" id="reservation_time">
 						<h8 class="reservation_time_title">예약시간</h8>
 						<br />
 						<ul class="reservation_time_content">
 							<li class="timetable">
 								<span class="time_title">FirstTime</span><br>
-								<input type='button' id='first_time_btn' class="time_button"value='08:00~10:00' />
+								<input type='button' id='first_time_btn' class="time_button" value='08:00~10:00' />
 							</li>
 							<li class="timetable">
 								<span class="time_title">SecondTime</span><br>
@@ -443,25 +449,28 @@
 								class="color_select">선택</span>
 						</div>
 						<br />
-						<button class="time_select">예약시간 선택</button>
-					</div> <br />
+					</div>
+					<br />
 					<div class="calender_payment">
 						<h8 class="calender_price">0,000원</h8>
-						<br /> <br /> <select name="count" class="count">
-							<option value="one">1</option>
-							<option value="two">2</option>
-							<option value="three">3</option>
-							<option value="four">4</option>
-							<option value="five">5</option>
-							<option value="six">6</option>
-							<option value="seven">7</option>
-							<option value="eight">8</option>
-							<option value="nine">9</option>
-							<option value="ten">10</option>
-							<option value="eleven">11</option>
-							<option value="twelve">12</option>
-						</select>
-					</div> <br>
+						<br />
+						<br />
+							<select id='countUsers' name='countUsers' class="count">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+					</div>
+					<br>
 				</td>
 			</tr>
 			<tr>
@@ -528,19 +537,28 @@
 						</p>
 						<br />
 						<h8 class="option_menu_moniter_price">무료</h8>
-						<br /> <br /> <select name="count" class="count">
-							<option value="one">1</option>
-							<option value="two">2</option>
-							<option value="three">3</option>
-							<option value="four">4</option>
-							<option value="five">5</option>
-						</select> <br />
+						<br /> <br />
+
+							<select id='monitor' name='monitor' class="count">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+						<br />
 						<h8 class="change_price">무료</h8>
 					</div>
 
 					<div class="option_box_multi">
-						<h8 class="option_menu_multi">유선랜 PC + 모니터 +
-						키보드 + 마우스 </h8>
+						<h8 class="option_menu_multi">유선랜 PC + 모니터 + 키보드 + 마우스 </h8>
 						<p class="content">
 							스터디룸/회의실 내에 있는 모니터와 PC를 유선랜으로 연결하여 안정적으로 기가 인터넷 연결해서 이용 가능합니다. <br />
 							(예약 시 바로 이용 가능하도록 미리 세팅해드립니다.) <br /> <br /> 1시간 2,000원으로 세미나실
@@ -549,13 +567,23 @@
 						</p>
 						<br />
 						<h8 class="option_menu_multi_price">2,000원</h8>
-						<br /> <br /> <select name="count" class="count">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select> <br />
+						<br /> <br />
+
+							<select id='computer' name='computer' class="count">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+						<br />
 						<h8 class="change_price" name="change_price"> 원</h8>
 					</div>
 
@@ -567,234 +595,46 @@
 						</p>
 						<br />
 						<h8 class="option_menu_projecter_price">2,000원</h8>
-						<br /> <br /> <select name="count" class="count">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select> <br />
+						<br /> <br />
+
+							<select id='projector' name='projector' class="count">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+
+						<br />
 						<h8 class="change_price" name="change_price"> 원</h8>
 					</div></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="next_button"><input type='button'
-					class="next" id='roominfo_to_userinfo' value='다음단계' /></td>
+				<td colspan="2" class="next_button">
+				<input type='submit' class="roominfo_to_userinfo" id='roominfo_to_userinfo' value='다음단계' />
+				</td>
 			</tr>
-		</table>
+			</table>
+			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
+			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
+			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
+			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
+			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
+			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+		</form>
 	</section>
-
 </body>
 <script>
-	reservation_change_page()
 </script>
-<script>
-</script>
-<script type="text/javascript">
-	function getItem() {
-		var i = document.getElementByName('count').value;
-		var price = prices[i];
-
-		document.getElementByName('change_price').innerHTML = price;
-	}
-
-	/* $(".scriptCalendar tr td").click(function (event){
-	 $(".reservation_time").toggle();
-	 }); */
-
-	document.addEventListener("DOMContentLoaded", function() {
-		buildCalendar();
-		document.getElementById("selectCalendarDate").value = today
-				.getFullYear()
-				+ autoLeftPad(today.getMonth() + 1, 2)
-				+ autoLeftPad(date.getDate(), 2);
-		reservation_click_button()
-	});
-	var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
-	var date = new Date(); // @param 전역 변수, today의 Date를 세어주는 역할
-	/**
-	 * @brief   이전달 버튼 클릭
-	 */
-	function prevCalendar() {
-		this.today = new Date(today.getFullYear(), today.getMonth() - 1, today
-				.getDate());
-		buildCalendar(); // @param 전월 캘린더 출력 요청
-	}
-	/**
-	 * @brief   다음달 버튼 클릭
-	 */
-	function nextCalendar() {
-		this.today = new Date(today.getFullYear(), today.getMonth() + 1, today
-				.getDate());
-		buildCalendar(); // @param 명월 캘린더 출력 요청
-	}
-	/**
-	 * @brief   캘린더 오픈
-	 * @details 날짜 값을 받아 캘린더 폼을 생성하고, 날짜값을 채워넣는다.
-	 */
-	function buildCalendar() {
-		let doMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-		let lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-		let tbCalendar = document.querySelector(".scriptCalendar > tbody");
-		document.getElementById("calYear").innerText = today.getFullYear(); // @param YYYY월
-		document.getElementById("calMonth").innerText = autoLeftPad(today
-				.getMonth() + 1, 2); // @param MM월
-		// @details 이전 캘린더의 출력결과가 남아있다면, 이전 캘린더를 삭제한다.
-		while (tbCalendar.rows.length > 0) {
-			tbCalendar.deleteRow(tbCalendar.rows.length - 1);
-		}
-		// @param 첫번째 개행
-		let row = tbCalendar.insertRow();
-		// @param 날짜가 표기될 열의 증가값
-		let dom = 1;
-		// @details 시작일의 요일값( doMonth.getDay() ) + 해당월의 전체일( lastDate.getDate())을  더해준 값에서
-		//               7로 나눈값을 올림( Math.ceil() )하고 다시 시작일의 요일값( doMonth.getDay() )을 빼준다.
-		let daysLength = Math.ceil((doMonth.getDay() + lastDate.getDate()) / 7)
-				* 7 - doMonth.getDay();
-		// @param 달력 출력
-		// @details 시작값은 1일을 직접 지정하고 요일값( doMonth.getDay() )를 빼서 마이너스( - )로 for문을 시작한다.
-		for (let day = 1 - doMonth.getDay(); daysLength >= day; day++) {
-			let column = row.insertCell();
-			// @param 평일( 전월일과 익월일의 데이터 제외 )
-			if (Math.sign(day) == 1 && lastDate.getDate() >= day) {
-				// @param 평일 날짜 데이터 삽입
-				column.innerText = autoLeftPad(day, 2);
-				// @param 일요일인 경우
-				if (dom % 7 == 1) {
-					column.style.color = "#FF4D4D";
-				}
-				// @param 토요일인 경우
-				if (dom % 7 == 0) {
-					column.style.color = "#4D4DFF";
-					row = tbCalendar.insertRow(); // @param 토요일이 지나면 다시 가로 행을 한줄 추가한다.
-				}
-			}
-			// @param 평일 전월일과 익월일의 데이터 날짜변경
-			else {
-				let exceptDay = new Date(doMonth.getFullYear(), doMonth
-						.getMonth(), day);
-				column.innerText = autoLeftPad(exceptDay.getDate(), 2);
-				column.style.color = "#A9A9A9";
-			}
-			// @brief   전월, 명월 음영처리
-			// @details 현재년과 선택 년도가 같은경우
-			if (today.getFullYear() == date.getFullYear()) {
-				// @details 현재월과 선택월이 같은경우
-				if (today.getMonth() == date.getMonth()) {
-					// @details 현재일보다 이전인 경우이면서 현재월에 포함되는 일인경우
-					if (date.getDate() > day && Math.sign(day) == 1) {
-						column.style.backgroundColor = "#E5E5E5";
-						column.style.color = "#A9A9A9";
-					}
-
-					// @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
-					//else if (date.getDate() < day && lastDate.getDate() >= day) {
-					// @details 현재일보다 이후이면서 3주 뒤를 포함되는 일인경우
-					else if (date.getDate() < day && date.getDate() + 21 >= day) {
-						column.style.backgroundColor = "#FFFFFF";
-						column.style.cursor = "pointer";
-						column.onclick = function() {
-							calendarChoiceDay(this);
-						};
-					}
-
-					// @details 현재일의 3주 뒤 이후이면서 현재월을 포함되는 일인경우
-					else if (date.getDate() + 21 < day
-							&& lastDate.getDate() >= day) {
-						column.style.backgroundColor = "#E5E5E5";
-						column.style.color = "#A9A9A9";
-					}
-
-					// @details 현재일인 경우
-					else if (date.getDate() == day) {
-						column.style.backgroundColor = "#FFFFE6";
-						column.style.cursor = "pointer";
-						column.onclick = function() {
-							calendarChoiceDay(this);
-						};
-
-					}
-					// @details 현재월보다 이전인경우
-				} else if (today.getMonth() < date.getMonth()) {
-					if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-						column.style.backgroundColor = "#E5E5E5";
-						column.style.color = "#A9A9A9";
-					}
-				}
-				// @details 현재월보다 이후인경우
-				else {
-					if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-						column.style.backgroundColor = "#E5E5E5";
-						column.style.color = "#A9A9A9";
-					}
-				}
-			}
-			// @details 선택한년도가 현재년도보다 작은경우
-			else if (today.getFullYear() < date.getFullYear()) {
-				if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-					column.style.backgroundColor = "#E5E5E5";
-					column.style.color = "#A9A9A9";
-				}
-			}
-			// @details 선택한년도가 현재년도보다 큰경우
-			else {
-				if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-					column.style.backgroundColor = "#FFFFFF";
-					column.style.cursor = "pointer";
-					column.onclick = function() {
-						calendarChoiceDay(this);
-					};
-				}
-			}
-			dom++;
-		}
-	}
-	/**
-	 * @brief   날짜 선택
-	 * @details 사용자가 선택한 날짜에 체크표시를 남긴다.
-	 */
-	function calendarChoiceDay(column) {
-		// @param 기존 선택일이 존재하는 경우 기존 선택일의 표시형식을 초기화 한다.
-		document.getElementById("selectCalendarDate").value = today
-				.getFullYear()
-				+ autoLeftPad(today.getMonth() + 1, 2) + column.innerText;
-
-		document.getElementById('first_time_btn').classList.remove('break_time');
-		document.getElementById('second_time_btn').classList.remove('break_time');
-		document.getElementById('third_time_btn').classList.remove('break_time');
-		document.getElementById('fourth_time_btn').classList.remove('break_time');
-		document.getElementById('fifth_time_btn').classList.remove('break_time');
-		document.getElementById('last_time_btn').classList.remove('break_time');
-		reservation_click_button()
-		if (document.getElementsByClassName("choiceDay")[0]) {
-			document.getElementsByClassName("choiceDay")[0].style.backgroundColor = "#FFFFFF";
-			document.getElementsByClassName("choiceDay")[0].classList
-					.remove("choiceDay");
-		}
-		// @param 선택일 체크 표시
-		column.style.backgroundColor = "#ffcc00";
-		// @param 선택일 클래스명 변경
-		column.classList.add("choiceDay");
-	}
-	/**
-	 * @brief   숫자 두자릿수( 00 ) 변경
-	 * @details 자릿수가 한지라인 ( 1, 2, 3등 )의 값을 10, 11, 12등과 같은 두자리수 형식으로 맞추기위해 0을 붙인다.
-	 * @param   num     앞에 0을 붙일 숫자 값
-	 * @param   digit   글자의 자릿수를 지정 ( 2자릿수인 경우 00, 3자릿수인 경우 000 … )
-	 */
-	function autoLeftPad(num, digit) {
-		if (String(num).length < digit) {
-			num = new Array(digit - String(num).length + 1).join("0") + num;
-		}
-		return num;
-	}
-</script>
-<script>
-	checkValueChange(obj);
-	function hoisted(obj) {
-		obj.style.backgroundColor = 'yellow';
-	}}
-</script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

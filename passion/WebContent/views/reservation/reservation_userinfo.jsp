@@ -150,12 +150,12 @@
             <tr>
               <td class="reservation_information_subtitle">예약날짜</td>
               <td class="reservation_information_result">
-                ${param.room_no } .00.00 (월) 0시 ~ 0시
+                ${param.selectCalendarDate }
               </td>
             </tr>
             <tr>
               <td class="reservation_information_subtitle">예약인원</td>
-              <td class="reservation_information_result">00명</td>
+              <td class="reservation_information_result">${param.countUsers }명</td>
             </tr>
           </table>
         </div>
@@ -214,12 +214,7 @@
               <tr>
                 <th class="reseller_information_subtitle">요청사항</th>
                 <td class="reseller_information_textbox">
-                  <textarea
-                    name="feedback"
-                    rows="10"
-                    cols="100"
-                    placeholder="남기고 싶은 말을 적어주세요.">
-                  </textarea>
+                  <textarea name="feedback" rows="10" cols="100" placeholder="남기고 싶은 말을 적어주세요."></textarea>
                 </td>
               </tr>
             </table>
@@ -295,15 +290,15 @@
                   </textarea>
               </li>
             </ul>
-	 		<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' name='userID' value='${param.userID }'/>
-			<input type='text' name='room_no' value='${param.room_no }'/>
-			<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
-			<input type='text' name='SecondTimeData' value='${param.SscondTimeData }'/>
-			<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
-			<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
-			<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
-			<input type='text' name='lastTimeData' value='${param.lastTimeData }'/>
+			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
+			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
+			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
+			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
+			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
+			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
 			<input type='text' name='countUsers' value='${param.countUsers }'/>
 			<input type='text' name='monitor' value='${param.monitor }'/>
 			<input type='text' name='computer' value='${param.computer }'/>

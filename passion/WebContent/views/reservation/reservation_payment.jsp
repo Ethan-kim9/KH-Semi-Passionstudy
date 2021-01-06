@@ -212,19 +212,19 @@
               <ul class="payment_method_list">
                 <li class="card">
                   <img src="resources/images/icon/credit-card.png" class="payment_method_img" >
-                  <input type="radio" class="card_payment_method" name="card_payment" value="card" onclick="div_onoff(this.value,'con');"/>  카드결제
+                  <input type="radio" class="card_payment_method" name="payment" value="card" onclick="div_onoff(this.value,'con');"/>  카드결제
                 </li>
                 <li class="mobile">
                   <img src="resources/images/icon/mobile-payment.png" class="payment_method_img" >
-                  <input type="radio" class="mobile_payment_method" name="mobile_payment" value="mobile" />  무통장입금
+                  <input type="radio" class="mobile_payment_method" name="payment" value="mobile" />  무통장입금
                 </li>
                 <li class="scene">
                   <img src="resources/images/icon/scene.png" class="payment_method_img" >
-                  <input type="radio" class="scene_payment_method" name="scene_payment" value="scene"/>  현장결제
+                  <input type="radio" class="scene_payment_method" name="payment" value="scene"/>  현장결제
                 </li>
                 <li class="point">
                   <img src="resources/images/icon/money.png" class="payment_method_img" >
-                  <input type="radio" class="money_payment_method" name="money_payment" value="money"/>  현금결제
+                  <input type="radio" class="money_payment_method" name="payment" value="money"/>  현금결제
                 </li>
               </ul>
               <div id="con" style="display: none;">
@@ -309,10 +309,10 @@
         
       </div>
     </section>
-		<input type='text' name='userID' value='${param.userID }'/>
+		<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
 		<input type='text' name='room_no' value='${param.room_no }'/>
 		<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
-		<input type='text' name='SecondTimeData' value='${param.SscondTimeData }'/>
+		<input type='text' name='secondTimeData' value='${param.secondTimeData }'/>
 		<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
 		<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
 		<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
