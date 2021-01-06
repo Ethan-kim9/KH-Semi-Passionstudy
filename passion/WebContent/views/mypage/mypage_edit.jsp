@@ -4,11 +4,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
+<%-- <%
 	MemberVo member = (MemberVo)request.getAttribute("mvo");
 	// 혹시 몰라서 겟으로 받는 코드 작성 (el태그가 데이터를 못받으면 <%= 이걸로 다시 받을 것) 
-
-%>
+%> --%>
 
 <!DOCTYPE html>
 <html>
@@ -58,6 +57,7 @@
             </li>
           </ul>
         </div>
+       </div>	<!--  -->
     </section>
 
 
@@ -67,11 +67,12 @@
         
           <div class="edit-user-header">
             <div class="edit-user-header_title">회원정보수정</div>
-            <a class="edit-user-header_withdrawal" href="views/mypage/onclick/mypage_withdrawal.jsp"
-              >탈퇴하기</a>
+            <a class="edit-user-header_withdrawal" 
+            href="views/mypage/onclick/mypage_withdrawal.jsp"
+            >탈퇴하기</a> <!-- href="WithdrawalProc.do?num=${mvo.memNo}" -->
           </div>
 
-          <form class="edit-user-set" action="EditProc" method="POST" name="form-tag">
+          <form class="edit-user-set" action="MemberEditProc.do" method="POST" name="form-tag">
             <div class="edit-user-form">
               <label class="edit-user-form_name">이름</label>
               <input class="edit-user-form_name-text" type="text" name="name" value="${mvo.memName}" readonly/>
@@ -99,7 +100,7 @@
             </div>
           </form>
         </div>
-      </div>
+      
     </section>
 
     <!-- 비밀번호 변경 수정 -->
@@ -108,13 +109,13 @@
         <div class="edit-pwd_wrap">
           <div class="edit-pwd-content">
             <h1 class="edit-pwd_title">비밀번호 변경</h1>
-            <form action="#" class="edit-pwd-change">
+            <form action="MyPageChangePwdProc.do?num=${mvo.memNo}" method="post" class="edit-pwd-change">
               <div class="edit-pwd_form">
                 <div class="edit-pwd_form_title">현재 비밀번호</div>
                 <div class="edit-pwd_form-group">
                   <div class="edit-pwd_form-group_box">
-                    <input
-                      type="text"
+                    <input name="inputPassword"
+                      type="password"
                       placeholder="현재 사용하고 계시는 비밀번호를 입력해주세요."
                     />
                   </div>
@@ -130,8 +131,8 @@
                 </div>
                 <div class="edit-pwd_newform-group">
                   <div class="edit-pwd_newform-group_box">
-                    <input
-                      type="text"
+                    <input name="newPassword1"
+                      type="password"
                       placeholder="영문+숫자+특수문자 포함 12~20자"
                     />
                   </div>
@@ -144,7 +145,7 @@
                 <div class="edit-pwd_newform_title">새 비밀번호</div>
                 <div class="edit-pwd_newform-confirm">
                   <div class="edit-pwd_newform-confirm_box">
-                    <input type="text" placeholder="새 비밀번호 확인" />
+                    <input name="newPassword2" type="password" placeholder="새 비밀번호 확인" />
                   </div>
                   <div class="edit-pwd_newform-confirm_warn">
                     필수 입력 항목입니다.
@@ -155,7 +156,7 @@
             </form>
           </div>
         </div>
-      </div>
+      
     </section>
 
  
