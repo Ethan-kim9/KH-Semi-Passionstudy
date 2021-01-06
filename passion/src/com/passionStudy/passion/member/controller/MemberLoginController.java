@@ -29,9 +29,7 @@ public class MemberLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		String logincheck;
 		String memId = request.getParameter("userid");
 		String memPwd = request.getParameter("userpwd");
 		System.out.println("유저 입력 아이디 : " + memId);
@@ -39,23 +37,19 @@ public class MemberLoginController extends HttpServlet {
 		
 		MemberVo loginMember = new MemberService().loginMember(memId, memPwd);
 		
-		if(!(loginMember.getMemId() == memId && loginMember.getMemPwd() ==memPwd)) { 
-			
+		if(loginMember == null) { 
 			// 로그인 실패
+			request.setCharacterEncoding("UTF-8");
 			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");
 			request.getRequestDispatcher("views/member/member_login.jsp").forward(request, response);
 			
 		}else { 
-			logincheck ="true";
 			// 로그인 성공
+			request.setCharacterEncoding("UTF-8");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
-			session.setAttribute("userid", memId);
-			session.setAttribute("userpwd", memPwd);
-			session.setAttribute("logincheck", logincheck);
 			session.setMaxInactiveInterval(-1);
-			response.sendRedirect(request.getContextPath());
-			
+			request.getRequestDispatcher("index.jsp").forward(request, response);		
 		}
 		
 	}

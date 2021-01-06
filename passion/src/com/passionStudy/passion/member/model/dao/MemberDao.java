@@ -62,7 +62,8 @@ public class MemberDao {
 						);
 			}
 			System.out.println("아이디는 뭐니?" + mv.getMemId());
-			
+			System.out.println("포인트는 몇점이니?" + mv.getMemPoint());
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

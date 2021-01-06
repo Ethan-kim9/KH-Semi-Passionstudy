@@ -70,7 +70,7 @@
           <div class="input-group mb-3">
             <input
               type="text"
-              class="form-control"
+              class="form-control"        
               placeholder="비밀번호 변경"
               disabled="disabled"
               aria-label="Recipient's username"
