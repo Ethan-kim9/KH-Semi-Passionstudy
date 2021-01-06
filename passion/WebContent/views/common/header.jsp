@@ -1,4 +1,4 @@
-<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
+<%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -6,8 +6,8 @@
 <%
 
 	String contextPathAdmin = request.getContextPath();
+
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-	session.setAttribute("login", loginMember);
 %>
 
 <% //로그인 정보를 받는 로직

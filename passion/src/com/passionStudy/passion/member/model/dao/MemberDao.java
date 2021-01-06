@@ -61,8 +61,8 @@ public class MemberDao {
 						 rs.getString("TOKEN2")
 						);
 			}
-			System.out.println("아이디는 뭐니?" + mv.getMemId());
-			System.out.println("포인트는 몇점이니?" + mv.getMemPoint());
+			System.out.println("아이디는 뭐니? " + mv.getMemId());
+			System.out.println("포인트는 몇점이니? " + mv.getMemPoint());
 
 		} catch (SQLException e) {
 			e.printStackTrace();
