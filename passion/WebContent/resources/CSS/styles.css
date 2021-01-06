@@ -1,14 +1,14 @@
-/* 작업전에 공통적용되는 부분 */
+/* �옉�뾽�쟾�뿉 怨듯넻�쟻�슜�릺�뒗 遺�遺� */
 @import "Component/reset.css"; /*RESET.CSS can kill all the standardsettings*/
 @import "Component/header.css";
 @import "Component/footer.css";
 
-/* 페이지 별 CSS 나눔 */
+/* �럹�씠吏� 蹂� CSS �굹�닎 */
 
-@import "PageStyles/index.css"; 						/* 메인 페이지 */
-@import "PageStyles/facilities.css"; 					/* 시설소개와 이용안내 */
-@import "PageStyles/manager.css"; 						/* 관리자 영역 */
-@import "PageStyles/member.css"; 						/* 로그인, 회원가입 영역 */
-@import "PageStyles/reservation/reservation.css"; 		/*예약관련 영역*/
-@import "PageStyles/mypage.css"; 						/*마이페이지 css 적용*/
+@import "PageStyles/index.css"; 						/* 硫붿씤 �럹�씠吏� */
+@import "PageStyles/facilities.css"; 					/* �떆�꽕�냼媛쒖� �씠�슜�븞�궡 */
+@import "PageStyles/manager.css"; 						/* 愿�由ъ옄 �쁺�뿭 */
+@import "PageStyles/member.css"; 						/* 濡쒓렇�씤, �쉶�썝媛��엯 �쁺�뿭 */
+@import "PageStyles/reservation/reservation.css"; 		/*�삁�빟愿��젴 �쁺�뿭*/
+@import "PageStyles/mypage.css"; 						/*留덉씠�럹�씠吏� css �쟻�슜*/
 @import "PageStyles/board.css"; 						/*board*/

@@ -3,7 +3,10 @@ package com.passionStudy.passion.member.model.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static com.passionStudy.passion.common.JDBCtemplate.*;
+import static com.passionStudy.passion.common.JDBCtemplate.close;
+import static com.passionStudy.passion.common.JDBCtemplate.commit;
+import static com.passionStudy.passion.common.JDBCtemplate.getConnection;
+import static com.passionStudy.passion.common.JDBCtemplate.rollback;
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
@@ -17,10 +20,10 @@ public class MemberService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public MemberVo loginMember(String memId, String memPwd) throws SQLException {
+	public MemberVo loginMember(String memId, String memPwd) {
 		Connection conn = getConnection();
 		MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
-		conn.close();
+		close(conn);
 		return mv;
 	}
 
@@ -34,7 +37,7 @@ public class MemberService {
 	 */
 	public int insertMember(MemberVo mv) throws SQLException {
 		Connection conn = getConnection();
-		int result = new MemberDao().insertMember(conn, mv);
+		int result = new MemberDao().insertMember(mv);
 		if (result > 0) {
 			commit(conn);
 		} else {
@@ -53,7 +56,7 @@ public class MemberService {
 	 */
 	public String findIdMember(String memName, String memPhone) throws SQLException {
 		Connection conn = getConnection();
-		String findId = new MemberDao().findIdMember(conn, memName, memPhone);
+		String findId = new MemberDao().findIdMember(memName, memPhone);
 		conn.close();
 		return findId;
 	}
@@ -66,7 +69,7 @@ public class MemberService {
 	 */
 	public int findPwdMember(MemberVo mv) throws SQLException {
 		Connection conn = getConnection();
-		int memNo = new MemberDao().findPwdMember(conn, mv);
+		int memNo = new MemberDao().findPwdMember(mv);
 		conn.close();
 		return memNo;
 	}

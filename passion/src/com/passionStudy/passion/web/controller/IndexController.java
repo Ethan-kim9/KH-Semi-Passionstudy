@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/index")
 public class IndexController extends HttpServlet{
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request
-		.getRequestDispatcher("/WebContent/index.jsp")
+		.getRequestDispatcher("/index.jsp")
 		.forward(request, response);
-	}
+}
 }

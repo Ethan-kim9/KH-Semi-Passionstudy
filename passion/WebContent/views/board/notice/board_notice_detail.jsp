@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -37,14 +39,14 @@
           <table class="table" id="table_title">
             <tr>
               <th>제　목</th>
-              <td>${n.nTitle}</td>
+              <td>${n.ntitle}</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <!-- 첫번째 줄 시작-->
               <th>작성자</th>
-              <td>${n.nWriter}</td>
+              <td>${n.mno}</td>
               <td></td>
               <td></td>
             </tr>
@@ -52,9 +54,9 @@
             <tr>
               <!-- 두번째 줄 시작-->
               <th>작성일</th>
-              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.nDate}"/></td>
+              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/></td> 
               <th>조회수</th>
-              <td><fmt:formatNumber value="${n.nHit}"/></td>
+              <td><fmt:formatNumber value="${n.ncount}"/></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
@@ -66,7 +68,7 @@
           </table>
           <div class="table_inner">
             <p>
-            ${n.nContent}
+				${n.ncontent}
             </p>
           </div>
         </div>

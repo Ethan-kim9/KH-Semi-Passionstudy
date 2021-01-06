@@ -3,6 +3,7 @@ package com.passionStudy.passion.board.notice.controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,22 +28,30 @@ public class NoticeListController extends HttpServlet{
 		
 		String field_ = request.getParameter("f");
 		String query_ = request.getParameter("q");
+		String page_ = request.getParameter("p");
 		
-		String field = "nTitle";
-		if(field_ != null)
+		String field = "notice_title";
+		if(field_ != null && !field_.equals(""))
 			field = field_;
 		
 		String query = "";
-		if(query_ != null)
+		if(query_ != null && !query_.equals(""))
 			query = query_;
 		
+		int page = 1;
+		if(page_ != null && !page_.equals(""))
+			page = Integer.parseInt(page_);
+		
 		NoticeService service = new NoticeService();
-		List<NoticeVo> list = service.getNoticeList(field, query, 1);
+		List<NoticeVo> list = service.getNoticeList(field, query, page);
+		int count = service.getNoticeCount(field, query);
 		
-		request.setAttribute("list", list);
 		
-		request
-		.getRequestDispatcher("/views/board/notice/board_notice.jsp")
-		.forward(request, response);
+			request.setAttribute("list", list);
+			request.setAttribute("count", count);
+		
+			request
+			.getRequestDispatcher("/views/board/notice/board_notice.jsp")
+			.forward(request, response);
 	}
 }

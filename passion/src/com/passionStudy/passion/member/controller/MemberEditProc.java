@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-
+// 회원정보수정 클릭 했을 때 넘어온 데이터를 처리해주는 서블릿
 @WebServlet("/EditProc")
 public class MemberEditProc extends HttpServlet {
 	
@@ -30,13 +30,7 @@ public class MemberEditProc extends HttpServlet {
 		// 한글처리
 		request.setCharacterEncoding("utf-8");
 		
-		int mNum = Integer.parseInt(request.getParameter("num"));
-		
-		MemberDao mdao = new MemberDao();
-		mdao.oneSelectMember(mNum);
-		
 		MemberVo vo = new MemberVo();
-		
 		
 		vo.setMemPhone(request.getParameter("phone"));
 		vo.setMemAdAgree(request.getParameter("adagree"));
@@ -45,8 +39,8 @@ public class MemberEditProc extends HttpServlet {
 		MemberDao mdao = new MemberDao();
 		mdao.updateInfoMember(vo);
 		
-		// 회원정보가 수정됐다고 자바스크립트 alert창 띄워주고 다시 회원정보수정창으로 돌아와야 하는데...
-		
+		// 수정완료 팝업 창
+		request.setAttribute("msg", "정보 수정이 완료 되었습니다.");
 		RequestDispatcher dis = request.getRequestDispatcher("mypage_edit.jsp");
 		dis.forward(request, response);
 	}

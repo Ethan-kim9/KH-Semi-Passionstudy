@@ -1,5 +1,13 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+
+	String contextPathAdmin = request.getContextPath();
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+%>
 
 <% //로그인 정보를 받는 로직
 /*Member loginMember = (Member)session.getAttribute("loginMember");*/
@@ -35,7 +43,7 @@
     <header class="PassionStudy_header">
       <div class="header_inner">
         <div class="logo_img">
-          <a href="index.jsp">🔥 열정 스터디</a>
+          <a href="<%= contextPathAdmin%>">🔥 열정 스터디</a>
         </div>
 
         <div class="menu_wrapper">
@@ -44,40 +52,40 @@
 
             <ul id="menu-main" class="menu menu-main">
               <li class="main on">	
-              	<a href="index.jsp"><span>메인</span></a>
+              	<a href="<%= contextPathAdmin%>"><span>메인</span></a>
               </li>
               <li class="roomlist">	
-              	<a href="menu.facilitiesRooms"><span>시설소개</span></a>
+              	<a href="<%= contextPathAdmin%>/menu.facilitiesRooms"><span>시설소개</span></a>
               </li>
               <li class="guide">
-              	<a href="menu.facilitiesExtra"><span>이용안내</span></a>
+              	<a href="<%= contextPathAdmin%>/menu.facilitiesExtra"><span>이용안내</span></a>
               </li>
               <li class="reserve">
-                <a href="menu.Reservation"><span>예약/결제</span></a>
+                <a href="<%= contextPathAdmin%>/menu.Reservation"><span>예약/결제</span></a>
               </li>
               <li class="community">
-                <a href="menu.Board"><span>커뮤니티</span></a>
+                <a href="<%= contextPathAdmin%>/menu.Board"><span>커뮤니티</span></a>
               </li>
-              <li class="mypage">
+<% if(loginMember == null){ %>
+              <li class="login">
+          		<a href="<%= contextPathAdmin%>/menu.Login"><span>로그인</span></a>
+              </li>
+          	<% }else{%>
               <% if(session.getAttribute("adminCheck") == "A"){%>
-              <a href="menu.Manager"><span>관리 페이지</span></a>
-              <% } else{%>
-                <a href="menu.MyPage"><span>마이페이지</span></a>
-                <% } %>
+              <li class="mypage">
+               <a href="<%= contextPathAdmin%>/menu.Manager"><span>관리 페이지</span></a>
               <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             </li>
-            
-            
-              <li class="login">
-          <% if(session.getAttribute("memberId") == null){ %>
-          		<a href="menu.Login"><span>로그인</span></a>
-          	<% }else{%>
-          		<a href="menu.Logout"><span>로그아웃</span></a>
-          <%}%>
-              </li>
-              
-              <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->
-              
+            <%} %>
+          	  <li class="mypage">
+                <a href="<%= contextPathAdmin%>/menu.MyPage"><span>마이페이지</span></a>
+              	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
+            	</li>
+            	<li class="login">
+          		<a href="<%= contextPathAdmin%>/menu.Logout"><span>로그아웃</span></a>
+				</li>          
+<%}%>
+              <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->     
               <div class="floting_bar" style="left: 430px"></div>
             </ul>
           </nav>

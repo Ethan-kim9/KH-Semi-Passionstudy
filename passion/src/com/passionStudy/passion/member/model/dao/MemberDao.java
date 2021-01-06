@@ -1,5 +1,7 @@
 package com.passionStudy.passion.member.model.dao;
 
+import static com.passionStudy.passion.common.JDBCtemplate.*;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,9 +14,7 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
 	
-	Connection conn;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	Connection conn = null;
 	
 	private Properties prop = new Properties();
 
@@ -29,9 +29,11 @@ public class MemberDao {
 	}
 	
 	// 로그인
-	public MemberVo loginMember(Connection conn, String memId, String memPwd) throws SQLException {
-		MemberVo mv = null;
+	public MemberVo loginMember(Connection conn, String memId, String memPwd) {
 		String sql = prop.getProperty("loginMember");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVo mv = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -44,9 +46,9 @@ public class MemberDao {
 			if(rs.next()) {
 				mv = new MemberVo
 						(rs.getInt("MEMBER_NO"),
-						 rs.getString("MEMBER_NAME"),
 						 rs.getString("MEMBER_ID"),
 						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_NAME"),
 						 rs.getString("MEMBER_PHONE"),
 						 rs.getDate("MEMBER_DATE"),
 						 rs.getString("ADMIN_CHECK"),
@@ -59,48 +61,52 @@ public class MemberDao {
 						 rs.getString("TOKEN2")
 						);
 			}
-			
+			System.out.println("아이디는 뭐니?" + mv.getMemId());
+			System.out.println("포인트는 몇점이니?" + mv.getMemPoint());
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			rs.close();
-			pstmt.close();
+			close(rs);
+			close(pstmt);
 		}
 		
 		return mv;
-		
 	}
-	
-	// 회원가입
-	public int insertMember(Connection conn, MemberVo mv) throws SQLException {
-		int result = 0;
-		String sql = prop.getProperty("insertMember");
 		
+	// 회원가입
+	public int insertMember(MemberVo mv) throws SQLException {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertMember");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, mv.getMemName());
-			pstmt.setString(2, mv.getMemId());
-			pstmt.setString(3, mv.getMemPwd());
-			pstmt.setString(4, mv.getMemPhone());
-			pstmt.setString(5, mv.getMemAdAgree());
+			pstmt.setInt(1, mv.getMemNo());
+			pstmt.setString(2, mv.getMemName());
+			pstmt.setString(3, mv.getMemId());
+			pstmt.setString(4, mv.getMemPwd());
+			pstmt.setString(5, mv.getMemPhone());
+			pstmt.setString(6, mv.getMemAdAgree());
 			
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			pstmt.close();
-			
+			close(pstmt);
 		}
 		return result;
 		
 	}
 	
 	// 아이디 찾기
-	public String findIdMember(Connection conn, String memName, String memPhone) throws SQLException {
+	public String findIdMember(String memName, String memPhone) throws SQLException {
 		String findId = "";
 		String sql = prop.getProperty("findIdMember");
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -123,10 +129,11 @@ public class MemberDao {
 	}
 	
 	// 비밀번호 찾기
-	public int findPwdMember(Connection conn, MemberVo mv) throws SQLException {
+	public int findPwdMember(MemberVo mv) throws SQLException {
 		int memNo = 0;
 		String sql = prop.getProperty("findPwdMember");
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -152,7 +159,8 @@ public class MemberDao {
 	//////////////////////
 	// 회원정보수정
 	public void updateInfoMember(MemberVo vo) {
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			String sql = "update member set member_phone = ?, ad_agree = ? where member_id = ?";
 			
@@ -169,9 +177,11 @@ public class MemberDao {
 		
 	}
 	
-	// 한 사람에 대한 정보를 리턴하는 메소드
+	// 한 사람에 대한 정보를 리턴하는 메소드(마이페이지)
 	public MemberVo oneSelectMember(int nNum) {
 		MemberVo vo = new MemberVo();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			String sql = "select * from member where member_no = ?";
