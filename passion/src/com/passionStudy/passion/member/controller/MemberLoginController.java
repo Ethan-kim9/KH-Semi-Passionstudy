@@ -1,7 +1,6 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,9 +29,7 @@ public class MemberLoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("utf-8");
-		
-		PrintWriter out = response.getWriter();
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String memId = request.getParameter("userid");
 		String memPwd = request.getParameter("userpwd");
@@ -44,8 +41,8 @@ public class MemberLoginController extends HttpServlet {
 
 		if(loginMember == null) { 
 			// 로그인 실패
-			out.println("<script>alert('아이디 또는 비밀번호를 확인해 주세요.');</script>");
-			request.getRequestDispatcher("views/member/member_login.jsp").forward(request, response);
+			request.setAttribute("loginFail", "아이디 또는 비밀번호를 확인해 주세요.");
+			request.getRequestDispatcher("/views/member/memberLoginForm.jsp").forward(request, response);
 			
 		}else { 
 			// 로그인 성공

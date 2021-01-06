@@ -41,8 +41,10 @@ public class MemberService {
 		Connection conn = getConnection();
 		int result = new MemberDao().insertMember(mv);
 		if (result > 0) {
+			System.out.println("성공!");
 			commit(conn);
 		} else {
+			System.out.println("실패..");
 			rollback(conn);
 		}
 		conn.close();

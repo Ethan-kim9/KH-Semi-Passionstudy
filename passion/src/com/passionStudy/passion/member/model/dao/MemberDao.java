@@ -92,6 +92,7 @@ public class MemberDao {
 			pstmt.setString(6, mv.getMemAdAgree());
 			
 			result = pstmt.executeUpdate();
+			System.out.println(result);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -99,6 +100,55 @@ public class MemberDao {
 		}
 		return result;
 		
+	}
+	
+	public int idDuplicatedCheck(String memId) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("idDuplicatedCheck");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getInt(1);
+			}
+			System.out.println(result);		// 0이면 사용가능. 1이면 중복
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public int phoneDuplicatedCheck(String memPhone) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = prop.getProperty("phoneDuplicatedCheck");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memPhone);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getInt(1);
+			}
+			System.out.println(result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);		
+		}
+		return result;
 	}
 	
 	// 아이디 찾기
