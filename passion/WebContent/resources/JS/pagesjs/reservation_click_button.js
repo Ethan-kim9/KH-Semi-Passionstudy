@@ -41,6 +41,8 @@ var reservation_click_button = function() {
 	fifthTimeData.value = '';
 	lastTimeData.value = '';
 
+	reservation_check_click_time()
+
 	first_time_btn.classList.remove('break_time');
 	second_time_btn.classList.remove('break_time');
 	third_time_btn.classList.remove('break_time');
@@ -55,22 +57,24 @@ var reservation_click_button = function() {
 	fifth_time_btn.classList.remove('time_button_checked');
 	last_time_btn.classList.remove('time_button_checked');
 
-
 	if (first_time_btn != null) {
 		if ((firstBtnCheck - thisTimeInt) < 3) {
 			first_time_btn.classList.add('break_time');
 			first_time_btn.onclick = function() {
 				firstTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			first_time_btn.onclick = function() {
 				if (first_time_btn.classList.contains('time_button_checked')) {
 					first_time_btn.classList.remove('time_button_checked');
 					firstTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					first_time_btn.classList.add('time_button_checked');
 					firstTimeData.value = selectCalendarDate.value + '1';
+					reservation_check_click_time()
 				}
 
 			}
@@ -82,16 +86,19 @@ var reservation_click_button = function() {
 			second_time_btn.classList.add('break_time');
 			second_time_btn.onclick = function() {
 				secondTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			second_time_btn.onclick = function() {
 				if (second_time_btn.classList.contains('time_button_checked')) {
 					second_time_btn.classList.remove('time_button_checked');
 					secondTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					second_time_btn.classList.add('time_button_checked');
-					secondTimeData.value = selectCalendarDate.value + '1';
+					secondTimeData.value = selectCalendarDate.value + '2';
+					reservation_check_click_time()
 				}
 
 			}
@@ -103,16 +110,19 @@ var reservation_click_button = function() {
 			third_time_btn.classList.add('break_time');
 			third_time_btn.onclick = function() {
 				thirdTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			third_time_btn.onclick = function() {
 				if (third_time_btn.classList.contains('time_button_checked')) {
 					third_time_btn.classList.remove('time_button_checked');
 					thirdTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					third_time_btn.classList.add('time_button_checked');
-					thirdTimeData.value = selectCalendarDate.value + '1';
+					thirdTimeData.value = selectCalendarDate.value + '3';
+					reservation_check_click_time()
 				}
 
 			}
@@ -124,16 +134,19 @@ var reservation_click_button = function() {
 			fourth_time_btn.classList.add('break_time');
 			fourth_time_btn.onclick = function() {
 				fourthTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			fourth_time_btn.onclick = function() {
 				if (fourth_time_btn.classList.contains('time_button_checked')) {
 					fourth_time_btn.classList.remove('time_button_checked');
 					fourthTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					fourth_time_btn.classList.add('time_button_checked');
-					fourthTimeData.value = selectCalendarDate.value + '1';
+					fourthTimeData.value = selectCalendarDate.value + '4';
+					reservation_check_click_time()
 				}
 
 			}
@@ -145,16 +158,19 @@ var reservation_click_button = function() {
 			fifth_time_btn.classList.add('break_time');
 			fifth_time_btn.onclick = function() {
 				fifthTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			fifth_time_btn.onclick = function() {
 				if (fifth_time_btn.classList.contains('time_button_checked')) {
 					fifth_time_btn.classList.remove('time_button_checked');
 					fifthTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					fifth_time_btn.classList.add('time_button_checked');
-					fifthTimeData.value = selectCalendarDate.value + '1';
+					fifthTimeData.value = selectCalendarDate.value + '5';
+					reservation_check_click_time()
 				}
 
 			}
@@ -166,16 +182,19 @@ var reservation_click_button = function() {
 			last_time_btn.classList.add('break_time');
 			last_time_btn.onclick = function() {
 				lastTimeData.value = '';
+				reservation_check_click_time()
 			}
 		} else {
 			last_time_btn.onclick = function() {
 				if (last_time_btn.classList.contains('time_button_checked')) {
 					last_time_btn.classList.remove('time_button_checked');
 					lastTimeData.value = '';
+					reservation_check_click_time()
 				}
 				else {
 					last_time_btn.classList.add('time_button_checked');
-					lastTimeData.value = selectCalendarDate.value + '1';
+					lastTimeData.value = selectCalendarDate.value + '6';
+					reservation_check_click_time()
 				}
 
 			}
@@ -187,4 +206,21 @@ function autoLeftPad(num, digit) {
 		num = new Array(digit - String(num).length + 1).join("0") + num;
 	}
 	return num;
+}
+
+function reservation_check_click_time() {
+	var firstTimeData = getID('firstTimeData');
+	var secondTimeData = getID('secondTimeData');
+	var thirdTimeData = getID('thirdTimeData');
+	var fourthTimeData = getID('fourthTimeData');
+	var fifthTimeData = getID('fifthTimeData');
+	var lastTimeData = getID('lastTimeData');
+
+	var totalTimeData = (firstTimeData.value + secondTimeData.value + thirdTimeData.value + fourthTimeData.value + fifthTimeData.value + lastTimeData.value + '1') * 1;
+	if (totalTimeData == 1) {
+		alert(totalTimeData);
+		roominfo_to_userinfo.disabled = 'disabled';
+	} else {
+		roominfo_to_userinfo.disabled = false;
+	}
 }

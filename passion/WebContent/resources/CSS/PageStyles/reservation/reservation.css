@@ -12,7 +12,7 @@
 }
 
 /* Reservation.html ------Start----- */
-/* 방 몇인실 예약할지 */
+/* 諛� 紐뉗씤�떎 �삁�빟�븷吏� */
 .container .container_room ul {
   margin: 0 60px 70px 60px;
 }
@@ -45,7 +45,7 @@
   background-color: #202020;
   color: #ffffff;
 }
-/* 방 사진 */
+/* 諛� �궗吏� */
 .container .container_room_img ul {
   margin: 0 0 25px 0;
 }
@@ -53,7 +53,7 @@
   display: inline-block;
   padding: 0 5px 0 5px;
 }
-/* 방 버튼 */
+/* 諛� 踰꾪듉 */
 .container .container_room_button {
   margin: 0 20px 0 20px;
 }
@@ -103,7 +103,7 @@
 /* Reservation.html ------End----- */
 
 /* reservation_userinfo.html ------Start----- */
-/* 예약 공간 */
+/* �삁�빟 怨듦컙 */
 .reservation_space_title {
   padding: 5px 10px;
   font-weight: bold;
@@ -163,7 +163,7 @@
   font-weight: bold;
 }
 
-/* 예약정보 */
+/* �삁�빟�젙蹂� */
 .reservation_information_content {
   width: 100%;
   height: 50px;
@@ -183,7 +183,7 @@
   text-align: right;
 }
 
-/* 예약자정보 */
+/* �삁�빟�옄�젙蹂� */
 .reseller_information_content {
   width: 100%;
   height: 350px;
@@ -220,7 +220,7 @@ input::placeholder {
   margin-bottom: 15px;
 }
 
-/* 이용약관 */
+/* �씠�슜�빟愿� */
 .reseller_join_box {
   width: 95%;
   padding: 10px 0 10px 60px;
@@ -258,7 +258,7 @@ input::placeholder {
   border: none;
 }
 
-/* 다음단계 버튼 */
+/* �떎�쓬�떒怨� 踰꾪듉 */
 .next_button {
   padding: 20px 425px 0 425px;
 }
@@ -285,7 +285,7 @@ input::placeholder {
   height: 2700px;
 }
 
-/* 환불규정 안내, 최종 예약 정보, 쿠폰 사용, 포인트 사용, 최종 결제 금액,  */
+/* �솚遺덇퇋�젙 �븞�궡, 理쒖쥌 �삁�빟 �젙蹂�, 荑좏룿 �궗�슜, �룷�씤�듃 �궗�슜, 理쒖쥌 寃곗젣 湲덉븸,  */
 .refund_regulations {
   margin-top: 10px;
 }
@@ -401,7 +401,7 @@ input::placeholder {
 }
 
 
-/* 결제수단*/
+/* 寃곗젣�닔�떒*/
 .payment_method_list {
   padding: 35px 100px 10px 100px;
   width: 100%;
@@ -455,7 +455,7 @@ input::placeholder {
   width: 230px;
   height: 30px;
 }
-/* 이용약관 */
+/* �씠�슜�빟愿� */
 .join_box {
   width: 100%;
   padding: 10px 100px;
@@ -486,7 +486,7 @@ input::placeholder {
 
 
 
-/* 다음단계 버튼 */
+/* �떎�쓬�떒怨� 踰꾪듉 */
 .btn_payment {
   margin-top: 50px;
   padding: 0 325px;

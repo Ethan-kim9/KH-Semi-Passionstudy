@@ -35,6 +35,7 @@
     </div>
 
     <section class="section">
+	<form name='formInfoData' method='post' action='index.jsp?inc=./views/reservation/reservation_payment.jsp'>
       <div class="container">
         <div class="reservation_space">
           <h5 class="reservation_space_title">예약공간</h5>
@@ -162,7 +163,6 @@
         <div class="reseller_information">
           <h5 class="reseller_information_title">예약자 정보</h5>
           <hr class="line" />
-          <form name='formInfoData' method='post'>
             <table class="reseller_information_content">
               <tr>
                 <td colspan="2"></td>
@@ -303,12 +303,12 @@
 			<input type='text' name='monitor' value='${param.monitor }'/>
 			<input type='text' name='computer' value='${param.computer }'/>
 			<input type='text' name='projector' value='${param.projector }'/>
-          </form>
         </div>
         <div class="next_button">
-          <input type='button' class="next" id='userinfo_to_payment' value='다음단계'/>
+          <button class="next" id='userinfo_to_payment'>다음단계</button>
         </div>
       </div>
+    </form>
     </section>
   </body>
   <script>reservation_change_page()</script>

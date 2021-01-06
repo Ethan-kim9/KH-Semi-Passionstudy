@@ -152,7 +152,7 @@
 }
 
 .reservation_time .time_button_checked:hover {
-	background-color: black;
+	background-color: gray;
 	color: white;
 }
 
@@ -405,7 +405,6 @@
 					</table>
 					<div class="color_desc">
 						<span class="color_disable">예약불가</span>
-						<span class="color_today">오늘</span>
 						<span class="color_select">선택</span>
 					</div>
 					<br />
@@ -618,7 +617,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" class="next_button">
-				<input type='submit' class="roominfo_to_userinfo" id='roominfo_to_userinfo' value='다음단계' />
+				<input type='submit' class="roominfo_to_userinfo" id='roominfo_to_userinfo' value='다음단계' disabled="disabled"/>
 				</td>
 			</tr>
 			</table>

@@ -118,8 +118,9 @@ function buildCalendar() {
 
 				// @details 현재일인 경우
 				else if (date.getDate() == day) {
-					column.style.backgroundColor = "#FFFFE6";
+					column.style.backgroundColor = "#ffcc00";
 					column.style.cursor = "pointer";
+					column.classList.add("choiceDay");
 					column.onclick = function() {
 						calendarChoiceDay(this);
 					};
