@@ -85,7 +85,7 @@ public class MemberDao {
 	}
 	
 	// 아이디 찾기
-	public String findIdMember(Connection conn, String memName, String memPhone) throws SQLException {
+	public String findIdMember(String memName, String memPhone) throws SQLException {
 		String findId = "";
 		String sql = prop.getProperty("findIdMember");
 		
@@ -111,7 +111,7 @@ public class MemberDao {
 	}
 	
 	// 비밀번호 찾기
-	public int findPwdMember(Connection conn, MemberVo mv) throws SQLException {
+	public int findPwdMember(MemberVo mv) throws SQLException {
 		int memNo = 0;
 		String sql = prop.getProperty("findPwdMember");
 		
