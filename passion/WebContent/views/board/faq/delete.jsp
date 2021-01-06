@@ -48,7 +48,7 @@
 %>
 <script>
 	self.window.alert("해당 글을 삭제하였습니다.");
-	location.href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp";
+	location.href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=pg%>";
 </script>
 </body>
 </html>

@@ -1,9 +1,10 @@
+<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
 <jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
-<jsp:useBean id="fv" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
+<jsp:useBean id="vo" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -41,7 +42,7 @@
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
-	FAQBoardVo vo = dao.getView(idx);
+	FAQBoardVo vo = dao.getView(idx);	
 %>
     
     <div class="cont_header">
@@ -69,23 +70,23 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/modify.jsp?idx=<%=idx%>" method="post">
+            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/modify.jsp?idx=<%=idx%>&pg=<%=pg%>" method="post">
               <input
                 type="text"
-                name="faq_title"
+                name="faqTitle"
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
-                value="<%=vo.getFaqTitle %>"
+                value="<%=vo.getFaqTitle() %>"
               />
               <div class="form-group">
                 <textarea
                   class="form-control"
                   rows="10"
-                  name="faq_content"
+                  name="faqContent"
                   placeholder="내용을 입력해주세요"
                   required
-                ><%=vo.getFaqContent %></textarea>
+                ><%=vo.getFaqContent() %></textarea>
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
@@ -96,7 +97,7 @@
         </div>
       </div>
     </section>
-<%
+<%-- <%
 	result.close();
 	stmt.close();
 	conn.close();
@@ -105,7 +106,7 @@
 	} catch(SQLException e) {
 		out.println(e.toString());
 	}
-%>  
+%>   --%>
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

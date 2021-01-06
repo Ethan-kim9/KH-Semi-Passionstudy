@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -48,10 +49,11 @@
               <option value="cancel_inquiry">취소문의</option>
             </select>
             </form>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/insert.jsp" method="post">
+            <form id="board_form_title" action="insert.do" method="post">
               <input
                 type="text"
-                name="faq_title"
+                id="faqTitle"
+                name="faqTitle"
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
@@ -60,16 +62,17 @@
                 <textarea
                   class="form-control"
                   rows="10"
-                  name="faq_content"
+                  id="faqContent"
+                  name="faqContent"
                   placeholder="내용을 입력해주세요"
                   required
                 ></textarea>
               </div>
               <div class="board_write_btn">
                 <a href="notice.html">
-                  <button type="submit" class="write_btn yb">
-                    등록하기
-                  </button></a>
+                  <input type="submit" value="등록하기" class="write_btn yb">
+                    
+                  </input></a>
               </div>
             </form>
           </div>
