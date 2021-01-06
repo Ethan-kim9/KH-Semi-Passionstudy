@@ -21,11 +21,11 @@ public class MemberService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<MemberVo> loginMember(String memId, String memPwd) throws SQLException {
+	public int loginMember(String memId, String memPwd) throws SQLException {
 		
 		Connection conn = getConnection();
 		System.out.println("DB연결 성공");
-		ArrayList<MemberVo> mv = new MemberDao().loginMember(conn ,memId, memPwd);
+		int mv = new MemberDao().loginMember(conn ,memId, memPwd);
 		
 		close(conn);
 		

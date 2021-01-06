@@ -32,25 +32,37 @@ public class MemberLoginController extends HttpServlet {
 		System.out.println("고객 입력 아이디 : " + memId);
 		System.out.println("고객 입력 비밀번호 : " + memPwd);
 		
-		try {
-			ArrayList<MemberVo> list = new MemberService().loginMember(memId, memPwd);
-			request.setAttribute("list", list);
-			for(MemberVo mv : list) {
-				System.out.println(mv.getMemId());
+			int result = 0;
+			try {
+				result = new MemberService().loginMember(memId, memPwd);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			System.out.println();
-			request.getRequestDispatcher("index.jsp");
+			System.out.println("DB 조회 결과값 :" + result + "(성공 : 1 / 비밀번호 오류 : 0 / 아이디없음 : -1 / db오류 :-2)");
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			if(result == 0) {
+				//로그인성공시
+				HttpSession session = request.getSession();
+				
+				session.setAttribute("loginMember", true);
+				session.setAttribute("memId", memId);	
+				session.setAttribute("memPwd", memPwd);
+				
+				response.sendRedirect(request.getContextPath());
+			}else {
+				// 실패
+				request.setAttribute("loginFail", "ID 혹은 비밀번호를 잘못 입력하셨거나 가입하지 않은 ID 입니다.");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
 		}
-					
-	}
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+
+
+		@Override
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			doGet(request, response);
+		}
+
 
 
 }

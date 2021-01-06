@@ -31,37 +31,33 @@ public class MemberDao {
 	}
 	
 	// 로그인
-	public ArrayList<MemberVo> loginMember(Connection conn,String memId, String memPwd) throws SQLException {
+	public int loginMember(Connection conn,String memId, String memPwd) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		String sql = prop.getProperty("loginMember");
-		ArrayList<MemberVo> list = new ArrayList<>();
-		try {
 		
+		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memId);
-			pstmt.setString(2, memPwd);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				MemberVo mv = new MemberVo();
-				mv.setMemNo(rs.getInt("MEMBER_NO"));
-				if(mv.getMemNo()== 0) {
-					System.out.println("DB 조회 오류");
+				if(rs.getString(1).equals(memPwd)) {
+					return 1;	// 로그인 성공
+				}else {
+					return 0;	// 비밀번호 틀림
 				}
-				mv.setMemId(rs.getString("MEMBER_ID"));
-				mv.setMemName(rs.getString("MEMBER_NAME"));
-				list.add(mv);
 			}
+			return -1;	// 아이디 없음
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		return list;
+		return -2;	// 데이터베이스 오류
 	}
 	// 회원가입
 	public int insertMember(MemberVo mv) throws SQLException {
