@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.passionStudy.passion.member.model.dao.MemberDao;
 import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @SuppressWarnings("serial")
-@WebServlet("/menu.MemberLogin")
+@WebServlet("/login.do")
 public class MemberLoginController extends HttpServlet {
 	public MemberLoginController() {
 		super();
@@ -30,31 +31,32 @@ public class MemberLoginController extends HttpServlet {
 		System.out.println("고객 입력 아이디 : " + memId);
 		System.out.println("고객 입력 비밀번호 : " + memPwd);
 		
-
-		MemberVo loginMember = null;
+		MemberDao dao = new MemberDao();
+		int result = 0;
 		try {
-			loginMember = new MemberService().loginMember(memId, memPwd);
+			result = dao.loginMember(memId, memPwd);
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		if(loginMember == null) { 
-
-			// 로그인 실패
-			request.setAttribute("loginFail", "아이디 또는 비밀번호를 확인해 주세요.");
-			request.getRequestDispatcher("/views/member/member_login.jsp").forward(request, response);
-
-		}else { 
-
-			// 로그인 성공
+		System.out.println("DB 조회 결과값 :" + result + "(성공 : 1 / 비밀번호 오류 : 0 / 아이디없음 : -1 / db오류 :-2)");
+		
+		if(result == 0) {
+			//로그인성공시
 			HttpSession session = request.getSession();
-			session.setAttribute("loginMember", loginMember);
-			session.setMaxInactiveInterval(-1);
-			response.sendRedirect(request.getContextPath());
 			
-
+			session.setAttribute("loginMember", true);
+			session.setAttribute("memId", memId);	
+			session.setAttribute("memPwd", memPwd);
+			
+			response.sendRedirect(request.getContextPath());
+		}else {
+			// 실패
+			request.setAttribute("loginFail", "ID 혹은 비밀번호를 잘못 입력하셨거나 가입하지 않은 ID 입니다.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
+
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

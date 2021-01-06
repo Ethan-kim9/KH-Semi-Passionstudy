@@ -33,8 +33,6 @@ public class MemberSignInController extends HttpServlet {
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
 		String[] memAdAgree = request.getParameterValues("chktmp");	// .....광고 동의.....
-		String memToken1 = request.getParameter("");
-		String memToken2 = request.getParameter("");
 		
 		for (int i=0; i<memAdAgree.length; i++) {
 			if(memAdAgree[i] != "") {

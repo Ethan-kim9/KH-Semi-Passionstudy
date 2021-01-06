@@ -1,6 +1,6 @@
 /**
  * 
- * yyyytest
+ * 
  */
 
 //비밀번호 정규식
@@ -18,8 +18,8 @@ var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
 
 //1.비밀번호 유효성 검사
 //1-1.정규식 체크
-$("#user_password").blur(function() {
-    if(pwJ.test($("#user_password"))) {
+$("#userpassword").blur(function() {
+    if(pwJ.test($("#userpassword"))) {
         console.log('true');
         $("#pw_check").text('');
     }else {
@@ -31,7 +31,7 @@ $("#user_password").blur(function() {
 
 //1-2.password 일치 확인
 $("#confirm_password").blur(function() {
-    if($("#user_password").val() != $(this).val()) {
+    if($("#userpassword").val() != $(this).val()) {
         $("#pw2_check").text('비밀번호가 일치하지 않아요 :(');
         $("#pw2_check").css('color', 'red');
     }else {
@@ -54,8 +54,8 @@ $("#userid").blur(function() {
 
 
 //이름 정규식 체크
-$("#usernm").blur(function() {
-    if(nameJ.test($("#usernm"))) {
+$("#username").blur(function() {
+    if(nameJ.test($("#username"))) {
         console.log('true');
         $("#name_check").text('');
     }else {

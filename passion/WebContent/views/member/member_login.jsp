@@ -7,15 +7,13 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-<%
-	String loginFail = (String)request.getAttribute("loginFail");
-%>
+
 
 
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
-        <form class="form_wrap_signup" action="menu.MemberLogin" method="post">
+        <form class="form_wrap_signup" action="login.do" method="post" onsubmit="return login();">
           <h2 class="member_title">로그인</h2>
           <div class="login_box">
             <form class="login_main">
@@ -41,13 +39,7 @@
                   required
                 />
               </div>
-              
-              <div>
-		            <!-- 로그인 오류시 출력문구 입력 -->
-		           	<% if(loginFail != null){ %>
-		           		<label id="p"><%= loginFail %></label>
-		           	<% } %>
-              </div>
+
               <button type="submit" class="btn_login">로그인하기 </button>
             </form>
 
@@ -92,5 +84,6 @@
       </div>
     </section>
   </body>
+  	  <script src="resources/JS/pagesjs/member_login.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

@@ -1,7 +1,7 @@
 package com.passionStudy.passion.member.model.vo;
 
 import java.sql.Date;
-
+// DTO
 public class MemberVo {
 	private int	   memNo;		    // 회원 식별자
 	private String memId;			// 회원 아이디
@@ -19,7 +19,8 @@ public class MemberVo {
 	private String memToken2;		// 카카오 가입토큰
 
 	
-	public MemberVo() {}
+	public MemberVo() {
+	}
 
 	public MemberVo(int memNo, String memName, String memId, String memPwd, String memPhone, Date memDate,
 			String adminCheck, int memRecomCount, String memStatus, String memAdAgree, String memRecomCode, 
@@ -42,16 +43,14 @@ public class MemberVo {
 	}
 	
 	
-	public MemberVo(String memId, String memPwd, String memName, String memPhone, String memAdAgree,
-			String memToken1, String memToken2) {
+	public MemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, String memAdAgree) {
 		super();
+		this.memNo = memNo;
 		this.memId = memId;
 		this.memPwd = memPwd;
 		this.memName = memName;
 		this.memPhone = memPhone;
 		this.memAdAgree = memAdAgree;
-		this.memToken1 = memToken1;
-		this.memToken2 = memToken2;
 	}
 
 

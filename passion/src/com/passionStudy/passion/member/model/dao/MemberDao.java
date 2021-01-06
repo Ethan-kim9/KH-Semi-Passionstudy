@@ -8,11 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.passionStudy.passion.common.JDBCtemplate;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
 	
-	Connection conn;
+	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
@@ -29,58 +30,57 @@ public class MemberDao {
 	}
 	
 	// 로그인
-	public MemberVo loginMember(Connection conn, String memId, String memPwd) throws SQLException {
-		MemberVo mv = new MemberVo();
+	public int loginMember(String memId, String memPwd) throws SQLException {
 		String sql = prop.getProperty("loginMember");
 		
 		try {
+			conn = JDBCtemplate.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memId);
-			pstmt.setString(2, memPwd);
-			
 			rs = pstmt.executeQuery();
-
-			if(rs.next()) {
-				mv = new MemberVo();
-				mv.setMemId(rs.getString("MEMBER_ID"));
-				mv.setMemPwd(rs.getString("MEMBER_PWD"));
-				
-			}
 			
-		} catch (SQLException e) {
+			if(rs.next()) {
+				if(rs.getString(1).equals(memPwd)) {
+					return 1;	// 로그인 성공
+				}else {
+					return 0;	// 비밀번호 틀림
+				}
+			}
+			return -1;	// 아이디 없음
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			rs.close();
-			pstmt.close();
+			try { if(conn != null) conn.close();}catch(Exception e) { e.printStackTrace(); }
+			try { if(pstmt != null) pstmt.close();}catch(Exception e) { e.printStackTrace(); }
+			try { if(rs != null) rs.close();}catch(Exception e) { e.printStackTrace(); }
 		}
-		
-		return mv;
-		
+		return -2;	// 데이터베이스 오류
 	}
-	
 	// 회원가입
-	public int insertMember(Connection conn, MemberVo mv) throws SQLException {
-		int result = 0;
+	public int insertMember(MemberVo mv) throws SQLException {
+		
 		String sql = prop.getProperty("insertMember");
 		
 		try {
+			conn = JDBCtemplate.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mv.getMemNo());
+			pstmt.setString(2, mv.getMemName());
+			pstmt.setString(3, mv.getMemId());
+			pstmt.setString(4, mv.getMemPwd());
+			pstmt.setString(5, mv.getMemPhone());
+			pstmt.setString(6, mv.getMemAdAgree());
 			
-			pstmt.setString(1, mv.getMemName());
-			pstmt.setString(2, mv.getMemId());
-			pstmt.setString(3, mv.getMemPwd());
-			pstmt.setString(4, mv.getMemPhone());
-			pstmt.setString(5, mv.getMemAdAgree());
-			
-			result = pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			pstmt.close();
-			
+			try { if(conn != null) conn.close();}catch(Exception e) { e.printStackTrace(); }
+			try { if(pstmt != null) pstmt.close();}catch(Exception e) { e.printStackTrace(); }
+			try { if(rs != null) rs.close();}catch(Exception e) { e.printStackTrace(); }
 		}
-		return result;
+		return -1;	// 회원가입 실패
 		
 	}
 	
