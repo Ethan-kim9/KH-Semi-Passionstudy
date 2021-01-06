@@ -7,6 +7,7 @@
 
 	String contextPathAdmin = request.getContextPath();
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+	session.setAttribute("login", loginMember);
 %>
 
 <% //로그인 정보를 받는 로직
@@ -71,16 +72,17 @@
           		<a href="<%= contextPathAdmin%>/menu.Login"><span>로그인</span></a>
               </li>
           	<% }else{%>
-              <% if(session.getAttribute("adminCheck") == "A"){%>
+              <% if(loginMember.getAdminCheck().charAt(0)== 'A'){%>
               <li class="mypage">
                <a href="<%= contextPathAdmin%>/menu.Manager"><span>관리 페이지</span></a>
               <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             </li>
-            <%} %>
+            <%}else{ %>
           	  <li class="mypage">
                 <a href="<%= contextPathAdmin%>/menu.MyPage"><span>마이페이지</span></a>
               	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             	</li>
+	<%}%>
             	<li class="login">
           		<a href="<%= contextPathAdmin%>/menu.Logout"><span>로그아웃</span></a>
 				</li>          

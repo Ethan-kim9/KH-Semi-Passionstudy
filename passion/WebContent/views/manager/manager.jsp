@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,9 +20,8 @@
 	String product = "./manager_product.jsp";
 
 	String sales = "./manager_sales.jsp";
-
-
 %>
+
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>관리메뉴</h1>

@@ -19,6 +19,18 @@ public class MemberVo {
 	private String memToken2;		// 카카오 가입토큰
 
 	
+	@Override
+	public String toString() {
+		return "MemberVo [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", memName=" + memName
+				+ ", memPhone=" + memPhone + ", memDate=" + memDate + ", adminCheck=" + adminCheck + ", memRecomCount="
+				+ memRecomCount + ", memStatus=" + memStatus + ", memAdAgree=" + memAdAgree + ", memRecomCode="
+				+ memRecomCode + ", memPoint=" + memPoint + ", memToken1=" + memToken1 + ", memToken2=" + memToken2
+				+ "]";
+	}
+
+
+
+
 	public MemberVo() {
 	}
 
