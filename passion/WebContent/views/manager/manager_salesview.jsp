@@ -1,8 +1,11 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.passionStudy.passion.manager.model.vo.ManagerSalesVo"%>
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+	ArrayList<ManagerSalesVo> searchSales = (ArrayList<ManagerSalesVo>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -77,16 +80,32 @@
  <div class="membersearch-box">
     <label for="startDate"></label>
     <form action="manager.SalesView" method="post">
-      <input name="startDate" id="startDate" class="date-picker" placeholder="년, 월 설정" name="Start" autocomplete="off"/>
-      <input type="submit" value="조회" />
+      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off"/>
+      <input type="submit" value="조회"/>
     </form>
   </div>
   
+<% 
+	String year  = (String)request.getAttribute("year");
+	String month = (String)request.getAttribute("month");
+    int totincome =0;
+    int card = 0;
+    int payment = 0;
+    
+if(searchSales == null){
+	%>
+	   <script >alert('선택하신 달의 매출이 없습니다.');</script>
+	<%
+}else{
+	
+	String time = searchSales.get(0).getPaymentDate().toString();
+	String day	 = time.substring(8,10);
+}%>
 <div class="finance__manager">
       <!-- 매출 그래프를 표시해주는 박스-->
       
       <div class="finance__graph__box">
-        <h1>2020년 매출현황</h1>
+        <h1><%=year %>년 <%=month %>월 매출</h1>
         <div class="finance__graph">
           
         </div>
@@ -97,7 +116,7 @@
         <table class="table">
           <thead class="thead-light">
             <tr>
-              <th scope="col">월</th>
+              <th scope="col">일</th>
               <th scope="col">카드</th>
               <th scope="col">현금</th>
               <th scope="col">총합</th>
@@ -105,72 +124,32 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>3000</td>
-              <td>4000</td>
-              <td>7000</td>
+            <% for(ManagerSalesVo msv : searchSales){
+            totincome += msv.getPaymentPrice(); 
+            
+            if(msv.getPaymentMethod().charAt(0) =='C'){
+            	card = msv.getPaymentPrice();
+            }else
+            	payment =msv.getPaymentPrice();
+            
+            %>
+              <th scope="row"><%=msv.getPaymentDate().toString().substring(8,10) %>일</th>
+              <td><%= card %>원 </td>
+              <td><%= payment %>원</td>
+              <td></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>9000</td>
-              <td>10000</td>
-              <td>19000</td>
+
+ <%
+		 card = 0;
+		 payment = 0;
+            } %>
+  			<tr>
+               <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td><h6></h6><%=totincome %>원</td>
             </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>20000</td>
-              <td>10000</td>
-              <td>300000</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>20000</td>
-              <td>10000</td>
-              <td>300000</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>20000</td>
-              <td>10000</td>
-              <td>300000</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>20000</td>
-              <td>10000</td>
-              <td>300000</td>
-              <tr>
-                <th scope="row">7</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>            <tr>
-                <th scope="row">9</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>            <tr>
-                <th scope="row">10</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>            <tr>
-                <th scope="row">11</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>            <tr>
-                <th scope="row">12</th>
-                <td>20000</td>
-                <td>10000</td>
-                <td>300000</td>
-              </tr>
+          
           </tbody>
         </table>
       </div>

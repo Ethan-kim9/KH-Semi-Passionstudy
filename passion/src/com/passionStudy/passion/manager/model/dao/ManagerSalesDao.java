@@ -1,51 +1,56 @@
 package com.passionStudy.passion.manager.model.dao;
 
-import java.sql.Date;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Properties;
+
+import com.passionStudy.passion.manager.model.vo.ManagerSalesVo;
 
 public class ManagerSalesDao {
-	Date	paymentDate;	//	결제 날짜
-	int		paymentPrice;	//	결제액
-	String	paymentMethod;	//	결제방법 (C : 카드 ,P : 현금)
-	String 	paymentInfo; 	//	결제수단 (C : 카드 ,P : 현금 , T : 무통장 D : 현장)
-	
-	
-	
-	public ManagerSalesDao(Date paymentDate, int paymentPrice, String paymentMethod, String paymentInfo) {
-		super();
-		this.paymentDate = paymentDate;
-		this.paymentPrice = paymentPrice;
-		this.paymentMethod = paymentMethod;
-		this.paymentInfo = paymentInfo;
-	}
 
-	@Override
-	public String toString() {
-		return "ManagerSalesDao [paymentDate=" + paymentDate + ", paymentPrice=" + paymentPrice + ", paymentMethod="
-				+ paymentMethod + ", paymentInfo=" + paymentInfo + "]";
-	}
+	private Properties prop = new Properties();
 	
-	public Date getPaymentDate() {
-		return paymentDate;
-	}
-	public void setPaymentDate(Date paymentDate) {
-		this.paymentDate = paymentDate;
-	}
-	public int getPaymentPrice() {
-		return paymentPrice;
-	}
-	public void setPaymentPrice(int paymentPrice) {
-		this.paymentPrice = paymentPrice;
-	}
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
-	public String getPaymentInfo() {
-		return paymentInfo;
-	}
-	public void setPaymentInfo(String paymentInfo) {
-		this.paymentInfo = paymentInfo;
+	public ManagerSalesDao(){
+	String fileName =ManagerSalesDao.class.getResource("/sql/manager/managerSales-mapper.xml").getPath();
+	
+	try {
+		prop.loadFromXML(new FileInputStream(fileName));
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
+	
+	
+	public ArrayList<ManagerSalesVo> salesSearch(Connection conn,String time) {
+		
+		ArrayList<ManagerSalesVo> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs =null;
+		System.out.println(time);
+		
+		String sql = prop.getProperty("listSales");
+
+		try {
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, time);
+			rs= pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				ManagerSalesVo msv = new ManagerSalesVo();
+					msv.setPaymentDate(rs.getDate("PAYMENT_DATE"));
+					msv.setPaymentMethod(rs.getString("PAYMENT_METHOD"));
+					msv.setPaymentPrice(rs.getInt("PAYMENT_PRICE"));
+					list.add(msv);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
