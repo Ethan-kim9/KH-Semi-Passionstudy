@@ -1,3 +1,7 @@
+/*
+ *
+ */	 
+	 
 	 // 아이디(이메일) 유효성 검사
 	 $('#userid').focusout(function () {
 	        var id = $('#userid').val();
