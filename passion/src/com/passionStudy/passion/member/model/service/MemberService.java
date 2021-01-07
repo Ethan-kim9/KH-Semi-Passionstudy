@@ -13,6 +13,7 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberService {
 
+
 	/**
 	 * 로그인
 	 * 
@@ -29,6 +30,7 @@ public class MemberService {
 		return mv;
 	}
 
+
 	/**
 	 * 회원가입
 	 * 
@@ -39,7 +41,7 @@ public class MemberService {
 	 */
 	public int insertMember(MemberVo mv) throws SQLException {
 		Connection conn = getConnection();
-		int result = new MemberDao().insertMember(mv);
+		int result = new MemberDao().insertMember(conn, mv);
 		if (result > 0) {
 			System.out.println("성공!");
 			commit(conn);

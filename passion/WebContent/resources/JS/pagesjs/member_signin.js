@@ -1,3 +1,7 @@
+/*
+ *
+ */	 
+	 
 	 // 아이디(이메일) 유효성 검사
 	 $('#userid').focusout(function () {
 	        var id = $('#userid').val();
@@ -96,26 +100,23 @@
 	    if (password == "") {
 	        // 입력 여부 검사
 	        $("#pw_check").html("비밀번호는 필수 정보입니다.");
-	        $("#pw_check").css("display", "inline-block");
+	        $("#pw_check").css('color', 'blue');
 	
 	    } else if (password.length < 8) {
 	        // 길이 검사
 	        $("#pw_check").html("8자리 이상 입력해주세요.");
-	        $("#pw_check").css("display", "inline-block");
 	        $("#pw_check").css("color", "red");
 	        return false;
 	
 	    } else if (password.search(/\s/) != -1) {
 	        // 비밀번호 공백 검사
 	        $("#pw_check").html("비밀번호에 공백을 포함할 수 없습니다.");
-	        $("#pw_check").css("display", "inline-block");
 	        $("#pw_check").css("color", "red");
 	        return false;
 	
 	    } else if (numRegExp < 0 || engRegExp < 0 || specialRegExp < 0) {
 	        // 형식 유효성 검사
 	        $("#pw_check").html("영문, 숫자, 특수문자를 혼합해 입력해주세요.");
-	        $("#pw_check").css("display", "inline-block");
 	        $("#pw_check").css("color", "red");
 	        return false;
 	    } else {
@@ -126,26 +127,24 @@
 	})
 	
 	$("#confirm_password").focusout(function () {
-	    var password = $("#pw_check").val();
+	    var password = $("#userpwd").val();
 	    var checkPassword = $("#confirm_password").val();
 	
 	    if (checkPassword == "") {
 	        // 입력 여부 검사
-	        $("#pw_check").html("비밀번호 확인은 필수입니다.");
-	        $("#pw_check").css("display", "inline-block");
-	        $("#pw_check").css("color", "red");
+	        $("#pw_confirm_check").html("비밀번호 확인은 필수입니다.");
+	        $("#pw_confirm_check").css("color", "red");
 	        return false;
 	
-	    } else if (checkPassword != password) {
+    	} else if (checkPassword != password) {
 	        // 비밀번호 일치 검사
-	        $("#pw_check").html("비밀번호가 일치하지 않습니다.");
-	        $("#pw_check").css("display", "inline-block");
-	        $("#pw_check").css("color", "red");
+	        $("#pw_confirm_check").html("비밀번호가 일치하지 않습니다.");
+	        $("#pw_confirm_check").css("color", "red");
 	        return false;
 	
 	    } else {
 	        console.log("true");
-	        $("#pw_check").css("display", "none");
+	        $("#pw_confirm_check").css("display", "none");
 	        return true;
 	    }
 	})

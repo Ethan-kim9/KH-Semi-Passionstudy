@@ -20,11 +20,11 @@ public class MemberSignInController extends HttpServlet {
 		super();
 	}
 
-	@Override
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	@Override
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -33,6 +33,7 @@ public class MemberSignInController extends HttpServlet {
 		String memPwd = request.getParameter("userpwd");
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
+		/*
 		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
 		
 		String textadmit = "";
@@ -40,18 +41,20 @@ public class MemberSignInController extends HttpServlet {
 				textadmit = memAdAgree[i] + "" ;
 			
 		}
-
+		*/
 		System.out.println(memId);
 		System.out.println(memPhone);
-		System.out.println(memAdAgree);
 		
-		MemberVo mv = new MemberVo(memId, memPwd, memName, memPhone, memAdAgree);
+		MemberVo mv = new MemberVo(memId, memPwd, memName, memPhone);
+		
 		int result = 0;
 		try {
 			result = new MemberService().insertMember(mv);
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		
 		if(result>0) {
@@ -60,11 +63,11 @@ public class MemberSignInController extends HttpServlet {
 			request.setAttribute("memId", memId);
 			request.setAttribute("memName", memName);
 			
-			request.getRequestDispatcher("./views/member/member_signin_complete.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/member/member_signin_complete.jsp").forward(request, response);
 		}else {
 			// 회원가입 실패
 			request.setAttribute("result", "회원가입 실패");
-			request.getRequestDispatcher("./views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/member/member_signin.jsp").forward(request, response);
 			
 		}
 	

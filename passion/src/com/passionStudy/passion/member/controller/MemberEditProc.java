@@ -31,39 +31,31 @@ public class MemberEditProc extends HttpServlet {
 		String memPhone = request.getParameter("phone");
 		String memAdAgree = request.getParameter("adagree");
 		
-		// 로직
-		MyPageService service = new MyPageService();
-		MemberVo vo = new MemberVo(memId, memPhone, memAdAgree);
-		
-		// 데이터 처리
 		int result = 0;
-		try {	//result=1
-			result = service.updateInfoMember(vo);	//왜 sqlexception나지?
+		try {
+			result = new MyPageService().updateInfoMember(memId,memPhone,memAdAgree);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 	
 		//  to. jsp에게
+=======
+
+>>>>>>> 8457ebbc99ef9935530c3c79a52ab21c55330cd4
 		if(result > 0) {	//다오를 쓰려면 서비스로 먼저 가야한다.
-			MemberVo member = service.oneSelectMember(memId);
-			HttpSession session = request.getSession();
-			session.setAttribute("member", member);
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('정보가 수정 되었습니다.');history.back();</script>");
-			RequestDispatcher dis = request.getRequestDispatcher("views/mypage/mypage_edit.jsp");
-			dis.forward(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			
 			
 			
 		} else {
 			System.out.println("회원정보 수정 실패");
 		}
-		
-	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 }

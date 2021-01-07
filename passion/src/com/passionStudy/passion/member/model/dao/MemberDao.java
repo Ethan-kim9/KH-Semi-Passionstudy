@@ -75,7 +75,7 @@ public class MemberDao {
 	}
 		
 	// 회원가입
-	public int insertMember(MemberVo mv) throws SQLException {
+	public int insertMember(Connection conn, MemberVo mv) throws SQLException {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -93,6 +93,7 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 			System.out.println(result);
+			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

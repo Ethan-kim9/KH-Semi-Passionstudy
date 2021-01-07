@@ -635,7 +635,7 @@
     overflow: hidden;
     position: relative;
   }
-  .signup_wrap .signup_step .field_signup_wrap_pwd .field_vali {
+  .field_signup_wrap_pwd .field_vali {
     position: absolute;
     left: 0;
     right: 0;
