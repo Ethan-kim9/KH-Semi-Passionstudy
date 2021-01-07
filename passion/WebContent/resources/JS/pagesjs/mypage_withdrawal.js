@@ -1,3 +1,4 @@
+/*
 $(document).ready(function () {
   $(".mypage-withdrawal1").show();
   $(".mypage-withdrawal2").hide();
@@ -8,6 +9,7 @@ $(document).ready(function () {
     return false;
   });
 });
+*/
 
 /*
 if문을 사용해서, 

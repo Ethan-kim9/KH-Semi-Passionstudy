@@ -20,8 +20,8 @@ public class MyPageService {
 		}else {
 			rollback(conn);
 		}
-			close(conn);
-		    return result;
+		close(conn);
+		return result;
 	}
 	
 	
@@ -52,5 +52,20 @@ public class MyPageService {
 		return result;
 	}
 	
+	// 비밀번호 변경
+	public int changePwd(String newPassword, String memId) throws SQLException {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		int result = mdao.changePwd(conn, newPassword, memId);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 	
 }

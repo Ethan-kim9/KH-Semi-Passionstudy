@@ -14,10 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.member.model.service.MyPageService;
 
 
-// 회원 탈퇴 폼에 memId 붙여서 같이 넘김
-@WebServlet("/WithdrawalConfirm.do")
+
+@WebServlet("/goodbye")
 public class WithdrawalConfirm extends HttpServlet {
 	
+
+	private static final long serialVersionUID = 1L;
+	
+	public WithdrawalConfirm() {
+		super();
+	}
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 한글 처리
@@ -27,18 +35,30 @@ public class WithdrawalConfirm extends HttpServlet {
 		String inputPassword =  request.getParameter("password");
 		
 		// 로직 
-		MyPageService service = new MyPageService();
-		String password = service.getPass(memId);
+		String password = "";
+		try {
+			password = new MyPageService().getPass(memId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		// to. jsp에게
 		if(inputPassword.equals(password)) {
-			int result = service.deleteMember(memId);	//1이면 성공
+			int result = 0;
+			try {
+				result = new MyPageService().deleteMember(memId);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	//1이면 성공
+			
 			if(result > 0) {
 				System.out.println("회원탈퇴 성공");
-				request.setAttribute("memId", memId);	//'B'처리돼있는 아이디를 들고 내보내기
-				RequestDispatcher dis = request.getRequestDispatcher("회원탈퇴폼");
+				/* request.setAttribute("memId", memId); */	//'B'처리돼있는 아이디를 들고 내보내기
+				
+				RequestDispatcher dis = request.getRequestDispatcher("views/mypage/onclick/mypage_withdrawal_done.jsp");
 				dis.forward(request, response);
 			}
+			
 		}else {
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('비밀번호를 확인 후 다시 입력해주세요.');history.back();</script>");

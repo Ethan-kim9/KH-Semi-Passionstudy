@@ -11,4 +11,28 @@
 			WHERE 
 				MEMBER_ID = ?
 </entry>
+
+<entry key="withdrawal">
+	UPDATE 
+		MEMBER 
+			SET MEMBER_STATUS = 'B' 
+				WHERE MEMBER_ID = ?
+
+</entry>
+
+<entry key="giveMeThePassword">
+	SELECT 
+		MEMBER_PWD 
+			FROM MEMBER 
+				WHERE MEMBER_ID = ?
+
+</entry>
+
+<entry key="changeThePassword">
+	UPDATE
+		MEMBER
+			SET MEMBER_PWD = ?
+				WHERE MEMBER_ID = ?
+
+</entry>
 </properties>

@@ -16,7 +16,7 @@ import com.passionStudy.passion.member.model.service.MyPageService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 // 회원정보수정 클릭 했을 때 넘어온 데이터(phone,addagree)를 처리해주는 서블릿
-@WebServlet("/MemberEditProc.do")
+@WebServlet("/MemberEditProc")
 public class MemberEditProc extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -34,19 +34,16 @@ public class MemberEditProc extends HttpServlet {
 		int result = 0;
 		try {
 			result = new MyPageService().updateInfoMember(memId,memPhone,memAdAgree);
+			System.out.println(result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
-	
-		//  to. jsp에게
-=======
 
->>>>>>> 8457ebbc99ef9935530c3c79a52ab21c55330cd4
-		if(result > 0) {	//다오를 쓰려면 서비스로 먼저 가야한다.
+		// to.jsp에게
+		if(result > 0) {
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('정보가 수정 되었습니다.');history.back();</script>");
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?inc=./views/mypage/mypage_edit.jsp").forward(request, response);
 			
 			
 			

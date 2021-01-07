@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>mypage- 회원정보수정/ 비밀번호 변경</title>
+      <title>mypage-비밀번호 변경</title>
       <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -49,10 +49,10 @@
         <div class="container_mypage-management edit_btns">
           <ul>
             <li>
-                <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_edit.jsp'" class="edit-button1 on">회원정보 수정 </button>
+                <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_edit.jsp'" class="edit-button1">회원정보 수정 </button>
             </li>
             <li>
-                <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_pwdForm.jsp'" class="edit-button2">비밀번호 변경 </button>
+                <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_pwdForm.jsp'" class="edit-button2 on">비밀번호 변경 </button>
             </li>
           </ul>
         </div>
@@ -61,14 +61,15 @@
 
 
     <!-- 회원 정보 수정 -->
-    <section class="member-edit-section member-edit-section1 member_info_edit">
+   <%--  <section class="member-edit-section member-edit-section1 member_info_edit">
         <div class="edit-user-info">
         
           <div class="edit-user-header">
             <div class="edit-user-header_title">회원정보</div>
             <a class="edit-user-header_withdrawal" 
-            href="views/mypage/onclick/mypage_withdrawal.jsp"
-            >탈퇴하기</a>
+            href="views/mypage/onclick/mypage_withdrawal.jsp?memId=<%=loginMember.getMemId() %>"
+            >탈퇴하기</a> <!-- href="WithdrawalProc.do?num=${mvo.memNo}" -->
+            <!-- href="views/mypage/onclick/mypage_withdrawal.jsp" -->
           </div>
 
           <form class="edit-user-set" action="MemberEditProc" method="POST" name="form-tag">
@@ -100,15 +101,16 @@
           </form>
         </div>
       
-    </section>
+    </section> --%>
 
     <!-- 비밀번호 변경 수정 -->
 
-   <!--  <section class="member-edit-section member-edit-section2 member_password_edit">
+    <section class="member-edit-section member-edit-section2 member_password_edit">
         <div class="edit-pwd_wrap">
           <div class="edit-pwd-content">
             <h1 class="edit-pwd_title">비밀번호 변경</h1>
-            <form action="MyPageChangePwdProc.do" method="post" class="edit-pwd-change">
+            
+            <form action="renewPwd" method="post" class="edit-pwd-change">
               <div class="edit-pwd_form">
                 <div class="edit-pwd_form_title">현재 비밀번호</div>
                 <div class="edit-pwd_form-group">
@@ -151,12 +153,13 @@
                   </div>
                 </div>
               </div>
+              <input type="hidden" name="memId" value="<%= loginMember.getMemId()%>"/>
               <a href="/passion/index.jsp?inc=./views/mypage/mypage.jsp"><button class="edit-pwd-button">비밀번호 변경</button></a>
             </form>
           </div>
         </div>
       
-    </section> -->
+    </section>
 
  
   </body>

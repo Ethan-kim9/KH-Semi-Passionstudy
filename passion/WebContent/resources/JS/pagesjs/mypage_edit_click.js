@@ -1,3 +1,4 @@
+/*
 $(".member-edit-section").css("display", "none");
 $(".member-edit-section1").css("display", "block");
 
@@ -14,3 +15,4 @@ $(".edit-button2").click(function (event) {
   $(".member-edit-section").css("display", "none");
   $(".member-edit-section2").css("display", "block");
 });
+*/
