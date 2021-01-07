@@ -42,7 +42,7 @@
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
-	FAQBoardVo vo = dao.getView(idx);	
+	FAQBoardVo vo2 = dao.getView(idx);	
 %>
     
     <div class="cont_header">
@@ -70,7 +70,7 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/faq/modify.jsp?idx=<%=idx%>&pg=<%=pg%>" method="post">
+            <form id="board_form_title" action="modify.do" method="post">
               <input
                 type="text"
                 name="faqTitle"

@@ -309,25 +309,24 @@
         
       </div>
     </section>
-		<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
-		<input type='text' name='room_no' value='${param.room_no }'/>
-		<input type='text' name='firstTimeData' value='${param.firstTimeData }'/>
-		<input type='text' name='secondTimeData' value='${param.secondTimeData }'/>
-		<input type='text' name='thirdTimeData' value='${param.thirdTimeData }'/>
-		<input type='text' name='fourthTimeData' value='${param.fourthTimeData }'/>
-		<input type='text' name='fifthTimeData' value='${param.fifthTimeData }'/>
-		<input type='text' name='lastTimeData' value='${param.lastTimeData }'/>
-		<input type='text' name='countUsers' value='${param.countUsers }'/>
-		<input type='text' name='monitor' value='${param.monitor }'/>
-		<input type='text' name='computer' value='${param.computer }'/>
-		<input type='text' name='projector' value='${param.projector }'/>
-		<input type='text' name='reservationName' value='${param.reservationName }'/>
-		<input type='text' name='tel_first' value='${param.tel_first }'/>
-		<input type='text' name='tel_second' value='${param.tel_second }'/>
-		<input type='text' name='tel_third' value='${param.tel_third }'/>
-		<input type='text' name='email' value='${param.email }'/>
-		<input type='text' name='emailaddr' value='${param.emailaddr }'/>
-		<input type='text' name='feedback' value='${param.feedback }'/>
+			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
+			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
+			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
+			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
+			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
+			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+			<input type='text' name='countUsers' value='${param.countUsers }'/>
+			<input type='text' name='monitor' value='${param.monitor }'/>
+			<input type='text' name='computer' value='${param.computer }'/>
+			<input type='text' name='projector' value='${param.projector }'/>
+			<input type="text" name="email_id" value='${param.email_id }'/>
+			<input type="text" name="email_dns" value='${param.email_dns}'/>
+			<input type="text" name="tel_first" value='${param.tel_first }'/>
+			<input type="text" name="tel_second" value='${param.tel_second }'/>
+			<input type="text" name="tel_third" value='${param.tel_third }'/>
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>

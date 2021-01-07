@@ -97,8 +97,8 @@
 	<section>
 		<div id="board">
 			<div id="board_main">
-				<div id="buttons">
-
+				
+				<div id="buttons" style="float:left; ">
 					<select id="board_select" name="board_select" title="문의선택"
 						class="sel">
 						<option value="member_inquiry">회원문의</option>
@@ -108,9 +108,18 @@
 						<option value="cancel_inquiry">취소문의</option>
 					</select>
 				</div>
+				<div class="search_bar" style="margin-bottom: 15px;">
+					<select name="f">
+						<option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
+						<option ${(param.f == "title")?"selected":""}
+							value="noticeContent">내용</option>
+					</select> <input type="text" name="q" value="${param.q}" id="search-box" />
+					<button type="button" class="search-btn yb" style="float: none;">
+						검색</button>
+				</div>
 				<table class="table" id="main_table" width="50%">
 					<tr>
-						<th><input type="checkbox" class="checkbox" /></th>
+						<th><input type="checkbox" class="checkbox" id="check_all" /></th>
 						<th>제목</th>
 						<th>내용</th>
 						<th>작성일</th>
@@ -133,6 +142,7 @@
 						</td>
 						<td><%=vo.getFaqContent() %></td>
 						<td><%=vo.getFaqDate() %></td>
+						
 					</tr>
 				<% }} %>
 				
@@ -184,9 +194,23 @@
               <td><%=date %></td>
             </tr>
           	<!-- 세번째 줄 끝 --> --%>
-
+	
 					<tr>
-						<td align="center" colspan="4">
+						<td align="left" colspan="4" style=" position: absolute; ">
+							<div>
+								<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
+								<input type="button" class="write_btn yb" style="float: none"
+									value="글쓰기"
+									onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_write.jsp'">
+								</input>
+								<!-- </a> -->
+								<button type="button" class="remove_btn yb"
+									style="float: none; margin-right: 500px">삭제</button>
+							</div>
+						</td>
+					</tr>
+					<tr>	
+						<td align="center" colspan="4" style="border-style: none">
 							<%
 								if(pg>BLOCK)
 									{
@@ -220,28 +244,22 @@
 					</tr>
 
 				</table>
-				<div>
-					<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
-					<input type="button" class="write_btn yb" style="float: none"
-						value="글쓰기"
-						onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_write.jsp'">
-					</input>
-					<!-- </a> -->
-					<button type="button" class="remove_btn yb"
-						style="float: none; margin-right: 500px">삭제</button>
-				</div>
-				<div class="search_bar">
-					<select name="f">
-						<option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
-						<option ${(param.f == "title")?"selected":""}
-							value="noticeContent">내용</option>
-					</select> <input type="text" name="q" value="${param.q}" id="search-box" />
-					<button type="button" class="search-btn yb" style="float: none;">
-						검색</button>
-				</div>
+				
+				
 			</div>
 		</div>
 	</section>
 </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+	  $(".table").on("click","#check_all", function() {
+	      var checked = $(this).is(":checked");
+	
+	      if(checked){
+	        $(this).parents(".table").find('input').prop("checked",true);
+	      } else {
+	        $(this).parents(".table").find('input').prop("checked",false);
+	      }
+	  });
+  </script>
 </html>

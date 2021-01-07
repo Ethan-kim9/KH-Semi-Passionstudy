@@ -73,7 +73,6 @@ public class JDBCtemplate {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-			
 	}
 	
 	public static void close(ResultSet rs) {

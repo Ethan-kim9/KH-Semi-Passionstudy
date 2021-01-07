@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+<entry key="miseon">
+	        INSERT INTO MEMBER
+                        ( 
+                            MEMBER_NO
+                        , MEMBER_NAME
+                        , MEMBER_ID
+                        , MEMBER_PWD
+                        , MEMBER_PHONE
+                        , MEMBER_DATE
+                        , ADMIN_CHECK
+                        , RECOM_COUNT
+                        , MEMBER_STATUS
+                        , AD_AGREE
+                        , RECOM_CODE
+                        , MEMBER_POINT
+                        , TOKEN1
+                        , TOKEN2
+                        )
+                            VALUES
+                                    (
+                                        SEQ_MNO.NEXTVAL
+                                    , '강동동'
+                                    , 'test@gmail.com'
+                                    , 't1234'
+                                    , '01012345678'
+                                    , DEFAULT
+                                    , DEFAULT
+                                    , DEFAULT
+                                    , DEFAULT
+                                    , DEFAULT
+                                    , 'alskdj'
+                                    , '1000'
+                                    , NULL
+                                    , NULL
+                                    );
+</entry>
+</properties>

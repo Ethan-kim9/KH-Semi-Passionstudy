@@ -52,7 +52,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="index.jsp?inc=./views/board/faq/delete.jsp" method="post">
+	<form action="delete.do" method="post">
     <section>
       <div id="board">
         <div id="board_main">

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,7 +9,7 @@
   <body>
     
 
-<!-- 이용약관 동의 체크 부분 -->
+	<!-- 이용약관 동의 체크 부분 -->
 	<form class="form_wrap_signup" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
 		<section class="signin_sction signin_sction1">
 			<div class="signup_wrap">
@@ -23,7 +24,7 @@
 									</h3>
 										<div class="checkbox_group">
 											<div class="ckjoinbox">
-												<input type="checkbox" id="all_admit" />
+												<input type="checkbox" id="all_admit" value="Y"/>
 												<label for="all_admit" title="모두 동의 (선택 정보 포함)"> 
 													모두 동의 (선택 정보 포함) </label>
 											</div>
@@ -33,7 +34,7 @@
 													<input type="checkbox"
 														   name="admit" 
 														   id="upto-14-admit" 
-														   value="check"
+														   value="Y"
 														   class="checkbox_msg" />
 													<label for="upto_14_admit" 
 													 	   title="[필수] 만 14세 이상"> 
@@ -45,7 +46,7 @@
 													<input type="checkbox" 
 														   name="admit" 
 														   id="study-admit" 
-														   value="check"
+														   value="Y"
 														   class="checkbox_msg" />
 													<label for="study_admit" 
 														   title="[필수] 이용약관 동의"> 
@@ -63,7 +64,7 @@
 												 	<input type="checkbox" 
 												 		   name="admit" 
 												 		   id="user_info_admit" 
-												 		   value="check"
+												 		   value="Y"
 														   class="checkbox_msg"  />
 													<label for="user_info_admit" 
 														   title="[필수] 개인정보 처리방침 동의">
@@ -79,7 +80,7 @@
 													<input type="checkbox" 
 														   name="admit" 
 														   id="ad_admit" 
-														   value="check"
+														   value="Y"
 														   class="checkbox_msg" />
 													<label for="ad_admit" 
 														   title="[선택] 광고성 정보 수신 및 마케팅 활용 동의">
@@ -241,16 +242,16 @@
 									
 							</ul>
 						</div>
-						<button type="submit" class="btn_next_step sign_btn_1" disabled="true">
+						<button type="submit" class="btn_next_step sign_btn_1">
 							동의하고 가입하기</button>
 
 			</div>
 		</section>
 	<!-- form 태그로 다 감쌀건지 말건지 확인.. -->
 
-<!-- 아이디 입력 부분 -->
-<section class="signin_sction signin_sction2">
-  <div class="signup_wrap">
+	<!-- 아이디 입력 부분 -->
+	<section class="signin_sction signin_sction2">
+  	<div class="signup_wrap">
       <div class="form_wrap_signup">
           <h2 class="title_signup">간편가입</h2>
           <div class="step_wrap">
@@ -269,7 +270,6 @@
                                          id="userid"
                                          name="userid" 
                                          placeholder="아이디 (이메일) 입력" 
-                                         formcontrolname="userid"
                                          autocorrect="off" 
                                          class="field_signupbox_id"
                                          required/>
@@ -280,7 +280,7 @@
                           </p>
                       </div>
 
-                      <button type="submit" class="btn_next_step sign_btn_2" disabled="true">다음</button>
+                      <button type="submit" class="btn_next_step sign_btn_2">다음</button>
 
                   </li>
               </ul>
@@ -306,11 +306,11 @@
                       <div class="field_signup_wrap_pwd">
                           <label for="username" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input rulerfocuson type="text" 
-                                                  id="username"
-                                                  name="username" 
-                                                  placeholder="이름" 
-                                                  required/>
+	                             <input type="text" 
+                                        id="username"
+                                        name="username" 
+                                        placeholder="이름" 
+                                        required/>
                               <!---->
                           </div>
                           <p class="field_vali">
@@ -320,11 +320,11 @@
                       <div class="field_signup_wrap_pwd">
                           <label for="userphnumber" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input rulerfocuson type="text" 
-                                                  id="userphnumber"
-                                                  name="userphnumber" 
-                                                  placeholder="연락처 (전화번호)" 
-                                                  required/>
+                              <input type="text" 
+                                     id="userphnumber"
+                                     name="userphnumber" 
+                                     placeholder="연락처 (전화번호)" 
+                                     required/>
                               <!---->
                           </div>
 
@@ -333,7 +333,7 @@
                         </p>
                       </div>
 
-                          <button type="submit" class="btn_next_step sign_btn_3" disabled="true">다음</button>
+                          <button type="submit" class="btn_next_step sign_btn_3">다음</button>
 
                   </li>
               </ul>
@@ -362,11 +362,11 @@
 	                          <label for="userpassword" class="blind signup_step"></label>
 	                          <div class="field_signup_wrap_pwd">
 	                              <div class="inpbx">
-	                                  <input rulerfocuson type="password" 
-	                                                      id="userpwd"
-	                                                      name="userpwd" 
-	                                                      placeholder="비밀번호 입력"
-	                                                      required /> 
+	                                  <input type="password" 
+                                             id="userpwd"
+                                             name="userpwd" 
+                                             placeholder="비밀번호 입력"
+                                             required /> 
 	                                  <!---->
 	                             </div>
 	
@@ -377,20 +377,20 @@
 	                         <label for="confirm_password" class="blind signup_step"></label>
 	                         <div class="field_signup_wrap_pwd">
 	                             <div class="inpbx">
-	                                 <input rulerfocuson type="password" 
-	                                                     id="confirm_password"
-	                                                     name="confirm_password" 
-	                                                     placeholder="비밀번호 확인" 
-	                                                     required/>
+	                                 <input type="password" 
+                                            id="confirm_password"
+                                            name="confirm_password" 
+                                            placeholder="비밀번호 확인" 
+                                            required/>
 	                                 <!---->
 	                             </div>
 	
 	                             <p class="field_vali">
-	                                 <span class="signup_wrap" id="pw2_check"><!--비밀번호 일치--></span>
+	                                 <span class="signup_wrap" id="pw_confirm_check"><!--비밀번호 일치--></span>
 	                             </p>
 	                         </div>
 	                     </div>
-	                         <button type="submit" class="btn_next_step sign_btn_4" disabled="true">다음</button>
+	                         <button type="submit" class="btn_next_step sign_btn_4">다음</button>
 	                 </li>
 	             </ul>
 	         </div>
@@ -421,10 +421,10 @@
 	                                  추천자, 추천인 모두에게 1000포인트 지급
 	                              </li>
 	                          </ul>
-	                        <button type="submit" class="btn_next_step on verify_info btn_fix sign_btn_6" disabled="true">
+	                        <button type="submit" class="btn_next_step on verify_info btn_fix sign_btn_6" >
 	                                  혜택 없이 계속 가입하기
 	                        </button>
-	                        <button type="submit" class="btn_next_step on verify_info sign_btn_5" disabled="true">
+	                        <button type="submit" class="btn_next_step on verify_info sign_btn_5">
 	                                  추천인 입력하고 혜택받기
 	                        </button>
 	                      </div>
@@ -437,12 +437,11 @@
 	
 	<!--추천인 아이디 입력 -->
 	<section class="signin_sction signin_sction6">
-	  <div class="signup_wrap">
-	      <div class="form_wrap_signup">
+	  	<div class="signup_wrap">
 	          <h2 class="title_signup">간편가입</h2>
-	          <div class="step_wrap">
+	          	<div class="step_wrap">
 	              <i class="step5_event_info"></i>
-	              <ul class="signup_step">
+	              	<ul class="signup_step">
 	                  <li>
 	                      <h3>추천인을 입력해주세요.</h3>
 	                      <div class="signup_step_box">
@@ -453,20 +452,18 @@
 	                              </div>
 	                          </div>
 	                      </div>
-	                          <button type="submit" class="btn_next_step sign_btn_7" disabled="true">다음</button>
-	
+
+	                      <button type="submit" class="btn_next_step sign_btn_7">다음</button>
 	                  </li>
-	              </ul>
-	          </div>
-	        </div>
-	  </div>
-	
+	             	 </ul>
+	          	</div>
+	       </div>
 	  </section>
 	
+
 	<!--입력 완료 시 쿠폰표시 화면 -->
 	<section class="signin_sction signin_sction7">
-  <div class="signup_wrap">
-      <div class="form_signup_wrap">
+	  <div class="signup_wrap">
           <h2 class="title_signup">간편가입</h2>
           <div class="step_wrap">
               <i class="step6_welcome"></i>
@@ -497,14 +494,12 @@
                       </div>
                   </li>
               </ul>
-          </div>
-        </div>
-      </div>
-  </section>
+          	</div>
+      	</div>
+  	</section>
+  
  </form>
- 
- 
-  </body>
+</body>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin.js"></script>
 </html>

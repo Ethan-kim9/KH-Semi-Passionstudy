@@ -25,29 +25,39 @@
 
 <!-- 회원가입 -->
 <entry key="insertMember">
-	INSERT
-	  INTO MEMBER
-	  ( 
-	    MEMBER_NO
-      , MEMBER_NAME
-      , MEMBER_ID
-      , MEMBER_PWD
-      , MEMBER_PHONE
-      , AD_AGREE
-        )
-	VALUES
-	  (
-	    SEQ_MNO.NEXTVAL
-	  , ?
-	  , ?
-	  , ?
-	  , ?
-	  , ?
-	  );
+				INSERT INTO MEMBER
+						    (
+						       MEMBER_NO 
+						     , MEMBER_ID 
+						     , MEMBER_PWD 
+						     , MEMBER_NAME
+						     , MEMBER_PHONE 
+						     , MEMBER_DATE 
+						     , ADMIN_CHECK 
+						     , RECOM_COUNT
+						     , MEMBER_STATUS
+						     , RECOM_CODE
+						     , MEMBER_POINT
+						     
+						     ) 
+						     	VALUES
+						                (
+						                  SEQ_MNO.nextval  
+						                , ? 
+						                , ? 
+						                , ?
+						                , ?
+						                , SYSDATE
+						                , 'N'
+						                , 0
+						                , 'N'
+						                , 'passion'
+						                , 500
+						                )
 </entry>
 <!-- 아이디체크용  -->
 <entry key="idDuplicatedCheck">
-	SELECT COUNT(*)
+	SELECT MEMBER_NO
 	  FROM MEMBER
 	 WHERE MEMBER_ID = ?
 </entry>

@@ -160,6 +160,7 @@ public class FAQBoardDao {
 				vo = new FAQBoardVo();
 				vo.setFaqTitle(rs.getString(1));
 				vo.setFaqContent(rs.getString(2));
+				vo.setFaqDate(rs.getString(3));
 			}
 		}catch(Exception e) { 
 			

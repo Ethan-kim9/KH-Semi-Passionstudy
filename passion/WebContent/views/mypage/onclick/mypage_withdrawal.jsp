@@ -1,5 +1,9 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+%>   
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +27,7 @@
           </ul>
         </div>
         <!-- 회원탈퇴 전 -->
-        <form class="withdrawal_wrap" action="WithdrawalConfirm.do" method="post">
+        <form class="withdrawal_wrap" action="WithdrawalConfirm.do?memId=<%=loginMember.getMemId() %>" method="post">
           <div class="withdrawal-mold">
             <div class="mypage-withdrawal1">
               <div class="withdrawal-front">
@@ -33,10 +37,9 @@
               </div>
               <div class="withdrawl-pwd-group">
                 <div class="withdrawal-pwd-group_box"><input type="password" name="password" placeholder="비밀번호를 입력해주세요."></div>
-                <div class="withdrawal-pwd-group_warn">비밀번호를 확인 후 다시 입력해주세요. (5회 이상 오류 시 로그인 차단)</div>
+                <div class="withdrawal-pwd-group_warn">비밀번호를 확인 후 다시 입력해주세요.</div>
               </div>
               <button class="withdrawal-button" >확인</button>
-              <!-- onclick="location.href='WithdrawalConfirm.do?memNo=${memNo}'" -->
             </div>
             <!-- 회원탈퇴 완료 -->
             <div class="mypage-withdrawal2">
