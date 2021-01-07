@@ -35,20 +35,24 @@ public class MemberSignInController extends HttpServlet {
 		String memPhone = request.getParameter("userphnumber");
 		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
 		
+		String textadmit = "";
 		for (int i=0; i<memAdAgree.length; i++) {
-			if(memAdAgree[i] != "") {
-				String admit = memAdAgree[i] + "+" ;
-			}
+				textadmit = memAdAgree[i] + "" ;
+			
 		}
-		MemberVo mv = new MemberVo();
+
+		System.out.println(memId);
+		System.out.println(memPhone);
+		System.out.println(memAdAgree);
 		
+		MemberVo mv = new MemberVo(memId, memPwd, memName, memPhone, memAdAgree);
 		int result = 0;
 		try {
 			result = new MemberService().insertMember(mv);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		if(result>0) {
 			// 회원가입 성공
@@ -56,11 +60,11 @@ public class MemberSignInController extends HttpServlet {
 			request.setAttribute("memId", memId);
 			request.setAttribute("memName", memName);
 			
-			request.getRequestDispatcher("views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("./views/member/member_signin_complete.jsp").forward(request, response);
 		}else {
 			// 회원가입 실패
 			request.setAttribute("result", "회원가입 실패");
-			request.getRequestDispatcher("views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("./views/member/member_signin.jsp").forward(request, response);
 			
 		}
 	

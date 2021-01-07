@@ -568,7 +568,7 @@
 						<h8 class="option_menu_multi_price">2,000원</h8>
 						<br /> <br />
 
-							<select id='computer' name='computer' class="count">
+							<select id='computer' name='computer' class="count" onchange="changeComputer(this.value)">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -633,7 +633,5 @@
 		</form>
 	</section>
 </body>
-<script>
-</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
