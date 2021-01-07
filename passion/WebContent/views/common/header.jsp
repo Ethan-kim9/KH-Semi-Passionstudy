@@ -5,7 +5,7 @@
 
 <%
 
-	String contextPathAdmin = request.getContextPath();
+	String contextPath = request.getContextPath();
 
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 %>
@@ -39,47 +39,45 @@
     <header class="PassionStudy_header">
       <div class="header_inner">
         <div class="logo_img">
-          <a href="<%= contextPathAdmin%>">🔥 열정 스터디</a>
+          <a href="<%= contextPath%>">🔥 열정 스터디</a>
         </div>
 
         <div class="menu_wrapper">
           <nav id="PassionStudy_header_menu">
-          
-
             <ul id="menu-main" class="menu menu-main">
               <li class="main on">	
-              	<a href="<%= contextPathAdmin%>"><span>메인</span></a>
+              	<a href="<%= contextPath%>"><span>메인</span></a>
               </li>
               <li class="roomlist">	
-              	<a href="<%= contextPathAdmin%>/menu.facilitiesRooms"><span>시설소개</span></a>
+              	<a href="<%= contextPath%>/menu.facilitiesRooms"><span>시설소개</span></a>
               </li>
               <li class="guide">
-              	<a href="<%= contextPathAdmin%>/menu.facilitiesExtra"><span>이용안내</span></a>
+              	<a href="<%= contextPath%>/menu.facilitiesExtra"><span>이용안내</span></a>
               </li>
               <li class="reserve">
-                <a href="<%= contextPathAdmin%>/menu.Reservation"><span>예약/결제</span></a>
+                <a href="<%= contextPath%>/menu.Reservation"><span>예약/결제</span></a>
               </li>
               <li class="community">
-                <a href="<%= contextPathAdmin%>/menu.Board"><span>커뮤니티</span></a>
+                <a href="<%= contextPath%>/menu.Board"><span>커뮤니티</span></a>
               </li>
-<% if(loginMember == null){ %>
+			<% if(loginMember == null){ %>
               <li class="login">
-          		<a href="<%= contextPathAdmin%>/menu.Login"><span>로그인</span></a>
+          		<a href="<%= contextPath%>/menu.Login"><span>로그인</span></a>
               </li>
           	<% }else{%>
               <% if(loginMember.getAdminCheck().charAt(0)== 'A'){%>
               <li class="mypage">
-               <a href="<%= contextPathAdmin%>/menu.Manager"><span>관리 페이지</span></a>
+               <a href="<%= contextPath%>/menu.Manager"><span>관리 페이지</span></a>
               <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             </li>
             <%}else{ %>
           	  <li class="mypage">
-                <a href="<%= contextPathAdmin%>/menu.MyPage"><span>마이페이지</span></a>
+                <a href="<%= contextPath%>/menu.MyPage"><span>마이페이지</span></a>
               	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             	</li>
 	<%}%>
             	<li class="login">
-          		<a href="<%= contextPathAdmin%>/menu.Logout"><span>로그아웃</span></a>
+          		<a href="<%= contextPath%>/menu.Logout"><span>로그아웃</span></a>
 				</li>          
 <%}%>
               <!-- 로그인과 로그아웃에 따라 로그인 또는 로그아웃 버튼으로 변함 -->     

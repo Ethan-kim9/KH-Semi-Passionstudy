@@ -39,9 +39,9 @@ public class MemberService {
 	 * @throws SQLException
 	 * 
 	 */
-	public int insertMember(MemberVo mv) throws SQLException {
+	public int insertMember(String memId,String memPwd,String memName,String memPhone) throws SQLException {
 		Connection conn = getConnection();
-		int result = new MemberDao().insertMember(conn, mv);
+		int result = new MemberDao().insertMember(conn, memId, memPwd, memName, memPhone);
 		if (result > 0) {
 			System.out.println("성공!");
 			commit(conn);

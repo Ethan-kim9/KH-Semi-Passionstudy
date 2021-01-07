@@ -289,7 +289,6 @@ ALTER TABLE "ROOM" ADD "ROOM_PRICE"                     NUMBER       NOT NULL;
 COMMIT;
 
 
-
 /* 1/2일 FAQ 테이블 수정: 1. 대답여부삭제 2. 카테고리삭제 */
 
 ALTER TABLE FAQ DROP COLUMN BOARD_ANSWER;

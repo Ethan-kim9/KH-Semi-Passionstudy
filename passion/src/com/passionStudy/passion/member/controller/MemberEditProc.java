@@ -23,15 +23,14 @@ public class MemberEditProc extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// 한글처리
 		request.setCharacterEncoding("utf-8");
 		
-		// 데이터 저장
 		String memId = request.getParameter("email1");
 		String memPhone = request.getParameter("phone");
 		String memAdAgree = request.getParameter("adagree");
 		
 		int result = 0;
+
 		try {
 			result = new MyPageService().updateInfoMember(memId,memPhone,memAdAgree);
 			System.out.println(result);
@@ -43,10 +42,15 @@ public class MemberEditProc extends HttpServlet {
 		if(result > 0) {
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('정보가 수정 되었습니다.');history.back();</script>");
+<<<<<<< HEAD
 			request.getRequestDispatcher("index.jsp?inc=./views/mypage/mypage_edit.jsp").forward(request, response);
 			
 			
 			
+=======
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+	
+>>>>>>> f9469d2da3d901142ea97191dd0b3d5e547ef00a
 		} else {
 			System.out.println("회원정보 수정 실패");
 		}

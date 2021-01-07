@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 	String loginFail = (String)request.getAttribute("loginFail");
+	String contextPath = request.getContextPath();
+
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -16,7 +18,7 @@
     <!-- 로그인 -->
     <section>
       <div class="login_wrap">
-        <form class="form_wrap_signup" onsubmit="return login();" action="login.do" method="post" >
+        <form class="form_wrap_signup" onsubmit="return login();" action="<%= contextPath %>/login.do" method="post" >
           <h2 class="member_title">로그인</h2>
           	<div class="login_box">
               <div class="inpbx">

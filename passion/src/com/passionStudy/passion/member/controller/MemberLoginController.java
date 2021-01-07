@@ -12,11 +12,11 @@ import javax.servlet.http.HttpSession;
 import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-@SuppressWarnings("serial")
 @WebServlet("/login.do")
 public class MemberLoginController extends HttpServlet {
-
-    public MemberLoginController() {
+	private static final long serialVersionUID = 1L;
+ 
+	public MemberLoginController() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class MemberLoginController extends HttpServlet {
 		if(loginMember == null) { 
 			// 로그인 실패
 			request.setAttribute("loginFail", "아이디 또는 비밀번호를 확인해 주세요.");
-			request.getRequestDispatcher("/views/member/member_login.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/member_login.jsp").forward(request, response);
 			
 		}else { 
 			// 로그인 성공
