@@ -4,7 +4,6 @@
 <%
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -14,6 +13,27 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+    <script type="text/javascript">
+        $(function() {
+            $('.date-picker').datepicker( {
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'MM yy',
+            onClose: function(dateText, inst) { 
+                $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+            }
+            });
+        });
+    </script>
+    <style>
+    .ui-datepicker-calendar {
+        display: none;
+    }
+    </style>
+  </head>
+
+  <body>
       	<% 
     	if(loginMember==null){%>
     		<script >
@@ -31,31 +51,7 @@
 
     	</script>
     	<%}}%>
-    <script type="text/javascript">
-        $(function() {
-            $('.date-picker').datepicker( {
-            changeMonth: true,
-            changeYear: true,
-            showButtonPanel: true,
-            dateFormat: 'MM yy',
-            onClose: function(dateText, inst) { 
-                $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
-            }
-            });
-        });
-    	
-    </script>
-
-    <style>
-    .ui-datepicker-calendar {
-        display: none;
-    }
-    </style>
-  </head>
-
-  <body>
   
-	
       <div class="cont_header">
       <div class="cont_wrapper">
         <h1>관리메뉴</h1>
@@ -107,7 +103,75 @@
               <th scope="col">총합</th>
             </tr>
           </thead>
-          
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>3000</td>
+              <td>4000</td>
+              <td>7000</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>9000</td>
+              <td>10000</td>
+              <td>19000</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>20000</td>
+              <td>10000</td>
+              <td>300000</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>20000</td>
+              <td>10000</td>
+              <td>300000</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>20000</td>
+              <td>10000</td>
+              <td>300000</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>20000</td>
+              <td>10000</td>
+              <td>300000</td>
+              <tr>
+                <th scope="row">7</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>            <tr>
+                <th scope="row">9</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>            <tr>
+                <th scope="row">10</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>            <tr>
+                <th scope="row">11</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>            <tr>
+                <th scope="row">12</th>
+                <td>20000</td>
+                <td>10000</td>
+                <td>300000</td>
+              </tr>
+          </tbody>
         </table>
       </div>
     </div>

@@ -8,8 +8,7 @@
 	String contextPath = request.getContextPath();
 
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-%>
-
+	%>
 <%
 /*Member loginMember = (Member)session.getAttribute("loginMember");*/
 /* 	

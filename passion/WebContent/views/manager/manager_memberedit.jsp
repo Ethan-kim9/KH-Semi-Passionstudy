@@ -5,8 +5,8 @@
     pageEncoding="UTF-8"%>
   
   <%
-		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
   		ArrayList<ManagerMemberVo> list = (ArrayList<ManagerMemberVo>)request.getAttribute("list"); 
+		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
   %>
 
 <!DOCTYPE html>
@@ -15,7 +15,23 @@
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
   </head>
+      	<% 
+    	if(loginMember==null){%>
+    		<script >
+    		alert('접근 권한이 없습니다.');
+    		location.href='index.jsp';
 
+    		</script>
+    		<%}%>
+    	<%	
+    	if(loginMember!=null){
+    	if(loginMember.getAdminCheck().charAt(0)!= 'A'){%>
+    	<script>
+    	alert('접근 권한이 없습니다.');
+    	location.href='index.jsp';
+
+    	</script>
+    	<%}}%>
   <body>
   
       <div class="cont_header">
@@ -49,11 +65,11 @@
         </form>
       </div>
 
+        <% for(ManagerMemberVo mmv : list) {%>
       <div class="membersearch__member_box">
         <!-- 검색이 완료되면 표시 되는 부분-->
         <div class="membersearch__member_detail_box">
         <!-- 블렉리스트를 체크하는 로직 -->
-        <% for(ManagerMemberVo mmv : list) {%>
 			<% boolean Blacklistcheck = true;
 			if( mmv.getMemStatus().charAt(0) == 'N'){
 				Blacklistcheck = false;
@@ -69,8 +85,8 @@
           <hr />
           <h1 class="member_detail_coupon">포인트 : <%= mmv.getMemPoint() %></h1>
           <hr />
-	<%} %>
         </div>
+	<%} %>
         <!-- 관리자가 설정하기 위한 부분-->
 
         <div class="membersearch__member_edit_box">

@@ -69,7 +69,6 @@ public class MemberDao {
 			close(rs);
 			close(pstmt);
 		}
-		System.out.println(mv);
 		return mv;
 	}
 		
