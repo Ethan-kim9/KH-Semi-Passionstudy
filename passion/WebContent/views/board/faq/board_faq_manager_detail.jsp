@@ -93,8 +93,8 @@
             </p>
           </div> --%>
           <div id="another_buttons">
-              <input type="button" value="수정" class="write_btn yb"  style="float: none; margin:20px 10px 0 270px"  OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_modifyWrite.jsp?idx=<%=idx%>'">
-              <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/faq/delete.jsp?idx=<%=idx %>'">
+              <input type="button" value="수정" class="write_btn yb"  style="float: none; margin:20px 10px 0 270px"  OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_modifyWrite.jsp?idx=<%=idx%>&pg=<%=pg%>'">
+              <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/faq/delete.jsp?idx=<%=idx %>&pg=<%=pg%>'">
           </div>
         </div>
       </div>
