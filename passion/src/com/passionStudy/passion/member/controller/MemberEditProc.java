@@ -43,7 +43,7 @@ public class MemberEditProc extends HttpServlet {
 			e.printStackTrace();
 		}
 	
-		// 
+		//  to. jsp에게
 		if(result > 0) {	//다오를 쓰려면 서비스로 먼저 가야한다.
 			MemberVo member = service.oneSelectMember(memId);
 			HttpSession session = request.getSession();
