@@ -33,8 +33,9 @@ public class RegController extends HttpServlet{
 		
 		NoticeService service = new NoticeService();
 		service.insertNotice(noticeVo);
+		
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		//response.setContentType("text/html; charset=UTF-8");
 		
 		response.sendRedirect("board_notice_manager");
 
