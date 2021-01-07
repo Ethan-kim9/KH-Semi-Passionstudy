@@ -251,7 +251,7 @@
 
 	<!-- 아이디 입력 부분 -->
 	<section class="signin_sction signin_sction2">
-  <div class="signup_wrap">
+  	<div class="signup_wrap">
       <div class="form_wrap_signup">
           <h2 class="title_signup">간편가입</h2>
           <div class="step_wrap">
@@ -306,11 +306,11 @@
                       <div class="field_signup_wrap_pwd">
                           <label for="username" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input rulerfocuson type="text" 
-                                                  id="username"
-                                                  name="username" 
-                                                  placeholder="이름" 
-                                                  required/>
+	                             <input type="text" 
+                                        id="username"
+                                        name="username" 
+                                        placeholder="이름" 
+                                        required/>
                               <!---->
                           </div>
                           <p class="field_vali">
@@ -320,11 +320,11 @@
                       <div class="field_signup_wrap_pwd">
                           <label for="userphnumber" class="blind signup_step"></label>
                           <div class="inpbx">
-                              <input rulerfocuson type="text" 
-                                                  id="userphnumber"
-                                                  name="userphnumber" 
-                                                  placeholder="연락처 (전화번호)" 
-                                                  required/>
+                              <input type="text" 
+                                     id="userphnumber"
+                                     name="userphnumber" 
+                                     placeholder="연락처 (전화번호)" 
+                                     required/>
                               <!---->
                           </div>
 
@@ -362,11 +362,11 @@
 	                          <label for="userpassword" class="blind signup_step"></label>
 	                          <div class="field_signup_wrap_pwd">
 	                              <div class="inpbx">
-	                                  <input rulerfocuson type="password" 
-	                                                      id="userpwd"
-	                                                      name="userpwd" 
-	                                                      placeholder="비밀번호 입력"
-	                                                      required /> 
+	                                  <input type="password" 
+                                             id="userpwd"
+                                             name="userpwd" 
+                                             placeholder="비밀번호 입력"
+                                             required /> 
 	                                  <!---->
 	                             </div>
 	
@@ -377,16 +377,16 @@
 	                         <label for="confirm_password" class="blind signup_step"></label>
 	                         <div class="field_signup_wrap_pwd">
 	                             <div class="inpbx">
-	                                 <input rulerfocuson type="password" 
-	                                                     id="confirm_password"
-	                                                     name="confirm_password" 
-	                                                     placeholder="비밀번호 확인" 
-	                                                     required/>
+	                                 <input type="password" 
+                                            id="confirm_password"
+                                            name="confirm_password" 
+                                            placeholder="비밀번호 확인" 
+                                            required/>
 	                                 <!---->
 	                             </div>
 	
 	                             <p class="field_vali">
-	                                 <span class="signup_wrap" id="pw2_check"><!--비밀번호 일치--></span>
+	                                 <span class="signup_wrap" id="pw_confirm_check"><!--비밀번호 일치--></span>
 	                             </p>
 	                         </div>
 	                     </div>

@@ -62,7 +62,13 @@ public class MemberVo {
 		this.memToken1 = memToken1;
 		this.memToken2 = memToken2;
 	}
-
+	public MemberVo(String memId, String memPwd, String memName, String memPhone) {
+		super();
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memPhone = memPhone;
+	}
 
 
 

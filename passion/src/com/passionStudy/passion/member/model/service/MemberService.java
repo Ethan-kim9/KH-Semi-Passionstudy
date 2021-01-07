@@ -13,6 +13,7 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberService {
 
+
 	/**
 	 * 로그인
 	 * 
@@ -28,6 +29,7 @@ public class MemberService {
 		close(conn);
 		return mv;
 	}
+
 
 	/**
 	 * 회원가입

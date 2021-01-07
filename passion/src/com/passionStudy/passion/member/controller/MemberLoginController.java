@@ -15,17 +15,12 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 @SuppressWarnings("serial")
 @WebServlet("/login.do")
 public class MemberLoginController extends HttpServlet {
-	 /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public MemberLoginController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
@@ -54,9 +49,7 @@ public class MemberLoginController extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
