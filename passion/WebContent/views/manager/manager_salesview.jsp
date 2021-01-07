@@ -16,6 +16,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+    
     <script type="text/javascript">
         $(function() {
             $('.date-picker').datepicker( {
@@ -89,8 +90,10 @@
 	String year  = (String)request.getAttribute("year");
 	String month = (String)request.getAttribute("month");
     int totincome =0;
+    int totcard = 0;
+    int totcash = 0;
     int card = 0;
-    int payment = 0;
+    int cash = 0;
     
 if(searchSales == null){
 	%>
@@ -106,9 +109,8 @@ if(searchSales == null){
       
       <div class="finance__graph__box">
         <h1><%=year %>년 <%=month %>월 매출</h1>
-        <div class="finance__graph">
-          
-        </div>
+
+          <div id="donutchart" style="width: 600px; height: 550px;"></div>
       </div>
 
       <!-- 매출표를 표시해주는 박스-->
@@ -130,19 +132,22 @@ if(searchSales == null){
             if(msv.getPaymentMethod().charAt(0) =='C'){
             	card = msv.getPaymentPrice();
             }else
-            	payment =msv.getPaymentPrice();
+            	cash =msv.getPaymentPrice();
             
             %>
               <th scope="row"><%=msv.getPaymentDate().toString().substring(8,10) %>일</th>
               <td><%= card %>원 </td>
-              <td><%= payment %>원</td>
+              <td><%= cash %>원</td>
               <td></td>
             </tr>
 
  <%
+ 
+ totcard += card;
+ totcash += cash;
 		 card = 0;
-		 payment = 0;
-            } %>
+		 cash = 0;
+ } %>
   			<tr>
                <th scope="row"></th>
               <td></td>
@@ -156,4 +161,24 @@ if(searchSales == null){
     </div>
   </body>
   <script src="resources/JS/pagesjs/manager_managing_click.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Total', 'Income per Month'],
+          ['Card <%= totcard%>원',  <%=(int)totincome/totcash %>],
+          ['Cash <%= totcash%>원',  <%=(int)totincome/totcard %>],
+        ]);
+
+        var options = {
+          title: '<%= month%>월의 매출',
+          pieHole: 0.5,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
   </html>
