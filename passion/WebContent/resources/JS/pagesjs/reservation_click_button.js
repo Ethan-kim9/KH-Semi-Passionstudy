@@ -33,6 +33,8 @@ var reservation_click_button = function() {
 	var fourthBtnCheck = (selectCalendarDate.value + '15') * 1;
 	var fifthBtnCheck = (selectCalendarDate.value + '17') * 1;
 	var lastBtnCheck = (selectCalendarDate.value + '19') * 1;
+	
+	var setinterval = 1;
 
 	firstTimeData.value = '';
 	secondTimeData.value = '';
@@ -58,7 +60,7 @@ var reservation_click_button = function() {
 	last_time_btn.classList.remove('time_button_checked');
 
 	if (first_time_btn != null) {
-		if ((firstBtnCheck - thisTimeInt) < 3) {
+		if ((firstBtnCheck - thisTimeInt) < setinterval) {
 			first_time_btn.classList.add('break_time');
 			first_time_btn.onclick = function() {
 				firstTimeData.value = '';
@@ -82,7 +84,7 @@ var reservation_click_button = function() {
 	}
 
 	if (second_time_btn != null) {
-		if ((secondBtnCheck - thisTimeInt) < 3) {
+		if ((secondBtnCheck - thisTimeInt) < setinterval) {
 			second_time_btn.classList.add('break_time');
 			second_time_btn.onclick = function() {
 				secondTimeData.value = '';
@@ -106,7 +108,7 @@ var reservation_click_button = function() {
 	}
 
 	if (third_time_btn != null) {
-		if ((thirdBtnCheck - thisTimeInt) < 3) {
+		if ((thirdBtnCheck - thisTimeInt) < setinterval) {
 			third_time_btn.classList.add('break_time');
 			third_time_btn.onclick = function() {
 				thirdTimeData.value = '';
@@ -130,7 +132,7 @@ var reservation_click_button = function() {
 	}
 
 	if (fourth_time_btn != null) {
-		if ((fourthBtnCheck - thisTimeInt) < 3) {
+		if ((fourthBtnCheck - thisTimeInt) < setinterval) {
 			fourth_time_btn.classList.add('break_time');
 			fourth_time_btn.onclick = function() {
 				fourthTimeData.value = '';
@@ -154,7 +156,7 @@ var reservation_click_button = function() {
 	}
 
 	if (fifth_time_btn != null) {
-		if ((fifthBtnCheck - thisTimeInt) < 3) {
+		if ((fifthBtnCheck - thisTimeInt) < setinterval) {
 			fifth_time_btn.classList.add('break_time');
 			fifth_time_btn.onclick = function() {
 				fifthTimeData.value = '';
@@ -178,7 +180,7 @@ var reservation_click_button = function() {
 	}
 
 	if (last_time_btn != null) {
-		if ((lastBtnCheck - thisTimeInt) < 3) {
+		if ((lastBtnCheck - thisTimeInt) < setinterval) {
 			last_time_btn.classList.add('break_time');
 			last_time_btn.onclick = function() {
 				lastTimeData.value = '';
