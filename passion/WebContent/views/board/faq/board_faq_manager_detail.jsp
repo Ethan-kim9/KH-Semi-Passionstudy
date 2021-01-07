@@ -1,9 +1,13 @@
+<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
 <%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
 <jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+<%-- <%
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+%> --%>
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
@@ -52,7 +56,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="delete.do" method="post">
+	<form action="faq.delete.do" method="post">
     <section>
       <div id="board">
         <div id="board_main">

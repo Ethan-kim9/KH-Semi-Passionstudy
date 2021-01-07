@@ -77,7 +77,7 @@ public class FAQBoardDao {
 				vo.setFaqNo(rs.getInt(1));
 				vo.setFaqTitle(rs.getString(2));
 				vo.setFaqContent(rs.getString(3));
-				vo.setFaqDate(rs.getString(4));
+				vo.setFaqDate(rs.getDate(4));
 				/*
 				 * Date date = new Date(); SimpleDateFormat simpleDate = new
 				 * SimpleDateFormat("yyyy-MM-dd"); String year = (String)
@@ -145,7 +145,7 @@ public class FAQBoardDao {
 		
 	}
 	
-	//view
+	//delete view
 	public FAQBoardVo getView(int idx) {
 		Connection con = dbconnect.getConnection(); 
 		PreparedStatement pstmt = null; 
@@ -160,7 +160,7 @@ public class FAQBoardDao {
 				vo = new FAQBoardVo();
 				vo.setFaqTitle(rs.getString(1));
 				vo.setFaqContent(rs.getString(2));
-				vo.setFaqDate(rs.getString(3));
+				vo.setFaqDate(rs.getDate(3));
 			}
 		}catch(Exception e) { 
 			
@@ -170,6 +170,30 @@ public class FAQBoardDao {
 		return vo;
 	}
 	
+	//modify view
+	public FAQBoardVo getView2(int idx) {
+		Connection con = dbconnect.getConnection(); 
+		PreparedStatement pstmt = null; 
+		ResultSet rs = null;
+		FAQBoardVo vo2 = null;
+		try {
+			String sql = "SELECT FAQ_TITLE, FAQ_CONTENT, FAQ_DATE FROM FAQ_BOARD WHERE FAQ_NO= ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				vo2 = new FAQBoardVo();
+				vo2.setFaqTitle(rs.getString(1));
+				vo2.setFaqContent(rs.getString(2));
+				vo2.setFaqDate(rs.getDate(3));
+			}
+		}catch(Exception e) { 
+			
+		}finally { 
+			DBClose.close(con,pstmt); 
+		}
+		return vo2;
+	}
 	//자주묻는질문 삭제 delete
 	public void delete(int idx) {
 		Connection con = dbconnect.getConnection(); 

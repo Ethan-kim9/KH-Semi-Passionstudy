@@ -1,10 +1,14 @@
+<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
 <%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
 <jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
-<jsp:useBean id="vo" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
+<jsp:useBean id="vo1" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
+<%-- <%
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+%> --%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -42,7 +46,7 @@
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
-	FAQBoardVo vo2 = dao.getView(idx);	
+	FAQBoardVo vo = dao.getView(idx);	
 %>
     
     <div class="cont_header">
@@ -70,7 +74,7 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="modify.do" method="post">
+            <form id="board_form_title" action="faq.modify.do" method="post">
               <input
                 type="text"
                 name="faqTitle"
