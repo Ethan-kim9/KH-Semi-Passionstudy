@@ -36,7 +36,12 @@ public class MemberEditProc extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
+	
+		//  to. jsp에게
+=======
 
+>>>>>>> 8457ebbc99ef9935530c3c79a52ab21c55330cd4
 		if(result > 0) {	//다오를 쓰려면 서비스로 먼저 가야한다.
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('정보가 수정 되었습니다.');history.back();</script>");
