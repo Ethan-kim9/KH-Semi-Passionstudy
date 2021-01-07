@@ -13,7 +13,7 @@ public class MemberVo {
 	private String adminCheck;		// 관리자 여부	  	N일반유저 A관리자
 	private int    memRecomCount;	// 회원 추천횟수
 	private String memStatus;		// 회원 계정상태  	B블라인드 Y일반 D삭제된계정
-	private String memAdAgree;		// 회원 광고동의여부 	Y동의 N비동의
+	private String[] memAdAgree;	// 회원 광고동의여부 	Y동의 N비동의
 	private String memRecomCode;	// 회원 추천번호 	???					
 	private int    memPoint;		// 회원 포인트
 	private String memToken1;		// 네이버 가입토큰
@@ -39,7 +39,7 @@ public class MemberVo {
 	
 	
 	public MemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, Date memDate,
-			String adminCheck, int memRecomCount, String memStatus, String memAdAgree, String memRecomCode,
+			String adminCheck, int memRecomCount, String memStatus, String[] memAdAgree, String memRecomCode,
 			int memPoint, String memToken1, String memToken2) {
 		super();
 		this.memNo = memNo;
@@ -61,17 +61,19 @@ public class MemberVo {
 
 
 
-	public MemberVo(int memNo, String memId, String memPwd, String memName, String memPhone, String memAdAgree) {
+	public MemberVo(String memId, String memPwd, String memName, String memPhone, String[] memAdAgree) {
 		super();
-		this.memNo = memNo;
 		this.memId = memId;
 		this.memPwd = memPwd;
 		this.memName = memName;
 		this.memPhone = memPhone;
 		this.memAdAgree = memAdAgree;
 	}
-	
-	
+
+
+
+
+
 	public int getMemNo() {
 		return memNo;
 	}
@@ -162,12 +164,12 @@ public class MemberVo {
 	}
 
 
-	public String getMemAdAgree() {
+	public String[] getMemAdAgree() {
 		return memAdAgree;
 	}
 
 
-	public void setMemAdAgree(String memAdAgree) {
+	public void setMemAdAgree(String[] memAdAgree) {
 		this.memAdAgree = memAdAgree;
 	}
 

@@ -35,13 +35,17 @@ public class MemberSignInController extends HttpServlet {
 		String memPhone = request.getParameter("userphnumber");
 		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
 		
+		String admit = "";
 		for (int i=0; i<memAdAgree.length; i++) {
-			if(memAdAgree[i] != "") {
-				String admit = memAdAgree[i] + "+" ;
-			}
+				admit = memAdAgree[i] + "" ;
+			
 		}
-		MemberVo mv = new MemberVo();
+
+		System.out.println(memId);
+		System.out.println(memPhone);
+		System.out.println(memAdAgree);
 		
+		MemberVo mv = new MemberVo(memId, memPwd, memName, memPhone, memAdAgree);
 		int result = 0;
 		try {
 			result = new MemberService().insertMember(mv);
@@ -49,6 +53,7 @@ public class MemberSignInController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		if(result>0) {
 			// 회원가입 성공

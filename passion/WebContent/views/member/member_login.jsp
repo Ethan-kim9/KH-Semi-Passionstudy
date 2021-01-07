@@ -8,6 +8,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
+    <style>
+    	#failmsg {font-size:12px; color:red;}
+    </style>
   </head>
   <body>
     <!-- 로그인 -->
@@ -15,8 +18,7 @@
       <div class="login_wrap">
         <form class="form_wrap_signup" onsubmit="return login();" action="login.do" method="post" >
           <h2 class="member_title">로그인</h2>
-          <div class="login_box">
-            <form class="login_main">
+          	<div class="login_box">
               <div class="inpbx">
                 <input
                   type="text"
@@ -38,9 +40,15 @@
                   required
                 />
               </div>
+              <div class = "inpbx">
+             	    <!-- 로그인 오류시 출력문구 입력 -->
+                   	<% if(loginFail != null){ %>
+                   		<label id="failmsg"><%= loginFail %></label>
+                   	<% } %>
+              </div>
 			  
               <button type="submit" class="btn_login">로그인하기 </button>
-            </form>
+            
 
             <div class="sns_login">
               <h3>다른 방법으로 로그인하기</h3>

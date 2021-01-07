@@ -1,6 +1,6 @@
 /* 모든 MEMBER html 에서 공통적으로 공유하는 css*/
 
-.login_wrap {
+  .login_wrap {
     max-width: 400px;
     margin: 0 auto 50px;
     list-style: none;
