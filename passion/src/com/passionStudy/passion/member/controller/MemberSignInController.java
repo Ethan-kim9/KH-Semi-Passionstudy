@@ -33,23 +33,13 @@ public class MemberSignInController extends HttpServlet {
 		String memPwd = request.getParameter("userpwd");
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
-		/*
-		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
-		
-		String textadmit = "";
-		for (int i=0; i<memAdAgree.length; i++) {
-				textadmit = memAdAgree[i] + "" ;
-			
-		}
-		*/
 		System.out.println(memId);
 		System.out.println(memPhone);
 		
-		MemberVo mv = new MemberVo(memId, memPwd, memName, memPhone);
 		
 		int result = 0;
 		try {
-			result = new MemberService().insertMember(mv);
+			result = new MemberService().insertMember(memId, memPwd, memName, memPhone);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

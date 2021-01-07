@@ -74,7 +74,7 @@ public class MemberDao {
 	}
 		
 	// 회원가입
-	public int insertMember(Connection conn, MemberVo mv) throws SQLException {
+	public int insertMember(Connection conn, String memId,String memPwd,String memName,String memPhone) throws SQLException {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -83,14 +83,13 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, mv.getMemNo());
-			pstmt.setString(2, mv.getMemName());
-			pstmt.setString(3, mv.getMemId());
-			pstmt.setString(4, mv.getMemPwd());
-			pstmt.setString(5, mv.getMemPhone());
-			pstmt.setString(6, mv.getMemAdAgree());
+			pstmt.setString(1, memName);
+			pstmt.setString(2, memId);
+			pstmt.setString(3, memPwd);
+			pstmt.setString(4, memPhone);
 			
 			result = pstmt.executeUpdate();
+			
 			System.out.println(result);
 			
 		}catch(SQLException e) {
@@ -98,8 +97,7 @@ public class MemberDao {
 		}finally {
 			close(pstmt);
 		}
-		return result;
-		
+		return result;		
 	}
 	
 	public int idDuplicatedCheck(String memId) {
