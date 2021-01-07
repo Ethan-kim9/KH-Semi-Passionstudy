@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
-  <body>
+  
+ <body>
+ <form action="findId.do" method="post">
  
   <div class="find_id_btn">
       <div class="login_wrap">
@@ -81,11 +83,12 @@
           </div>
         </div>
         <section>
-          <input type="button" class="btn btn_me active" value="본인인증 하기" />
+          <button type="submit" class="btn btn_me active" value="본인인증 하기"></button>
         </section>
       </div>
     </div>
-
+    
+  </form>
   </body>
   <script src="resources/JS/menubar.js"></script>
   <script src="resources/JS/pagesjs/member_find_click.js"></script>

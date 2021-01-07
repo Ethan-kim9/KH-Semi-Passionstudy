@@ -35,9 +35,9 @@ public class MemberSignInController extends HttpServlet {
 		String memPhone = request.getParameter("userphnumber");
 		String[] memAdAgree = request.getParameterValues("admit");	// .....광고 동의.....
 		
-		String admit = "";
+		String textadmit = "";
 		for (int i=0; i<memAdAgree.length; i++) {
-				admit = memAdAgree[i] + "" ;
+				textadmit = memAdAgree[i] + "" ;
 			
 		}
 
@@ -50,7 +50,6 @@ public class MemberSignInController extends HttpServlet {
 		try {
 			result = new MemberService().insertMember(mv);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -61,11 +60,11 @@ public class MemberSignInController extends HttpServlet {
 			request.setAttribute("memId", memId);
 			request.setAttribute("memName", memName);
 			
-			request.getRequestDispatcher("views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("./views/member/member_signin_complete.jsp").forward(request, response);
 		}else {
 			// 회원가입 실패
 			request.setAttribute("result", "회원가입 실패");
-			request.getRequestDispatcher("views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("./views/member/member_signin.jsp").forward(request, response);
 			
 		}
 	
