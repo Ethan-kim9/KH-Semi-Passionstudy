@@ -1,6 +1,6 @@
 package com.passionStudy.passion.reservation.model.vo;
 
-public class ReservationVo {
+public class ProDuctVo {
 	private int proId;
 	private int roomNo;
 	private int proData;
