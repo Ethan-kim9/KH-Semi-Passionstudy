@@ -77,7 +77,7 @@
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
-                value="<%=vo2.getFaqTitle() %>"
+                value="<%=vo.getFaqTitle() %>"
               />
               <div class="form-group">
                 <textarea
@@ -86,7 +86,7 @@
                   name="faqContent"
                   placeholder="내용을 입력해주세요"
                   required
-                ><%=vo2.getFaqContent() %></textarea>
+                ><%=vo.getFaqContent() %></textarea>
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">

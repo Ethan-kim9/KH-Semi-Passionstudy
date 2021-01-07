@@ -63,7 +63,9 @@ public class FAQInsertController extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
- 
+		
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
+
 	}
 
 }
