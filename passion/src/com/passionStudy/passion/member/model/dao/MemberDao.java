@@ -30,10 +30,12 @@ public class MemberDao {
 	
 	// 로그인
 	public MemberVo loginMember(Connection conn, String memId, String memPwd) {
-		String sql = prop.getProperty("loginMember");
+
+		MemberVo mv = null;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MemberVo mv = null;
+		String sql = prop.getProperty("loginMember");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -61,16 +63,13 @@ public class MemberDao {
 						 rs.getString("TOKEN2")
 						);
 			}
-			System.out.println("아이디는 뭐니? " + mv.getMemId());
-			System.out.println("포인트는 몇점이니? " + mv.getMemPoint());
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
+		System.out.println(mv);
 		return mv;
 	}
 		
