@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.member.model.service.MemberService;
-import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/signin.do")
 public class MemberSignInController extends HttpServlet {

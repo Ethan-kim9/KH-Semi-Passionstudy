@@ -83,9 +83,9 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memName);
-			pstmt.setString(2, memId);
-			pstmt.setString(3, memPwd);
+			pstmt.setString(1, memId);
+			pstmt.setString(2, memPwd);
+			pstmt.setString(3, memName);
 			pstmt.setString(4, memPhone);
 			
 			result = pstmt.executeUpdate();

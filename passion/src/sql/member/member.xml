@@ -57,7 +57,7 @@
 </entry>
 <!-- 아이디체크용  -->
 <entry key="idDuplicatedCheck">
-	SELECT COUNT(*)
+	SELECT MEMBER_NO
 	  FROM MEMBER
 	 WHERE MEMBER_ID = ?
 </entry>

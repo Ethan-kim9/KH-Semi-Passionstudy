@@ -23,7 +23,7 @@ String username = (String)request.getAttribute("memName");
             </div>
         </div>
         <div class="signin-and-gotomain">
-            <input type="button" value="로그인하기" onclick="location.href='index.jsp?inc=view/member/member_login.jsp'"/>
+            <input type="button" value="로그인하기" onclick="location.href='menu.Login'"/>
             <input type="button" value="메인으로 이동" onclick="location.href='index.jsp'" />
         </div>
     </div>
