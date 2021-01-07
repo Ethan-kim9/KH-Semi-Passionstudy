@@ -51,7 +51,7 @@ public class MyPageDao {
 			e.printStackTrace();
 		} finally{
 			close(rs);
-			pstmt.close();
+			close(pstmt);
 		}
 		return result;	
 	}
