@@ -4,10 +4,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%-- <%
-	MemberVo member = (MemberVo)request.getAttribute("mvo");
-	// 혹시 몰라서 겟으로 받는 코드 작성 (el태그가 데이터를 못받으면 <%= 이걸로 다시 받을 것) 
-%> --%>
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -66,26 +65,27 @@
         <div class="edit-user-info">
         
           <div class="edit-user-header">
-            <div class="edit-user-header_title">회원정보수정</div>
+            <div class="edit-user-header_title">회원정보</div>
             <a class="edit-user-header_withdrawal" 
-            href="views/mypage/onclick/mypage_withdrawal.jsp"
+            href="views/mypage/onclick/mypage_withdrawal.jsp?memId=<%=loginMember.getMemId() %>"
             >탈퇴하기</a> <!-- href="WithdrawalProc.do?num=${mvo.memNo}" -->
+            <!-- href="views/mypage/onclick/mypage_withdrawal.jsp" -->
           </div>
 
           <form class="edit-user-set" action="MemberEditProc.do" method="POST" name="form-tag">
             <div class="edit-user-form">
               <label class="edit-user-form_name">이름</label>
-              <input class="edit-user-form_name-text" type="text" name="name" value="${mvo.memName}" readonly/>
+              <input class="edit-user-form_name-text" type="text" name="name" value="<%=loginMember.getMemName() %>" readonly/>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_email">이메일</label>
-              <input class="edit-user-form_email-text1" type="email" name="email1" value="${mvo.memId }" readonly/>
+              <input class="edit-user-form_email-text1" type="email" name="email1" value="<%=loginMember.getMemId() %>" readonly/>
               <!--  @<input class="edit-user-form_email-text2" type="text" name="email2"readonly/> -->
               <p class="edit-user-form-email-warn">이메일 변경을 원하실 경우 관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_phone">휴대폰번호</label>
-              <input class="edit-user-form_phone-text" type="text" name="phone"/>
+              <input class="edit-user-form_phone-text" type="text" name="phone" value="<%=loginMember.getMemPhone()%>"/>
             </div>
             <div class="edit-user-form-ad">
               <p>광고성 정보 수신 동의</p>

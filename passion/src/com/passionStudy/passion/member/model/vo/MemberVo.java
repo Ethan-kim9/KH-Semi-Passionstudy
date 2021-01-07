@@ -30,9 +30,14 @@ public class MemberVo {
 	}
 
 
+	public MemberVo() {}
 
-
-	public MemberVo() {
+	// 정보수정
+	public MemberVo(String memId, String memPhone, String memAdAgree) {
+		super();
+		this.memId = memId;
+		this.memPhone = memPhone;
+		this.memAdAgree = memAdAgree;
 	}
 
 
