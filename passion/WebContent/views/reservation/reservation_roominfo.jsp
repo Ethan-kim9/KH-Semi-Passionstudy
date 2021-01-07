@@ -1,5 +1,23 @@
+<%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+	String pNumber = loginMember.getMemPhone();
+	String tel_first = pNumber.substring(0, 3);
+	String tel_second = pNumber.substring(4, 8);
+	String tel_third = pNumber.substring(9, 13);
+	
+	String mid = loginMember.getMemId();
+	
+	String mid_cut[] = mid.split("@");
+	  String email_id = null;
+	  String email_dns = null;
+	  if (mid_cut != null && mid_cut.length >= 2) {
+		  email_id = mid_cut[0];
+		  email_dns = mid_cut[1];
+	  }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -270,7 +288,7 @@
 
 .option_menu_multi_price, .option_menu_projecter_price {
 	font-weight: bold;
-	padding: 0 405px 0 0;
+	padding: 0 370px 0 0;
 }
 
 .option_menu_projecter {
@@ -286,7 +304,7 @@
 }
 
 /* 다음단계 버튼 */
-.next_button input {
+.next_button .roominfo_to_userinfo {
 	width: 100px;
 	height: 40px;
 	background-color: black;
@@ -299,8 +317,26 @@
 	font-size: 15px;
 }
 
-.next_button input:hover {
+.next_button .roominfo_to_userinfo:hover {
 	background-color: #ffcc00;
+	color: white;
+}
+
+.next_button .roominfo_to_userinfo_cancel {
+	width: 100px;
+	height: 40px;
+	background-color: #e5e5e5;
+	color: gray;
+	border: 0;
+	border-radius: 4px;
+	font-weight: 900;
+	font-family: "Montserrat", Noto Sans KR, sans-serif;
+	cursor: not-allowed;
+	font-size: 15px;
+}
+
+.next_button .roominfo_to_userinfo_cancel:hover {
+	background-color: #ff0000;
 	color: white;
 }
 
@@ -451,7 +487,7 @@
 					</div>
 					<br />
 					<div class="calender_payment">
-						<h8 class="calender_price">0,000원</h8>
+						<input type="text" id='total_use_time' name='total_use_time' style="width: 120px; background-color:transparent; border:0 solid black; text-align:right;" value='0' readonly disabled />원
 						<br />
 						<br />
 							<select id='countUsers' name='countUsers' class="count">
@@ -553,7 +589,6 @@
 								<option value="12">12</option>
 							</select>
 						<br />
-						<h8 class="change_price">무료</h8>
 					</div>
 
 					<div class="option_box_multi">
@@ -565,7 +600,7 @@
 							수량 아닌 이용시간 선택이니 주의해주세요!)
 						</p>
 						<br />
-						<h8 class="option_menu_multi_price">2,000원</h8>
+						<p class="option_menu_multi_price">시간당 2,000원</p>
 						<br /> <br />
 
 							<select id='computer' name='computer' class="count" onchange="changeComputer(this.value)">
@@ -583,7 +618,6 @@
 								<option value="12">12</option>
 							</select>
 						<br />
-						<h8 class="change_price" name="change_price"> 원</h8>
 					</div>
 
 					<div class="option_box_projecter">
@@ -593,7 +627,7 @@
 							:) <br /> (실제 PC 수량 아닌 이용시간 선택이니 주의해주세요!)
 						</p>
 						<br />
-						<h8 class="option_menu_projecter_price">2,000원</h8>
+						<h8 class="option_menu_projecter_price">시간당 2,000원</h8>
 						<br /> <br />
 
 							<select id='projector' name='projector' class="count">
@@ -612,7 +646,6 @@
 							</select>
 
 						<br />
-						<h8 class="change_price" name="change_price"> 원</h8>
 					</div></td>
 			</tr>
 			<tr>
@@ -622,7 +655,6 @@
 			</tr>
 			</table>
 			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
 			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
 			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
 			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
@@ -630,6 +662,15 @@
 			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
 			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
 			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
+			<input type='text' id='member_no' name='member_no' value=<%= loginMember.getMemNo() %> />
+			<input type='text' id='reservationName' name='reservationName' value=<%= loginMember.getMemName() %> />
+			<input type='text' id='tel_first' name='tel_first' value=<%= tel_first %> />
+			<input type='text' id='tel_second' name='tel_second' value=<%= tel_second %> />
+			<input type='text' id='tel_third' name='tel_third' value=<%= tel_third %> />
+			<input type='text' id='email_id' name='email_id' value=<%= email_id %> />
+			<input type='text' id='email_dns' name='email_dns' value=<%= email_dns %> />
+			
 		</form>
 	</section>
 </body>

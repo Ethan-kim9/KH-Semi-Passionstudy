@@ -51,7 +51,7 @@
               </td>
               <td class="room_title">
                 <h5 class="room_person_number">xx인실</h5>
-                <h5 class="room_time_price">0,000 시간(인)</h5>
+                <h5 class="room_time_price">총 ${param.total_time } 시간</h5>
               </td>
             </tr>
             <tr>
@@ -151,7 +151,9 @@
             <tr>
               <td class="reservation_information_subtitle">예약날짜</td>
               <td class="reservation_information_result">
-                ${param.selectCalendarDate }
+                ${param.selectCalendarDate.substring(0, 4) }년 
+                ${param.selectCalendarDate.substring(4, 6) }월
+                ${param.selectCalendarDate.substring(6, 8) }일
               </td>
             </tr>
             <tr>
@@ -176,6 +178,7 @@
                     class="reseller"
                     placeholder="이름을 적어주세요."
                     required
+                    value='${param.reservationName }'
                   />
                 </td>
               </tr>
@@ -183,24 +186,25 @@
                 <th class="reseller_information_subtitle">연락처</th>
                 <td class="reseller_information_textbox">
                   <select name="tel_first" class="tel_first">
-                    <option value="">선택</option>
                     <option value="010">010</option>
                     <option value="011">011</option>
                     <option value="017">017</option>
                   </select>
-                  - <input type="text" name="tel_second" class="tel_second" /> -
-                  <input type="text" name="tel_third" class="tel_third" />
+                  - <input type="text" name="tel_second" class="tel_second" value='${param.tel_second }' required/> -
+                  <input type="text" name="tel_third" class="tel_third" value='${param.tel_third }' required/>
                 </td>
               </tr>
               <tr>
                 <th class="reseller_information_subtitle">이메일</th>
                 <td class="reseller_information_textbox">
-                  <input type="text" name="email" class="email" /> @
+                  <input type="text" name="email_id" class="email" value='${param.email_id }'/> @
                   <input
                     type="text"
                     name="email_dns"
                     class="email_dns"
                     placeholder="example.com"
+                    required
+                    value='${param.email_dns}'
                   />
                   <select name="emailaddr" class="emailaddr" onChange="selectEmail(this)">
                     <option value="1">직접입력</option>
@@ -237,7 +241,7 @@
                   <li>
                     개인정보 수집동의
                     <span class="txt_required">(필수)</span>
-                    <input type="checkbox" name="chk" class="checkBtn" />
+                    <input type="checkbox" name="chk" class="checkBtn" required/>
                   </li>
                 </ul>
                 <textarea>
@@ -264,7 +268,7 @@
               </li>
               <li class="checkBox check03">
                 <ul class="clearfix">
-                  <li>개인정보 제공동의<span class="txt_required">(필수)</span><input type="checkbox" name="chk" class="checkBtn" /></li>
+                  <li>개인정보 제공동의<span class="txt_required">(필수)</span><input type="checkbox" name="chk" class="checkBtn" required/></li>
                 </ul>
                 <textarea>
  (개인정보 제공 동의)
@@ -299,6 +303,7 @@
 			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
 			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
 			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
 			<input type='text' name='countUsers' value='${param.countUsers }'/>
 			<input type='text' name='monitor' value='${param.monitor }'/>
 			<input type='text' name='computer' value='${param.computer }'/>

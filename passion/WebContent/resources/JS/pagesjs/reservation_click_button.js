@@ -33,7 +33,7 @@ var reservation_click_button = function() {
 	var fourthBtnCheck = (selectCalendarDate.value + '15') * 1;
 	var fifthBtnCheck = (selectCalendarDate.value + '17') * 1;
 	var lastBtnCheck = (selectCalendarDate.value + '19') * 1;
-	
+
 	var setinterval = 1;
 
 	firstTimeData.value = '';
@@ -217,11 +217,39 @@ function reservation_check_click_time() {
 	var fourthTimeData = getID('fourthTimeData');
 	var fifthTimeData = getID('fifthTimeData');
 	var lastTimeData = getID('lastTimeData');
+	var roominfo_to_userinfo = getID('roominfo_to_userinfo');
+	var total_use_time = getID('total_use_time');
+	var total_time = getID('total_time');
 
-	var totalTimeData = (firstTimeData.value + secondTimeData.value + thirdTimeData.value + fourthTimeData.value + fifthTimeData.value + lastTimeData.value + '1') * 1;
+	var totalTimeData = (firstTimeData.value * 1 + secondTimeData.value * 1 + thirdTimeData.value * 1 + fourthTimeData.value * 1 + fifthTimeData.value * 1 + lastTimeData.value * 1 + '1') * 1;
 	if (totalTimeData == 1) {
 		roominfo_to_userinfo.disabled = 'disabled';
+		roominfo_to_userinfo.classList.add('roominfo_to_userinfo_cancel');
 	} else {
 		roominfo_to_userinfo.disabled = false;
+		roominfo_to_userinfo.classList.remove('roominfo_to_userinfo_cancel');
+	}
+
+	if (totalTimeData == 1){
+		total_time.value='0';
+		total_use_time.value='0';
+	} else if (2000000000 < totalTimeData && 4000000000 > totalTimeData) {
+		total_time.value='2';
+		total_use_time.value='2';
+	} else if (4000000000 < totalTimeData && 6000000000 > totalTimeData) {
+		total_time.value='4';
+		total_use_time.value='4';
+	} else if (6000000000 < totalTimeData && 8000000000 > totalTimeData) {
+		total_time.value='6';
+		total_use_time.value='6';
+	} else if (8000000000 < totalTimeData && 10000000000 > totalTimeData) {
+		total_time.value='8';
+		total_use_time.value='8';
+	} else if (10000000000 < totalTimeData && 12000000000 > totalTimeData) {
+		total_time.value='10';
+		total_use_time.value='10';
+	} else if (12000000000 < totalTimeData) {
+		total_time.value='12';
+		total_use_time.value='12';
 	}
 }
