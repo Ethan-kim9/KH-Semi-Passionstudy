@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!-- 로그인 -->
+<entry key="editPhoneNadAgree">
+UPDATE MAMBER SET MEMBER_PHONE = ?, AD_AGREE = ? WHERE MEMBER_ID = ?
+</entry>
+
+</properties>
