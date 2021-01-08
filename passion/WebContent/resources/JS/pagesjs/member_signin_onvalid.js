@@ -3,7 +3,7 @@
  * 
  */
 
-  
+/* 
 //비밀번호 정규식
 var pwJ = /^[a-z0-9]{6,16}$/;
 
@@ -77,3 +77,30 @@ $("#userphnumber").blur(function() {
         $("#phone_check").css('color','red');
     }
 });
+
+*/
+$(document).ready(function() {
+    $("#agreeBtn").click(function() {    
+            if($("#upto-14-admit").is(":checked") == false){
+                alert("필수 약관에 동의해 주세요.");
+                return false;
+            }else if($("#study-admit").is(":checked") == false){
+                alert("필수 약관에 동의해 주세요.");
+                return false;
+            }else if($('#user_info_admit').is(":checked") == false) {
+                alert("필수 약관에 동의해 주세요.");
+                return false;
+            }else{
+                $("MemberSignin").submit();
+            }
+     });
+    /*모두 동의합니다. */
+    $(".signup_wrap").on("click", "#all_admit", function () {
+          var checked = $(this).is(":checked");
+          if(checked){
+              $(this).parents(".signup_wrap").find('input').prop("checked", true);
+          } else {
+              $(this).parents(".signup_wrap").find('input').prop("checked", false);
+          }
+    });
+})   

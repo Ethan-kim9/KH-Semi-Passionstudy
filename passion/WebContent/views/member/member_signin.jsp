@@ -242,7 +242,7 @@
 									
 							</ul>
 						</div>
-						<button type="submit" class="btn_next_step sign_btn_1">
+						<button type="submit" id="agreeBtn" class="btn_next_step sign_btn_1">
 							동의하고 가입하기</button>
 
 			</div>
@@ -500,6 +500,7 @@
   
  </form>
 </body>
+  <script src="resources/Js/pagesjs/member_signin_onvaild.js"></script>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin.js"></script>
 </html>
