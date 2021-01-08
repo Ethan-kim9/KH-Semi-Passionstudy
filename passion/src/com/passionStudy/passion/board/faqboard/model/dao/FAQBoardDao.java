@@ -187,19 +187,21 @@ public class FAQBoardDao {
 	 * }finally { DBClose.close(con,pstmt); } return vo2; }
 	 */
 	//자주묻는질문 삭제 delete
-	public void delete(int idx) {
+	public int delete(int idx) {
 		Connection con = dbconnect.getConnection(); 
 		PreparedStatement pstmt = null; 
+		int deleteResult = 0;
 		try {
 			String sql = "DELETE FROM FAQ_BOARD WHERE FAQ_NO=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
-			pstmt.executeUpdate();
+			deleteResult = pstmt.executeUpdate();
 		}catch(Exception e) { 
-			
+			e.printStackTrace();
 		}finally { 
 			DBClose.close(con,pstmt); 
 		}
+		return deleteResult;
 	}
 
 	//자주묻는질문 수정 modify

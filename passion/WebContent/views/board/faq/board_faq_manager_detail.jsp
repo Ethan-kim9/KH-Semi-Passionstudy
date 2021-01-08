@@ -56,7 +56,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="faq.FAQDelete" method="post">
+	<form action="faq.FAQDelete?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
         <div id="board_main">
