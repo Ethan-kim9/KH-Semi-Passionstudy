@@ -1,22 +1,10 @@
+<%@page import="com.passionStudy.passion.reservation.model.vo.RoomVo"%>
 <%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
-	String pNumber = loginMember.getMemPhone();
-	String tel_first = pNumber.substring(0, 3);
-	String tel_second = pNumber.substring(3, 7);
-	String tel_third = pNumber.substring(7, 11);
-	
-	String mid = loginMember.getMemId();
-	
-	String mid_cut[] = mid.split("@");
-	  String email_id = null;
-	  String email_dns = null;
-	  if (mid_cut != null && mid_cut.length >= 2) {
-		  email_id = mid_cut[0];
-		  email_dns = mid_cut[1];
-	  }
+	RoomVo roomData = (RoomVo)request.getAttribute("rv");
 %>
 <!DOCTYPE html>
 <html>
@@ -370,8 +358,30 @@
 <script src="resources/JS/pagesjs/reservation_room_click.js"></script>
 <script src="resources/JS/pagesjs/reservation_change_page.js"></script>
 <script src="resources/JS/calendar.js"></script>
-</head>
+<%
+	String tel_first = null;
+	String tel_second = null;
+	String tel_third = null;
+	String email_id = null;
+	String email_dns = null;
+	if (loginMember == null) {
+	} 
+	if (loginMember != null){
+		String pNumber = loginMember.getMemPhone();
+		tel_first = pNumber.substring(0, 3);
+		tel_second = pNumber.substring(3, 7);
+		tel_third = pNumber.substring(7, 11);
 
+		String mid = loginMember.getMemId();
+
+		String mid_cut[] = mid.split("@");
+		if (mid_cut != null && mid_cut.length >= 2) {
+		email_id = mid_cut[0];
+		email_dns = mid_cut[1];
+		}
+	}
+%>
+</head>
 <body>
 	<div class="cont_header">
 		<div class="cont_wrapper">
@@ -405,7 +415,7 @@
 		<form name='formSqlData' method='post' action="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
 		<div class="result">
 			<h4 class="choose_room">
-				<%=request.getParameter("value")%>
+				<%=roomData.getRoomName()%>
 			</h4>
 			<br />
 			<h5 class="choose_day">날짜와 시간을 선택하세요.</h5>
@@ -670,6 +680,9 @@
 			<input type='text' id='tel_third' name='tel_third' value=<%= tel_third %> />
 			<input type='text' id='email_id' name='email_id' value=<%= email_id %> />
 			<input type='text' id='email_dns' name='email_dns' value=<%= email_dns %> />
+			<input type='text' id='roomName' name='roomName' value='' />
+			<input type='text' id='roomMin' name='roomMin' value='' />
+			<input type='text' id='roomMax' name='roomMax' value='' />
 			
 		</form>
 	</section>

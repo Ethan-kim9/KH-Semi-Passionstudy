@@ -6,8 +6,7 @@
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
   </head>
-
-  <body>
+<body>
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>예약 / 결제</h1>
