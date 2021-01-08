@@ -74,7 +74,7 @@
               <option value="product_inquiry">상품문의</option>
               <option value="cancel_inquiry">취소문의</option>
             </select>
-            <form id="board_form_title" action="faq.modify.do" method="post">
+            <form id="board_form_title" action="faq.FAQModify" method="post">
               <input
                 type="text"
                 name="faqTitle"
@@ -94,7 +94,7 @@
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
-                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager.jsp'">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.FAQManagerList'">
               </div>
             </form>
           </div>

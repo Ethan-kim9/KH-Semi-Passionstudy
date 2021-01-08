@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <%-- <%
+<%-- <%
 	request.setCharacterEncoding("UTF-8");
 	String faqboard_title = request.getParameter("faq_title");
 	String faqboard_content = request.getParameter("faq_content");
@@ -23,16 +23,16 @@
 	String pw = "passion";
 	Connection conn = null;
 	Statement stmt = null;
+	
+	int idx = Integer.parseInt(request.getParameter("idx"));
 
 	try {
 		Class.forName(driver);
 		conn=DriverManager.getConnection(url,id,pw);
 		stmt=conn.createStatement();
-		String sql = "INSERT INTO FAQ_BOARD"+
-					"(FAQ_NO,MEMBER_NO,FAQ_TITLE,FAQ_CONTENT,FAQ_DATE)"+
-					"VALUES(FAQ_SEQ.NEXTVAL, 0 ,'"+faqboard_title+"', '"+faqboard_content+"', SYSDATE)";
+		String sqlUpdate = "UPDATE FAQ_BOARD SET FAQ_TITLE='"+faqboard_title+"', FAQ_CONTENT='"+faqboard_content+"' WHERE FAQ_NO=" + idx;
 		
-		stmt.executeUpdate(sql);
+		stmt.executeUpdate(sqlUpdate);
 		
 		stmt.close();
 		conn.close();
@@ -41,16 +41,15 @@
 		out.println(e.toString());
 	}
 %> --%>
-
 <%
-	request.setCharacterEncoding("UTF-8");
-	//int max =  dao.getMax();
-	dao.insertFaqboard(vo);
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	int pg = Integer.parseInt(request.getParameter("pg"));
+	dao.modify(vo, idx);
+	
 %>
-
 <script>
-	self.window.alert("입력한 글을 저장하였습니다.");
-	location.href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp";
+	self.window.alert("입력한 글을 수정하였습니다.");
+	location.href="faq.FAQManagerList?idx=<%=idx%>&pg=<%=pg%>";
 </script>
 </body>
 </html>

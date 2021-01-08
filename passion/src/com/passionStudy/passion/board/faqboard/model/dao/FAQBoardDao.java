@@ -11,8 +11,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
-import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+
+import com.passionStudy.passion.board.DBClose;
+import com.passionStudy.passion.board.DBConnect;
 import com.passionStudy.passion.board.faqboard.model.*;
+import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
 
 public class FAQBoardDao {
 	DBConnect dbconnect = null;

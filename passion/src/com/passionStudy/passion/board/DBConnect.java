@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.faqboard.model;
+package com.passionStudy.passion.board;
 import java.sql.Connection;
 import java.sql.DriverManager;
 

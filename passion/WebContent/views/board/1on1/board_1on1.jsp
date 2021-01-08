@@ -87,7 +87,7 @@
             <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
+            <a href="faq.FAQManagerList"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
             <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3 on">1:1문의</button></a>

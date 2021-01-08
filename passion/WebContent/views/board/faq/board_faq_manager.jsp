@@ -92,7 +92,7 @@
 					href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button
 							class="btn1">공지사항</button></a></li>
 				<li><a
-					href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button
+					href="faq.FAQManagerList"><button
 							class="btn2 on">자주하는 질문</button></a></li>
 				<li><a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button
 							class="btn3">1:1문의</button></a></li>
@@ -144,7 +144,7 @@
 					%>
 					<tr>
 						<td><input type="checkbox" class="checkbox" /></td>
-						<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
 						</td>
 						<td><%=vo.getFaqContent() %></td>
 						<td><%=vo.getFaqDate() %></td>
@@ -183,9 +183,9 @@
 								if(pg>BLOCK)
 									{
 							%> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=1">◀◀</a>]
+							href="faq.FAQManagerList?pg=1">◀◀</a>]
 							[<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=startPage - 1%>">◀</a>]
+							href="faq.FAQManagerList?pg=<%=startPage - 1%>">◀</a>]
 							<%
 								}
 							%> <%
@@ -195,16 +195,16 @@
 							</b></u> <%
 							 		} else {
 							 %> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=i%>"><%=i%></a>]
+							href="faq.FAQManagerList?pg=<%=i%>"><%=i%></a>]
 							<%
 							 		}
 							 	}
 							 %> <%
 							 	if(endPage<allPage){
 							 %> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=endPage + 1%>">▶</a>]
+							href="faq.FAQManagerList?pg=<%=endPage + 1%>">▶</a>]
 							[<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=allPage%>">▶▶</a>]
+							href="faq.FAQManagerList?pg=<%=allPage%>">▶▶</a>]
 							<%
 							 	}
 							 %>

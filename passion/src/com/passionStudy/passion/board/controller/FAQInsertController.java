@@ -17,7 +17,7 @@ import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
 import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-@WebServlet("/faq.insert.do")
+@WebServlet("/faq.FAQInsert")
 public class FAQInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
