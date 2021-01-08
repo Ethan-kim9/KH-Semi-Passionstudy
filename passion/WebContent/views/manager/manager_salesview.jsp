@@ -81,8 +81,8 @@
  <div class="membersearch-box">
     <label for="startDate"></label>
     <form action="manager.SalesView" method="post">
-      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off"/>
-      <input type="submit" value="조회"/>
+      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off" required="required"/>
+      <input type="submit" value="조회" id="StartDateInputBtn"/>
     </form>
   </div>
   
