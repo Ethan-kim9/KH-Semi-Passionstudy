@@ -29,6 +29,7 @@
             </li>
             <li>
                 <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>
+                <!-- 예약관리 컨트롤러서블릿? -->
             </li>
             <li>
                 <a href="index.jsp?inc=./views/mypage/mypage_1on1.jsp"><button class="btn3">나의 활동</button></a>

@@ -1,5 +1,11 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+	
+
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -55,7 +61,9 @@
           <table class="reservation-state_table">
             <thead>
               <tr>
-                <th class="table-num">번호</th>
+                <th class="table-num">
+                	번호
+                </th>
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
                 <th class="table-date">예약일</th>
