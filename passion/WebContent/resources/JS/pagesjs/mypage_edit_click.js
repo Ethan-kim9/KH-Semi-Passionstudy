@@ -16,3 +16,21 @@ $(".edit-button2").click(function (event) {
   $(".member-edit-section2").css("display", "block");
 });
 */
+
+// 비밀번호 변경 효과
+$('.mypage_pwd').focusout(function(){
+	var pwd1 = $('#new_pwd1').val();
+	var pwd2 = $('#new_pwd2').val();
+	    	
+	if(pwd1 !='' && pwd2 ==''){
+	    null;
+	} else if(pwd1 !="" || pwd2 !=""){
+	    if(pwd1 == pwd2) {
+	    	$('#pwd-success').css('display', 'inline-block');
+	    	$('#pwd-fail').css('display', 'none');
+	    }else{
+	    	$('#pwd-success').css('display', 'none');
+	    	$('#pwd-fail').css('display', 'inline-block');
+	    }
+	 }
+});

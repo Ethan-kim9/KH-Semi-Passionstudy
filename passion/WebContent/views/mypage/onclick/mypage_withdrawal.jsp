@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	String contextPath = request.getContextPath();
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 %>   
 <!DOCTYPE html>
@@ -27,7 +28,7 @@
           </ul>
         </div>
         <!-- 회원탈퇴 전 -->
-        <form class="withdrawal_wrap" action="goodbye" method="post">
+        <form class="withdrawal_wrap" action="<%=contextPath %>/goodbye" method="post">
           <div class="withdrawal-mold">
             <div class="mypage-withdrawal1">
               <div class="withdrawal-front">

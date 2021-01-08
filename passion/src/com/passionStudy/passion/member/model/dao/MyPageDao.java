@@ -49,10 +49,6 @@ public class MyPageDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{
-<<<<<<< HEAD
-=======
-			close(rs);
->>>>>>> f9469d2da3d901142ea97191dd0b3d5e547ef00a
 			close(pstmt);
 		}
 		return result;	

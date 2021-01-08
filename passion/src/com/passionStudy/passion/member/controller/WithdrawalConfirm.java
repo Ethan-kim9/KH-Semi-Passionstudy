@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,15 +52,19 @@ public class WithdrawalConfirm extends HttpServlet {
 			
 			if(result > 0) {
 				System.out.println("회원탈퇴 성공");
-				/* request.setAttribute("memId", memId); */	//'B'처리돼있는 아이디를 들고 내보내기
-				
-				RequestDispatcher dis = request.getRequestDispatcher("views/mypage/onclick/mypage_withdrawal_done.jsp");
-				dis.forward(request, response);
+				response.sendRedirect("./views/mypage/onclick/mypage_withdrawal_done.jsp");
+				/*
+				 * RequestDispatcher dis = request.getRequestDispatcher(
+				 * "./views/mypage/onclick/mypage_withdrawal_done.jsp"); dis.forward(request,
+				 * response);
+				 */
 			}
 			
 		}else {
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('비밀번호를 확인 후 다시 입력해주세요.');history.back();</script>");
+			out.flush();
 		}
 
 		

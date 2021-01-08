@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>mypage- 회원정보수정/ 비밀번호 변경</title>
+      <title>mypage- 회원정보수정</title>
       <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -101,62 +101,6 @@
         </div>
       
     </section>
-
-    <!-- 비밀번호 변경 수정 -->
-
-   <!--  <section class="member-edit-section member-edit-section2 member_password_edit">
-        <div class="edit-pwd_wrap">
-          <div class="edit-pwd-content">
-            <h1 class="edit-pwd_title">비밀번호 변경</h1>
-            <form action="MyPageChangePwdProc.do" method="post" class="edit-pwd-change">
-              <div class="edit-pwd_form">
-                <div class="edit-pwd_form_title">현재 비밀번호</div>
-                <div class="edit-pwd_form-group">
-                  <div class="edit-pwd_form-group_box">
-                    <input name="inputPassword"
-                      type="password"
-                      placeholder="현재 사용하고 계시는 비밀번호를 입력해주세요."
-                    />
-                  </div>
-                  <div class="edit-pwd_form-group_warn">
-                    필수 입력 항목입니다.
-                  </div>
-                </div>
-              </div>
-              <div class="edit-pwd_newform">
-                <div class="edit-pwd_newform_title">새 비밀번호</div>
-                <div class="edit-pwd_newform_sub-title">
-                  12자 이상 입력해주세요.
-                </div>
-                <div class="edit-pwd_newform-group">
-                  <div class="edit-pwd_newform-group_box">
-                    <input name="newPassword1"
-                      type="password"
-                      placeholder="영문+숫자+특수문자 포함 12~20자"
-                    />
-                  </div>
-                  <div class="edit-pwd_newform-group_warn">
-                    필수 입력 항목입니다.
-                  </div>
-                </div>
-              </div>
-              <div class="edit-pwd_newform">
-                <div class="edit-pwd_newform_title">새 비밀번호</div>
-                <div class="edit-pwd_newform-confirm">
-                  <div class="edit-pwd_newform-confirm_box">
-                    <input name="newPassword2" type="password" placeholder="새 비밀번호 확인" />
-                  </div>
-                  <div class="edit-pwd_newform-confirm_warn">
-                    필수 입력 항목입니다.
-                  </div>
-                </div>
-              </div>
-              <a href="/passion/index.jsp?inc=./views/mypage/mypage.jsp"><button class="edit-pwd-button">비밀번호 변경</button></a>
-            </form>
-          </div>
-        </div>
-      
-    </section> -->
 
  
   </body>
