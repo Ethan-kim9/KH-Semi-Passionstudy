@@ -52,10 +52,10 @@
                 ></textarea>
               </div>
               <div class="board_write_btn">
-                <a href="notice.html">
-                  <button type="sumbit" class="write_btn yb">
+                <input type="sumbit" class="write_btn yb"  value="submit"/>
+               <%--<button type="sumbit" class="write_btn yb">
                     등록하기
-                  </button></a>
+                </button>--%> 
               </div>
             </form>
           </div>

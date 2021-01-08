@@ -20,7 +20,6 @@ public class NoticeService {
 	
 	//게시물 등록
 	public int insertNotice(NoticeVo noticeVo){
-		
 		int result = 0;
 		
 		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, MEMBER_NO) VALUES(?,?,?,?)";
@@ -95,7 +94,6 @@ public class NoticeService {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url,"dbtest","1234");
 			PreparedStatement st = con.prepareStatement(sql);
-			
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
 			st.setInt(3, page*10);
@@ -229,6 +227,7 @@ public class NoticeService {
 		return noticeVo;
 	}
 	
+	/*
 	public NoticeVo getPrevNotice(int id) {
 		NoticeVo noticeVo = null;
 		String sql = "SELECT ID FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC) "
