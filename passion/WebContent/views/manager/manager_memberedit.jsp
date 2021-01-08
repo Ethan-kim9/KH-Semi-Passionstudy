@@ -181,6 +181,5 @@
         </div>
       </div>
   </body>
-
   <script src="resources/JS/pagesjs/manager_managing_click.js"></script>
   </html>

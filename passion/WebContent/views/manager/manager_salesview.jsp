@@ -3,10 +3,12 @@
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 	ArrayList<ManagerSalesVo> listMSV = (ArrayList<ManagerSalesVo>)request.getAttribute("list");
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -100,7 +102,6 @@ if(listMSV.isEmpty()){
 	   <script >alert('선택하신 달의 매출이 없습니다.');</script>
 	<%
 }else{
-	
 	String time = listMSV.get(0).getPaymentDate().toString();
 	String day	 = time.substring(8,10);
 }%>
@@ -132,8 +133,7 @@ if(listMSV.isEmpty()){
             if(msv.getPaymentMethod().charAt(0) =='C'){
             	card = msv.getPaymentPrice();
             }else
-            	cash =msv.getPaymentPrice();
-            
+            	cash =msv.getPaymentPrice();      
             %>
               <th scope="row"><%=msv.getPaymentDate().toString().substring(8,10) %>일</th>
               <td><%= card %>원 </td>
