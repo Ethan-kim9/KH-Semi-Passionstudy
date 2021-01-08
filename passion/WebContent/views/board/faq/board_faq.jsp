@@ -37,6 +37,8 @@
 	if(size2 < 0) { 
 		end = size; 
 	}
+	
+	
 %>
 	
 <!DOCTYPE html>
@@ -81,15 +83,17 @@
 						<option value="cancel_inquiry">취소문의</option>
 					</select>
 				</div>
+				<form method="GET" action="board_fap.jsp">
 				<div class="search_bar" style="margin-bottom: 15px;">
-					<select name="f">
-						<option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
-						<option ${(param.f == "title")?"selected":""}
-							value="noticeContent">내용</option>
-					</select> <input type="text" name="q" value="${param.q}" id="search-box" />
-					<button type="button" class="search-btn yb" style="float: none;">
+					<select name="keyword">
+						<option value="noticeTitle">제목</option>
+						<option value="noticeContent">내용</option>
+					</select> 
+					<input type="text" name="searchWord" value="${param.q}" id="search-box" />
+					<button type="submit" class="search-btn yb" style="float: none;">
 						검색</button>
 				</div>
+				</form>
 				<table class="table" id="main_table" width="50%">
 					<tr>
 						<th>NO</th>

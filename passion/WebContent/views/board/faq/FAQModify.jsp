@@ -49,7 +49,7 @@
 %>
 <script>
 	self.window.alert("입력한 글을 수정하였습니다.");
-	location.href="faq.FAQManagerList?idx=<%=idx%>&pg=<%=pg%>";
+	location.href="faq.FAQManagerList";
 </script>
 </body>
 </html>

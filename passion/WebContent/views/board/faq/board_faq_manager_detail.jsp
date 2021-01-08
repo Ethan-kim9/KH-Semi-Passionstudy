@@ -98,7 +98,7 @@
           </div> --%>
           <div id="another_buttons">
               <input type="button" value="수정" class="write_btn yb"  style="float: none; margin:20px 10px 0 270px"  OnClick="window.location='faq.FAQModifyWrite?idx=<%=idx%>&pg=<%=pg%>'">
-              <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQDelete?idx=<%=idx %>&pg=<%=pg%>'">
+              <input type="submit" value="삭제" class="write_btn yb" style="float: none" >
           </div>
         </div>
       </div>

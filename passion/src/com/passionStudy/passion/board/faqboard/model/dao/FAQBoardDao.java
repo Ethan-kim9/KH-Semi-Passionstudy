@@ -132,8 +132,8 @@ public class FAQBoardDao {
 			
 			//pstmt.setInt(1, vo.getFaqNo());
 			//pstmt.setInt(2, vo.getMemberNo());
-			pstmt.setString(1, pasing(vo.getFaqTitle()));
-			pstmt.setString(2, pasing(vo.getFaqContent()));
+			pstmt.setString(1, vo.getFaqTitle());
+			pstmt.setString(2, vo.getFaqContent());
 			//pstmt.setString(5, vo.getFaqDate());
 			//pstmt.setInt(6, max+1);
 			
@@ -174,35 +174,24 @@ public class FAQBoardDao {
 	}
 	
 	//modify view
-	public FAQBoardVo getView2(int idx) {
-		Connection con = dbconnect.getConnection(); 
-		PreparedStatement pstmt = null; 
-		ResultSet rs = null;
-		FAQBoardVo vo2 = null;
-		try {
-			String sql = "SELECT FAQ_TITLE, FAQ_CONTENT, FAQ_DATE FROM FAQ_BOARD WHERE FAQ_NO= ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, idx);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				vo2 = new FAQBoardVo();
-				vo2.setFaqTitle(rs.getString(1));
-				vo2.setFaqContent(rs.getString(2));
-				vo2.setFaqDate(rs.getDate(3));
-			}
-		}catch(Exception e) { 
-			
-		}finally { 
-			DBClose.close(con,pstmt); 
-		}
-		return vo2;
-	}
+	/*
+	 * public FAQBoardVo getView2(int idx) { Connection con =
+	 * dbconnect.getConnection(); PreparedStatement pstmt = null; ResultSet rs =
+	 * null; FAQBoardVo vo2 = null; try { String sql =
+	 * "SELECT FAQ_TITLE, FAQ_CONTENT, FAQ_DATE FROM FAQ_BOARD WHERE FAQ_NO= ?";
+	 * pstmt = con.prepareStatement(sql); pstmt.setInt(1, idx); rs =
+	 * pstmt.executeQuery(); if (rs.next()) { vo2 = new FAQBoardVo();
+	 * vo2.setFaqTitle(rs.getString(1)); vo2.setFaqContent(rs.getString(2));
+	 * vo2.setFaqDate(rs.getDate(3)); } }catch(Exception e) {
+	 * 
+	 * }finally { DBClose.close(con,pstmt); } return vo2; }
+	 */
 	//자주묻는질문 삭제 delete
 	public void delete(int idx) {
 		Connection con = dbconnect.getConnection(); 
 		PreparedStatement pstmt = null; 
 		try {
-			String sql = "DELETE FROM FAQ_BOARD WHERE FAQ_NO= ?";
+			String sql = "DELETE FROM FAQ_BOARD WHERE FAQ_NO=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			pstmt.executeUpdate();
@@ -218,10 +207,10 @@ public class FAQBoardDao {
 		Connection con = dbconnect.getConnection(); 
 		PreparedStatement pstmt = null; 
 		try {
-			String sql = "UPDATE FAQ_BOARD SET FAQ_TITLE=?, FAQ_CONTENT=? WHERE FAQ_NO= ?";
+			String sql = "UPDATE FAQ_BOARD SET FAQ_TITLE=?, FAQ_CONTENT=? WHERE FAQ_NO=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, pasing(vo.getFaqTitle()));
-			pstmt.setString(2, pasing(vo.getFaqContent()));
+			pstmt.setString(1, vo.getFaqTitle());
+			pstmt.setString(2, vo.getFaqContent());
 			pstmt.setInt(3, idx);
 			pstmt.executeUpdate();
 		}catch(Exception e) { 
