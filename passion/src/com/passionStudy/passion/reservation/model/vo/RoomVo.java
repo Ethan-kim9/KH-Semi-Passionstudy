@@ -3,10 +3,31 @@ package com.passionStudy.passion.reservation.model.vo;
 public class RoomVo {
 	private int roomNo;
 	private String roomName;
-	private int roomCap;
+	private String roomType;
+	private int roomCapMin;
+	private int roomCapMax;
 	private String roomInfo;
 	private String roomFile;
 	private int roomPrice;
+
+	public RoomVo(int roomNo, String roomName, String roomType, int roomCapMin, int roomCapMax, String roomInfo,
+			String roomFile, int roomPrice) {
+		this.roomNo = roomNo;
+		this.roomName = roomName;
+		this.roomType = roomType;
+		this.roomCapMin = roomCapMin;
+		this.roomCapMax = roomCapMax;
+		this.roomInfo = roomInfo;
+		this.roomFile = roomFile;
+		this.roomPrice = roomPrice;
+	}
+
+	@Override
+	public String toString() {
+		return "RoomVo [roomNo=" + roomNo + ", roomName=" + roomName + ", roomType=" + roomType + ", roomCapMin="
+				+ roomCapMin + ", roomCapMax=" + roomCapMax + ", roomInfo=" + roomInfo + ", roomFile=" + roomFile
+				+ ", roomPrice=" + roomPrice + "]";
+	}
 
 	public int getRoomNo() {
 		return roomNo;
@@ -24,12 +45,28 @@ public class RoomVo {
 		this.roomName = roomName;
 	}
 
-	public int getRoomCap() {
-		return roomCap;
+	public String getRoomType() {
+		return roomType;
 	}
 
-	public void setRoomCap(int roomCap) {
-		this.roomCap = roomCap;
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+
+	public int getRoomCapMin() {
+		return roomCapMin;
+	}
+
+	public void setRoomCapMin(int roomCapMin) {
+		this.roomCapMin = roomCapMin;
+	}
+
+	public int getRoomCapMax() {
+		return roomCapMax;
+	}
+
+	public void setRoomCapMax(int roomCapMax) {
+		this.roomCapMax = roomCapMax;
 	}
 
 	public String getRoomInfo() {

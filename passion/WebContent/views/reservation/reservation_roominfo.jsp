@@ -5,8 +5,8 @@
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 	String pNumber = loginMember.getMemPhone();
 	String tel_first = pNumber.substring(0, 3);
-	String tel_second = pNumber.substring(4, 8);
-	String tel_third = pNumber.substring(9, 13);
+	String tel_second = pNumber.substring(3, 7);
+	String tel_third = pNumber.substring(7, 11);
 	
 	String mid = loginMember.getMemId();
 	
