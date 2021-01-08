@@ -142,10 +142,11 @@
 %>
 
 			<tr align="left">
-				<td colspan="4"><img src="resources/images/icon/1on1_answer.gif"/><a style="text-decoration: none;" href="index.jsp?inc=./views/board/1on1/board_1on1_manager_detail.jsp?idx=<%=no %>">
-				<%=answerTitle %>
-				</a>
-				</td>
+				<td></td>
+				<td align="center"><img src="resources/images/icon/1on1_answer.gif"/><a style="text-decoration: none;" href="index.jsp?inc=./views/board/1on1/board_1on1_manager_detail.jsp?idx=<%=no %>">
+				<%=answerTitle %></a></td>
+				<td></td>
+				<td></td>
 			</tr>
 
 <%					
