@@ -66,7 +66,7 @@ body {
 <div id="wrap">
   <div id="content1" align="center">
     <br><br><br><br>
-    <img src="resources/images/icon/flame.png" width="150" height="150" alt="">
+    <img src="resources/images/icon/flame.png" width="300" height="300" alt="">
   </div>
   <div id="content2" align="center">
     <br><br>
