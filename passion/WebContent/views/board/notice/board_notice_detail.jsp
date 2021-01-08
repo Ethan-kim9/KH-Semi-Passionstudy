@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -21,13 +20,13 @@
       <div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="../Notice/board_notice.html"><button class="btn1 on">공지사항</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_notice.jsp"><button class="btn1 on">공지사항</button></a>
           </li>
           <li>
-            <a href="board_faq.html"><button class="btn2">자주하는 질문</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_faq.jsp"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
-            <a href="../1on1/board_1on1.html"><button class="btn3">1:1문의</button></a>
+            <a href="index.jsp?inc=./views/board/notice/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
           </li>
         </ul>
       </div>
@@ -68,7 +67,7 @@
           </table>
           <div class="table_inner">
             <p>
-				${n.ncontent}
+            ${n.ncontent}
             </p>
           </div>
         </div>

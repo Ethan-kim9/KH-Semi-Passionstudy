@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 
-@WebServlet("/views/admin/board/notice/board_notice_detail")
+@WebServlet("/board_notice_manager_detail")
 public class DetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class DetailController extends HttpServlet{
 		
 		//forward
 		request
-		.getRequestDispatcher("/views/board/notice/board_notice_manager_detail.jsp")
+		.getRequestDispatcher("/index.jsp?inc=./views/board/notice/board_notice_manager_detail.jsp")
 		.forward(request, response);
 	}
 

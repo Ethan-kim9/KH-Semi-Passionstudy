@@ -20,28 +20,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 
-@WebServlet("/views/admin/board/notice/board_notice_manager")
+@WebServlet("/board_notice_manager")
 public class ListController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		      String[] delIds = request.getParameterValues("del-id");
+		      String cmd = request.getParameter("cmd");
 
-		String[] delIds = request.getParameterValues("del-id");
-		String cmd = request.getParameter("cmd");
-		
-		/*for(String delId : delIds)
-			System.out.printf("del id : %s\n", delId);
-		*/
-		NoticeService service = new NoticeService();
-		int[] ids = new int[delIds.length];
-		for(int i=0; i<delIds.length; i++)
-			ids[i] = Integer.parseInt(delIds[i]);
-		
-		int result = service.deleteNoticeAll(ids);
-		
-		response.sendRedirect("list");
-
-		}
-	
+		      NoticeService service = new NoticeService();
+		      
+		      int[] ids = new int[delIds.length];
+		      for(int i=0; i<delIds.length; i++)
+		         ids[i] = Integer.parseInt(delIds[i]);
+		      
+		      int result = service.deleteNoticeAll(ids);
+		      
+		      response.sendRedirect("board_notice_manager");
+			
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,7 +68,7 @@ public class ListController extends HttpServlet{
 			request.setAttribute("count", count);
 		
 			request
-			.getRequestDispatcher("/views/admin/board/notice/board_notice_manager.jsp")
+			.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager.jsp")
 			.forward(request, response);
 	}
 }
