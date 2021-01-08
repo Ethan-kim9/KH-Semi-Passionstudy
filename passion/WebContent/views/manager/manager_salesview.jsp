@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-	ArrayList<ManagerSalesVo> searchSales = (ArrayList<ManagerSalesVo>)request.getAttribute("list");
+	ArrayList<ManagerSalesVo> listMSV = (ArrayList<ManagerSalesVo>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -95,13 +95,13 @@
     int card = 0;
     int cash = 0;
     
-if(searchSales == null){
+if(listMSV.isEmpty()){
 	%>
 	   <script >alert('선택하신 달의 매출이 없습니다.');</script>
 	<%
 }else{
 	
-	String time = searchSales.get(0).getPaymentDate().toString();
+	String time = listMSV.get(0).getPaymentDate().toString();
 	String day	 = time.substring(8,10);
 }%>
 <div class="finance__manager">
@@ -126,7 +126,7 @@ if(searchSales == null){
           </thead>
           <tbody>
             <tr>
-            <% for(ManagerSalesVo msv : searchSales){
+            <% for(ManagerSalesVo msv : listMSV){
             totincome += msv.getPaymentPrice(); 
             
             if(msv.getPaymentMethod().charAt(0) =='C'){
@@ -143,10 +143,10 @@ if(searchSales == null){
 
  <%
  
- totcard += card;
- totcash += cash;
-		 card = 0;
-		 cash = 0;
+					 totcard += card;
+					 totcash += cash;
+					 card = 0;
+					 cash = 0;
  } %>
   			<tr>
                <th scope="row"></th>
@@ -162,14 +162,15 @@ if(searchSales == null){
   </body>
   <script src="resources/JS/pagesjs/manager_managing_click.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <%if(!listMSV.isEmpty()){%>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Total', 'Income per Month'],
-          ['Card <%= totcard%>원',  <%=(int)totincome/totcash %>],
-          ['Cash <%= totcash%>원',  <%=(int)totincome/totcard %>],
+          ['Card <%= totcard%>원',  <%=(int)totcash/totcash 		%>],
+          ['Cash <%= totcash%>원',  <%=(int)totincome/totcard 	%>],
         ]);
 
         var options = {
@@ -181,4 +182,5 @@ if(searchSales == null){
         chart.draw(data, options);
       }
     </script>
+      <%}%>
   </html>

@@ -88,6 +88,11 @@ public class managerSalesViewController extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("year", year);
         request.setAttribute("month",month);
+        
+        for(ManagerSalesVo msv :list) {
+        	System.out.println(msv.toString());
+        }
+        
 		request.getRequestDispatcher("index.jsp?inc=./views/manager/manager_salesview.jsp").forward(request, response);	
 	}
 
