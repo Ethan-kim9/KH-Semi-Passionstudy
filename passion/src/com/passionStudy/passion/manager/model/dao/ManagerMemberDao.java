@@ -40,16 +40,16 @@ public class ManagerMemberDao {
 			pstmt.setString(1, searchName);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				ManagerMemberVo mmv = new ManagerMemberVo();
-				mmv.setMemNo(rs.getInt("MEMBER_NO"));
-				mmv.setMemId(rs.getString("MEMBER_ID"));
-				mmv.setMemName(rs.getString("MEMBER_NAME"));
-				mmv.setMemPhone(rs.getString("MEMBER_PHONE"));
-				mmv.setMemDate(rs.getDate("Member_Date"));
-				mmv.setMemStatus(rs.getString("MEMBER_STATUS"));
-				mmv.setMemPoint(rs.getInt("MEMBER_POINT"));
-				list.add(mmv);
+					mmv.setMemNo(rs.getInt("MEMBER_NO"));
+					mmv.setMemId(rs.getString("MEMBER_ID"));
+					mmv.setMemName(rs.getString("MEMBER_NAME"));
+					mmv.setMemPhone(rs.getString("MEMBER_PHONE"));
+					mmv.setMemDate(rs.getDate("Member_Date"));
+					mmv.setMemStatus(rs.getString("MEMBER_STATUS"));
+					mmv.setMemPoint(rs.getInt("MEMBER_POINT"));
+					list.add(mmv);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

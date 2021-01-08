@@ -1,10 +1,20 @@
 package com.passionStudy.passion.reservation.model.vo;
 
-public class ProDuctVo {
+public class ProductVo {
 	private int proId;
 	private int roomNo;
 	private int proData;
-	private String ProCon;
+	private String proCon;
+
+	public ProductVo() {
+	}
+
+	public ProductVo(int roomNo, int proData, String proCon) {
+		super();
+		this.roomNo = roomNo;
+		this.proData = proData;
+		this.proCon = proCon;
+	}
 
 	public int getProId() {
 		return proId;
@@ -31,11 +41,16 @@ public class ProDuctVo {
 	}
 
 	public String getProCon() {
-		return ProCon;
+		return proCon;
 	}
 
 	public void setProCon(String proCon) {
-		ProCon = proCon;
+		this.proCon = proCon;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductVo [proId=" + proId + ", roomNo=" + roomNo + ", proData=" + proData + ", proCon=" + proCon + "]";
 	}
 
 }

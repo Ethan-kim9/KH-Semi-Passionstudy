@@ -49,7 +49,7 @@
               <option value="cancel_inquiry">취소문의</option>
             </select>
             </form>
-            <form id="board_form_title" action="insert.do" method="post">
+            <form id="board_form_title" action="faq.insert.do" method="post">
               <input
                 type="text"
                 id="faqTitle"

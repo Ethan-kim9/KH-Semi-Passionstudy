@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
 <%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,6 +6,10 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
 <jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+<%-- <%
+
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+%> --%>
 <%	
 	int total = dao.count();
 	ArrayList<FAQBoardVo> alist = dao.getFaqBoardList();
@@ -22,6 +27,7 @@
 	}
 	
 	int end = (pg*ROWSIZE); // 해당페이지에서 끝번호(step2) 
+	
 	
 	int allPage = 0; // 전체 페이지수 
 	
@@ -138,7 +144,7 @@
 					%>
 					<tr>
 						<td><input type="checkbox" class="checkbox" /></td>
-						<td><a href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
+						<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
 						</td>
 						<td><%=vo.getFaqContent() %></td>
 						<td><%=vo.getFaqDate() %></td>
@@ -170,45 +176,7 @@
 				}
 			
 			%> --%>
-					<%--  <tr>
-            <!-- 첫번째 줄 시작-->
-              <td><input type="checkbox" class="checkbox" /></td>
-              <td>회원문의</td>
-              <td>아이디와 비밀번호는 어떻게 찾을 수 있나요?</td>
-              <td><%=date %></td>
-            </tr>
-            <!-- 첫번째 줄 끝-->
-            <tr>
-              <!-- 두번째 줄 시작-->
-              <td><input type="checkbox" class="checkbox" /></td>
-              <td>서비스 이용 및 기타</td>
-              <td>결제내역을 어떻게 확인하나요?</td>
-              <td><%=date %></td>
-            </tr>
-            <!-- 두번째 줄 끝-->
-            <tr>
-              <!-- 세번째 줄 시작-->
-              <td><input type="checkbox" class="checkbox" /></td>
-              <td>쿠폰/적립금</td>
-              <td>적립금은 유효기간이 있나요?</td>
-              <td><%=date %></td>
-            </tr>
-          	<!-- 세번째 줄 끝 --> --%>
 	
-					<tr>
-						<td align="left" colspan="4" style=" position: absolute; ">
-							<div>
-								<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
-								<input type="button" class="write_btn yb" style="float: none"
-									value="글쓰기"
-									onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_write.jsp'">
-								</input>
-								<!-- </a> -->
-								<button type="button" class="remove_btn yb"
-									style="float: none; margin-right: 500px">삭제</button>
-							</div>
-						</td>
-					</tr>
 					<tr>	
 						<td align="center" colspan="4" style="border-style: none">
 							<%
@@ -244,7 +212,16 @@
 					</tr>
 
 				</table>
-				
+				<div>
+					<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
+					<input type="button" class="write_btn yb" style="float: none; margin-left: 550px;"
+						value="글쓰기"
+						onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_write.jsp'">
+					</input>
+					<!-- </a> -->
+					<button type="button" class="remove_btn yb"
+						style="float: right;">삭제</button>
+				</div>
 				
 			</div>
 		</div>

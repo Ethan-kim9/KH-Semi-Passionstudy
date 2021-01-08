@@ -2,12 +2,11 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="listSales">
-	SELECT
-			PAYMENT_DATE,
-			PAYMENT_PRICE,
-			PAYMENT_METHOD,
-			PAYMENT_INFO
-							FROM
-								RESERVATION;
-</entry>
+	SELECT 
+	    PAYMENT_DATE,
+	    PAYMENT_METHOD,
+	    PAYMENT_PRICE
+	            FROM reservation
+                    WHERE to_char(payment_date,'YYYY-MM') = ? 
+</entry>								
 </properties>

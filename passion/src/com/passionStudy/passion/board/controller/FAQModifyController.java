@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/modify.do")
+@WebServlet("/faq.modify.do")
 public class FAQModifyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

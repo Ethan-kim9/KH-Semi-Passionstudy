@@ -276,17 +276,24 @@
   font-weight: bolder;
   color: #414040;
 }
+
+.edit-user-form input {
+	padding-left: 12px;
+}
+
 .edit-user-form_name-text {
   width: 500px;
   height: 40px;
-  border: 1px solid #bebcbc;
+  border: 1px solid #dfdfdf;
   border-radius: 6px;
+  background-color: #f3f3f3;
 }
 .edit-user-form_email-text1 {
   width: 500px;
   height: 40px;
-  border: 1px solid #bebcbc;
+  border: 1px solid #dfdfdf;
   border-radius: 6px;
+  background-color: #f3f3f3;
 }
 /* .edit-user-form_email-text2 {
   width: 195px;
@@ -312,10 +319,9 @@
   color: #414040;
   margin: 80px 0px 65px 130px;
 }
-/* .edit-user-form-ad label {
-  color: #414040;
-  font-size: 15px;
-} */
+.edit-user-form-ad input {
+  margin-right: 11px;
+} 
 
 .ad_option-yes {
   margin-right: 50px;
@@ -412,6 +418,10 @@
   width: 600px;
   padding: 50px;
   margin: 50px auto;
+}
+
+.mypage-withdrawal2 {
+	margin-top: 200px;
 }
 
 .withdrawal-front,

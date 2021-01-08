@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import com.passionStudy.passion.member.model.vo.MemberVo;
+
 import static com.passionStudy.passion.common.JDBCtemplate.*;
 
 public class MyPageDao {
@@ -35,7 +35,6 @@ public class MyPageDao {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		
 		String sql = prop.getProperty("editPhoneNadAgree");
 		
@@ -50,7 +49,6 @@ public class MyPageDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{
-			close(rs);
 			close(pstmt);
 		}
 		return result;	
@@ -63,9 +61,9 @@ public class MyPageDao {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		
-		String sql = "UPDATE MEMBER SET MEMBER_STATUS = 'B' WHERE MEMBER_ID = ?";
+		String sql = prop.getProperty("withdrawal");
+				
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -75,8 +73,7 @@ public class MyPageDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			pstmt.close();
+			close(pstmt);
 		}
 		return result;
 	}
@@ -89,7 +86,7 @@ public class MyPageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT MEMBER_PWD FROM MEMBER WHERE MEMBER_ID = ?";
+		String sql = prop.getProperty("giveMeThePassword");
 		
 		try {	
 			pstmt = conn.prepareStatement(sql);
@@ -105,13 +102,35 @@ public class MyPageDao {
 			e.printStackTrace();
 		} finally {
 			close(rs);
-			pstmt.close();
+			close(pstmt);
 		}
 		
 		return password;
 	}
 	
-	
+	// 비밀번호 변경
+	public int changePwd(Connection conn, String newPassword, String memberId) throws SQLException {
+		// 리턴타입 선언
+		int result = 0; 
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("changeThePassword");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPassword);
+			pstmt.setString(2, memberId);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+			
+	}
 	
 
 }

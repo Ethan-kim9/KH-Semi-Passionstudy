@@ -1,5 +1,9 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,6 +12,24 @@
   </head>
 
   <body>
+  
+      	<% 
+    	if(loginMember==null){%>
+    		<script >
+    		alert('접근 권한이 없습니다.');
+    		location.href='index.jsp';
+
+    		</script>
+    		<%}%>
+    	<%	
+    	if(loginMember!=null){
+    	if(loginMember.getAdminCheck().charAt(0)!= 'A'){%>
+    	<script>
+    	alert('접근 권한이 없습니다.');
+    	location.href='index.jsp';
+
+    	</script>
+    	<%}}%>
   
       <div class="cont_header">
       <div class="cont_wrapper">

@@ -16,36 +16,41 @@ import com.passionStudy.passion.member.model.service.MyPageService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 // 회원정보수정 클릭 했을 때 넘어온 데이터(phone,addagree)를 처리해주는 서블릿
-@WebServlet("/MemberEditProc.do")
+@WebServlet("/MemberEditProc")
 public class MemberEditProc extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
+	public MemberEditProc() {
+		super();
+	}
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		// 한글 처리
 		request.setCharacterEncoding("utf-8");
 		
+		// 데이터 저장
 		String memId = request.getParameter("email1");
 		String memPhone = request.getParameter("phone");
 		String memAdAgree = request.getParameter("adagree");
 		
+		// 로직
 		int result = 0;
-
 		try {
 			result = new MyPageService().updateInfoMember(memId,memPhone,memAdAgree);
+			System.out.println(result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
-	
-		//  to. jsp에게
-=======
 
->>>>>>> 8457ebbc99ef9935530c3c79a52ab21c55330cd4
-		if(result > 0) {	//다오를 쓰려면 서비스로 먼저 가야한다.
+		// to.jsp에게
+		if(result > 0) {
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('정보가 수정 되었습니다.');history.back();</script>");
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			out.flush();
+			/* response.sendRedirect("index.jsp?inc=./views/mypage/mypage_edit.jsp"); */
 	
 		} else {
 			System.out.println("회원정보 수정 실패");

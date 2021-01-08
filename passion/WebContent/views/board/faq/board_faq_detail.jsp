@@ -1,5 +1,15 @@
+<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
+<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
+<%
+	int idx = Integer.parseInt(request.getParameter("idx"));
+	int pg = Integer.parseInt(request.getParameter("pg"));
+	FAQBoardVo vo = dao.getView(idx);	
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -7,32 +17,19 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-  
-    <div class="cont_header">
+<div class="cont_header">
       <div class="cont_wrapper">
         <h1>커뮤니티</h1>
       </div>
     </div>
 
     <div class="tabtype">
-      <div class="tabtype_wrapper" style="text-align: center;">
-        <ul>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2 on">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
-          </li>
-        </ul>
-      </div>
     </div>
-
+	<form action="delete.do" method="post">
     <section>
       <div id="board">
         <div id="board_main">
+            
           <table class="table" id="table_title">
             <tr>
               <th>카테고리</th>
@@ -40,29 +37,34 @@
               <td></td>
               <td></td>
             </tr>
+            <!-- 첫번째 줄 끝-->
             <tr>
               <!-- 두번째 줄 시작-->
-              <th>제　　목</th>
-              <td>아이디와 비밀번호는 어떻게 찾을 수 있나요?</td>
+              <th>제　목</th>
+              <td><%=vo.getFaqTitle() %></td>
               <td></td>
               <td></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
+              <th>작성일</th>
+              <td><%=vo.getFaqDate() %></td>
               <td></td>
               <td></td>
+            </tr>
+            <tr>
+              <th class="content" style="height: 150px">내용</th>
+              <td class="content" style="height: 150px"><%=vo.getFaqContent() %></td>
               <td></td>
               <td></td>
             </tr>
           </table>
-          <div class="table_inner">
-            <p>
-              내용 無
-            </p>
+          <div id="another_buttons">
+              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq.jsp'">
           </div>
         </div>
       </div>
     </section>
-
+    </form>
 </body>
 </html>
