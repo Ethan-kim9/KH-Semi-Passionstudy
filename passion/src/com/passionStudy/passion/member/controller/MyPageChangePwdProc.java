@@ -48,10 +48,13 @@ public class MyPageChangePwdProc extends HttpServlet {
 					out.flush();
 					/* response.sendRedirect("index.jsp"); */
 				}
-			}else if(!inputPassword.equals(settingPwd)) {
+			}else if(!inputPassword.equals(settingPwd) && newPassword1.equals(newPassword2)) {
 				out.print("<script>alert('현재 비밀번호가 일치하지 않습니다. 확인 후 다시 입력해주세요.');history.back();</script>");
 				out.flush();
 				/* response.sendRedirect("index.jsp?inc=./views/mypage/mypage_pwdForm.jsp"); */
+			}else if(!inputPassword.equals(settingPwd) && !newPassword1.equals(newPassword2)) {
+				out.print("<script>alert('현재 비밀번호와 새 비밀번호 확인 후 다시 입력해주세요.');history.back();</script>");
+				out.flush();
 			}else {
 				out.print("<script>alert('새 비밀번호가 일치하지 않습니다. 확인 후 다시 입력해주세요.');history.back();</script>");
 				out.flush();

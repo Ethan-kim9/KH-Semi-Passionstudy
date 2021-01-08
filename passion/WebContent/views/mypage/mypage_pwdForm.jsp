@@ -73,10 +73,30 @@
                 <div class="edit-pwd_form_title">현재 비밀번호</div>
                 <div class="edit-pwd_form-group">
                   <div class="edit-pwd_form-group_box">
-                    <input name="inputPassword"
+                    <input name="inputPassword" id="input_pwd" class="mypage_in_pwd"
                       type="password"
-                      placeholder="현재 사용하고 계시는 비밀번호를 입력해주세요."/>
+                      placeholder="현재 사용하고 계시는 비밀번호를 입력해주세요." required/>
+                     <span id="inputPwd-success" style="display:none; color: #2565AE; font-weight:bold;">비밀번호가 일치합니다.</span>
+	                 <span id="inputPwd-fail" style="display:none; color: #db1a1a; font-weight:bold;">비밀번호가 일치하지 않습니다.</span>
                   </div>
+                  <script>
+			    	$('.mypage_in_pwd').focusout(function(){
+				    	var settingPwd = "<%= loginMember.getMemPwd()%>";
+				    	var inputPwd = $('#input_pwd').val();
+				    	
+				    	if(settingPwd != '' && inputPwd == ''){
+				    		null;
+				    	}else if(settingPwd != "" || inputPwd != ""){
+				    		if(settingPwd == inputPwd) {
+				    	    	$('#inputPwd-success').css('display', 'inline-block');
+				    	    	$('#inputPwd-fail').css('display', 'none');
+				    	    }else{
+				    	    	$('#inputPwd-success').css('display', 'none');
+				    	    	$('#inputPwd-fail').css('display', 'inline-block');
+				    	    }
+				    	}
+			    	});
+    			</script>
                   <div class="edit-pwd_form-group_warn">
                     필수 입력 항목입니다.
                   </div>
@@ -91,7 +111,7 @@
                   <div class="edit-pwd_newform-group_box">
                     <input name="newPassword1" id="new_pwd1" class="mypage_pwd"
                       	type="password"
-                      	placeholder="영문+숫자+특수문자 포함 12~20자"/>
+                      	placeholder="영문+숫자+특수문자 포함 12~20자" required/>
                   </div>
                   <div class="edit-pwd_newform-group_warn">
                     필수 입력 항목입니다.
@@ -103,7 +123,7 @@
                 <div class="edit-pwd_newform-confirm">
                   <div class="edit-pwd_newform-confirm_box">
                     <input name="newPassword2" id="new_pwd2" class="mypage_pwd"
-                    	type="password" placeholder="새 비밀번호 확인" />
+                    	type="password" placeholder="새 비밀번호 확인" required/>
 	                 <span id="pwd-success" style="display:none; color: #2565AE; font-weight:bold;">비밀번호가 일치합니다.</span>
 	                 <span id="pwd-fail" style="display:none; color: #db1a1a; font-weight:bold;">비밀번호가 일치하지 않습니다.</span>
                   </div>
@@ -119,6 +139,8 @@
         </div>
       
     </section>
+    
+    
 
   </body>
   <script src="resources/JS/pagesjs/mypage_edit_click.js"></script>

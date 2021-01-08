@@ -88,7 +88,7 @@
             </div>
             <div class="edit-user-form-ad">
               <p>광고성 정보 수신 동의</p>
-              <label class="ad_option-yes"><input type="radio" name="adagree" value="Y"/>예</label>
+              <label class="ad_option-yes"><input type="radio" name="adagree" value="Y" required/>예</label>
               <label class="ad_option-no"><input type="radio" name="adagree" value="N"/>아니오</label>
             </div>
 

@@ -1,5 +1,9 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,7 +32,7 @@
             <li class="available-point">
               <strong>
                 사용가능한 포인트
-                <span class="point-amount">5000 P</span>
+                <span class="point-amount"><%=loginMember.getMemPoint() %> P</span>
               </strong>
             </li>
           </ul>
