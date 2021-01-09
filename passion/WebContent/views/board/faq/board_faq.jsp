@@ -63,7 +63,7 @@
 				<li><a
 					href="faq.FAQUserList"><button
 							class="btn2 on">자주하는 질문</button></a></li>
-				<li><a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button
+				<li><a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp"><button
 							class="btn3">1:1문의</button></a></li>
 			</ul>
 		</div>
