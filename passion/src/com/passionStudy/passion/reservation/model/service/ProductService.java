@@ -14,9 +14,8 @@ public class ProductService {
 	public ProductVo selectRoomData(int roomNo, int productData, String productCon) {
 		Connection conn = getConnection();
 		System.out.println("DB접속 성공");
-		ProductVo rv = new ProductDao().selectRoomData(conn, roomNo, productData, productCon);
+		ProductVo pv = new ProductDao().checkReservationCon(conn, roomNo, productData, productCon);
 		close(conn);
-		return rv;
+		return pv;
 	}
-
 }

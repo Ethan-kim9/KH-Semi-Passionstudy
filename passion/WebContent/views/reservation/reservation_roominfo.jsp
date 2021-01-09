@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.reservation.model.vo.ProductVo"%>
 <%@page import="com.passionStudy.passion.reservation.model.vo.RoomVo"%>
 <%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,8 +6,11 @@
 <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 	RoomVo roomData = (RoomVo)request.getAttribute("rv");
+	ProductVo pv = (ProductVo)request.getAttribute("pv");
 
 	System.out.println(roomData.toString());
+	if(pv != null){System.out.println(pv.toString());}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -699,6 +703,14 @@
 			<input type='text' id='roomMax' name='roomMax' value='<%if(roomData != null) { %><%=roomData.getRoomCapMax()%><%} %>' />
 			<input type='text' id='roomPrice' name='roomPrice' value='<%if(roomData != null) { %><%=roomData.getRoomPrice()%><%} %>' />
 			
+		</form>
+		<form method='post' action='reservation.do'>
+			<input type='text' id='roomNo' name='roomNo' value='<%if(pv != null) { %><%= pv.getRoomNo()%><%} %>' />
+			<input type='text' id='productId' name='productId' value='<%if(pv != null) { %><%= pv.getProId()%><%} %>' />
+			<input type='text' id='searchCalDate' name='searchCalDate' value='<%if(pv != null) { %><%= pv.getProData()%><%} %>'/>
+			<input type='text' id='productCon' name='productCon' value='<%if(pv != null) { %>O<%} else {%>X<% } %>' />
+			<input type='text' id='checkOX' name='checkOX' value='O'/>
+			<button>서브밋</button>
 		</form>
 	</section>
 </body>

@@ -15,6 +15,9 @@ function getItem() {
 
 document.addEventListener("DOMContentLoaded", function() {
 	buildCalendar();
+	document.getElementById("searchCalDate").value = today
+		.getFullYear()
+		+ autoLeftPad(today.getMonth() + 1, 2) + column.innerText;
 	document.getElementById("selectCalendarDate").value = today
 		.getFullYear()
 		+ autoLeftPad(today.getMonth() + 1, 2)
@@ -168,6 +171,9 @@ function buildCalendar() {
 function calendarChoiceDay(column) {
 	// @param 기존 선택일이 존재하는 경우 기존 선택일의 표시형식을 초기화 한다.
 	document.getElementById("selectCalendarDate").value = today
+		.getFullYear()
+		+ autoLeftPad(today.getMonth() + 1, 2) + column.innerText;
+	document.getElementById("searchCalDate").value = today
 		.getFullYear()
 		+ autoLeftPad(today.getMonth() + 1, 2) + column.innerText;
 
