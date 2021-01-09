@@ -4,7 +4,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%
+	final int ROWSIZE = 4;
+	final int BLOCK = 5;
 
+	int pg = 1;
+	
+	if(request.getParameter("pg")!=null) {
+		pg = Integer.parseInt(request.getParameter("pg"));
+	}
+	
+	int start = (pg*ROWSIZE) - (ROWSIZE-1);
+	int end = (pg*ROWSIZE);
+	
+	int allPage = 0;
+	
+	int startPage = ((pg-1)/BLOCK*BLOCK)+1;
+	int endPage = ((pg-1)/BLOCK*BLOCK)+BLOCK;
+
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -13,8 +31,54 @@
   </head>
   <body>
 <%
-QnaDao qnaDao = QnaDao.getInstance();
-ArrayList<QnaVo> list = qnaDao.getMemberList();
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String id = "passion";
+	String pw = "passion";
+	int total = 0;
+	
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet result = null;
+	
+	try {
+		Class.forName(driver); // JDBC드라이버 로딩
+		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
+		stmt = conn.createStatement(); //Statment타입의 객체 생성
+		Statement stmt1 = conn.createStatement();
+		String sql = "";
+		
+		String sqlCount = "SELECT COUNT(*) FROM QNA_BOARD"; //DB내의 자료개수를 찾는 SQL문
+		result = stmt.executeQuery(sqlCount); // SQL실행
+		
+		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
+			total = result.getInt(1); //자료의 개수를 total에 대입한다
+		}
+		
+		int sort = 1;
+		String sqlSort = "SELECT QNA_NO FROM QNA_BOARD ORDER BY QNA_NO DESC";
+		result = stmt.executeQuery(sqlSort);
+
+		while(result.next()){
+			int stepNum = result.getInt(1);
+			sql= "UPDATE QNA_BOARD SET PAGING_STACK=" + sort + " WHERE QNA_NO=" + stepNum;
+		 	stmt1.executeUpdate(sql);
+		 	sort++;
+		} 
+
+		
+		allPage = (int)Math.ceil(total/(double)ROWSIZE);
+		
+		if(endPage > allPage) {
+			endPage = allPage;
+		}
+		
+		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER, CATEGORY FROM QNA_BOARD WHERE PAGING_STACK >="+start+" AND PAGING_STACK <="+end+" ORDER BY PAGING_STACK ASC";
+		result = stmt.executeQuery(sqlList);
+
+%>
+<%
+
 %>
     <div class="cont_header">
       <div class="cont_wrapper">
@@ -50,32 +114,97 @@ ArrayList<QnaVo> list = qnaDao.getMemberList();
           </div>
           <table class="table" id="main_table" width="50%">
             <tr>
-	            <th>카테고리</th>
 	            <th>NO</th>
+	            <th>카테고리</th>
 	            <th>제목</th>
 	            <th>작성자</th>
 	            <th>작성일</th>
             </tr>
-
-
 <%
-for (QnaVo vo : list) {
-	
+	if(total == 0) { // total 즉 , 자료가 없다면
+%>
+			<tr align="center" bgcolor="#FFFFFF" height="30">
+				<td colspan="5">등록된 글이 없습니다</td>
+			</tr>
+<%
+	} else {
 
+		while(result.next()) {
+			int no = result.getInt(1); //1은 첫번째 즉 qna_no값을 no라는 변수에 대입
+			String title = result.getString(2); // qna_title
+			String writer = result.getString(3); // qna_writer
+			String date = result.getString(4); // qna_date
+			String answerTitle = result.getString(5); //answer_title
+			String answerContent = result.getString(6); //answer_content
+			int boardAnswer = result.getInt(7); // board_answer
+			String category = result.getString(8);
 %>
 			<tr>
-				<td><%=vo.getCategory() %></td>
-				<td><a href="qna.detail.do?idx=<%=vo.getQnaNo()%>"><%=vo.getQnaNo() %></a></td>
-				<td><%=vo.getQnaTitle() %></td>
-				<td><%=vo.getQnaWriter() %></td>
-				<td><%=vo.getQnaDate() %></td>
+				<td><%=no %></td>
+				<td><%=category %></td>
+				<td><a style="text-decoration: none; color: black;" href="qna.detail.do?idx=<%=no%>"><%=title %></a></td>
+				<td><%=writer %></td>
+				<td><%=date %></td>
 			</tr>	 			
-
-
 <%
-}
+				if(boardAnswer != 0){
 %>
 
+			<tr align="left">
+				<td></td>
+				<td></td>
+				<td align="center"><img src="resources/images/icon/1on1_answer.gif"/><a style="text-decoration: none;" href="index.jsp?inc=./views/board/qna/board_qna_manager_detail.jsp?idx=<%=no %>">
+				<%=answerTitle %></a></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+<%					
+				}
+			} //while
+	} // else
+	result.close();
+	stmt.close();
+	conn.close();
+	} catch(SQLException e) {
+		out.println(e.toString()); // 에러 날 경우 에러출력
+	}
+%>
+ 			<tr>
+				<td align="center" colspan="5">
+					<%
+						if(pg>BLOCK) {
+					%>
+						[<a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp?pg=1">◀◀</a>]
+						[<a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp?pg=<%=startPage-1%>">◀</a>]
+					<%
+						}
+					%>
+		
+					<%
+						for(int i=startPage; i<= endPage; i++){
+							if(i==pg){
+					%>
+								<u><b>[<%=i %>]</b></u>
+					<%
+							}else{
+					%>
+								[<a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp?pg=<%=i %>"><%=i %></a>]
+					<%
+							}
+						}
+					%>
+		
+					<%
+						if(endPage<allPage){
+					%>
+						[<a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp?pg=<%=endPage+1%>">▶</a>]
+						[<a href="index.jsp?inc=./views/board/qna/board_qna_member_list.jsp?pg=<%=allPage%>">▶▶</a>]
+					<%
+						}
+					%>
+					</td>
+			</tr>
           </table>
         </div>
       </div>

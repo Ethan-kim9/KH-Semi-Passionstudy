@@ -56,7 +56,7 @@
                   <button type="submit" name="qna_writer" value="qna_writer" class="write_btn yb">
                등록
                   </button>
-                       <input type="button" value="목록" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/qna/board_qna_list.jsp'">
+                       <input type="button" value="취소" class="write_btn yb" OnClick="window.location='member.manager.check.do'">
 
               </div>
             </form>

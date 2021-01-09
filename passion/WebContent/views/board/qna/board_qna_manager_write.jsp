@@ -25,20 +25,7 @@ int idx = Integer.parseInt(request.getParameter("idx"));
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <select
-              id="board_select"
-              name="board_select"
-              title="문의선택"
-              class="sel"
-            >
-              <option value="please_select" style="padding-top">선택해주세요</option>
-              <option value="member_inquiry">회원문의</option>
-              <option value="reservation_inquiry">예약문의</option>
-              <option value="payment_inquiry">결제문의</option>
-              <option value="product_inquiry">상품문의</option>
-              <option value="cancel_inquiry">취소문의</option>
-            </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/1on1/answer.jsp?idx=<%=idx %>" method="post">
+            <form id="board_form_title" action="index.jsp?inc=./views/board/qna/answer.jsp?idx=<%=idx %>" method="post">
               <input
                 type="text"
                 name="answer_title"
@@ -59,7 +46,7 @@ int idx = Integer.parseInt(request.getParameter("idx"));
                   <button type="submit" class="write_btn yb">
                     등록하기
                   </button>
-                       <input type="button" value="취소" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1.jsp'">
+                       <input type="button" value="취소" class="write_btn yb" OnClick="window.location='member.manager.check.do'">
 
               </div>
             </form>

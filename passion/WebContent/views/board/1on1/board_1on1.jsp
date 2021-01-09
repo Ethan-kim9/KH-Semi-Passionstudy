@@ -73,8 +73,7 @@
 		
 		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD WHERE PAGING_STACK >="+start+" AND PAGING_STACK <="+end+" ORDER BY PAGING_STACK ASC";
 		result = stmt.executeQuery(sqlList);
-		
-		MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+
 %>
 
     <div class="cont_header">
@@ -165,7 +164,7 @@
 
 %>
  			<tr>
-				<td align="center" colspan="4">
+				<td align="center" colspan="5">
 					<%
 						if(pg>BLOCK) {
 					%>

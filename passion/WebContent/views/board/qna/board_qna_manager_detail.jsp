@@ -53,8 +53,7 @@
       <div id="board">
         <div id="board_main">
             <div id="another_buttons">
-				<input type="button" value="수정" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_member_modifyWrite.jsp?idx=<%=idx%>'">
-                <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/delete.jsp?idx=<%=idx%>'">
+				<input type="button" value="목록" class="write_btn yb" style="float: none" OnClick="window.location='member.manager.check.do'">
               </div>
           <table class="table" id="table_title">
             <tr>

@@ -38,8 +38,7 @@
 	}
 %>
 <script>
-	self.window.alert("입력한 답변이 등록되었습니다.");
-	location.href="index.jsp?inc=./views/board/1on1/board_1on1.jsp";
+	location.href="member.manager.check.do";
 </script>
 </body>
 </html>
