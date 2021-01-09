@@ -99,9 +99,18 @@
             <li id="12345">
               <!--클릭 했을 때 펼쳐지게 할 것 (+ cursur: pointer;)-->
               <p class="state-complete">
-                <strong>${qna.boardAnswer }답변완료</strong>
-                ${qna.qnaTitle } test: 여기엔 1:1 문의 제목이 노출 된다.
-                <span class="state-date">${qna.qnaDate }2020.12.19</span>
+                <strong>
+                	<c:choose>
+                		<c:when test="${qna.boardAnswer == 0 }">
+                			답변대기
+                		</c:when>
+                		<c:otherwise>
+                			답변완료
+                		</c:otherwise>
+                	</c:choose>
+                </strong>
+                ${qna.qnaTitle }
+                <span class="state-date">${qna.qnaDate }</span>
               </p>
               
               <ul class="expansion">

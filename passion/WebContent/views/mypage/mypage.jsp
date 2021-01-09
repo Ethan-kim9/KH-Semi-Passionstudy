@@ -32,7 +32,7 @@
                 <!-- 예약관리 컨트롤러서블릿?memNo=<loginMember.getMemNo>-->
             </li>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage_1on1.jsp"><button class="btn3">나의 활동</button></a>
+                <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
               <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
