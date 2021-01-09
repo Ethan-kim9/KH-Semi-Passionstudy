@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"%>
 <%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
 <%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,6 +13,7 @@
 %> --%>
 <%	
 	int total = dao.count();
+	FAQBoardDao faqboarDao = FAQBoardDao.getInstance();
 	ArrayList<FAQBoardVo> alist = dao.getFaqBoardList();
 	int size = alist.size();
 	int size2 = size;
@@ -107,11 +109,11 @@
 				<div id="buttons" style="float:left; ">
 					<select id="board_select" name="board_select" title="문의선택"
 						class="sel">
-						<option value="member_inquiry">회원문의</option>
-						<option value="reservation_inquiry">예약문의</option>
-						<option value="payment_inquiry">결제문의</option>
-						<option value="product_inquiry">상품문의</option>
-						<option value="cancel_inquiry">취소문의</option>
+						<option value="회원문의">회원문의</option>
+						<option value="예약문의">예약문의</option>
+						<option value="결제문의">결제문의</option>
+						<option value="상품문의">상품문의</option>
+						<option value="취소문의">취소문의</option>
 					</select>
 				</div>
 				<div class="search_bar" style="margin-bottom: 15px;">
@@ -126,6 +128,7 @@
 				<table class="table" id="main_table" width="50%">
 					<tr>
 						<th><input type="checkbox" class="checkbox" id="check_all" /></th>
+						<th>카테고리</th>
 						<th>제목</th>
 						<th>내용</th>
 						<th>작성일</th>
@@ -144,6 +147,7 @@
 					%>
 					<tr>
 						<td><input type="checkbox" class="checkbox" /></td>
+						<td><%=vo.getFaqCategory() %></td>
 						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
 						</td>
 						<td><%=vo.getFaqContent() %></td>

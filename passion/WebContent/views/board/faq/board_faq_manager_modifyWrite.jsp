@@ -62,19 +62,20 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
+          <form id="board_form_title" action="faq.FAQModify" method="post">
              <select
               id="board_select"
-              name="board_select"
+              name="faqCategory"
               title="문의선택"
               class="sel"
             >
-              <option value="member_inquiry">회원문의</option>
-              <option value="reservation_inquiry">예약문의</option>
-              <option value="payment_inquiry">결제문의</option>
-              <option value="product_inquiry">상품문의</option>
-              <option value="cancel_inquiry">취소문의</option>
+              <option value="회원문의">회원문의</option>
+              <option value="예약문의">예약문의</option>
+              <option value="결제문의">결제문의</option>
+              <option value="상품문의">상품문의</option>
+              <option value="취소문의">취소문의</option>
             </select>
-            <form id="board_form_title" action="faq.FAQModify" method="post">
+            
               <input
                 type="text"
                 name="faqTitle"

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 import com.passionStudy.qnaBoard.dao.QnaDao;
 import com.passionStudy.qnaBoard.vo.QnaVo;
-@WebService
+
 @WebServlet ("/qna.write.do")
 public class WriteController extends HttpServlet {
 	

@@ -64,7 +64,7 @@
           <table class="table" id="table_title">
             <tr>
               <th>카테고리</th>
-              <td>회원문의</td>
+              <td><%=vo.getFaqCategory() %></td>
               <td></td>
               <td></td>
             </tr>

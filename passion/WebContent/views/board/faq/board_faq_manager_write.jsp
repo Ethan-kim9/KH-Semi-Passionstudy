@@ -35,21 +35,21 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-          	<form name="form">
+          	<form id="board_form_title" action="faq.FAQInsert" method="post">
             <select
               id="board_select"
-              name="board_select"
+              name="faqCategory"
               title="문의선택"
               class="sel"
             >
-              <option value="member_inquiry">회원문의</option>
-              <option value="reservation_inquiry">예약문의</option>
-              <option value="payment_inquiry">결제문의</option>
-              <option value="product_inquiry">상품문의</option>
-              <option value="cancel_inquiry">취소문의</option>
+              <option value="회원문의">회원문의</option>
+              <option value="예약문의">예약문의</option>
+              <option value="결제문의">결제문의</option>
+              <option value="상품문의">상품문의</option>
+              <option value="취소문의">취소문의</option>
             </select>
-            </form>
-            <form id="board_form_title" action="faq.FAQInsert" method="post">
+ 
+            
               <input
                 type="text"
                 id="faqTitle"
@@ -69,10 +69,11 @@
                 ></textarea>
               </div>
               <div class="board_write_btn">
-                <a href="notice.html">
-                  <input type="submit" value="등록하기" class="write_btn yb">
-                    
-                  </input></a>
+                  <button type="submit" class="write_btn yb">
+                    등록하기
+                  </button>
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.FAQManagerList'">
+                  
               </div>
             </form>
           </div>
