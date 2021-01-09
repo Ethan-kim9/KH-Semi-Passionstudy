@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.member.model.service.MyPageService;
 
-@WebServlet("/MyReservationProc")
+
+@WebServlet("/myrvProc")
 public class MyReservationProc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +25,10 @@ public class MyReservationProc extends HttpServlet {
 		// 한글 처리
 		request.setCharacterEncoding("utf-8");
 		// 데이터 저장
-		
+		String memNo = request.getParameter("memNo");
+		// 로직
+		MyPageService service = new MyPageService();
+		service.getReceipt(memNo);
 		
 	}
 

@@ -43,6 +43,7 @@ public class MyPageChangePwdProc extends HttpServlet {
 			if(inputPassword.equals(settingPwd) && newPassword1.equals(newPassword2)) {
 				int result = service.changePwd(newPassword1, memId);
 				System.out.println(result);
+				
 				if(result > 0) {
 					out.print("<script>alert('비밀번호가 변경 되었습니다.'); location.href='index.jsp';</script>");
 					out.flush();
