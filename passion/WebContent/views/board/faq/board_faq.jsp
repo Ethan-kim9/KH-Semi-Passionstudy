@@ -99,7 +99,6 @@
 						<th>NO</th>
 						<th>카테고리</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>작성일</th>
 					</tr>
 					<%
@@ -118,7 +117,6 @@
 						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqNo() %></a></td>
 						<td><%=vo.getFaqCategory() %></td>
 						<td><%=vo.getFaqTitle() %></td>
-						<td><%=vo.getFaqContent() %></td>
 						<td><%=vo.getFaqDate() %></td>
 						
 					</tr>
