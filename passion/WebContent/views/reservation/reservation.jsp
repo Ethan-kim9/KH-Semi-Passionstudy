@@ -72,7 +72,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='get' action="reservation.do">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='1'/>
             		<button>예약하기</button>
             	</form>
