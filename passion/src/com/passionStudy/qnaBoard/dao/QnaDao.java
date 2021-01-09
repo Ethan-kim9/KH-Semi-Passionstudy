@@ -104,14 +104,15 @@ public class QnaDao {
 		conn = getConnect();
 		String sql = "INSERT INTO QNA_BOARD"+
 				"(QNA_NO,QNA_WRITER,QNA_TITLE,QNA_CONTENT,QNA_DATE,ANSWER_TITLE,ANSWER_CONTENT,BOARD_ANSWER,PAGING_STACK,CATEGORY)"+
-				"VALUES(QNA_BOARD_SEQ.NEXTVAL, 'test', ?, ?, SYSDATE, ' ', ' ', 0, 0, ?)";
+				"VALUES(QNA_BOARD_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, ' ', ' ', 0, 0, ?)";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, qnaVo.getQnaTitle());
-			pstmt.setString(2, qnaVo.getQnaContent());
-			pstmt.setString(3, qnaVo.getCategory());
+			pstmt.setString(1, qnaVo.getQnaWriter());
+			pstmt.setString(2, qnaVo.getQnaTitle());
+			pstmt.setString(3, qnaVo.getQnaContent());
+			pstmt.setString(4, qnaVo.getCategory());
 			
 			
 			result = pstmt.executeUpdate();
