@@ -15,17 +15,17 @@
   </head>
   
 	 <body>
-		 <form action="findId.do" name="search" method="post">
+		 <form action="findPwd.do" name="search" method="post">
 		  	<div class="find_id_btn">
 		      <div class="login_wrap">
 		        <div class="tabtype">
 		          <div class="tabtype_wrapper">
 		            <ul>
 		              <li>
-		                <button class="btn1 on">아이디 찾기</button>
+		                <button class="btn1">아이디 찾기</button>
 		              </li>
 		              <li>
-		                <button class="btn2">비밀번호 찾기</button>
+		                <button class="btn2 on">비밀번호 찾기</button>
 		              </li>
 		            </ul>
 		          </div>
@@ -40,9 +40,20 @@
 		            </p>
 		            <br/>
 		            <div class="field_id_box">
-		              <section class="btn_id_push">
-
-		                <div class="inpbx">
+		            	<section class="btn_password_push">
+		                  
+		                  <div class="inpbx">
+		                    <input
+		                      type="text"
+		                      id="userid"
+		                      name="userid"
+		                      placeholder="아이디"
+		                      autocorrect="off"
+		                      autocapitalize="none"
+		                      required
+		                    />
+						  </div>
+						  <div class="inpbx">
 		                  <input
 		                    type="text"
 		                    id="username"
@@ -66,22 +77,8 @@
 		                  />
 		                </div>
 		              </section>
-		
-		              <section class="btn_password_push">
-		                  
-		                  <div class="inpbx">
-		                    <input
-		                      type="text"
-		                      id="userid"
-		                      name="userid"
-		                      placeholder="아이디"
-		                      autocorrect="off"
-		                      autocapitalize="none"
-		                      required
-		                    />
-						  </div>
-		              </section>
-					</div>
+		              
+		            </div>
 		          </div>
 		        </div>
 		        <section>

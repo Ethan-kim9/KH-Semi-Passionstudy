@@ -10,7 +10,7 @@
     
 
 	<!-- 이용약관 동의 체크 부분 -->
-	<form class="form_wrap_signup" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
+	<form class="form_wrap_signup" id="signincheform" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
 		<section class="signin_sction signin_sction1">
 			<div class="signup_wrap">
 						<h2 class="title_signup">간편가입</h2>

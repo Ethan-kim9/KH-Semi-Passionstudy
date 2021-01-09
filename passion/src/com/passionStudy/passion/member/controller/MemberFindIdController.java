@@ -33,16 +33,16 @@ public class MemberFindIdController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		if(findId.equals("")) {
 			request.setAttribute("result", "아이디찾기 실패!");
-			request.getRequestDispatcher("views/member/member_Find.jsp").forward(request, response);
+			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
 			
 		}else {
 			request.setAttribute("result", "아이디찾기 성공!");
 			request.setAttribute("findId", findId);
 			request.setAttribute("memName", memName);
-			request.getRequestDispatcher("views/member/member_Find.jsp").forward(request, response);
+			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
 		}
 		
 		

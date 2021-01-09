@@ -1,106 +1,63 @@
-/**
- * 
- * 
- */
-
-/* 
-//비밀번호 정규식
-var pwJ = /^[a-z0-9]{6,16}$/;
-
-//이름 정규식
-var nameJ = /^[가-힣]{2,6}$/;
-
-//이메일(아이디) 정규식
-var idJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}/i;
-
-//전화번호 정규식
-var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
-
-
-//1.비밀번호 유효성 검사
-//1-1.정규식 체크
-$("#userpassword").blur(function() {
-    if(pwJ.test($("#userpassword"))) {
-        console.log('true');
-        $("#pw_check").text('');
-    }else {
-        console.log('false');
-        $("#pw_check").text('영문포함 숫자포함 8~20자 이내');
-        $("#pw_check").css('color','red');
+ function InputCheckReq() {
+  var doc = document; 
+  var signincheckform = doc.getElementById('signincheckform'); 
+  var admits = signincheckform.getElementsByName('admit'); 
+  var signincheckform_data = {
+   "upto_14_admit": false, 
+   "study_admit": false,  
+   "user_info_admit": false   
+  }; 
+ 
+  var upto_14_admit = doc.getElementById('upto_14_admit'); 
+  var study_admit = doc.getElementById('study_admit'); 
+  var user_info_admit = doc.getElementById('user_info_admit'); 
+ 
+  function checkboxListener() {
+   signincheckform_data[this.name] = this.checked; //각각 자신의 checkBox를 Checked 상태로 바꿈 
+  }
+ 
+   upto_14_admit.onclick = study_admit.onclick = user_info_admit.onclick = checkboxListener;   //upto_14_admit, study_admit, user_info_admit를 checkBoxListenner를 호출하여
+                                                                   //Checked로 바꿈
+   var all_admit = doc.getElementById('all_admit');  //전체 체크를 위한 체크박스 선언
+ 
+   all_admit.onclick = function() {  //전체 체크를 누를 시
+    if (this.checked) {
+     setCheckbox(signincheckform_data, true);   //signincheckform_data(upto_14_admit,study_admit,user_info_admit)의 값을 모두 Checked로 바꿈
+    } else {
+     setCheckbox(signincheckform_data, false);  ////signincheckform_data(upto_14_admit,study_admit,user_info_admit)의 값을 모두 no checked로 바꿈
     }
-});
-
-//1-2.password 일치 확인
-$("#confirm_password").blur(function() {
-    if($("#userpassword").val() != $(this).val()) {
-        $("#pw2_check").text('비밀번호가 일치하지 않아요 :(');
-        $("#pw2_check").css('color', 'red');
-    }else {
-        $("#pw2_check").text('');
+   }; 
+ 
+   function setCheckbox(obj, state) { //checkbox상태 변경하는 함수
+    for (var x in obj) {
+     obj[x] = state; 
+ 
+     for(var i = 0; i < admits.length; i++) {
+      if(admits[i].type == "checkbox") {
+       admits[i].checked = state; 
+      }
+     }
+ 
     }
-});
-
-//아이디 유효성 검사
-$("#userid").blur(function() {
-    if(idJ.test($("#userid"))) {
-        console.log('true');
-        $("#email_check").text('');
-    }else {
-        console.log('false');
-        $("#email_check").text('이메일 형식을 확인해 주세요 :)');
-        $("#email_check").css('color', 'red');
-    }
-
-});
-
-
-//이름 정규식 체크
-$("#username").blur(function() {
-    if(nameJ.test($("#username"))) {
-        console.log('true');
-        $("#name_check").text('');
-    }else {
-        console.log('false');
-        $("#name_check").text('이름을 확인해 주세요 :)');
-        $("#name_check").css('color','red');
-    }
-});
-
-//전화번호 정규식 체크
-$("#userphnumber").blur(function() {
-    if(phoneJ.test($("#userphnumber"))) {
-        console.log('true');
-        $("#phone_check").text('');
-    }else {
-        console.log('false');
-        $("#phone_check").text('전화번호를 확인해 주세요 :)');
-        $("#phone_check").css('color','red');
-    }
-});
-
-*/
-$(document).ready(function() {
-    $("#agreeBtn").click(function() {    
-            if($("#upto-14-admit").is(":checked") == false){
-                alert("필수 약관에 동의해 주세요.");
-                return false;
-            }else if($("#study-admit").is(":checked") == false){
-                alert("필수 약관에 동의해 주세요.");
-                return false;
-            }else if($('#user_info_admit').is(":checked") == false) {
-                alert("필수 약관에 동의해 주세요.");
-                return false;
-            }else{
-                $("MemberSignin").submit();
-            }
-     });
-    /*모두 동의합니다. */
-    $(".signup_wrap").on("click", "#all_admit", function () {
-          var checked = $(this).is(":checked");
-          if(checked){
-              $(this).parents(".signup_wrap").find('input').prop("checked", true);
-          } else {
-              $(this).parents(".signup_wrap").find('input').prop("checked", false);
-          }
-    });
-})   
+   }
+ 
+   signincheckform.onsubmit = function(e) {
+      e.preventDefault();
+    
+      if ( !signincheckform_data['upto_14_admit'] ) {
+       alert('필수 약관에 대한 동의를 하지 않았습니다.');  
+       return false; 
+      }
+    
+      if ( !signincheckform_data['study_admit'] ) {
+       alert('필수 이용약관에 대한 동의를 하지 않았습니다.'); 
+       return false; 
+      }
+      if(!signincheckform_data['user_info_admit']){
+          alert('필수 개인 정보 동의에 대한 동의를 하지 않았습니다.');
+          return false;
+      }
+ 
+   this.submit(); 
+  }; 
+ }
