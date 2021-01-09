@@ -23,7 +23,7 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <form id="board_form_title" action="faq.FAQModify?idx=<%=idx %>" method="post">
+            <form id="board_form_title" action="qna.modify.do?idx=<%=idx %>" method="post">
               <input
                 type="text"
                 name="qna_title"
