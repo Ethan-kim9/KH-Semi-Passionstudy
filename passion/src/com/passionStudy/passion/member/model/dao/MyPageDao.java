@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Vector;
 
+import com.passionStudy.passion.member.model.vo.CouponVo;
 import com.passionStudy.passion.member.model.vo.MyPageResVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
@@ -232,6 +233,38 @@ public class MyPageDao {
 		return result;
 	}
 	
-	
+	// 나의 쿠폰 내역 가져오기
+	public Vector<CouponVo> getCoupon(Connection conn, int memberNo){
+		// 리턴타입
+		Vector<CouponVo> myCoupon = new Vector<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM COUPON WHERE MEMBER_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CouponVo coupon = new CouponVo();
+				coupon.setCouponNo(rs.getInt(1));
+				coupon.setMemNo(rs.getInt(2));
+				coupon.setCouponName(rs.getString(3));
+				coupon.setCouponValid(rs.getString(4));
+				coupon.setCouponPrice(rs.getInt(5));
+				coupon.setCouponDate(rs.getDate(6));
+				
+				myCoupon.add(coupon);
+			}
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myCoupon;
+	} 
 
 }

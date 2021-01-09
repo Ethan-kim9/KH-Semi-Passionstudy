@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import com.passionStudy.passion.member.model.dao.MyPageDao;
+import com.passionStudy.passion.member.model.vo.CouponVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -99,6 +100,16 @@ public class MyPageService {
 		
 		close(conn);
 		return result;
+	}
+	
+	// 쿠폰 내역 가져오기
+	public Vector<CouponVo> getCoupon(int memberNo) {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		Vector<CouponVo> myCoupon = mdao.getCoupon(conn, memberNo);
+		
+		close(conn);
+		return myCoupon;
 	}
 	
 }
