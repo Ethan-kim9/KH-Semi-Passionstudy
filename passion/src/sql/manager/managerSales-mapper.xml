@@ -6,8 +6,10 @@
 	    PAYMENT_DATE,
 	    PAYMENT_METHOD,
 	    PAYMENT_PRICE
-	            FROM reservation
-                    WHERE to_char(payment_date,'YYYY-MM') = ? 
+	            FROM 
+	            	RESERVATION
+                    WHERE to_char(payment_date,'YYYY-MM') = ?
+                    ORDER BY PAYMENT_DATE ASC 
 </entry>
 
 <entry key="listSalesBetween">
@@ -15,9 +17,13 @@ SELECT
     PAYMENT_DATE,
     PAYMENT_METHOD,
     PAYMENT_PRICE
-            FROM reservation
-                    WHERE payment_date between TO_DATE(      ?     , 'YYYY-MM-DD')
-                                       AND     TO_DATE(      ?     , 'YYYY-MM-DD') 
-                                       ORDER BY payment_date ASC; 
+            FROM 
+                RESERVATION
+                    WHERE 
+                        payment_date 
+                            BETWEEN TO_DATE(?, 'MM/DD/YYYY')
+                            AND     TO_DATE(?, 'MM/DD/YYYY') 
+                            ORDER BY payment_date ASC
+
 </entry>								
 </properties>

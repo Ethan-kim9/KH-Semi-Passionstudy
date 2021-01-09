@@ -53,4 +53,33 @@ public class ManagerSalesDao {
 		}
 		return list;
 	}
-}
+
+
+	public ArrayList<ManagerSalesVo> salesSearchBewteen(Connection conn, String fromDate, String toDate) {
+		
+		ArrayList<ManagerSalesVo> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs =null;
+		
+		String sql = prop.getProperty("listSalesBetween");
+
+		try {
+			pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, fromDate);
+			pstmt.setString(2, toDate);
+			rs= pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				ManagerSalesVo msv = new ManagerSalesVo();
+					msv.setPaymentDate(rs.getDate("PAYMENT_DATE"));
+					msv.setPaymentMethod(rs.getString("PAYMENT_METHOD"));
+					msv.setPaymentPrice(rs.getInt("PAYMENT_PRICE"));
+					list.add(msv);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	}
