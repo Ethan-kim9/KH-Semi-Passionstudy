@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
+
 
 @WebServlet("/faq.FAQDelete")
 public class FAQDeleteController extends HttpServlet {
@@ -30,29 +32,13 @@ public class FAQDeleteController extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	String driver = "oracle.jdbc.driver.OracleDriver";
-    	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-    	String id = "passion";
-    	String pw = "passion";
+    	int idx = Integer.parseInt(request.getParameter("idx"));
     	
-    	Connection conn = null;
-    	Statement stmt = null;
+    	FAQBoardDao Dao = new FAQBoardDao();
+    	
+    	Dao.delete(idx);
     	
     	
-    	try {
-    		Class.forName(driver); // JDBC드라이버 로딩
-    		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
-    		stmt = conn.createStatement(); //Statment타입의 객체 생성
-    		String sqlDelete = "DELETE FROM FAQ_BOARD WHERE FAQ_NO=?"; // board테이블에 있는 no,title,writer,date 값을 가져오되 
-    		stmt.executeQuery(sqlDelete); // SQL실행;
-    		
-    		stmt.close();
-    		conn.close();
-    		
-    			
-    	} catch (Exception e) {
-    		System.out.println(e.toString());
-    	}	
     	
     	request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
 

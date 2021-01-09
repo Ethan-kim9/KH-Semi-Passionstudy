@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -20,20 +24,20 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <select
+            <form id="board_form_title" action="qna.write.do" method="post">
+              <select
               id="board_select"
-              name="board_select"
+              name="qna_category"
               title="문의선택"
               class="sel"
             >
-              <option value="please_select" style="padding-top">선택해주세요</option>
-              <option value="member_inquiry">회원문의</option>
-              <option value="reservation_inquiry">예약문의</option>
-              <option value="payment_inquiry">결제문의</option>
-              <option value="product_inquiry">상품문의</option>
-              <option value="cancel_inquiry">취소문의</option>
+              <option value="미선택" style="padding-top">선택해주세요</option>
+              <option value="회원문의">회원문의</option>
+              <option value="예약문의">예약문의</option>
+              <option value="결제문의">결제문의</option>
+              <option value="상품문의">상품문의</option>
+              <option value="취소문의">취소문의</option>
             </select>
-            <form id="board_form_title" action="index.jsp?inc=./views/board/1on1/insert.jsp" method="post">
               <input
                 type="text"
                 name="qna_title"
