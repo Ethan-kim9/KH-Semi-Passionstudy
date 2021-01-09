@@ -15,14 +15,14 @@ import com.passionStudy.passion.manager.model.vo.ManagerMemberVo;
 /**
  * Servlet implementation class ManagerMemberServlet
  */
-@WebServlet("/manager.MemberSearch")
-public class ManagerMemberSearchController extends HttpServlet {
+@WebServlet("/manager.MemberSearch2")
+public class ManagerMemberSearchController2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerMemberSearchController() {
+    public ManagerMemberSearchController2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,15 +32,13 @@ public class ManagerMemberSearchController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String searchName =  (String)request.getParameter("SearchName");
+		String searchName =  (String)request.getParameter("name");
+		String searchPhone =  (String)request.getParameter("phone");
 		
 		System.out.println("관리자가 찾을 이름 : "+searchName);
+		System.out.println(searchName+"의 번호 : "+searchPhone);
 		
-		ArrayList<ManagerMemberVo> list =  new ManagerMemberService().memberSearch(searchName);
-		
-		if(list.size() > 0) {
-			
-		}
+		ArrayList<ManagerMemberVo> list =  new ManagerMemberService().memberSearch(searchName,searchPhone);
 		
 		request.setAttribute("list", list);
 		

@@ -1,8 +1,6 @@
 package com.passionStudy.passion.manager.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.manager.model.service.ManagerMemberService;
-import com.passionStudy.passion.manager.model.vo.ManagerMemberVo;
 
 /**
- * Servlet implementation class ManagerMemberServlet
+ * Servlet implementation class ManagerEnrollBlacklistController
  */
-@WebServlet("/manager.MemberSearch")
-public class ManagerMemberSearchController extends HttpServlet {
+@WebServlet("/manager.Black")
+public class ManagerEnrollBlacklistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerMemberSearchController() {
+    public ManagerEnrollBlacklistController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +29,23 @@ public class ManagerMemberSearchController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String searchName =  (String)request.getParameter("SearchName");
+		String memNo = (String)request.getParameter("memno");
+		String memStatus =(String)request.getParameter("memStatus");
+		String newStatus = null;
+		System.out.println(memNo);
+		System.out.println(memStatus);
 		
-		System.out.println("관리자가 찾을 이름 : "+searchName);
+		if(memStatus.equals("true")) {
+			newStatus = "B";
+		}else
+			newStatus = "N";
 		
-		ArrayList<ManagerMemberVo> list =  new ManagerMemberService().memberSearch(searchName);
+		int result = new ManagerMemberService().blackListEnroll(memNo,newStatus);
 		
-		if(list.size() > 0) {
-			
-		}
-		
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("index.jsp?inc=./views/manager/manager_memberedit.jsp").forward(request, response);
+		if(result >0) {
+			System.out.println("성공");
+		}else
+			System.out.println("망");
 	}
 
 	/**

@@ -16,6 +16,39 @@
 	                    WHERE
 	                    		MEMBER_NAME = ?
 </entry>
+<entry key="memberSearch">
+	SELECT
+	    
+	      MEMBER_NO
+	    , MEMBER_ID
+	    , MEMBER_NAME
+	    , MEMBER_PHONE
+	    , MEMBER_DATE
+	    , MEMBER_STATUS
+	    , MEMBER_POINT
+	      				FROM 
+	      						MEMBER
+	                    WHERE
+	                    		MEMBER_NAME = ?
+</entry>
+
+<entry key="memberSearch2">
+	SELECT
+	    
+	      MEMBER_NO
+	    , MEMBER_ID
+	    , MEMBER_NAME
+	    , MEMBER_PHONE
+	    , MEMBER_DATE
+	    , MEMBER_STATUS
+	    , MEMBER_POINT
+	      				FROM 
+	      						MEMBER
+	                    WHERE
+	                    		MEMBER_NAME = ?
+	                    AND
+	                    		MEMBER_PHONE = ?
+</entry>
 
 
 <entry key="changePwd">
@@ -25,7 +58,6 @@
 	        		MEMBER_PWD = '12345678'
 	        WHERE   
 	        		MEMBER_NO = ?
-
 </entry>
 
 <entry key="changePoint">
@@ -35,7 +67,6 @@
 	        		MEMBER_POINT = ?
 	        WHERE   
 	        		MEMBER_NO = ?
-
 </entry>
 
 <entry key="listmemberCoupon">
@@ -72,19 +103,11 @@ INSERT INTO
 	UPDATE 
 	    MEMBER 
 	        SET     
-	        		MEMBER_STATUS = 'B'
+	        		MEMBER_STATUS = ?
 	        WHERE   
 	        		MEMBER_NO = ?
 </entry>
 
-<entry key="blackListUnenroll">
-	UPDATE 
-	    MEMBER 
-	        SET     
-	        		MEMBER_STATUS = 'N'
-	        WHERE   
-	        		MEMBER_NO = ?
-</entry>
 
 <entry key="deleteCoupon">
 	UPDATE 
@@ -93,6 +116,5 @@ INSERT INTO
 	        		COPON_VALID = ? 
 	        WHERE   
 	        		COUPON_NO 	= ?
-
 </entry>
 </properties>

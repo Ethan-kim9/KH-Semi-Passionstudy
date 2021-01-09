@@ -19,11 +19,49 @@ public class ManagerMemberService {
 		
 		Connection conn = getConnection();
 		
-		System.out.println("DB 연결성공");
-		
 		ArrayList<ManagerMemberVo> list = new ManagerMemberDao().memberSearch(conn, searchName);
 		close(conn);
 		
 		return list;
 	}
+
+
+	public ArrayList<ManagerMemberVo> memberSearch(String searchName, String searchPhone) {
+		Connection conn = getConnection();
+		
+		ArrayList<ManagerMemberVo> list = new ManagerMemberDao().memberSearch(conn, searchName , searchPhone);
+		close(conn);
+		
+		return list;
+	}
+	public int changeMemberPW(String memNo) {
+		Connection conn = getConnection();
+		int result = new ManagerMemberDao().changeMemberPW(conn,memNo);
+		if(result >0)commit(conn);
+		else rollback(conn);
+		
+		return result;
+	}
+
+
+	public int changePoint(String memNo, String newPoint) {
+		Connection conn = getConnection();
+		int result = new ManagerMemberDao().changeMemberPoint(conn,memNo,newPoint);
+		if(result >0)commit(conn);
+		else rollback(conn);
+		
+		return result;
+	}
+
+
+	public int blackListEnroll(String memNo, String newStatus) {
+		Connection conn = getConnection();
+		int result = new ManagerMemberDao().blackListEnroll(conn,memNo,newStatus);
+		if(result >0)commit(conn);
+		else rollback(conn);
+		
+		return result;
+	}
+
+
 }
