@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
+import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+
 /**
  * Servlet implementation class FAQUserDetailController
  */
@@ -22,19 +25,29 @@ public class FAQUserDetailController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_detail.jsp").forward(request, response);	}
+		doPost(request, response);	
+		
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+    	int faqNo = Integer.parseInt(request.getParameter("idx"));
+		
+		FAQBoardDao dao = FAQBoardDao.getInstance();
+		FAQBoardVo vo = new FAQBoardVo();
+		
+		vo = dao.getView(faqNo);
+		
+		request.setAttribute("vo", vo);
+		
+		
+		
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_detail.jsp").forward(request, response);
+
 	}
 
 }

@@ -28,7 +28,9 @@ public class FAQManagerDetailController extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);	}
+		doPost(request, response);	
+		
+    }
 
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -7,7 +7,6 @@
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
-	FAQBoardVo vo = dao.getView(idx);	
 %>
 
 <!DOCTYPE html>
@@ -25,7 +24,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="faq.FAQDelete" method="post">
+	<form action="faq.FAQDelete?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
         <div id="board_main">
@@ -33,7 +32,7 @@
           <table class="table" id="table_title">
             <tr>
               <th>카테고리</th>
-              <td>회원문의</td>
+              <td>${vo.faqCategory }</td>
               <td></td>
               <td></td>
             </tr>
@@ -41,20 +40,20 @@
             <tr>
               <!-- 두번째 줄 시작-->
               <th>제　목</th>
-              <td><%=vo.getFaqTitle() %></td>
+              <td>${vo.faqTitle }</td>
               <td></td>
               <td></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
               <th>작성일</th>
-              <td><%=vo.getFaqDate() %></td>
+              <td>${vo.faqDate }</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <th class="content" style="height: 150px">내용</th>
-              <td class="content" style="height: 150px"><%=vo.getFaqContent() %></td>
+              <td class="content" style="height: 150px">${vo.faqContent }</td>
               <td></td>
               <td></td>
             </tr>

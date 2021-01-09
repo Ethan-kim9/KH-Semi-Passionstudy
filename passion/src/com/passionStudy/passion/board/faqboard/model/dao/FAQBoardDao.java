@@ -212,9 +212,10 @@ public class FAQBoardDao {
 		try {
 			String sql = "UPDATE FAQ_BOARD SET FAQ_TITLE=?, FAQ_CONTENT=? WHERE FAQ_NO=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(3, vo.getFaqNo());
+			
 			pstmt.setString(1, vo.getFaqTitle());
 			pstmt.setString(2, vo.getFaqContent());
+			pstmt.setInt(3, vo.getFaqNo());
 			
 			pstmt.executeUpdate();
 		}catch(Exception e) { 
