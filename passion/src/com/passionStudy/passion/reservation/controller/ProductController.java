@@ -12,7 +12,7 @@ import com.passionStudy.passion.reservation.model.service.ProductService;
 import com.passionStudy.passion.reservation.model.vo.ProductVo;
 
 
-@WebServlet(urlPatterns = "/reservation.do")
+@WebServlet(urlPatterns = "/reservation.do1")
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String url = "index.jsp?inc=./views/reservation/reservation_roominfo.jsp";
