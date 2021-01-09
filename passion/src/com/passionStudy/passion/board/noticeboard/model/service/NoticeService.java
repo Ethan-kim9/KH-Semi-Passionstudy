@@ -57,7 +57,33 @@ public class NoticeService {
 	
 	//게시물 수정
 	public int updateNotice(NoticeVo noticeVo){
-		return 0;
+		int result = 0;
+		
+		String sql = "UPDATE NOTICE SET NOTICE_TITLE=?, NOTICE_CONTENT=?, WHERE NOTICE_NO=?";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, noticeVo.getNtitle());
+			st.setString(2, noticeVo.getNcontent());
+			st.setInt(3, noticeVo.getMno());
+			
+			result = st.executeUpdate();
+			
+			st.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	

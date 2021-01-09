@@ -16,9 +16,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/board_notice")
 public class NoticeListController extends HttpServlet{
@@ -50,8 +52,19 @@ public class NoticeListController extends HttpServlet{
 			request.setAttribute("list", list);
 			request.setAttribute("count", count);
 		
-			request
-			.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp")
-			.forward(request, response);
+			HttpSession session     = request.getSession();
+			MemberVo loginMember 	= (MemberVo) session.getAttribute("loginMember");
+			
+			
+			if(null  != loginMember && null != loginMember.getAdminCheck()  && "A".equals( loginMember.getAdminCheck())){
+
+				request
+				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager.jsp")
+				.forward(request, response);
+			}else { //관리자 아닌 화면.
+				request
+				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp")
+				.forward(request, response);
+			}
 	}
 }

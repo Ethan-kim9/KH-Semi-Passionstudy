@@ -16,9 +16,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+import com.passionStudy.passion.member.model.service.MemberService;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/board_notice_manager")
 public class ListController extends HttpServlet{
@@ -35,7 +38,22 @@ public class ListController extends HttpServlet{
 		      
 		      int result = service.deleteNoticeAll(ids);
 		      
-		      response.sendRedirect("board_notice_manager");
+		      
+		      HttpSession session = request.getSession(true);
+		      MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+
+		      System.out.println("loginMember : "+loginMember);
+		      if(null != loginMember) {
+		      System.out.println("loginMember : "+loginMember.getAdminCheck());
+		      System.out.println("loginMember : "+!"A".equals( loginMember.getAdminCheck()));
+		      }
+		      
+			if(loginMember == null || null == loginMember.getAdminCheck()  ||  !"A".equals( loginMember.getAdminCheck()) ){
+				response.sendRedirect("board_notice");
+			}else{
+				response.sendRedirect("board_notice_manager");
+			}
+		     
 			
 	}
 	

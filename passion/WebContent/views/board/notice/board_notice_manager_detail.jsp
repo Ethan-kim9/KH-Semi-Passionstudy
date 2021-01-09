@@ -34,10 +34,7 @@
       <div id="board">
         <div id="board_main">
             <div id="another_buttons" style="padding-bottom:10px; text-align:right;">
-                <button type="button" class="remove_btn yb" style="float: none">
-                    수정
-                </button>
-                
+                <a href="board_notice_manager_modify?nno=${n.nno}" class="remove_btn yb">수정</a>
                 <button type="button" class="remove_btn yb" style="float: none">
                   삭제
                 </button>
