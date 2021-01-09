@@ -129,25 +129,25 @@
 	    }
 	})
 	
-	$("#confi_password").focusout(function () {
+	$("#confirm_password").focusout(function () {
 	    var password = $("#userpwd").val();
-	    var checkPassword = $("#confi_password").val();
+	    var checkPassword = $("#confirm_password").val();
 	
 	    if (checkPassword == "") {
 	        // 입력 여부 검사
-	        $("#pw_confi_check").html("비밀번호 확인은 필수입니다.");
-	        $("#pw_confi_check").css("color", "red");
+	        $("#pw_confirm_check").html("비밀번호 확인은 필수입니다.");
+	        $("#pw_confirm_check").css("color", "red");
 	        return true;
 	
     	} else if (checkPassword != password) {
 	        // 비밀번호 일치 검사
-	        $("#pw_confi_check").html("비밀번호가 일치하지 않습니다.");
-	        $("#pw_confi_check").css("color", "red");
+	        $("#pw_confirm_check").html("비밀번호가 일치하지 않습니다.");
+	        $("#pw_confirm_check").css("color", "red");
 	        return true;
 	
 	    } else {
 	        console.log("true");
-	        $("#pw_confi_check").css("display", "none");
+	        $("#pw_confirm_check").css("display", "none");
 	        return true;
 	    }
 	})
@@ -210,26 +210,3 @@
             }
         })
     }
-	
-	function buttonAble(f) {
-		if(f.upto_14_admit.checked === true && f.study_admit.checked === true && f.user_info_admit.checked === true && bName === true) {
-			f.abtn.removeAttribute("disabled");
-		}else {
-			f.abtn.disabled = "true";
-		}
-	}
-
-
-
-	focusout(function () {
-		var f = document.MemberSignin;
-		if(f.upto_14_admit.checked !== true) {
-			alert('필수 약관에 동의해 주세요.');
-		}else if(f.study_admit.checked !== true) {
-			alert('필수 약관에 동의해 주세요.');
-		}else if(f.user_info_admit.checked !== true) {
-			alert('필수 약관에 동의해 주세요.');
-		}else {
-			f.submit();
-		}
-	})

@@ -10,7 +10,7 @@
     
 
 	<!-- 이용약관 동의 체크 부분 -->
-	<form class="form_wrap_signup" id="signincheform" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
+	<form class="form_wrap_signup" id="signincheckform" name="MemberSignin" method="post" action="signin.do">
 		<section class="signin_sction signin_sction1">
 			<div class="signup_wrap">
 						<h2 class="title_signup">간편가입</h2>
@@ -33,7 +33,7 @@
 												<span class="ckbox1"> 
 													<input type="checkbox"
 														   name="admit" 
-														   id="upto-14-admit" 
+														   id="upto_14_admit" 
 														   value="Y"
 														   class="checkbox_msg" />
 													<label for="upto_14_admit" 
@@ -45,7 +45,7 @@
 												<span class="ckbox1"> 
 													<input type="checkbox" 
 														   name="admit" 
-														   id="study-admit" 
+														   id="study_admit" 
 														   value="Y"
 														   class="checkbox_msg" />
 													<label for="study_admit" 
@@ -500,7 +500,6 @@
   
  </form>
 </body>
-  <script src="resources/Js/pagesjs/member_signin_onvaild.js"></script>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin.js"></script>
 </html>

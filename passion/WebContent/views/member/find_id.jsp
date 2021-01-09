@@ -5,12 +5,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
+    <style>
+	    html {
+			overflow-y: scroll; 
+		}
+		
+		body {
+		  	background: #c1bdba;
+		  	font-family: 'Titillium Web', sans-serif;
+		}
+    </style>
   </head>
   <body>
-	<div class="form">
+	<div class="form_tab">
       <ul class="tab-group">
-        <li class="tab active"><a href="#findId">아이디 찾기</a></li>
-        <li class="tab"><a href="#findPwd">비밀번호 찾기</a></li>
+        <li class="tab active"><a class="tab active" href="#findId">아이디 찾기</a></li>
+        <li class="tab"><a class="tab active" href="#findPwd">비밀번호 찾기</a></li>
       </ul>
       
       <div class="tab-content">
@@ -41,14 +51,14 @@
                type="text"
                id="userphnumber"
                name="userphnumber"
-               placeholder="연락처(전화번호)"
+               placeholder="전화번호(-없이)"
                autocorrect="off"
                autocapitalize="none"
                required
              />
           </div>
           </div>
-          <button type="submit" class="button button-block">본인 인증하기</button>
+          <button type="submit" class="button button-block">본인인증 하기</button>
         </form>
         </div>
         
@@ -93,7 +103,7 @@
                  type="text"
                  id="userphnumber"
                  name="userphnumber"
-                 placeholder="연락처(전화번호)"
+                 placeholder="전화번호(-없이)"
                  autocorrect="off"
                  autocapitalize="none"
                  required
