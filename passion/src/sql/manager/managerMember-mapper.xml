@@ -39,54 +39,60 @@
 </entry>
 
 <entry key="listmemberCoupon">
-	SELECT 
-			*
-				FROM
-						COUPON
-				WHERE
-						MEMBER_NO = ?
+INSERT INTO COUPON
+
 </entry>
 
 <entry key="insertCoupon">
 
-	INSERT INTO 
-		        COUPON
-		        (
-		            COUPON_NO
-		        ,   MEMBER_NO
-		        ,   COUPON_NAME
-		        ,   COUPON_VALID
-		        ,   COUPON_PRICE
-		        ,   COUPON_DATE
-		        ,   COUPON_CODE
-		        		)
-		            	VALUES
-				            (
-				                SEQ_CNO.nextval
-				            ,   ?
-				            ,   ?
-				            ,   'Y'
-				            ,   3000
-				            ,   SYSDATE + 30
-				            ,   ?
-				            );
+INSERT INTO 
+        COUPON
+            (coupon_no
+            ,member_no
+            ,coupon_name
+            ,coupon_valid
+            ,coupon_price
+            ,coupon_date
+            	)
+            VALUES
+            		(
+            		SEQ_CNO.nextval
+            		,	?
+            		,	?
+            		,'O'
+            		,3000
+            		,SYSDATE+30
+            		)
+            
 </entry>
 
-<entry key="deleteCoupon">
-	DELETE
-			FROM
-				COUPON
-			WHERE
-				COUPON_NO = ?
-</entry>
 
 
 <entry key="blackListEnroll">
 	UPDATE 
 	    MEMBER 
 	        SET     
-	        		MEMBER_STATUS = D
+	        		MEMBER_STATUS = 'B'
 	        WHERE   
 	        		MEMBER_NO = ?
+</entry>
+
+<entry key="blackListUnenroll">
+	UPDATE 
+	    MEMBER 
+	        SET     
+	        		MEMBER_STATUS = 'N'
+	        WHERE   
+	        		MEMBER_NO = ?
+</entry>
+
+<entry key="deleteCoupon">
+	UPDATE 
+	    COUPON 
+	        SET     
+	        		COPON_VALID = ? 
+	        WHERE   
+	        		COUPON_NO 	= ?
+
 </entry>
 </properties>

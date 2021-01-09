@@ -68,7 +68,7 @@
           
           <br />
           
-          <input type="text" class="membersearch--input" id="SearchName" name = "SearchName"/>
+          <input type="text" class="membersearch--input" id="SearchName" name = "SearchName" required />
           
           <input type="submit" value="검색" />
         </form>

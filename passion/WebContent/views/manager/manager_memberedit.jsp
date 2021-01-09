@@ -60,8 +60,8 @@
         <form class="membersearch" method="post" action= "manager.MemberSearch">
           <label for="membersearch--input" class="membersearch--label">이름을 입력하세요.</label>
           <br />
-          <input type="input" class="membersearch--input" id="SearchName" name="SearchName"/>
-          <input type="submit" value="검색" />
+          <input type="text" class="membersearch--input" id="SearchName" name="SearchName" required />
+          <input type="submit" value="검색"/>
         </form>
       </div>
 
