@@ -10,7 +10,9 @@
       <script>
 	      	function spread(id){
 	      		var getId = document.getElementById(id);
+	      		
 	      		getId.style.display=(getId.style.display == 'block') ? 'none' : 'block';
+	      		
 	      	}
       </script>
   </head>
@@ -81,8 +83,8 @@
     <!-- 나의 활동 1대1 문의 내역 있을 경우-->
     <section class="mypage-section myQuestion myQuestion_has_Question">
         
-	<c:forEach var="qna" items="${qnalist }">
         <div class="mypage-inquery">
+	<c:forEach var="qna" items="${qnalist }">
           <ul>
             <!--li 1개당 답변완료 틀 1개-->
             <li id="12345">
@@ -102,14 +104,14 @@
               </p>
               
               <!--사용자가 클릭하지 않는 이상 보이지 않는 블록-->
-              <ul id="hiddenContent" class="expansion">
+              <ul id="hiddenContent" class="expansion">	
                 <li class="question">
                   <strong>${qna.category } test</strong>
                   <!-- <ul></ul> -->
                   <p>${qna.qnaContent }  test</p>
                 </li>
                 
-                <c:if test="${qna.boardAnswer == 1 }">
+                <c:if test="${qna.boardAnswer == 0 }">
 	                <li class="answer">
 	                  <strong>답변완료</strong>
 	                  <p>
@@ -119,9 +121,10 @@
                 </c:if>
               </ul>
               <!--  -->
+             </li>
           </ul>
-        </div>
     </c:forEach>
+        </div>
 
         <div class="go-inquery">
           <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp" class="go-inquery_button">
