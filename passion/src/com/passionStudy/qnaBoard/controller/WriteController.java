@@ -30,29 +30,30 @@ public class WriteController extends HttpServlet {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		HttpSession session = req.getSession(false);
-		if(session != null) {
 		MemberVo user  = (MemberVo)session.getAttribute("loginMember");			
+		String qnaWriter = null;
 		
-			String qnaTitle = req.getParameter("qna_title");
-			String qnaContent = req.getParameter("qna_content");
-			String category = req.getParameter("qna_category");
-			
-			QnaDao qnaDao = QnaDao.getInstance();
-			QnaVo qnaVo = new QnaVo();
-			
-			qnaVo.setQnaWriter(user.getMemName());
-			
-			qnaVo.setQnaTitle(qnaTitle);
-			qnaVo.setQnaContent(qnaContent);
-			qnaVo.setCategory(category);
-			
-			int wResult = qnaDao.write(qnaVo);
-			
-			System.out.println(qnaVo.getQnaTitle());
-			
-			resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		if(user == null) {
+			qnaWriter = "비회원";
+		} else {
+			qnaWriter = user.getMemName();
 		}
+
+		String qnaTitle = req.getParameter("qna_title");
+		String qnaContent = req.getParameter("qna_content");
+		String category = req.getParameter("qna_category");
 		
+		QnaDao qnaDao = QnaDao.getInstance();
+		QnaVo qnaVo = new QnaVo();
+		
+		qnaVo.setQnaWriter(qnaWriter);
+		qnaVo.setQnaTitle(qnaTitle);
+		qnaVo.setQnaContent(qnaContent);
+		qnaVo.setCategory(category);
+		
+		int wResult = qnaDao.write(qnaVo);
+		
+		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
 		
 	}
 }

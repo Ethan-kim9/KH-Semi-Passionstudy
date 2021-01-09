@@ -114,7 +114,6 @@ public class QnaDao {
 			pstmt.setString(3, qnaVo.getQnaContent());
 			pstmt.setString(4, qnaVo.getCategory());
 			
-			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -137,9 +136,9 @@ public class QnaDao {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				vo.setQnaTitle(rs.getNString("QNA_TITLE"));
+				vo.setQnaTitle(rs.getString("QNA_TITLE"));
 				vo.setQnaWriter(rs.getString("QNA_WRITER"));
-				vo.setQnaContent(rs.getNString("QNA_CONTENT"));
+				vo.setQnaContent(rs.getString("QNA_CONTENT"));
 				vo.setQnaDate(rs.getString("QNA_DATE"));
 			}
 		} catch (Exception e) {
@@ -151,6 +150,76 @@ public class QnaDao {
 		
 		return vo;
 	}
+	
+	
+	public QnaVo modifyDetaal(int qnaNo) {
+		QnaVo qnaVo = new QnaVo();
+		
+		conn = getConnect();
+		String sql = "SELECT * FROM QNA_BOARD WHERE QNA_NO=?";
+		
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				qnaVo.setQnaTitle(rs.getString("QNA_TITLE"));
+				qnaVo.setQnaContent(rs.getString("QNA_CONTENT"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
+		}
+		
+		return qnaVo;
+	}
+	
+	
+	public int delete(int qnaNo) {
+		conn = getConnect();
+		String sql = "DELETE FROM QNA_BOARD WHERE QNA_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
+		}
+		return result;
+	}
+	
+	
+	public QnaVo modify(QnaVo qnaVo) {
+		conn = getConnect();
+		String sql = "UPDATE QNA_BOARD SET QNA_TITLE = ?, QNA_CONTENT = ? WHERE QNA_NO = ?";
+		
+		try {
+			
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, qnaVo.getQnaTitle());
+		pstmt.setString(2, qnaVo.getQnaContent());
+		pstmt.setInt(3, qnaVo.getQnaNo());
+		
+		result = pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
+		}
+		return qnaVo;
+	}
+	
 	
 	
 	public int count() {
@@ -171,9 +240,7 @@ public class QnaDao {
 		} finally {
 			close(conn, pstmt, rs);
 		}
-		
 		return result;
-	
 	}
 
 

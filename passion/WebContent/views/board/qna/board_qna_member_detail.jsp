@@ -3,6 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%
+	int idx = Integer.parseInt(request.getParameter("idx"));
+%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -18,13 +23,13 @@
 
     <div class="tabtype">
     </div>
-<form action="index.jsp?inc=./views/board/1on1/delete.jsp" method="post">
+<form action="qna_delete.do?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
         <div id="board_main">
             <div id="another_buttons">
-                <input type="button" value="수정" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_member_modifyWrite.jsp?idx='">
-                <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/delete.jsp?idx='">
+                <input type="button" value="수정" class="write_btn yb" style="float: none" OnClick="window.location='qna.modify.detail.do?idx=<%=idx %>'">
+                <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='qna_delete.do?idx=<%=idx %>'">
                 <input type="button" value="답변달기" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_manager_write.jsp?idx='">
               </div>
           <table class="table" id="table_title">
