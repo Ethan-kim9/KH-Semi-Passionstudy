@@ -1,11 +1,25 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
   </head>
+<%
+	if (loginMember == null) {
+%>
+<script>
+	alert('로그인 후 이용 가능한 컨텐츠입니다.');
+	location.href = 'index.jsp';
+</script>
+<%
+	}
+%>
 <body>
     <div class="cont_header">
       <div class="cont_wrapper">
@@ -58,7 +72,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='get' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='1'/>
             		<button>예약하기</button>
             	</form>
@@ -67,7 +81,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='2'/>
             		<button>예약하기</button>
             	</form>
@@ -76,7 +90,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='3'/>
             		<button>예약하기</button>
             	</form>
@@ -106,7 +120,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='4'/>
             		<button>예약하기</button>
             	</form>
@@ -116,7 +130,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='5'/>
             		<button>예약하기</button>
             	</form>
@@ -146,7 +160,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='6'/>
             		<button>예약하기</button>
             	</form>
@@ -156,7 +170,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='7'/>
             		<button>예약하기</button>
             	</form>
@@ -195,7 +209,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='8'/>
             		<button>예약하기</button>
             	</form>
@@ -205,7 +219,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+            	<form method='post' action="reservation.do">
             		<input type='hidden' id='room_no' name='room_no' value='9'/>
             		<button>예약하기</button>
             	</form>

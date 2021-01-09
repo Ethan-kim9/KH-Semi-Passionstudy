@@ -25,7 +25,7 @@ public class RoomController extends HttpServlet{
 		resp.setContentType("text/html;charset=utf-8");
 		int room_no = Integer.parseInt(req.getParameter("room_no"));
 		
-		System.out.println("테스트" + room_no);
+		System.out.println("방번호 : " + room_no);
 		
 		RoomVo rv = new RoomService().selectRoomData(room_no);
 		
