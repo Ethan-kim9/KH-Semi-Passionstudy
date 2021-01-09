@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
+import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+
 
 @WebServlet("/faq.FAQModify")
 public class FAQModifyController extends HttpServlet {
@@ -28,35 +31,23 @@ public class FAQModifyController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+
+		
+		int faqNo = Integer.parseInt(request.getParameter("idx"));
 		
 		String faqTitle = request.getParameter("faqTitle");
 		String faqContent = request.getParameter("faqContent");
 		
-		String driver="oracle.jdbc.driver.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "passion";
-		String pw = "passion";
-		Connection conn = null;
-		Statement stmt = null;
+		FAQBoardDao dao = FAQBoardDao.getInstance();
+		FAQBoardVo vo = new FAQBoardVo();
 		
-
-		try {
-			Class.forName(driver);
-			conn=DriverManager.getConnection(url,id,pw);
-			stmt=conn.createStatement();
-			String sqlUpdate = "UPDATE FAQ_BOARD SET FAQ_TITLE='"+faqTitle+"', FAQ_CONTENT='"+faqContent+"' WHERE FAQ_NO= ?";
-			
-			stmt.executeUpdate(sqlUpdate);
-			
-			stmt.close();
-			conn.close();
-				
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
+		vo.setFaqNo(faqNo);
+		vo.setFaqTitle(faqTitle);
+		vo.setFaqContent(faqContent);
 		
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
+		vo = dao.modify(vo);
+		
+		response.sendRedirect("index.jsp?inc=./views/board/faq/board_faq_manager.jsp");
 
 	}
 

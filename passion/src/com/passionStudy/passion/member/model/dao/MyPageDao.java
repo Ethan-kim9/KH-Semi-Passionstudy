@@ -170,7 +170,7 @@ public class MyPageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM QNA_BOARD WHERE QNA_WRITER = ? ";
+		String sql = "SELECT * FROM QNA_BOARD WHERE QNA_WRITER = ? ORDER BY QNA_DATE DESC";
 		
 		try {
 			// 쿼리 준비
@@ -202,6 +202,34 @@ public class MyPageDao {
 			e.printStackTrace();
 		}
 		return qnalist;
+	}
+	
+	// 1대1 문의 내역 카운트
+	public int getListCount(Connection conn, String memberName) {
+		// 리턴 타입
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			// 쿼리 준비
+			String sql = "SELECT COUNT(*) FROM QNA_BOARD WHERE QNA_WRITER = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	

@@ -80,6 +80,16 @@
       </div>
     </div>
     
+    	<div class="tabtype btn_align_center tabtype_style_edit">
+		<div class="tabtype_wrapper">
+			<ul class="manager_ul_style">
+				<li><a href="manager.SalesSearch"><button class="on">월 매출 조회</button></a>
+				</li>
+				<li><a href="manager.SalesSearch.Between"><button>기간별 조회</button></a></li>
+			</ul>
+		</div>
+	</div>
+    
  <div class="membersearch-box">
     <label for="startDate"></label>
     <form action="manager.SalesView" method="post">

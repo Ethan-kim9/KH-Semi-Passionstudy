@@ -91,4 +91,14 @@ public class MyPageService {
 		return qnalist;
 	}
 	
+	// 1on1 문의 내역 카운트 가져오기
+	public int getListCount(String memberName) {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		int result = mdao.getListCount(conn, memberName);
+		
+		close(conn);
+		return result;
+	}
+	
 }

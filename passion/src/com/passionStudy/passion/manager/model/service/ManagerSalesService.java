@@ -23,4 +23,15 @@ public class ManagerSalesService {
 		
 		return list;
 	}
+
+	public ArrayList<ManagerSalesVo> salesSearchBewteen(String fromDate, String toDate) {
+		Connection conn = getConnection();
+		
+		System.out.println("DB 연결성공");
+		
+		ArrayList<ManagerSalesVo> list = new ManagerSalesDao().salesSearchBewteen(conn,fromDate, toDate);
+		close(conn);
+		
+		return list;
+	}
 }

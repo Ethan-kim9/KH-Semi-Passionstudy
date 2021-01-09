@@ -196,12 +196,14 @@
 }
 .expansion .question {
   padding: 25px 30px 25px 35px;
+  text-align: left;
 }
 .expansion .question p {
   margin-top: 30px;
 }
 .expansion .answer {
   padding: 25px 30px 25px 35px;
+  text-align: left;
 }
 .expansion .answer p {
   margin-top: 30px;
@@ -210,11 +212,11 @@
   position: relative;
   border-top: 1px solid #c9c9c9;
 }
-.answer .answer-date {
+/* .answer .answer-date {
   position: absolute;
   right: 60px;
   color: #2f3236;
-}
+} */
 .answer > strong {
   font-weight: bold;
   color: #5dbbf1;

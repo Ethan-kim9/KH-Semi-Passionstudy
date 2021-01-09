@@ -28,26 +28,24 @@ public class FAQManagerDetailController extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		process(request, response);	}
+		doPost(request, response);	}
 
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		process(request, response);
-	}
-
-	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int idx = Integer.parseInt(request.getParameter("idx"));
+    	int faqNo = Integer.parseInt(request.getParameter("idx"));
 		
-		FAQBoardDao faqboardDao = FAQBoardDao.getInstance();
-		FAQBoardVo faqboardVo = new FAQBoardVo();
+		FAQBoardDao dao = FAQBoardDao.getInstance();
+		FAQBoardVo vo = new FAQBoardVo();
 		
-		faqboardVo = faqboardDao.getView(idx);
+		vo = dao.getView(faqNo);
 		
-		request.setAttribute("faqboardVo", faqboardVo);
+		request.setAttribute("vo", vo);
+		
+		
 		
 		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp").forward(request, response);
 
 	}
+
 }

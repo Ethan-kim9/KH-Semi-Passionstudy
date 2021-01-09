@@ -10,16 +10,8 @@ public class RoomVo {
 	private String roomFile;
 	private int roomPrice;
 
-	public RoomVo(int roomNo, String roomName, String roomType, int roomCapMin, int roomCapMax, String roomInfo,
-			String roomFile, int roomPrice) {
-		this.roomNo = roomNo;
-		this.roomName = roomName;
-		this.roomType = roomType;
-		this.roomCapMin = roomCapMin;
-		this.roomCapMax = roomCapMax;
-		this.roomInfo = roomInfo;
-		this.roomFile = roomFile;
-		this.roomPrice = roomPrice;
+	public RoomVo() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

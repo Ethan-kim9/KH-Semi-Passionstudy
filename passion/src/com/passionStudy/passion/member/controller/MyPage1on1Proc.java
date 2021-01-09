@@ -37,9 +37,12 @@ public class MyPage1on1Proc extends HttpServlet {
 		// 로직
 		MyPageService service = new MyPageService();
 		Vector<QnaVo> qnalist = service.getReservationList(memName);
+		// 로직2(문의내역 카운트)
+		int count = service.getListCount(memName);
 		
 		// jsp에게
 		request.setAttribute("qnalist", qnalist);
+		request.setAttribute("count", count);
 		RequestDispatcher dis = request.getRequestDispatcher("index.jsp?inc=./views/mypage/mypage_1on1.jsp");
 		dis.forward(request, response);
 		

@@ -42,9 +42,15 @@ public class RoomDao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				rv = new RoomVo(rs.getInt("ROOM_NO"), rs.getString("ROOM_NAME"), rs.getString("ROOM_TYPE"),
-						rs.getInt("ROOM_CAPACITYMIN"), rs.getInt("ROOM_CAPACITYMAX"), rs.getString("ROOM_INFORMATION"),
-						rs.getString("ROOM_FILEPATH"), rs.getInt("ROOM_PRICE"));
+				rv = new RoomVo();
+				rv.setRoomNo(rs.getInt("ROOM_NO"));
+				rv.setRoomName(rs.getString("ROOM_NAME"));
+				rv.setRoomType(rs.getString("ROOM_TYPE"));
+				rv.setRoomCapMin(rs.getInt("ROOM_CAPACITYMIN"));
+				rv.setRoomCapMax(rs.getInt("ROOM_CAPACITYMAX"));
+				rv.setRoomInfo(rs.getString("ROOM_INFORMATION"));
+				rv.setRoomFile(rs.getString("ROOM_FILEPATH"));
+				rv.setRoomPrice(rs.getInt("ROOM_PRICE"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

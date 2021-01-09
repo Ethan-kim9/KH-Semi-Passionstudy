@@ -32,11 +32,11 @@ public class FAQDeleteController extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	int idx = Integer.parseInt(request.getParameter("idx"));
+    	int faqNo = Integer.parseInt(request.getParameter("idx"));
     	
-    	FAQBoardDao Dao = new FAQBoardDao();
+    	FAQBoardDao dao = FAQBoardDao.getInstance();
     	
-    	Dao.delete(idx);
+    	dao.delete(faqNo);
     	
     	
     	

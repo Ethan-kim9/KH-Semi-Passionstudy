@@ -7,17 +7,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Properties;
 
 
 import com.passionStudy.passion.board.DBClose;
-import com.passionStudy.passion.board.DBConnect;
-import com.passionStudy.passion.board.faqboard.model.*;
 import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
-import com.passionStudy.qnaBoard.dao.QnaDao;
+
 
 public class FAQBoardDao {
 	private static FAQBoardDao faqboardDao = new FAQBoardDao();
@@ -37,9 +33,11 @@ public class FAQBoardDao {
 			e.printStackTrace();
 		}
 	}
+	
 	public static FAQBoardDao getInstance() {
 		return faqboardDao;
 	}
+	
 	public Connection getConnect() {
 		 String driver = "oracle.jdbc.driver.OracleDriver";
 		 String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -146,14 +144,9 @@ public class FAQBoardDao {
 		try {
 			String sql = "INSERT INTO FAQ_BOARD(FAQ_NO,MEMBER_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_CONTENT,FAQ_DATE) VALUES(FAQ_SEQ.NEXTVAL, 0, ?,?,?,SYSDATE)";
 			pstmt = conn.prepareStatement(sql);
-			
-			//pstmt.setInt(1, vo.getFaqNo());
-			//pstmt.setInt(2, vo.getMemberNo());
 			pstmt.setString(1, vo.getFaqCategory());
 			pstmt.setString(2, vo.getFaqTitle());
 			pstmt.setString(3, vo.getFaqContent());
-			//pstmt.setString(5, vo.getFaqDate());
-			//pstmt.setInt(6, max+1);
 			
 			result = pstmt.executeUpdate();
 			
@@ -166,23 +159,24 @@ public class FAQBoardDao {
 		
 	}
 	
-	//modify, delete view
-	public FAQBoardVo getView(int idx) {
+	//view
+	public FAQBoardVo getView(int faqNo) {
 		conn = getConnect();
 		PreparedStatement pstmt = null; 
 		ResultSet rs = null;
-		FAQBoardVo vo = null;
+		FAQBoardVo vo = new FAQBoardVo();
 		try {
 			String sql = "SELECT * FROM FAQ_BOARD WHERE FAQ_NO= ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, idx);
+			pstmt.setInt(1, faqNo);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				vo = new FAQBoardVo();
-				vo.setFaqCategory(rs.getString(1));
-				vo.setFaqTitle(rs.getString(2));
-				vo.setFaqContent(rs.getString(3));
-				vo.setFaqDate(rs.getDate(4));
+				vo.setFaqCategory(rs.getString("FAQ_CATEGORY"));
+				vo.setFaqTitle(rs.getString("FAQ_TITLE"));
+				vo.setFaqDate(rs.getDate("FAQ_DATE"));
+				vo.setFaqContent(rs.getString("FAQ_CONTENT"));
+				
 			}
 		}catch(Exception e) { 
 			e.printStackTrace();
@@ -192,28 +186,16 @@ public class FAQBoardDao {
 		return vo;
 	}
 	
-	//modify view
-	/*
-	 * public FAQBoardVo getView2(int idx) { Connection con =
-	 * dbconnect.getConnection(); PreparedStatement pstmt = null; ResultSet rs =
-	 * null; FAQBoardVo vo2 = null; try { String sql =
-	 * "SELECT FAQ_TITLE, FAQ_CONTENT, FAQ_DATE FROM FAQ_BOARD WHERE FAQ_NO= ?";
-	 * pstmt = con.prepareStatement(sql); pstmt.setInt(1, idx); rs =
-	 * pstmt.executeQuery(); if (rs.next()) { vo2 = new FAQBoardVo();
-	 * vo2.setFaqTitle(rs.getString(1)); vo2.setFaqContent(rs.getString(2));
-	 * vo2.setFaqDate(rs.getDate(3)); } }catch(Exception e) {
-	 * 
-	 * }finally { DBClose.close(con,pstmt); } return vo2; }
-	 */
+	
 	//자주묻는질문 삭제 delete
-	public int delete(int idx) {
+	public int delete(int faqNo) {
 		conn = getConnect();
 		PreparedStatement pstmt = null; 
 		int deleteResult = 0;
 		try {
 			String sql = "DELETE FROM FAQ_BOARD WHERE FAQ_NO=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, idx);
+			pstmt.setInt(1, faqNo);
 			deleteResult = pstmt.executeUpdate();
 		}catch(Exception e) { 
 			e.printStackTrace();
@@ -224,24 +206,47 @@ public class FAQBoardDao {
 	}
 
 	//자주묻는질문 수정 modify
-	public void modify(FAQBoardVo vo, int idx) throws SQLException {
+	public FAQBoardVo modify(FAQBoardVo vo) {
 		conn = getConnect();
 		PreparedStatement pstmt = null; 
 		try {
-			String sql = "UPDATE FAQ_BOARD SET FAQ_CATEGORY=?, FAQ_TITLE=?, FAQ_CONTENT=? WHERE FAQ_NO=?";
+			String sql = "UPDATE FAQ_BOARD SET FAQ_TITLE=?, FAQ_CONTENT=? WHERE FAQ_NO=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getFaqCategory());
+			pstmt.setInt(1, vo.getFaqNo());
 			pstmt.setString(2, vo.getFaqTitle());
 			pstmt.setString(3, vo.getFaqContent());
-			pstmt.setInt(4, idx);
+			
 			pstmt.executeUpdate();
 		}catch(Exception e) { 
 			
 		}finally { 
 			DBClose.close(conn,pstmt); 
 		}
+		return vo;
 	}
 	
+	public FAQBoardVo modifyView(int faqNo) {
+		conn = getConnect();
+		PreparedStatement pstmt = null; 
+		ResultSet rs = null;
+		FAQBoardVo vo = new FAQBoardVo();
+		try {
+			String sql = "SELECT * FROM FAQ_BOARD WHERE FAQ_NO= ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				vo = new FAQBoardVo();
+				vo.setFaqTitle(rs.getString("FAQ_TITLE"));
+				vo.setFaqContent(rs.getString("FAQ_CONTENT"));
+			}
+		}catch(Exception e) { 
+			e.printStackTrace();
+		}finally { 
+			DBClose.close(conn,pstmt); 
+		}
+		return vo;
+	}
 	
 	//자주묻는질문 검색
 	
