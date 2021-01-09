@@ -16,13 +16,13 @@ import com.passionStudy.passion.manager.model.vo.ManagerSalesVo;
  * Servlet implementation class managerSalesViewController
  */
 @WebServlet("/manager.SalesView")
-public class managerSalesViewController extends HttpServlet {
+public class ManagerSalesViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public managerSalesViewController() {
+    public ManagerSalesViewController() {
         super();
         // TODO Auto-generated constructor stub
     }
