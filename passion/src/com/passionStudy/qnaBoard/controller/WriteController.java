@@ -28,7 +28,6 @@ public class WriteController extends HttpServlet {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		
-		MemberVo loginMember = req.getSeesion("");
 				
 		
 		String qnaTitle = req.getParameter("qna_title");
@@ -47,7 +46,7 @@ public class WriteController extends HttpServlet {
 		System.out.println(qnaContent);
 		System.out.println(category);
 		System.out.println(wResult);
-		resp.sendRedirect("menu.Board");
+		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
 		
 	}
 }
