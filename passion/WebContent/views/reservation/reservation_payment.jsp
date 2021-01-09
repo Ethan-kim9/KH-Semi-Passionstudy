@@ -1,12 +1,25 @@
+<%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+%>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
 	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
   </head>
-  
+<%
+	if (loginMember == null) {
+%>
+<script>
+	alert('로그인 후 이용 가능한 컨텐츠입니다.');
+	location.href = 'index.jsp';
+</script>
+<%
+	}
+%>
     <body>  
       <div class="cont_header">
         <div class="cont_wrapper">

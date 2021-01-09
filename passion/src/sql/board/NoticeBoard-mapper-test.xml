@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!-- 관리자 입장 -->
+<!-- 공지사항 작성(완) -->
+<entry key="insertNotice"> 
+	INSERT 
+		INTO NOTICE
+			(
+			   NOTICE_NO
+			 , MEMBER_NO
+			 , NOTICE_TITLE
+			 , NOTICE_CONTENT
+			 , REGDATE
+			 )
+		VALUES
+		   (
+		       SEQ_NNO.NEXTVAL
+		     , ? 
+		     , ?
+		     , ?
+		     , SYSDATE
+		     )
+</entry>
+<!-- 공지사항 수정 -->
+<entry key="modifyNotice">
+	UPDATE   NOTICE
+		SET     NOTICE_TITLE = ?,
+          	    NOTICE_CONTENT = ?
+		WHERE   NOTICE_NO = ?;
+</entry>
+<!-- 공지사항 삭제 -->
+<entry key="deleteFaqboard">
+	DELETE
+		FROM   NOTICE
+		WHERE   NOTICE_NO = ?;
+</entry>
+
+<!-- 유저입장 -->
+<!-- 데이터조회 -->
+<entry key="getNoticeList">
+	    SELECT * 
+            FROM ( +
+             SELECT ROWNUM NUM,
+                     N.*  
+                   FROM (SELECT * FROM NOTICE 
+                        WHERE "+field+" LIKE ? 
+                        ORDER BY REGDATE DESC
+                            ) N
+                   ) 
+                   WHERE NUM BETWEEN ? AND ?
+</entry> 
+<entry key="noticeCount">
+      UPDATE
+          NOTICE
+      SET NOTICE_COUNT = NOTICE_COUNT + 1
+    WHERE NOTICE_NO = ?  
+</entry>                                  
+</properties>

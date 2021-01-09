@@ -10,7 +10,7 @@
     
 
 	<!-- 이용약관 동의 체크 부분 -->
-	<form class="form_wrap_signup" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
+	<form class="form_wrap_signup" id="signincheform" name="MemberSignin" method="post" action="signin.do" onsubmit="return checkForm(this)">
 		<section class="signin_sction signin_sction1">
 			<div class="signup_wrap">
 						<h2 class="title_signup">간편가입</h2>
@@ -242,7 +242,7 @@
 									
 							</ul>
 						</div>
-						<button type="submit" class="btn_next_step sign_btn_1">
+						<button type="submit" id="agreeBtn" class="btn_next_step sign_btn_1">
 							동의하고 가입하기</button>
 
 			</div>
@@ -500,6 +500,7 @@
   
  </form>
 </body>
+  <script src="resources/Js/pagesjs/member_signin_onvaild.js"></script>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin.js"></script>
 </html>

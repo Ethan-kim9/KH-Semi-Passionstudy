@@ -12,13 +12,12 @@ import com.passionStudy.passion.reservation.model.vo.RoomVo;
 
 public class RoomService {
 
-	public RoomVo selectRoomData(int roomNo, String roomName, int roomCapMin, int roomCapMax, String roomInfo,
-			String roomFile, int roomPrice) {
+	public RoomVo selectRoomData(int roomNo) {
 		Connection conn = getConnection();
 		System.out.println("DB접속 성공");
 		RoomVo rv = new RoomDao().selectRoomData(conn, roomNo);
-	close(conn);
-	return rv;
+		close(conn);
+		return rv;
 	}
 
 }

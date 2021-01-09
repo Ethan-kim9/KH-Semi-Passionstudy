@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 
-@WebServlet("/views/board/notice/board_notice")
+@WebServlet("/board_notice")
 public class NoticeListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,7 +51,7 @@ public class NoticeListController extends HttpServlet{
 			request.setAttribute("count", count);
 		
 			request
-			.getRequestDispatcher("/views/board/notice/board_notice.jsp")
+			.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp")
 			.forward(request, response);
 	}
 }

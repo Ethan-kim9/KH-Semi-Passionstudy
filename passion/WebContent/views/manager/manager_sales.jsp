@@ -78,11 +78,24 @@
       </div>
     </div>
     
+ <div class="tabtype btn_align_center tabtype_style_edit">
+      <div class="tabtype_wrapper">
+        <ul class="manager_ul_style">
+          <li>
+            <a href="manager.SalesSearch"><button class="on">월 매출 조회</button></a>
+          </li>
+          <li>
+            <a href="manager.SalesSearch.Between"><button class="btn2">기간별 조회</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
  <div class="membersearch-box">
     <label for="startDate"></label>
     <form action="manager.SalesView" method="post">
-      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off"/>
-      <input type="submit" value="조회"/>
+      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off" required="required"/>
+      <input type="submit" value="조회" id="StartDateInputBtn" required="required"/>
     </form>
   </div>
   

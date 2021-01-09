@@ -25,7 +25,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="delete.do" method="post">
+	<form action="faq.FAQDelete" method="post">
     <section>
       <div id="board">
         <div id="board_main">
@@ -60,7 +60,7 @@
             </tr>
           </table>
           <div id="another_buttons">
-              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/faq/board_faq.jsp'">
+              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQUserList'">
           </div>
         </div>
       </div>

@@ -45,21 +45,21 @@
           <table class="table" id="table_title">
             <tr>
               <th>제　목</th>
-              <td><%=request.getAttribute("noticeTitle")%></td>
+              <td>${n.ntitle}</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <th>작성자</th>
-              <td><%=request.getAttribute("memberNo")%></td>
+              <td>${n.mno}</td>
               <td></td>
               <td></td>
             </tr>
             <tr>
               <th>작성일</th>
-              <td><%=request.getAttribute("regdate")%></td>
+              <td>${n.regdate}</td>
               <th>조회수</th>
-              <td><%=request.getAttribute("noticeCount")%></td>
+              <td>${n.ncount}</td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
@@ -71,7 +71,7 @@
           </table>
           <div class="table_inner">
             <p style="padding-left:50px;"><!-- 내용content -->
-             <%=request.getAttribute("noticeContent")%>
+             ${n.ncontent}
             </p>
           </div>
         </div>

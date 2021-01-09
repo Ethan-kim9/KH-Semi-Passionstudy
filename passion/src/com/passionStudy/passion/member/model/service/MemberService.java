@@ -63,7 +63,7 @@ public class MemberService {
 	 */
 	public String findIdMember(String memName, String memPhone) throws SQLException {
 		Connection conn = getConnection();
-		String findId = new MemberDao().findIdMember(memName, memPhone);
+		String findId = new MemberDao().findIdMember(conn, memName, memPhone);
 		conn.close();
 		return findId;
 	}
@@ -74,10 +74,10 @@ public class MemberService {
 	 * 앞 문자 4개만 보여주고 뒤는 * 처리
 	 * 
 	 */
-	public int findPwdMember(MemberVo mv) throws SQLException {
+	public String findPwdMember(MemberVo mv) throws SQLException {
 		Connection conn = getConnection();
-		int memNo = new MemberDao().findPwdMember(mv);
+		String findPwd = new MemberDao().findPwdMember(conn, mv);
 		conn.close();
-		return memNo;
+		return findPwd;
 	}
 }

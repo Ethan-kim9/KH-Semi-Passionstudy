@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<entry key="listProduct">
+
+<entry key="listRoom">
 	SELECT 
-			*
-			FROM
-				ROOM;
+			ROOM_NO,
+			ROOM_NAME,
+			ROOM_INFORMATION,
+			ROOM_PRICE,
+			ROOM_TYPE
+	FROM 
+		ROOM
+            WHERE 
+            	ROOM_NO  <= 31
+            ORDER BY 
+            	ROOM_NO ASC
 </entry>
 
-<entry key="listProduct">
+<entry key="UPDATE">
 	UPDATE 
-			*
+			ROOM
+				SET ROOM_TYPE = ?
 			FROM
 				ROOM
 			WHERE
-				ROOM_NO = ?;
+				ROOM_NO = ?
 </entry>
 </properties>

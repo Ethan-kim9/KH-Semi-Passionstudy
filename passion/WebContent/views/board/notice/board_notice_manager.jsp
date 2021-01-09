@@ -1,23 +1,9 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-
+<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<%
-String url = "jdbc:oracle:thin:@localhost:1521:xe";
-String sql = "SELECT * FROM NOTICE_B";
-
-Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con = DriverManager.getConnection(url,"passion","passion");
-Statement st = con.createStatement();
-ResultSet rs = st.executeQuery(sql);	
-
-%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -35,17 +21,17 @@ ResultSet rs = st.executeQuery(sql);
     </div>
 
     <div class="tabtype">
-	   <div class="tabtype_wrapper" style="text-align: center;">
+	   <div class="tabtype_wrapper" style="text-align: center;">        
         <ul>
           <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1 on">공지사항</button></a>
+            <a href="./board_notice"><button class="btn1 on">공지사항</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
+            <a href="./faq.FAQManagerList"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
-          </li>
+            <a href="./board_1on1"><button class="btn3">1:1문의</button></a>
+          </li> <!-- 경로 찾아서 설정 -->
         </ul>
       </div>
     </div>
@@ -53,15 +39,10 @@ ResultSet rs = st.executeQuery(sql);
     <section>
       <div id="board">
         <div id="board_main">
+         <form action="board_notice_manager" method="post">
           <div id="buttons">
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager_write.jsp">
-              <button type="button" class="write_btn yb" style="float: none">
-                글쓰기
-              </button></a
-            >
-            <button type="button" class="remove_btn yb" style="float: none">
-              삭제
-            </button>
+          	<a href="board_notice_manager_write" class="write_btn yb">글쓰기</a>
+            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/>
           </div>
           <table class="table" id="main_table" width="50%">
 	        <thead>
@@ -75,30 +56,68 @@ ResultSet rs = st.executeQuery(sql);
 	        </tr>
 	        </thead>
 	        <tbody>
-            <%while(rs.next()){%>
+            <c:forEach var="n" items="${list}">
             <tr>
-              <!-- 첫번째 줄 시작 "board_notice_manager_detail.jsp?noticeNo=${n.noticeNo} -->
-              <td><input type="checkbox" class="checkbox" /></td>
-              <td><%=rs.getInt("NOTICE_NO")%></td>
-              <td><a href="index.jsp?inc=./views/board/notice/board_notice_manager_detail?noticeNo=<%=rs.getInt("NOTICE_NO")%>"><%=rs.getString("NOTICE_TITLE")%></a></td>
-              <td><%=rs.getInt("MEMBER_NO")%></td>
-              <td><%=rs.getDate("REGDATE")%></td>
-              <td><%=rs.getInt("NOTICE_COUNT")%></td>
+              <td><input type="checkbox" name="del-id" value="${n.nno}" class="checkbox"></td>
+              <td>${n.nno}</td>
+              <td><a href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
+              <td>${n.mno}</td>
+              <td>${n.regdate}</td>
+              <td>${n.ncount}</td>
             </tr>
+            </c:forEach>
             </tbody>
-            <%}%>
-            
           </table>
+        </form>
           <div class="search_bar">
-            <select name="f">
-              <option ${(param.f == "title")?"selected":""} value="noticeTitle">제목</option>
-              <option ${(param.f == "title")?"selected":""} value="noticeContent">내용</option>
-            </select>
-          <input type="text" name="q" value="${param.q}" id="search-box" />
-          <button type="button" class="search-btn yb" style="float: none;">
-            검색
-          </button>
+          <form class="hidden">
+	            <select name="f">
+	              <option ${(param.f == "notice_title")?"selected":""} value="notice_title">제목</option> 
+	              <option ${(param.f == "notice_content")?"selected":""} value="notice_content">내용</option>
+	            </select>
+	          <input type="text" name="q" value="${param.q}" id="search-box" />  
+	          <input type="submit" class="search-btn yb" style="float: none;" value="검색"/>
+          </form>
           </div>
+          <%-- 페이징처리 --%>
+        <c:set var="page" value="${(empty param.p)?1:param.p}"/>
+		<c:set var="startNum" value="${page-(page-1)%5}"/>
+		<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10),'.')}"/>
+          <div class="indexer margin-top align-right">
+			<div styel="text-align:right;">
+				<span class="text-orange text-strong">${(empty param.p)?1:param.p}</span> / ${lastNum } pages</div>
+			</div>
+          	<nav aria-label="Page navigation example">
+			  <ul class="pagination">
+			    <li class="page-item">
+
+			      <a class="page-link" href="#" aria-label="Previous">
+				      <c:if test="${startNum>1}">
+				      	<a href="?p=${startNum-1}&t=&q=" aria-hidden="true">&laquo;</a>
+				      </c:if>
+				      <c:if test="${startNum<=1}"> 
+				        <span aria-hidden="true" onclick="alert('이전 페이지가 없습니다.')">&laquo;</span>
+				      </c:if>
+			      </a>
+			    </li>
+				
+				<c:forEach var="i" begin="0" end="4">
+				<c:if test="${(startNum+i)<=lastNum }">
+			    <li class="page-item"><a class="page-link ${(param.p==(startNum+i))?'orange' : ''} bold" href="?p=${startNum+i}&f=${param.f}&q=${param.q}">${startNum+i}</a></li>
+			    </c:if>
+			    </c:forEach>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			      <c:if test="${startNum+4<lastNum}">
+			        <a href="?p=${startNum+5}&t=&q=" aria-hidden="true" >&raquo;</a>
+			      </c:if> 
+			      <c:if test="${startNum+4>=lastNum}">  
+			        <span aria-hidden="true" onclick="alert('다음 페이지가 없습니다.')">&raquo;</span>
+			      </c:if>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
         </div>
       </div>
     </section>
@@ -106,9 +125,3 @@ ResultSet rs = st.executeQuery(sql);
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
-
-<%
-rs.close();
-st.close();
-con.close();
-%>

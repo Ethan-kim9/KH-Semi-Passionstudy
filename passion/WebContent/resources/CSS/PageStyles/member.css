@@ -1,6 +1,6 @@
 /* 모든 MEMBER html 에서 공통적으로 공유하는 css*/
 
-  .login_wrap {
+.login_wrap {
     max-width: 400px;
     margin: 0 auto 50px;
     list-style: none;
@@ -230,6 +230,7 @@
   
   .login_wrap .btn_me {
     width: 100%;
+    height: 48px;
     border-radius: 2px;
     color: #fff;
     font-size: 14px;
@@ -635,7 +636,7 @@
     overflow: hidden;
     position: relative;
   }
-  .field_signup_wrap_pwd .field_vali {
+  .signup_wrap .signup_step .field_signup_wrap_pwd .field_vali {
     position: absolute;
     left: 0;
     right: 0;
@@ -654,6 +655,11 @@
     margin-inline-end: 0px;
   }
   
+  .signup_wrap .signup_step .field_signup_wrap_pwd .field_vali span {
+    display: inline;
+    padding-right:  28px;
+    color: #c4c4c4;
+  }
   
   /* 가입 웰컴 쿠폰 */
   .join_ly {

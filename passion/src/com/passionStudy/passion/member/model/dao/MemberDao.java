@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.passionStudy.passion.member.controller.MemberFindIdController;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
@@ -149,8 +150,8 @@ public class MemberDao {
 	}
 	
 	// 아이디 찾기
-	public String findIdMember(String memName, String memPhone) throws SQLException {
-		String findId = "";
+	public String findIdMember(Connection conn, String memName, String memPhone) throws SQLException {
+		String findId = null;
 		String sql = prop.getProperty("findIdMember");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -163,7 +164,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				findId = rs.getString(1);
+				findId = rs.getString("MEMBER_ID");
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -176,8 +177,8 @@ public class MemberDao {
 	}
 	
 	// 비밀번호 찾기
-	public int findPwdMember(MemberVo mv) throws SQLException {
-		int memNo = 0;
+	public String findPwdMember(Connection conn, MemberVo mv) throws SQLException {
+		String findPwd = null;
 		String sql = prop.getProperty("findPwdMember");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -185,21 +186,23 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, mv.getMemName());
-			pstmt.setString(2, mv.getMemId());
-			pstmt.setString(3, mv.getMemPhone());
+			pstmt.setString(2, mv.getMemPhone());
+			pstmt.setString(3, mv.getMemId());
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				memNo = rs.getInt("MEMBER_NO");
+				findPwd = rs.getString("MEMBER_PWD");
 			}
+			System.out.println(findPwd);
+
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			rs.close();
 			pstmt.close();
 		}
-		return memNo;
+		return findPwd;
 	}
 
 	

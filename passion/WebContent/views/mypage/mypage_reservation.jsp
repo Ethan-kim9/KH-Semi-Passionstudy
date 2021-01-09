@@ -1,5 +1,11 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+	
+
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +30,7 @@
                 <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2 on">나의 예약 관리</button></a>
             </li>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage_1on1.jsp"><button class="btn3">나의 활동</button></a>
+                <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
               <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
@@ -55,7 +61,9 @@
           <table class="reservation-state_table">
             <thead>
               <tr>
-                <th class="table-num">번호</th>
+                <th class="table-num">
+                	번호
+                </th>
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
                 <th class="table-date">예약일</th>

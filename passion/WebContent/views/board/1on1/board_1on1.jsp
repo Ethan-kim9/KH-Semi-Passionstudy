@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
@@ -72,6 +73,8 @@
 		
 		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD WHERE PAGING_STACK >="+start+" AND PAGING_STACK <="+end+" ORDER BY PAGING_STACK ASC";
 		result = stmt.executeQuery(sqlList);
+		
+		MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 %>
 
     <div class="cont_header">
@@ -87,7 +90,7 @@
             <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
+            <a href="faq.FAQUserList"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
             <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3 on">1:1문의</button></a>
@@ -142,10 +145,11 @@
 %>
 
 			<tr align="left">
-				<td colspan="4"><img src="resources/images/icon/1on1_answer.gif"/><a style="text-decoration: none;" href="index.jsp?inc=./views/board/1on1/board_1on1_manager_detail.jsp?idx=<%=no %>">
-				<%=answerTitle %>
-				</a>
-				</td>
+				<td></td>
+				<td align="center"><img src="resources/images/icon/1on1_answer.gif"/><a style="text-decoration: none;" href="index.jsp?inc=./views/board/1on1/board_1on1_manager_detail.jsp?idx=<%=no %>">
+				<%=answerTitle %></a></td>
+				<td></td>
+				<td></td>
 			</tr>
 
 <%					

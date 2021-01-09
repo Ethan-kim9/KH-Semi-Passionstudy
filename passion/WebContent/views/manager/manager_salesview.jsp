@@ -3,10 +3,12 @@
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
 	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
 	ArrayList<ManagerSalesVo> listMSV = (ArrayList<ManagerSalesVo>)request.getAttribute("list");
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -78,11 +80,21 @@
       </div>
     </div>
     
+    	<div class="tabtype btn_align_center tabtype_style_edit">
+		<div class="tabtype_wrapper">
+			<ul class="manager_ul_style">
+				<li><a href="manager.SalesSearch"><button class="on">월 매출 조회</button></a>
+				</li>
+				<li><a href="manager.SalesSearch.Between"><button>기간별 조회</button></a></li>
+			</ul>
+		</div>
+	</div>
+    
  <div class="membersearch-box">
     <label for="startDate"></label>
     <form action="manager.SalesView" method="post">
-      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off"/>
-      <input type="submit" value="조회"/>
+      <input id="startDate" class="date-picker" placeholder="년, 월 설정" name="searchTime" autocomplete="off" required="required"/>
+      <input type="submit" value="조회" id="StartDateInputBtn"/>
     </form>
   </div>
   
@@ -100,7 +112,6 @@ if(listMSV.isEmpty()){
 	   <script >alert('선택하신 달의 매출이 없습니다.');</script>
 	<%
 }else{
-	
 	String time = listMSV.get(0).getPaymentDate().toString();
 	String day	 = time.substring(8,10);
 }%>
@@ -132,8 +143,7 @@ if(listMSV.isEmpty()){
             if(msv.getPaymentMethod().charAt(0) =='C'){
             	card = msv.getPaymentPrice();
             }else
-            	cash =msv.getPaymentPrice();
-            
+            	cash =msv.getPaymentPrice();      
             %>
               <th scope="row"><%=msv.getPaymentDate().toString().substring(8,10) %>일</th>
               <td><%= card %>원 </td>

@@ -34,10 +34,10 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <form id="board_form_title" action="writerAction" method="post">
+            <form id="board_form_title" action="board_notice_manager_write" method="post">
               <input
                 type="text"
-                name="bdTitle"
+                name="title"
                 class="form-control mt-4 mb-2"
                 placeholder="제목을 입력해주세요."
                 required
@@ -46,16 +46,13 @@
                 <textarea
                   class="form-control"
                   rows="10"
-                  name="bdContent"
+                  name="content"
                   placeholder="내용을 입력해주세요"
                   required
                 ></textarea>
               </div>
               <div class="board_write_btn">
-                <a href="notice.html">
-                  <button type="button" class="write_btn yb">
-                    등록하기
-                  </button></a>
+                  <input type="submit" class="write_btn yb" value="등록하기"/>
               </div>
             </form>
           </div>

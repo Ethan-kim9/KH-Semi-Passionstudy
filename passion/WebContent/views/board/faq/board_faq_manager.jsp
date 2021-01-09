@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"%>
 <%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
 <%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,6 +13,7 @@
 %> --%>
 <%	
 	int total = dao.count();
+	FAQBoardDao faqboarDao = FAQBoardDao.getInstance();
 	ArrayList<FAQBoardVo> alist = dao.getFaqBoardList();
 	int size = alist.size();
 	int size2 = size;
@@ -52,33 +54,6 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
- <%-- <%
-	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String id = "passion";
-	String pw = "passion";
-	int total = 0;
-	
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet result = null;
-	
-	try {
-		Class.forName(driver); // JDBC드라이버 로딩
-		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
-		stmt = conn.createStatement(); //Statment타입의 객체 생성
-		String sqlCount = "SELECT COUNT(*) FROM FAQ_BOARD"; //DB내의 자료개수를 찾는 SQL문
-		String sqlList = "SELECT FAQ_NO, FAQ_TITLE, FAQ_CONTENT,FAQ_DATE FROM FAQ_BOARD ORDER BY FAQ_NO DESC"; 
-		result = stmt.executeQuery(sqlCount); // SQL실행
-		
-		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
-			total = result.getInt(1); //자료의 개수를 total에 대입한다
-		}
-		result = stmt.executeQuery(sqlList);
-
-%>  --%>
-	
-
 	<div class="cont_header">
 		<div class="cont_wrapper">
 			<h1>커뮤니티</h1>
@@ -92,9 +67,9 @@
 					href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button
 							class="btn1">공지사항</button></a></li>
 				<li><a
-					href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button
+					href="faq.FAQManagerList"><button
 							class="btn2 on">자주하는 질문</button></a></li>
-				<li><a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button
+				<li><a href="member.manager.check.do"><button
 							class="btn3">1:1문의</button></a></li>
 			</ul>
 		</div>
@@ -107,11 +82,11 @@
 				<div id="buttons" style="float:left; ">
 					<select id="board_select" name="board_select" title="문의선택"
 						class="sel">
-						<option value="member_inquiry">회원문의</option>
-						<option value="reservation_inquiry">예약문의</option>
-						<option value="payment_inquiry">결제문의</option>
-						<option value="product_inquiry">상품문의</option>
-						<option value="cancel_inquiry">취소문의</option>
+						<option value="회원문의">회원문의</option>
+						<option value="예약문의">예약문의</option>
+						<option value="결제문의">결제문의</option>
+						<option value="상품문의">상품문의</option>
+						<option value="취소문의">취소문의</option>
 					</select>
 				</div>
 				<div class="search_bar" style="margin-bottom: 15px;">
@@ -126,8 +101,9 @@
 				<table class="table" id="main_table" width="50%">
 					<tr>
 						<th><input type="checkbox" class="checkbox" id="check_all" /></th>
+						<th>NO</th>
+						<th>카테고리</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>작성일</th>
 					</tr>
 					<%
@@ -144,48 +120,22 @@
 					%>
 					<tr>
 						<td><input type="checkbox" class="checkbox" /></td>
-						<td><a style="text-decoration: none; color: black;" href="index.jsp?inc=./views/board/faq/board_faq_manager_detail.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
-						</td>
-						<td><%=vo.getFaqContent() %></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqNo() %></a></td>
+						<td><%=vo.getFaqCategory() %></td>
+						<td><%=vo.getFaqTitle() %></td>
 						<td><%=vo.getFaqDate() %></td>
 						
 					</tr>
 				<% }} %>
-				
-
-						<%-- <%
-				} else { // total이 0이 아닌 즉, 자료가 1개이상 있다면
-					
-						while(result.next()) {
-							int no = result.getInt(1); //1은 첫번째 즉 FAQ_no값을 no라는 변수에 대입
-							String title = result.getString(2); // FAQ_TITLE
-							String content = result.getString(3); //FAQ_CONTENT
-							String date = result.getString(4); // FAQ_DATE
-			%> --%>
-						
-						
-					<%-- <%					
-							
-						} //while
-				} // else
-				result.close();
-				stmt.close();
-				conn.close();
-				} catch(SQLException e) {
-					out.println(e.toString()); // 에러 날 경우 에러출력
-				}
-			
-			%> --%>
-	
 					<tr>	
 						<td align="center" colspan="4" style="border-style: none">
 							<%
 								if(pg>BLOCK)
 									{
 							%> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=1">◀◀</a>]
+							href="faq.FAQManagerList?pg=1">◀◀</a>]
 							[<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=startPage - 1%>">◀</a>]
+							href="faq.FAQManagerList?pg=<%=startPage - 1%>">◀</a>]
 							<%
 								}
 							%> <%
@@ -195,16 +145,16 @@
 							</b></u> <%
 							 		} else {
 							 %> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=i%>"><%=i%></a>]
+							href="faq.FAQManagerList?pg=<%=i%>"><%=i%></a>]
 							<%
 							 		}
 							 	}
 							 %> <%
 							 	if(endPage<allPage){
 							 %> [<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=endPage + 1%>">▶</a>]
+							href="faq.FAQManagerList?pg=<%=endPage + 1%>">▶</a>]
 							[<a
-							href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp?pg=<%=allPage%>">▶▶</a>]
+							href="faq.FAQManagerList?pg=<%=allPage%>">▶▶</a>]
 							<%
 							 	}
 							 %>

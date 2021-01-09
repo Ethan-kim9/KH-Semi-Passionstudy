@@ -20,16 +20,15 @@ public class NoticeService {
 	
 	//게시물 등록
 	public int insertNotice(NoticeVo noticeVo){
-		
 		int result = 0;
 		
-		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, MEMBER_NO) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(?,?,?,SYSDATE)";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"dbtest","1234");
-			PreparedStatement st = con.prepareStatement(sql);
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, noticeVo.getNtitle());
 			st.setString(2, noticeVo.getNcontent());
@@ -38,7 +37,7 @@ public class NoticeService {
 			result = st.executeUpdate();
 			
 			st.close();
-			con.close();
+			conn.close();
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
@@ -52,7 +51,7 @@ public class NoticeService {
 	}
 
 	//게시물 삭제
-	public int deleteNotice(int id){
+	public int deleteNotice(int nno){
 		return 0;
 	}
 	
@@ -93,9 +92,8 @@ public class NoticeService {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"dbtest","1234");
-			PreparedStatement st = con.prepareStatement(sql);
-			
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = conn.prepareStatement(sql);
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
 			st.setInt(3, page*10);
@@ -123,7 +121,7 @@ public class NoticeService {
 			
 			rs.close();
 			st.close();
-			con.close();
+			conn.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -155,8 +153,8 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"dbtest","1234");
-			PreparedStatement st = con.prepareStatement(sql);
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, "%"+query+"%");
 			
@@ -168,7 +166,7 @@ public class NoticeService {
 			
 			rs.close();
 			st.close();
-			con.close();
+			conn.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -182,23 +180,23 @@ public class NoticeService {
 	
 	//detail페이지에서 no값을 받아 detail.jsp를 보여주는 기능
 	public NoticeVo getNotice(int nno) {
+		
 		NoticeVo noticeVo = null;
 		
 		String sql = "SELECT * FROM NOTICE WHERE NOTICE_NO=?";
-
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"dbtest","1234");
-			PreparedStatement st = con.prepareStatement(sql);
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setInt(1, nno);
 
 			ResultSet rs = st.executeQuery();	
 			
 			if(rs.next()){
-				int nno1 = rs.getInt("NOTICE_NO");
+				int nnno = rs.getInt("NOTICE_NO");
 				String ntitle = rs.getString("NOTICE_TITLE");
 				int mno = rs.getInt("MEMBER_NO");
 				Date regdate = rs.getDate("REGDATE");
@@ -206,65 +204,13 @@ public class NoticeService {
 				String ncontent = rs.getString("NOTICE_CONTENT");
 				
 				noticeVo = new NoticeVo(
-						nno1,
+						nnno,
 						mno,
 						ntitle,
 						ncontent,
 						ncount,
 						regdate
 						); 
-			}
-			
-			rs.close();
-			st.close();
-			con.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return noticeVo;
-	}
-	
-	public NoticeVo getPrevNotice(int id) {
-		NoticeVo noticeVo = null;
-		String sql = "SELECT ID FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC) "
-					+"WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID=?) "
-					+"AND ROWNUM = 1";
-		
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"system","oracle");
-			PreparedStatement st = conn.prepareStatement(sql);
-			
-			st.setInt(1, id);
-			
-			ResultSet rs = st.executeQuery();	
-			
-			
-			if(rs.next()) {
-				int nno1 = rs.getInt("NOTICE_NO");
-				String ntitle = rs.getString("NOTICE_TITLE");
-				int mno = rs.getInt("MEMBER_NO");
-				Date regdate = rs.getDate("REGDATE");
-				int ncount = rs.getInt("NOTICE_COUNT");
-				String ncontent = rs.getString("NOTICE_CONTENT");
-				
-				noticeVo = new NoticeVo(
-						nno1,
-						mno,
-						ntitle,
-						ncontent,
-						ncount,
-						regdate
-
-						);
-			
 			}
 			
 			rs.close();
@@ -277,8 +223,10 @@ public class NoticeService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return noticeVo;
 	}
+	
 	
 	/* detail.jsp에서 다음글/이전글 볼 수 있는 기능
  	public int getNextNotice(int id) {
@@ -306,13 +254,13 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"dbtest","1234");
-			Statement st = con.createStatement();
+			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Statement st = conn.createStatement();
 			
 			result = st.executeUpdate(sql);	
 			
 			st.close();
-			con.close();
+			conn.close();
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();

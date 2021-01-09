@@ -12,12 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
 import com.passionStudy.passion.board.faqboard.model.service.FAQBoardService;
 import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
 import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-@WebServlet("/faq.insert.do")
+@WebServlet("/faq.FAQInsert")
 public class FAQInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +29,7 @@ public class FAQInsertController extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		doPost(request, response);	
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager_write.jsp").forward(request, response);
 		
 	}
 
@@ -36,35 +37,21 @@ public class FAQInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String faqCategory = request.getParameter("faqCategory");
 		String faqTitle = request.getParameter("faqTitle");
 		String faqContent = request.getParameter("faqContent");
 		
-
-		String driver="oracle.jdbc.driver.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "passion";
-		String pw = "passion";
-		Connection conn = null;
-		Statement stmt = null;
-
-		try {
-			Class.forName(driver);
-			conn=DriverManager.getConnection(url,id,pw);
-			stmt=conn.createStatement();
-			String sql = "INSERT INTO FAQ_BOARD"+
-						"(FAQ_NO,MEMBER_NO,FAQ_TITLE,FAQ_CONTENT,FAQ_DATE)"+
-						"VALUES(FAQ_SEQ.NEXTVAL, 0 ,'"+faqTitle+"', '"+faqContent+"', SYSDATE)";
-			
-			stmt.executeUpdate(sql);
-			
-			stmt.close();
-			conn.close();
-				
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
+		FAQBoardDao dao = FAQBoardDao.getInstance();
+		FAQBoardVo vo = new FAQBoardVo();
 		
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
+		vo.setFaqCategory(faqCategory);
+		vo.setFaqTitle(faqTitle);
+		vo.setFaqContent(faqContent);
+		
+		int inResult = dao.insertFaqboard(vo);
+		
+			
+		response.sendRedirect("index.jsp?inc=./views/board/faq/board_faq_manager.jsp");
 
 	}
 

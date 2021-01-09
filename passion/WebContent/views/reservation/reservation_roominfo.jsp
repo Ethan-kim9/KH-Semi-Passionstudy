@@ -1,22 +1,12 @@
+<%@page import="com.passionStudy.passion.reservation.model.vo.RoomVo"%>
 <%@ page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
-	String pNumber = loginMember.getMemPhone();
-	String tel_first = pNumber.substring(0, 3);
-	String tel_second = pNumber.substring(3, 7);
-	String tel_third = pNumber.substring(7, 11);
-	
-	String mid = loginMember.getMemId();
-	
-	String mid_cut[] = mid.split("@");
-	  String email_id = null;
-	  String email_dns = null;
-	  if (mid_cut != null && mid_cut.length >= 2) {
-		  email_id = mid_cut[0];
-		  email_dns = mid_cut[1];
-	  }
+	RoomVo roomData = (RoomVo)request.getAttribute("rv");
+
+	System.out.println(roomData.toString());
 %>
 <!DOCTYPE html>
 <html>
@@ -370,8 +360,40 @@
 <script src="resources/JS/pagesjs/reservation_room_click.js"></script>
 <script src="resources/JS/pagesjs/reservation_change_page.js"></script>
 <script src="resources/JS/calendar.js"></script>
-</head>
+<%
+	String tel_first = null;
+	String tel_second = null;
+	String tel_third = null;
+	String email_id = null;
+	String email_dns = null;
+	if (loginMember == null) {
+	} 
+	if (loginMember != null){
+		String pNumber = loginMember.getMemPhone();
+		tel_first = pNumber.substring(0, 3);
+		tel_second = pNumber.substring(3, 7);
+		tel_third = pNumber.substring(7, 11);
 
+		String mid = loginMember.getMemId();
+
+		String mid_cut[] = mid.split("@");
+		if (mid_cut != null && mid_cut.length >= 2) {
+		email_id = mid_cut[0];
+		email_dns = mid_cut[1];
+		}
+	}
+%>
+</head>
+<%
+	if (loginMember == null) {
+%>
+<script>
+	alert('로그인 후 이용 가능한 컨텐츠입니다.');
+	location.href = 'index.jsp';
+</script>
+<%
+	}
+%>
 <body>
 	<div class="cont_header">
 		<div class="cont_wrapper">
@@ -405,7 +427,9 @@
 		<form name='formSqlData' method='post' action="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
 		<div class="result">
 			<h4 class="choose_room">
-				<%=request.getParameter("value")%>
+			<%if(roomData != null) { %>
+				<%=roomData.getRoomName()%>
+			<%} %>
 			</h4>
 			<br />
 			<h5 class="choose_day">날짜와 시간을 선택하세요.</h5>
@@ -655,7 +679,6 @@
 			</tr>
 			</table>
 			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
 			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
 			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
 			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
@@ -663,13 +686,18 @@
 			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
 			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
 			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
-			<input type='text' id='member_no' name='member_no' value=<%= loginMember.getMemNo() %> />
-			<input type='text' id='reservationName' name='reservationName' value=<%= loginMember.getMemName() %> />
+			<input type='text' id='member_no' name='member_no' value=<%if(loginMember != null) { %><%= loginMember.getMemNo() %><%} %> />
+			<input type='text' id='reservationName' name='reservationName' value=<%if(loginMember != null) { %><%= loginMember.getMemName() %><%} %> />
 			<input type='text' id='tel_first' name='tel_first' value=<%= tel_first %> />
 			<input type='text' id='tel_second' name='tel_second' value=<%= tel_second %> />
 			<input type='text' id='tel_third' name='tel_third' value=<%= tel_third %> />
 			<input type='text' id='email_id' name='email_id' value=<%= email_id %> />
 			<input type='text' id='email_dns' name='email_dns' value=<%= email_dns %> />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='roomName' name='roomName' value='<%if(roomData != null) { %><%=roomData.getRoomName()%><%} %>' />
+			<input type='text' id='roomMin' name='roomMin' value='<%if(roomData != null) { %><%=roomData.getRoomCapMin()%><%} %>' />
+			<input type='text' id='roomMax' name='roomMax' value='<%if(roomData != null) { %><%=roomData.getRoomCapMax()%><%} %>' />
+			<input type='text' id='roomPrice' name='roomPrice' value='<%if(roomData != null) { %><%=roomData.getRoomPrice()%><%} %>' />
 			
 		</form>
 	</section>

@@ -26,28 +26,23 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		response.setContentType("text/html;charset=UTF-8");
 
 		String memName = request.getParameter("username");
-		String memId = request.getParameter("userid");
 		String memPhone = request.getParameter("userphnumber");
+		String memId = request.getParameter("userid");
 		
 		MemberVo mv = new MemberVo();
 		mv.setMemName(memName);
-		mv.setMemId(memId);
 		mv.setMemPhone(memPhone);
-
-		int memNo = 0;
-		try {
-			memNo = new MemberService().findPwdMember(mv);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		mv.setMemId(memId);
+		
+		int memNo = new MemberService().findPwdMember(mv);
 		
 		if(memNo > 0) {
 			request.setAttribute("result", "비밀번호 변경");
 			request.setAttribute("memId", memId);
-			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
+			request.getRequestDispatcher("view/member/find_pwd_complete/jsp").forward(request, response);
 		}else {
-			request.setAttribute("result", "찾기 실패!");
-			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
+			request.setAttribute("result", "비밀번호 찾기 실패!");
+			request.getRequestDispatcher("view/member/find_pwd_complete/jsp").forward(request, response);
 		}
 		
 	}

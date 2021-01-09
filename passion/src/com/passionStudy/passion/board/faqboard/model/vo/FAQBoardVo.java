@@ -5,15 +5,17 @@ import java.util.Date;
 public class FAQBoardVo {
 	private int faqNo;  //게시글번호
 	private int memberNo; //멤버 번호
+	private String faqCategory; //게시글 카테고리
 	private String faqTitle; //게시글 제목
 	private String faqContent; //게시글 내용
 	private Date faqDate; //게시글 작성일자
 	private String show;  //게시글 삭제 상태 유무
 	
-	public FAQBoardVo(int faqNo, int memberNo, String faqTitle, String faqContent,Date faqDate,String show) {
+	public FAQBoardVo(int faqNo, int memberNo, String faqCategory, String faqTitle, String faqContent,Date faqDate,String show) {
 		super();
 		this.faqNo = faqNo;
 		this.memberNo = memberNo;
+		this.faqCategory = faqCategory;
 		this.faqTitle = faqTitle;
 		this.faqContent = faqContent;
 		this.faqDate = faqDate;
@@ -40,6 +42,14 @@ public class FAQBoardVo {
 		this.memberNo = memberNo;
 	}
 
+	public String getFaqCategory() {
+		return faqCategory;
+	}
+
+	public void setFaqCategory(String faqCategory) {
+		this.faqCategory = faqCategory;
+	}
+	
 	public String getFaqTitle() {
 		return faqTitle;
 	}
@@ -74,9 +84,11 @@ public class FAQBoardVo {
 
 	@Override
 	public String toString() {
-		return "FAQBoardVo [faqNo=" + faqNo + ", memberNo=" + memberNo + ", faqTitle=" + faqTitle + ", faqContent="
-				+ faqContent + ", faqDate=" + faqDate + ", show=" + show + "]";
+		return "FAQBoardVo [faqNo=" + faqNo + ", memberNo=" + memberNo + ", faqCategory=" + faqCategory + ", faqTitle="
+				+ faqTitle + ", faqContent=" + faqContent + ", faqDate=" + faqDate + ", show=" + show + "]";
 	}
+
+	
 	
 	
 	
