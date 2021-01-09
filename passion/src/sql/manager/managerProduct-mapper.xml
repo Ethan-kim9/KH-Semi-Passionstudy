@@ -12,18 +12,18 @@
 	FROM 
 		ROOM
             WHERE 
-            	ROOM_NO  <= 31
+            	<![CDATA[ROOM_NO  <= 31]]>
             ORDER BY 
             	ROOM_NO ASC
+
 </entry>
 
-<entry key="UPDATE">
+<entry key="setRoomType">
 	UPDATE 
 			ROOM
-				SET ROOM_TYPE = ?
-			FROM
-				ROOM
-			WHERE
-				ROOM_NO = ?
+				SET 
+					ROOM_TYPE = ?
+				WHERE
+					ROOM_NO = ?
 </entry>
 </properties>
