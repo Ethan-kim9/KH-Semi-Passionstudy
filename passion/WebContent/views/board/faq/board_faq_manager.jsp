@@ -54,33 +54,6 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
- <%-- <%
-	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String id = "passion";
-	String pw = "passion";
-	int total = 0;
-	
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet result = null;
-	
-	try {
-		Class.forName(driver); // JDBC드라이버 로딩
-		conn = DriverManager.getConnection(url,id,pw); // DB서버연결
-		stmt = conn.createStatement(); //Statment타입의 객체 생성
-		String sqlCount = "SELECT COUNT(*) FROM FAQ_BOARD"; //DB내의 자료개수를 찾는 SQL문
-		String sqlList = "SELECT FAQ_NO, FAQ_TITLE, FAQ_CONTENT,FAQ_DATE FROM FAQ_BOARD ORDER BY FAQ_NO DESC"; 
-		result = stmt.executeQuery(sqlCount); // SQL실행
-		
-		if(result.next()) { //result.next()의 반환 값은 true or false이다 찾는결과가 있으면 ture
-			total = result.getInt(1); //자료의 개수를 total에 대입한다
-		}
-		result = stmt.executeQuery(sqlList);
-
-%>  --%>
-	
-
 	<div class="cont_header">
 		<div class="cont_wrapper">
 			<h1>커뮤니티</h1>
@@ -128,9 +101,9 @@
 				<table class="table" id="main_table" width="50%">
 					<tr>
 						<th><input type="checkbox" class="checkbox" id="check_all" /></th>
+						<th>NO</th>
 						<th>카테고리</th>
 						<th>제목</th>
-						<th>내용</th>
 						<th>작성일</th>
 					</tr>
 					<%
@@ -147,40 +120,13 @@
 					%>
 					<tr>
 						<td><input type="checkbox" class="checkbox" /></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqNo() %></a></td>
 						<td><%=vo.getFaqCategory() %></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqTitle() %></a>
-						</td>
-						<td><%=vo.getFaqContent() %></td>
+						<td><%=vo.getFaqTitle() %></td>
 						<td><%=vo.getFaqDate() %></td>
 						
 					</tr>
 				<% }} %>
-				
-
-						<%-- <%
-				} else { // total이 0이 아닌 즉, 자료가 1개이상 있다면
-					
-						while(result.next()) {
-							int no = result.getInt(1); //1은 첫번째 즉 FAQ_no값을 no라는 변수에 대입
-							String title = result.getString(2); // FAQ_TITLE
-							String content = result.getString(3); //FAQ_CONTENT
-							String date = result.getString(4); // FAQ_DATE
-			%> --%>
-						
-						
-					<%-- <%					
-							
-						} //while
-				} // else
-				result.close();
-				stmt.close();
-				conn.close();
-				} catch(SQLException e) {
-					out.println(e.toString()); // 에러 날 경우 에러출력
-				}
-			
-			%> --%>
-	
 					<tr>	
 						<td align="center" colspan="4" style="border-style: none">
 							<%

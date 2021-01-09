@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
+import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+import com.passionStudy.qnaBoard.dao.QnaDao;
+import com.passionStudy.qnaBoard.vo.QnaVo;
+
 /**
  * Servlet implementation class FAQModifyWriteController
  */
@@ -22,19 +27,30 @@ public class FAQModifyWriteController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager_modifyWrite.jsp").forward(request, response);	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+		doPost(request, response);
+    }
+    
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		int faqNo = Integer.parseInt(request.getParameter("idx"));
+		
+		FAQBoardDao dao = FAQBoardDao.getInstance();
+		FAQBoardVo vo = new FAQBoardVo();
+		
+		vo = dao.modifyView(faqNo);
+		
+		request.setAttribute("vo", vo);
+		
+		System.out.println(vo.getFaqTitle());
+		System.out.println(vo.getFaqContent());
+		
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager_modifyWrite.jsp").forward(request, response);	}
+
 	}
 
-}
+
