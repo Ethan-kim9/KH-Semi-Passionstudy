@@ -22,7 +22,7 @@ public class NoticeService {
 	public int insertNotice(NoticeVo noticeVo){
 		int result = 0;
 		
-		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT, MEMBER_NO) VALUES(?,?,?)";
+		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(?,?,?,SYSDATE)";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
 		try {

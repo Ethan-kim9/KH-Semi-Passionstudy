@@ -16,6 +16,7 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 public class RegController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request
 		.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager_write.jsp")
 		.forward(request, response);
