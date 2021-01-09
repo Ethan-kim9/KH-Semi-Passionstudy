@@ -1,8 +1,6 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -55,8 +53,8 @@
                 ></textarea>
               </div>
               <div class="board_write_btn">
-                  <button type="submit" class="write_btn yb">
-                    등록하기
+                  <button type="submit" name="qna_writer" value="qna_writer" class="write_btn yb">
+               등록
                   </button>
                        <input type="button" value="취소" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1.jsp'">
 

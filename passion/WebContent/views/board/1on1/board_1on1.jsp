@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
@@ -72,6 +73,8 @@
 		
 		String sqlList = "SELECT QNA_NO, QNA_TITLE, QNA_WRITER, QNA_DATE, ANSWER_TITLE, ANSWER_CONTENT, BOARD_ANSWER FROM QNA_BOARD WHERE PAGING_STACK >="+start+" AND PAGING_STACK <="+end+" ORDER BY PAGING_STACK ASC";
 		result = stmt.executeQuery(sqlList);
+		
+		MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 %>
 
     <div class="cont_header">
