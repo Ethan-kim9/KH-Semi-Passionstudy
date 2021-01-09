@@ -143,6 +143,7 @@
 			data : {roomno 	  : "<%=list.get(0).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -161,6 +162,7 @@
 			data : {roomno 	  : "<%=list.get(1).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -179,6 +181,7 @@
 			data : {roomno 	  : "<%=list.get(2).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -197,6 +200,7 @@
 			data : {roomno 	  : "<%=list.get(3).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -215,6 +219,7 @@
 			data : {roomno 	  : "<%=list.get(4).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -233,6 +238,7 @@
 			data : {roomno 	  : "<%=list.get(5).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -251,6 +257,7 @@
 			data : {roomno 	  : "<%=list.get(6).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -269,6 +276,7 @@
 			data : {roomno 	  : "<%=list.get(7).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},
@@ -287,6 +295,7 @@
 			data : {roomno 	  : "<%=list.get(8).getRoomNo()%>",
 					roomStatus : value},
 			success  : function(){
+				alert('방의 상태가 변경되었습니다.');
 				location.href="manager.ProductSearch";
 				<%}%>
 			},

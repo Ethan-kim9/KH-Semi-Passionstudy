@@ -244,6 +244,7 @@
 			data : {memno : "<%= list.get(0).getMemNo()%>"},
 			
 			success  : function(){
+				alert('회원의 비밀번호가 변경되었습니다.');
 				location.href="manager.MemberSearch2?name=<%=list.get(0).getMemName()%>&phone=<%=list.get(0).getMemPhone()%>";
 				<%}%>
 			},
@@ -263,6 +264,7 @@
 					memPoint : value},
 			
 			success  : function(){
+				alert('회원의 포인트가 변경되었습니다.');
 				location.href="manager.MemberSearch2?name=<%=list.get(0).getMemName()%>&phone=<%=list.get(0).getMemPhone()%>";
 				<%}%>
 			},
@@ -282,6 +284,7 @@
 					memStatus : value},
 			
 			success  : function(){
+				alert('회원의 상태가 변경되었습니다.');
 				location.href="manager.MemberSearch2?name=<%=list.get(0).getMemName()%>&phone=<%=list.get(0).getMemPhone()%>";
 				<%}%>
 			},
