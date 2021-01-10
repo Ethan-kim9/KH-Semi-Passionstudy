@@ -106,7 +106,7 @@
             <a href="faq.ManagerOrUser"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
-            <a href=""><button class="btn3 on">1:1문의</button></a>
+            <a href="member.manager.check.do"><button class="btn3 on">1:1문의</button></a>
           </li>
         </ul>
       </div>
