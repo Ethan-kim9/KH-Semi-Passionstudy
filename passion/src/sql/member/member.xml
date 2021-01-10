@@ -111,8 +111,8 @@
 	     , TOKEN1
 	     , TOKEN2
 	  FROM MEMBER
-	 WHERE MEMBER_NAME = ?
-	   AND MEMBER_ID = ?
+	 WHERE MEMBER_ID = ?
+	   AND MEMBER_NAME = ?
 	   AND MEMBER_PHONE = ?
 	   AND MEMBER_STATUS = 'N'
 </entry>

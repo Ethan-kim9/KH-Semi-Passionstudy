@@ -1,7 +1,6 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-@WebServlet(name="FindPwd", urlPatterns = {"/findPwd"})
+@WebServlet("/findPwd.do")
 public class MemberFindPwdController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
@@ -33,9 +32,12 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		if(findPwdMember != null) {
 			request.setAttribute("findPwdMember", findPwdMember);
+			request.setAttribute("memId", memId);
+			request.setAttribute("memName", memName);
+			request.setAttribute("memPhone", memPhone);
 			request.getRequestDispatcher("index.jsp?inc=./views/member/find_pwd_complete.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "비밀번호 찾기 실패!");
+			request.setAttribute("msg", "찾기 실패! 정확한 정보를 입력해 주세요.");
 			request.getRequestDispatcher("index.jsp?inc=./views/member/member_find.jsp").forward(request, response);
 		}
 		
