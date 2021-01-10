@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
 
-
+//자주묻는질문 삭제
 @WebServlet("/faq.FAQDelete")
 public class FAQDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class FAQDeleteController extends HttpServlet {
     	
     	
     	
-    	request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager.jsp").forward(request, response);
+    	request.getRequestDispatcher("faq.ManagerOrUser").forward(request, response);
 
 	}
 

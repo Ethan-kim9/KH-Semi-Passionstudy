@@ -10,8 +10,9 @@ public class FAQBoardVo {
 	private String faqContent; //게시글 내용
 	private Date faqDate; //게시글 작성일자
 	private String show;  //게시글 삭제 상태 유무
+	private int pagingStack; //페이징처리를 위한 스택
 	
-	public FAQBoardVo(int faqNo, int memberNo, String faqCategory, String faqTitle, String faqContent,Date faqDate,String show) {
+	public FAQBoardVo(int faqNo, int memberNo, String faqCategory, String faqTitle, String faqContent,Date faqDate,String show, int pagingStack) {
 		super();
 		this.faqNo = faqNo;
 		this.memberNo = memberNo;
@@ -20,6 +21,7 @@ public class FAQBoardVo {
 		this.faqContent = faqContent;
 		this.faqDate = faqDate;
 		this.show = show;
+		this.pagingStack = pagingStack;
 	}
 
 	public FAQBoardVo() {
@@ -81,11 +83,18 @@ public class FAQBoardVo {
 	public void setShow(String show) {
 		this.show = show;
 	}
+	public int getPagingStack() {
+		return pagingStack;
+	}
 
+	public void setPagingStack(int pagingStack) {
+		this.pagingStack = pagingStack;
+	}
+	
 	@Override
 	public String toString() {
 		return "FAQBoardVo [faqNo=" + faqNo + ", memberNo=" + memberNo + ", faqCategory=" + faqCategory + ", faqTitle="
-				+ faqTitle + ", faqContent=" + faqContent + ", faqDate=" + faqDate + ", show=" + show + "]";
+				+ faqTitle + ", faqContent=" + faqContent + ", faqDate=" + faqDate + ", show=" + show + ", pagingStack=" + pagingStack + "]";
 	}
 
 	

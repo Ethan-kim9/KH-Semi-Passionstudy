@@ -51,7 +51,7 @@ public class FAQInsertController extends HttpServlet {
 		int inResult = dao.insertFaqboard(vo);
 		
 			
-		response.sendRedirect("index.jsp?inc=./views/board/faq/board_faq_manager.jsp");
+		response.sendRedirect("faq.ManagerOrUser");
 
 	}
 

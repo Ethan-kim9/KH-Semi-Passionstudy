@@ -47,7 +47,7 @@ public class FAQModifyController extends HttpServlet {
 		
 		vo = dao.modify(vo);
 		
-		response.sendRedirect("index.jsp?inc=./views/board/faq/board_faq_manager.jsp");
+		response.sendRedirect("faq.ManagerOrUser");
 
 	}
 
