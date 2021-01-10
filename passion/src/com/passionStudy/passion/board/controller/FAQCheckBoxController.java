@@ -8,39 +8,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
-import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+import com.passionStudy.qnaBoard.dao.QnaDao;
 
 
-@WebServlet("/faq.FAQUserDetail")
-public class FAQUserDetailController extends HttpServlet {
+@WebServlet("/faq.FAQCheckBox")
+public class FAQCheckBoxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public FAQUserDetailController() {
+    public FAQCheckBoxController() {
         super();
+        // TODO Auto-generated constructor stub
     }
-    
+
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);	
-		
+    	doPost(request, response);	
+    	
     }
 
-    @Override
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	int faqNo = Integer.parseInt(request.getParameter("idx"));
-		
-		FAQBoardDao dao = FAQBoardDao.getInstance();
-		FAQBoardVo vo = new FAQBoardVo();
-		
-		vo = dao.getView(faqNo);
-		
-		request.setAttribute("vo", vo);
-		
-		
-		
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_user_detail.jsp").forward(request, response);
-
+		String delete = request.getParameter("delete");
+		System.out.println(delete);
+		if(delete != null) {
+			String[] deletes = request.getParameterValues("deletes");
+			System.out.println(deletes[0]);
+			if(deletes != null) {
+				FAQBoardDao dao = FAQBoardDao.getInstance();
+				dao.checkBoxDeletes(deletes);
+			}
+		}
+		response.sendRedirect("faq.ManagerOrUser");
 	}
 
 }
