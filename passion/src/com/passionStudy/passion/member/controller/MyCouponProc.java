@@ -38,7 +38,7 @@ public class MyCouponProc extends HttpServlet {
 		Vector<CouponVo> myCoupon = service.getCoupon(memNo);
 		
 		request.setAttribute("myCoupon", myCoupon);
-		RequestDispatcher dis = request.getRequestDispatcher("views/mypage/onclick/mypage_my_coupon.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("./views/mypage/onclick/mypage_my_coupon.jsp");
 		dis.forward(request, response);
 		
 	}

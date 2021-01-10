@@ -26,7 +26,7 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1 on">나의 정보</button></a>
+                <a href="Mypage.Info"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
                 <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>

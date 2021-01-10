@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 import com.passionStudy.passion.member.model.service.MyPageService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-
-@WebServlet("/CouponCount")
-public class CouponCount extends HttpServlet {
+// 쿠폰 갯수 출력해주는 컨트롤러
+@WebServlet("/Mypage.Info")
+public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public CouponCount() {
+    public MypageController() {
         super();
     }
 
