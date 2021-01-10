@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
 	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
+	<script src="resources/JS/pagesjs/reservation_point_check.js"></script>
   </head>
 <%
 	if (loginMember == null) {
@@ -114,24 +115,28 @@
               <br>
               <li class="info_list">
                 <strong class="title">예약날짜</strong>
-                <span class="data">2020.00.00 (월) </span>
+                <span class="data">
+                ${param.selectCalendarDate.substring(0, 4) }년 
+                ${param.selectCalendarDate.substring(4, 6) }월
+                ${param.selectCalendarDate.substring(6, 8) }일
+                </span>
               </li>
               <hr class="subline">
               <li class="info_list">
                 <strong class="title">예약시간</strong>
-                <span class="data">00시 ~ 00시, 00시간</span>
-                <span class="price_data">00,000원</span>
+                <span class="data">총 ${param.total_time }시간</span>
+                <span class="price_data">${param.total_time*param.roomPrice }원</span>
               </li>
               <hr class="subline">
               <li class="info_list">
                 <strong class="title">예약인원</strong>
-                <span class="data">00명</span>
+                <span class="data">${param.countUsers }명</span>
               </li>
               <hr class="subline">
               <li class="info_list">
                 <strong class="title">추가옵션</strong>
-                <span class="data">프로젝터</span>
-                <span class="price_data">00,000원</span>
+                <span class="data">모니터 : ${param.monitor}시간 / 컴퓨터 : ${param.computer }시간 / 프로젝터 : ${param.projector }시간</span>
+                <span class="price_data">총 ${(param.computer + param.projector) * 2000}원</span>
               </li>
               <hr class="subline">
             </ul>
@@ -172,13 +177,13 @@
               <br>
               <li class="info_list">
                 <strong class="title">보유</strong>
-                <span class="data"> 0,000원 </span>
+                <span class="data"> ${param.memPoint }원 </span>
               </li>
               <hr class="subline">
               <li class="info_list">
                 <strong class="title">사용</strong>
-                <input type="text" class="data">
-                <button type="button" class="all_data_use">전액사용</button>
+                <input type="text" id='usePointValue'class="data">
+                <button type="button" id='usePointCheck' class="all_data_use">사용하기</button>
                 <!-- <input type="button" value="전액사용" class="all_data_use"> -->
               </li>
               <hr class="subline">
@@ -195,7 +200,7 @@
               <br>
               <li class="info_list">
                 <strong class="title">총 금액</strong>
-                <span class="data">00,000원 </span>
+                <span class="data">${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}원 </span>
               </li>
               <hr class="subline">
               <li class="info_list">
@@ -205,14 +210,14 @@
               <hr class="subline">
               <li class="info_list">
                 <strong class="title">포인트 할인</strong>
-                <span class="data">(-) 0,000원</span>
+                <span class="data">(-) <input type="text" id='use_point_show' name='use_point_show' style="width: 120px; background-color:transparent; border:0 solid black; text-align:right;" value='0' readonly disabled />원</span>
               </li>
               <hr class="subline">
             </ul>
             <ul class="all_payment_amount">
               <li">
                 <strong class="all_payment_amount_title">총 결제 금액</strong>
-                <stong class="all_payment_amount_data">00,000원</strong>
+                <stong class="all_payment_amount_data"><input type="text" id='total_price' name='total_price' style="color: white; width: 120px; background-color:transparent; border:0 solid black; text-align:right;" value='${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}' readonly disabled />원</strong>
               </li>
             </ul>
           </div> 
@@ -323,24 +328,30 @@
       </div>
     </section>
 			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
 			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
 			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
 			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
 			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
 			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
 			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
-			<input type='text' name='countUsers' value='${param.countUsers }'/>
-			<input type='text' name='monitor' value='${param.monitor }'/>
-			<input type='text' name='computer' value='${param.computer }'/>
-			<input type='text' name='projector' value='${param.projector }'/>
-			<input type="text" name="email_id" value='${param.email_id }'/>
-			<input type="text" name="email_dns" value='${param.email_dns}'/>
-			<input type="text" name="tel_first" value='${param.tel_first }'/>
-			<input type="text" name="tel_second" value='${param.tel_second }'/>
-			<input type="text" name="tel_third" value='${param.tel_third }'/>
+			<input type='text' id='member_no' name='member_no' value='${param.member_no }'/>
+			<input type='text' id='reservationName' name='reservationName' value='${param.reservationName }'/>
+			<input type='text' id='tel_first' name='tel_first' value='${param.tel_first }' />
+			<input type='text' id='tel_second' name='tel_second' value='${param.tel_second }' />
+			<input type='text' id='tel_third' name='tel_third' value='${param.tel_third }' />
+			<input type='text' id='email_id' name='email_id' value='${param.email_id }' />
+			<input type='text' id='email_dns' name='email_dns' value='${param.email_dns }' />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='roomName' name='roomName' value='${param.roomName }' />
+			<input type='text' id='roomMin' name='roomMin' value='${param.roomMin }' />
+			<input type='text' id='roomMax' name='roomMax' value='${param.roomMax }' />
+			<input type='text' id='totalPrice' name='totalPrice' value='${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}' />
+			<input type='text' id='memPoint' name='memPoint' value='${param.memPoint }' />
+			<input type='text' id='usePoint' name='usePoint' value='${param.usePoint }' />
   </body>
+<script>
+reservation_change_page()
+</script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>
 </html>

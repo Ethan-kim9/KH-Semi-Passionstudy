@@ -6,10 +6,8 @@
 <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
 	RoomVo roomData = (RoomVo)request.getAttribute("rv");
-	ProductVo pv = (ProductVo)request.getAttribute("pv");
 
 	System.out.println(roomData.toString());
-	if(pv != null){System.out.println(pv.toString());}
 	
 %>
 <!DOCTYPE html>
@@ -603,6 +601,7 @@
 						<br /> <br />
 
 							<select id='monitor' name='monitor' class="count">
+								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -632,6 +631,7 @@
 						<br /> <br />
 
 							<select id='computer' name='computer' class="count" onchange="changeComputer(this.value)">
+								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -659,6 +659,7 @@
 						<br /> <br />
 
 							<select id='projector' name='projector' class="count">
+								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -702,15 +703,8 @@
 			<input type='text' id='roomMin' name='roomMin' value='<%if(roomData != null) { %><%=roomData.getRoomCapMin()%><%} %>' />
 			<input type='text' id='roomMax' name='roomMax' value='<%if(roomData != null) { %><%=roomData.getRoomCapMax()%><%} %>' />
 			<input type='text' id='roomPrice' name='roomPrice' value='<%if(roomData != null) { %><%=roomData.getRoomPrice()%><%} %>' />
+			<input type='text' id='memPoint' name='memPoint' value='<%if(loginMember != null) { %><%=loginMember.getMemPoint()%><%} %>' />
 			
-		</form>
-		<form method='post' action='reservation.do'>
-			<input type='text' id='roomNo' name='roomNo' value='<%if(pv != null) { %><%= pv.getRoomNo()%><%} %>' />
-			<input type='text' id='productId' name='productId' value='<%if(pv != null) { %><%= pv.getProId()%><%} %>' />
-			<input type='text' id='searchCalDate' name='searchCalDate' value='<%if(pv != null) { %><%= pv.getProData()%><%} %>'/>
-			<input type='text' id='productCon' name='productCon' value='<%if(pv != null) { %>O<%} else {%>X<% } %>' />
-			<input type='text' id='checkOX' name='checkOX' value='O'/>
-			<button>서브밋</button>
 		</form>
 	</section>
 </body>

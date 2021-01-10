@@ -150,59 +150,85 @@ public class MemberDao {
 	}
 	
 	// 아이디 찾기
-	public String findIdMember(Connection conn, String memName, String memPhone) throws SQLException {
-		String findId = null;
-		String sql = prop.getProperty("findIdMember");
+	public MemberVo findIdMember(Connection conn, String memName, String memPhone) {
+		MemberVo mv = null;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String sql = prop.getProperty("findIdMember");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, memName);
 			pstmt.setString(2, memPhone);
-			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				findId = rs.getString("MEMBER_ID");
+			while(rs.next()) {
+				mv = new MemberVo
+						(rs.getInt("MEMBER_NO"),
+						 rs.getString("MEMBER_ID"),
+						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_NAME"),
+						 rs.getString("MEMBER_PHONE"),
+						 rs.getDate("MEMBER_DATE"),
+						 rs.getString("ADMIN_CHECK"),
+						 rs.getInt("RECOM_COUNT"),
+						 rs.getString("MEMBER_STATUS"),
+						 rs.getString("AD_AGREE"),
+						 rs.getString("RECOM_CODE"),
+						 rs.getInt("MEMBER_POINT"),
+						 rs.getString("TOKEN1"),
+						 rs.getString("TOKEN2")
+						);
 			}
-		}catch(SQLException e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			rs.close();
-			pstmt.close();
+			close(rs);
+			close(pstmt);
 		}
-		
-		return findId;
+		return mv;
 	}
 	
 	// 비밀번호 찾기
-	public String findPwdMember(Connection conn, MemberVo mv) throws SQLException {
-		String findPwd = null;
-		String sql = prop.getProperty("findPwdMember");
+	public MemberVo findPwdMember(Connection conn, String memId, String memName, String memPhone) {
+		MemberVo mv = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String sql = prop.getProperty("findPwdMember");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, mv.getMemName());
-			pstmt.setString(2, mv.getMemPhone());
-			pstmt.setString(3, mv.getMemId());
-			
+			pstmt.setString(1, memId);
+			pstmt.setString(2, memName);
+			pstmt.setString(3, memPhone);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				findPwd = rs.getString("MEMBER_PWD");
+			while(rs.next()) {
+				mv = new MemberVo
+						(rs.getInt("MEMBER_NO"),
+						 rs.getString("MEMBER_ID"),
+						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_NAME"),
+						 rs.getString("MEMBER_PHONE"),
+						 rs.getDate("MEMBER_DATE"),
+						 rs.getString("ADMIN_CHECK"),
+						 rs.getInt("RECOM_COUNT"),
+						 rs.getString("MEMBER_STATUS"),
+						 rs.getString("AD_AGREE"),
+						 rs.getString("RECOM_CODE"),
+						 rs.getInt("MEMBER_POINT"),
+						 rs.getString("TOKEN1"),
+						 rs.getString("TOKEN2")
+						);
 			}
-			System.out.println(findPwd);
-
-		}catch(SQLException e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			rs.close();
-			pstmt.close();
+			close(rs);
+			close(pstmt);
 		}
-		return findPwd;
+		return mv;
 	}
 
 	

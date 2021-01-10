@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String findIdFail = (String)request.getAttribute("findIdFail");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -12,6 +16,8 @@
   </head>
   
  <body>
+ 
+
  
   <div class="find_id_btn">
       <div class="login_wrap">
@@ -36,8 +42,9 @@
               	비밀번호를 변경하실 수 있습니다.
             </p>
             <br/>
+
             
-           <form action="findId.do" method="post">
+           <form name="searchFrm" action="findId.do" method="POST">
             <div class="field_id_box">
               <section class="btn_id_push">
                 <div class="inpbx">
@@ -63,7 +70,13 @@
                     required
                   />
                 </div>
-                
+                <div class = "inpbx" style="color:red; text-align: left;">
+             	    <!-- 로그인 오류시 출력문구 입력 -->
+                   	<% if(findIdFail != null){ %>
+                   		<label id="failmsg"><%= findIdFail %></label>
+                   	<% } %>
+                </div>
+              
 	                <section>
 	          			<button type="submit" class="btn btn_me active">본인인증 하기</button>
 	        		</section>
@@ -71,7 +84,6 @@
         		</div>
               </form>
 
-           <form action="" method="post">
             <div class="field_pwd_box">
               <section class="btn_password_push">
                   
@@ -115,7 +127,6 @@
 	        		</section>
 	              </section>
         		</div>
-              </form>
 
           </div>
         </div>
@@ -126,5 +137,6 @@
 
   </body>
   <script src="resources/JS/menubar.js"></script>
+  <script src="resources/JS/pagesjs/member_search.js"></script>
   <script src="resources/JS/pagesjs/member_find_click.js"></script>
 </html>

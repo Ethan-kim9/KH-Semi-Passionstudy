@@ -40,11 +40,11 @@ public class memberOrManagerController extends HttpServlet {
 		if (session != null) {
 			MemberVo check = (MemberVo)session.getAttribute("loginMember");
 			if(check != null) {
-				if(managerCheck.equals(check.getMemStatus())) {
-					System.out.println(manager);
+				if(managerCheck.equals(check.getAdminCheck())) {
+					System.out.println(check.getAdminCheck());
 					req.setAttribute("manager", manager);
-				} else if (userCheck.equals(check.getMemStatus())) {
-					System.out.println(user);
+				} else if (userCheck.equals(check.getAdminCheck())) {
+					System.out.println(check.getAdminCheck());
 					req.setAttribute("user", user);
 				}
 			} // if(check != null)

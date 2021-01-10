@@ -22,7 +22,6 @@
 	  WHERE MEMBER_ID = ? 
 	    AND MEMBER_PWD = ?
 		AND MEMBER_STATUS = 'N'
-		 OR MEMBER_STATUS = 'A'
 </entry>
 
 <!-- 회원가입 -->
@@ -73,7 +72,21 @@
 
 <!-- 아이디 찾기 -->
 <entry key="findIdMember">
-	SELECT MEMBER_ID
+	SELECT 
+		   MEMBER_NO
+	     , MEMBER_NAME
+	     , MEMBER_ID
+	     , MEMBER_PWD
+	     , MEMBER_PHONE
+	     , MEMBER_DATE
+	     , ADMIN_CHECK
+	     , RECOM_COUNT
+	     , MEMBER_STATUS
+	     , AD_AGREE
+	     , RECOM_CODE
+	     , MEMBER_POINT
+	     , TOKEN1
+	     , TOKEN2
 	  FROM MEMBER
 	 WHERE MEMBER_NAME = ?
 	   AND MEMBER_PHONE = ?
@@ -82,7 +95,21 @@
 
 <!-- 비밀번호찾기1 ()-->
 <entry key= "findPwdMember">
-	SELECT MEMBER_PWD
+	SELECT 
+		   MEMBER_NO
+	     , MEMBER_NAME
+	     , MEMBER_ID
+	     , MEMBER_PWD
+	     , MEMBER_PHONE
+	     , MEMBER_DATE
+	     , ADMIN_CHECK
+	     , RECOM_COUNT
+	     , MEMBER_STATUS
+	     , AD_AGREE
+	     , RECOM_CODE
+	     , MEMBER_POINT
+	     , TOKEN1
+	     , TOKEN2
 	  FROM MEMBER
 	 WHERE MEMBER_NAME = ?
 	   AND MEMBER_ID = ?

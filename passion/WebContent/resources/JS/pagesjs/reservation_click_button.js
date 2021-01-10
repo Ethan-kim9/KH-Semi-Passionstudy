@@ -59,6 +59,7 @@ var reservation_click_button = function() {
 	fifth_time_btn.classList.remove('time_button_checked');
 	last_time_btn.classList.remove('time_button_checked');
 
+
 	if (first_time_btn != null) {
 		if ((firstBtnCheck - thisTimeInt) < setinterval) {
 			first_time_btn.classList.add('break_time');
@@ -220,6 +221,8 @@ function reservation_check_click_time() {
 	var roominfo_to_userinfo = getID('roominfo_to_userinfo');
 	var total_use_time = getID('total_use_time');
 	var total_time = getID('total_time');
+	var roomPrice = getID('roomPrice');
+	var roomPriceInt = roomPrice.value * 1;
 
 	var totalTimeData = (firstTimeData.value * 1 + secondTimeData.value * 1 + thirdTimeData.value * 1 + fourthTimeData.value * 1 + fifthTimeData.value * 1 + lastTimeData.value * 1 + '1') * 1;
 	if (totalTimeData == 1) {
@@ -230,26 +233,26 @@ function reservation_check_click_time() {
 		roominfo_to_userinfo.classList.remove('roominfo_to_userinfo_cancel');
 	}
 
-	if (totalTimeData == 1){
-		total_time.value='0';
-		total_use_time.value='0';
+	if (totalTimeData == 1) {
+		total_time.value = '0';
+		total_use_time.value = 0 * roomPriceInt;
 	} else if (2000000000 < totalTimeData && 4000000000 > totalTimeData) {
-		total_time.value='2';
-		total_use_time.value='2';
+		total_time.value = '2';
+		total_use_time.value = 2 * roomPriceInt;
 	} else if (4000000000 < totalTimeData && 6000000000 > totalTimeData) {
-		total_time.value='4';
-		total_use_time.value='4';
+		total_time.value = '4';
+		total_use_time.value = 4 * roomPriceInt;
 	} else if (6000000000 < totalTimeData && 8000000000 > totalTimeData) {
-		total_time.value='6';
-		total_use_time.value='6';
+		total_time.value = '6';
+		total_use_time.value = 6 * roomPriceInt;
 	} else if (8000000000 < totalTimeData && 10000000000 > totalTimeData) {
-		total_time.value='8';
-		total_use_time.value='8';
+		total_time.value = '8';
+		total_use_time.value = 8 * roomPriceInt;
 	} else if (10000000000 < totalTimeData && 12000000000 > totalTimeData) {
-		total_time.value='10';
-		total_use_time.value='10';
+		total_time.value = '10';
+		total_use_time.value = 10 * roomPriceInt;
 	} else if (12000000000 < totalTimeData) {
-		total_time.value='12';
-		total_use_time.value='12';
+		total_time.value = '12';
+		total_use_time.value = 12 * roomPriceInt;
 	}
 }

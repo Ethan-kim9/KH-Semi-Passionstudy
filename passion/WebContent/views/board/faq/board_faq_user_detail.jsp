@@ -1,12 +1,9 @@
-<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
-<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	int pg = Integer.parseInt(request.getParameter("pg"));
 %>
 
 <!DOCTYPE html>
@@ -24,7 +21,7 @@
 
     <div class="tabtype">
     </div>
-	<form action="faq.FAQDelete?idx=<%=idx %>" method="post">
+	<form action="faq.FAQUserDetail?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
         <div id="board_main">
@@ -59,7 +56,7 @@
             </tr>
           </table>
           <div id="another_buttons">
-              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQUserList?idx=<%=idx %>'">
+              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='faq.ManagerOrUser?idx=<%=idx %>'">
           </div>
         </div>
       </div>
