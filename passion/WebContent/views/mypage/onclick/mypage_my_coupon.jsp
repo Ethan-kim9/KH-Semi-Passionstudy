@@ -38,6 +38,7 @@
                 class="coupon-feed-register-input"
                 type="text"
                 placeholder="쿠폰 코드를 입력해주세요."/>
+<<<<<<< Updated upstream
               <button class="coupon-feed-register-button" type="submit">등록</button> -->
             </div>
             
@@ -46,6 +47,16 @@
 		              <div class="coupon-mold coupon-done">
             <c:forEach var="coupon" items="${myCoupon }">
                <c:if test="${coupon.couponValid.equals('X')}">
+=======
+              <button class="coupon-feed-register-button" type="submit">등록</button>
+            </div>
+            
+            <!-- 사용 불가능한 쿠폰 (이미 사용) -->
+            <c:forEach var="coupon" items="${myCoupon }">
+               <c:if test="${coupon.couponValid.equals('X')}">
+		            <div class="coupon-wrap">
+		              <div class="coupon-mold coupon-done">
+>>>>>>> Stashed changes
 		                <div class="coupon-item">
 		                  <div class="coupon-item_title">${coupon.couponName }</div>
 		                  <div class="coupon-item_price">
@@ -58,12 +69,18 @@
 		                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 		                  <div class="coupon-item_status-done"> 사용불가 </div>
 		                </div>
+<<<<<<< Updated upstream
+=======
+		              </div>
+		             </div>
+>>>>>>> Stashed changes
                </c:if>
             </c:forEach>
 		              </div>
 		             <!-- </div> -->
 
 			<!-- 사용가능한 쿠폰 -->
+<<<<<<< Updated upstream
 			<div class="coupon-feed-container">
             <div class="coupon-feed-register">
               <h3 class="coupon-feed-register-title">사용가능 쿠폰</h3>
@@ -77,6 +94,11 @@
 	              <div class="coupon-mold">
 			<c:forEach var="coupon" items="${myCoupon }">
 				<c:if test="${coupon.couponValid.equals('O')}">
+=======
+			<c:forEach var="coupon" items="${myCoupon }">
+				<c:if test="${coupon.couponValid.equals('O')}">
+	              <div class="coupon-mold">
+>>>>>>> Stashed changes
 	                <div class="coupon-item">
 	                  <div class="coupon-item_title">${coupon.couponName }</div>
 	                  <div class="coupon-item_price">
@@ -89,9 +111,15 @@
 	                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 	                  <div class="coupon-item_status-get" > 사용가능 </div>
 	               	</div>
+<<<<<<< Updated upstream
 				</c:if>
 			</c:forEach>
 	               </div>
+=======
+	               </div>
+				</c:if>
+			</c:forEach>
+>>>>>>> Stashed changes
 
              </div>
           </div>
