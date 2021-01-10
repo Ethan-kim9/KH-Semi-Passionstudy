@@ -30,7 +30,6 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-<form action="" method="post">
 <%
 	final String nonMemberCheck = "비회원";
 	final String managerCheck = "관리자";
@@ -113,6 +112,8 @@
       </div>
     </div>
 
+
+<form id="delete" action="qna.checkBox.do" method="post">
     <section>
       <div id="board">
         <div id="board_main">
@@ -132,8 +133,9 @@
 	if(managerCheck.equals(manager)){
 %>         
           <div id="buttons" style = "float: right; padding-right: 15px;">
-              <input type="submit" class="write_btn yb" value="삭제 " style="float: none">
-                    
+              <button type="submit" form="delete" name="delete" value="delete" class="write_btn yb" style="float: none">
+               삭제
+               </button>     
           </div>
 <%
 	}

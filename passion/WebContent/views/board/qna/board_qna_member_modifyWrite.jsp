@@ -43,7 +43,7 @@
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb">
-                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='index.jsp?inc=./views/board/qna/board_qna_member_list.jsp'">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='member.manager.check.do'">
               </div>
             </form>
           </div>
