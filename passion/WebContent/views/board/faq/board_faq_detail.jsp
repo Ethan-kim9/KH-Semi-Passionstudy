@@ -59,7 +59,7 @@
             </tr>
           </table>
           <div id="another_buttons">
-              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQUserList'">
+              <input type="button" value="목록으로" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQUserList?idx=<%=idx %>'">
           </div>
         </div>
       </div>

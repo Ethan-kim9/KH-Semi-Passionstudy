@@ -87,8 +87,7 @@
 				</div>
 				<table class="table" id="main_table" width="50%">
 					<tr>
-						<th><input type="checkbox" class="checkbox" id="check_all" /></th>
-						<th>NO</th>
+						<th><input type="checkbox" class="check_all" id="check_all" /></th>
 						<th>카테고리</th>
 						<th>제목</th>
 						<th>작성일</th>
@@ -106,9 +105,8 @@
 								int idx = vo.getFaqNo();
 					%>
 					<tr>
-						<td><input type="checkbox" class="checkbox" /></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqNo() %></a></td>
-						<td><%=vo.getFaqCategory() %></td>
+						<td><input type="checkbox" class="checkbox" data-faqNo="${vo.faqNo }"/></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=idx%>&pg=<%=pg%>"><%=vo.getFaqCategory() %></a></td>
 						<td><%=vo.getFaqTitle() %></td>
 						<td><%=vo.getFaqDate() %></td>
 						
@@ -157,7 +155,7 @@
 					</input>
 					<!-- </a> -->
 					<button type="button" class="remove_btn yb"
-						style="float: right;">삭제</button>
+						style="float: right;" data-faqNo="${vo.faqNo }">삭제</button>
 				</div>
 				
 			</div>
@@ -166,7 +164,8 @@
 </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script>
-	  $(".table").on("click","#check_all", function() {
+  	 //전체 선택 해제
+	  $(".table").on("click",".check_all", function() {
 	      var checked = $(this).is(":checked");
 	
 	      if(checked){
@@ -175,5 +174,32 @@
 	        $(this).parents(".table").find('input').prop("checked",false);
 	      }
 	  });
+	 //개별 체크박스가 선택되거나 선택해제되면 모두 선택 체크박스가 해제
+	  $(".checkbox").click(function(){
+			$(".check_all").prop("checked",false);
+	  });
+	//선택 삭제 버튼
+	$(".remove_btn yb").click(function(){
+		var confirm_val = confirm("정말 삭제하시겠습니까?");
+
+		if(confirm_val) {
+			var checkArr = new Array();
+
+			$("input[class="checkbox"]:checked").each(function(){
+				checkArr.push($(this).attr("data-faqNo"));
+			});
+
+			$.ajax({
+			    url : "/shop/deleteCart",
+			    type : "post",
+			    data : { chbox : checkArr },
+			    success : function(){
+			     location.href = "/faq/board_faq_manager";
+			    }
+			});
+
+			}
+		});
+		 
   </script>
 </html>
