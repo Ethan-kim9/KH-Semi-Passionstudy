@@ -34,7 +34,7 @@
           <table class="table" id="main_table" width="50%">
 	        <thead>
 	        <tr>  
-	           <th><input type="checkbox" class="checkbox" /></th>
+	           <th><input type="checkbox" class="checkall" /></th>
 	           <th>번호</th>
 	           <th>제목</th>
 	           <th>작성자</th>
@@ -108,7 +108,17 @@
         </div>
       </div>
     </section>
-
   </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+  	$(document).ready(function(){
+  		$(".checkall").click(function(){
+  			if($(".checkall").prop("checked")){
+  				$("input[name=del-id]").prop("checked",true);
+  			}else{
+  				$("input[name=del-id]").prop("checked",false);
+  			}
+  		})
+  	})
+  </script>
 </html>

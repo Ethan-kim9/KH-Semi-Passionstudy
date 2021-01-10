@@ -7,16 +7,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="tabtype">
       <div class="tabtype_wrapper" style="text-align: center;">
-        <ul>
-          <li>
-            <a href="./board_notice"><button class="btn1 on">공지사항</button></a>
+        <ul class="tabul">
+          <li class="tabli">
+            <a href="./board_notice"><button class="btn1 ">공지사항</button></a>
           </li>
           <li>
           <%
           MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
           if(loginMember==null || !"A".equals(loginMember.getAdminCheck())  ){%>
-          %>
-          	<%-- 알번 사용자 faq 화면 --%>
+ 
+          	<%-- 일반 사용자 faq 화면 --%>
             <a href="./faq.FAQUserList"><button class="btn2">자주하는 질문</button></a>
           <%
           }else{
