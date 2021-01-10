@@ -112,4 +112,18 @@ public class MyPageService {
 		return myCoupon;
 	}
 	
+	// 쿠폰 갯수 가져오기
+	public int getCouponCount(int memberNo) {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		int couponCount = mdao.getCouponCount(conn, memberNo);
+		
+		close(conn);
+		return couponCount;
+	}
+
+	
+	
+	
+	
 }

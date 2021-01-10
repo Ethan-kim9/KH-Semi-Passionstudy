@@ -266,5 +266,33 @@ public class MyPageDao {
 		}
 		return myCoupon;
 	} 
+	
+	// 내 쿠폰 갯수 가져오기
+	public int getCouponCount(Connection conn, int memberNo) {
+		// 리턴타입
+		int couponCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT(*) FROM COUPON WHERE MEMBER_NO = ? AND COUPON_VALID = 'O'";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				couponCount = rs.getInt(1);
+			}
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return couponCount;
+	}
+	
+	
 
 }
