@@ -40,6 +40,7 @@
                 placeholder="쿠폰 코드를 입력해주세요."/>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               <button class="coupon-feed-register-button" type="submit">등록</button> -->
             </div>
             
@@ -48,6 +49,16 @@
 		              <div class="coupon-mold coupon-done">
             <c:forEach var="coupon" items="${myCoupon }">
                <c:if test="${coupon.couponValid.equals('X')}">
+=======
+              <button class="coupon-feed-register-button" type="submit">등록</button>
+            </div>
+            
+            <!-- 사용 불가능한 쿠폰 (이미 사용) -->
+            <c:forEach var="coupon" items="${myCoupon }">
+               <c:if test="${coupon.couponValid.equals('X')}">
+		            <div class="coupon-wrap">
+		              <div class="coupon-mold coupon-done">
+>>>>>>> Stashed changes
 =======
               <button class="coupon-feed-register-button" type="submit">등록</button>
             </div>
@@ -82,6 +93,11 @@
 		                </div>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+		              </div>
+		             </div>
+>>>>>>> Stashed changes
 =======
 		              </div>
 		             </div>
@@ -96,6 +112,7 @@
 		             <!-- </div> -->
 
 			<!-- 사용가능한 쿠폰 -->
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 			<div class="coupon-feed-container">
@@ -121,6 +138,11 @@
 				<c:if test="${coupon.couponValid.equals('O')}">
 	              <div class="coupon-mold">
 >>>>>>> Stashed changes
+=======
+			<c:forEach var="coupon" items="${myCoupon }">
+				<c:if test="${coupon.couponValid.equals('O')}">
+	              <div class="coupon-mold">
+>>>>>>> Stashed changes
 	                <div class="coupon-item">
 	                  <div class="coupon-item_title">${coupon.couponName }</div>
 	                  <div class="coupon-item_price">
@@ -135,9 +157,15 @@
 	               	</div>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				</c:if>
 			</c:forEach>
 	               </div>
+=======
+	               </div>
+				</c:if>
+			</c:forEach>
+>>>>>>> Stashed changes
 =======
 	               </div>
 				</c:if>
