@@ -7,13 +7,23 @@
 <html>
   <head>
       <title>mypage- 1대1 문의</title>
+
       <script>
-	      	function spread(id){
-	      		var getId = document.getElementById(id);
-	      		
-	      		getId.style.display=(getId.style.display == 'block') ? 'none' : 'block';
-	      		
-	      	}
+      	/* html이 다 로딩되고 실행 */
+      	$(document).ready(function(){
+      		// state-complete를 클릭했을 때
+      		$(".state-complete").click(function(){
+      			var submenu = $(this).next("ul");
+      			//  submenu가 화면상에 보인다면 위로 접고, 아니면 펼치기
+      			if(submenu.is(":visible")){
+      				submenu.slideUp();
+      			}else {
+      				submenu.slideDown();
+      			}
+      		});
+      		
+      	});
+      
       </script>
   </head>
   <body>
@@ -28,7 +38,7 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1">나의 정보</button></a>
+                <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
                 <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
@@ -87,8 +97,8 @@
           <ul>
             <!--li 1개당 답변완료 틀 1개-->
             <li id="12345">
-	<c:forEach var="qna" items="${qnalist }">
-              <p class="state-complete" onclick="spread('hiddenContent');">
+			<c:forEach var="qna" items="${qnalist }">
+              <p class="state-complete"><!-- onclick="spread('hiddenContent');" -->
                 <strong>
                 	<c:choose>
                 		<c:when test="${qna.boardAnswer == 0 }">
@@ -104,14 +114,14 @@
               </p>
               
               <!--사용자가 클릭하지 않는 이상 보이지 않는 블록-->
-              <ul id="hiddenContent" class="expansion">	
+              <ul  class="expansion">	<!-- id="hiddenContent" -->
                 <li class="question">
-                  <strong>${qna.category } test</strong>
+                  <strong>${qna.category }</strong>
                   <!-- <ul></ul> -->
-                  <p>${qna.qnaContent }  test</p>
+                  <p>${qna.qnaContent }</p>
                 </li>
                 
-                <c:if test="${qna.boardAnswer == 0 }">
+                <c:if test="${qna.boardAnswer == 1 }">
 	                <li class="answer">
 	                  <strong>답변완료</strong>
 	                  <p>

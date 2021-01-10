@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.passionStudy.passion.member.model.service.MyPageService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-// 쿠폰 갯수 출력해주는 컨트롤러
+// 쿠폰 갯수 출력해주는 컨트롤러(이 서블릿이 마이페이지의 디폴트페이지가 되야함)
 @WebServlet("/Mypage.Info")
 public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
