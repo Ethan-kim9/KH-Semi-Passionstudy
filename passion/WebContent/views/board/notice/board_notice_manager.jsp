@@ -20,21 +20,7 @@
       </div>
     </div>
 
-    <div class="tabtype">
-	   <div class="tabtype_wrapper" style="text-align: center;">        
-        <ul>
-          <li>
-            <a href="./board_notice"><button class="btn1 on">공지사항</button></a>
-          </li>
-          <li>
-            <a href="./faq.FAQManagerList"><button class="btn2">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="./board_1on1"><button class="btn3">1:1문의</button></a>
-          </li> <!-- 경로 찾아서 설정 -->
-        </ul>
-      </div>
-    </div>
+    <jsp:include page="../inc/board_head.jsp"/>
 
     <section>
       <div id="board">
