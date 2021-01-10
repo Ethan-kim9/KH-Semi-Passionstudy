@@ -1,7 +1,6 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-import java.util.Vector;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,21 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.passionStudy.passion.member.model.service.MyPageService;
-import com.passionStudy.passion.member.model.vo.CouponVo;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
-
-@WebServlet("/MyCoupon")
-public class MyCouponProc extends HttpServlet {
+// 쿠폰 갯수 출력해주는 컨트롤러
+@WebServlet("/Mypage.Info")
+public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public MyCouponProc() {
+   
+    public MypageController() {
         super();
-        
     }
 
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
@@ -35,17 +32,17 @@ public class MyCouponProc extends HttpServlet {
 		int memNo = loginMember.getMemNo();
 		
 		MyPageService service = new MyPageService();
-		Vector<CouponVo> myCoupon = service.getCoupon(memNo);
+		int couponCount = service.getCouponCount(memNo);
 		
-		request.setAttribute("myCoupon", myCoupon);
-		RequestDispatcher dis = request.getRequestDispatcher("./views/mypage/onclick/mypage_my_coupon.jsp");
+		request.setAttribute("couponCount",	couponCount);
+		RequestDispatcher dis = request.getRequestDispatcher("index.jsp?inc=./views/mypage/mypage.jsp");
+		System.out.println(couponCount);
 		dis.forward(request, response);
-		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		doGet(request, response);
 	}
 

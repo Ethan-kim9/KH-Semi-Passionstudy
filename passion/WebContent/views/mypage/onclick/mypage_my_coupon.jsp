@@ -3,11 +3,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String contextPath = request.getContextPath();
+%>
 
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" href="../../../resources/CSS/styles.css">
+      <link rel="stylesheet" href="../../../<%=contextPath %>/resources/CSS/styles.css">
+ 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <title>내쿠폰</title>
@@ -33,119 +37,55 @@
               <input
                 class="coupon-feed-register-input"
                 type="text"
-                placeholder="쿠폰 코드를 입력해주세요."
-              />
-              <button class="coupon-feed-register-button" type="submit">
-                등록
-              </button>
+                placeholder="쿠폰 코드를 입력해주세요."/>
+              <button class="coupon-feed-register-button" type="submit">등록</button>
             </div>
             
+            <!-- 사용 불가능한 쿠폰 (이미 사용) -->
             <c:forEach var="coupon" items="${myCoupon }">
-            <div class="coupon-wrap">
-              <div class="coupon-mold coupon-done">
-                <div class="coupon-item">
-                  <div class="coupon-item_title">${coupon.couponName }</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">${coupon.couponPrice }</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·${coupon.couponDate }</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-done">받았음</div>	<!-- 여기부터 할 차례 -->
-                </div>
-              </div>
-             </div>
+               <c:if test="${coupon.couponValid.equals('X')}">
+		            <div class="coupon-wrap">
+		              <div class="coupon-mold coupon-done">
+		                <div class="coupon-item">
+		                  <div class="coupon-item_title">${coupon.couponName }</div>
+		                  <div class="coupon-item_price">
+		                    <span class="coupon-item_price-number">${coupon.couponPrice }</span>
+		                    <span class="coupon-item_price-won">원</span>
+		                  </div>
+		                  <div class="coupon-item_due-date">
+		                    <span>·${coupon.couponDate }</span>
+		                  </div>
+		                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
+		                  <div class="coupon-item_status-done"> 사용불가 </div>
+		                </div>
+		              </div>
+		             </div>
+               </c:if>
             </c:forEach>
 
-              <div class="coupon-mold">
-                <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get" onclick="location.href='#'">받기</div>
-                </div>
+			<!-- 사용가능한 쿠폰 -->
+			<c:forEach var="coupon" items="${myCoupon }">
+				<c:if test="${coupon.couponValid.equals('O')}">
+	              <div class="coupon-mold">
+	                <div class="coupon-item">
+	                  <div class="coupon-item_title">${coupon.couponName }</div>
+	                  <div class="coupon-item_price">
+	                    <span class="coupon-item_price-number">${coupon.couponPrice }</span>
+	                    <span class="coupon-item_price-won">원</span>
+	                  </div>
+	                  <div class="coupon-item_due-date">
+	                    <span>·${coupon.couponDate }</span>
+	                  </div>
+	                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
+	                  <div class="coupon-item_status-get" > 사용가능 </div>
+	               	</div>
+	               </div>
+				</c:if>
+			</c:forEach>
 
-                <!-- <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get">받기</div>
-                </div>
-
-                <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get">받기</div>
-                </div>
-
-                <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get">받기</div>
-                </div>
-
-                <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get">받기</div>
-                </div>
-
-                <div class="coupon-item">
-                  <div class="coupon-item_title">[스터디룸명] 할인쿠폰</div>
-                  <div class="coupon-item_price">
-                    <span class="coupon-item_price-number">5,000</span>
-                    <span class="coupon-item_price-won">원</span>
-                  </div>
-                  <div class="coupon-item_due-date">
-                    <span>·2020년 12월 19일까지</span>
-                  </div>
-                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
-                  <div class="coupon-item_status-get">받기</div>
-                </div> -->
-
-                </div>
-              </div>
-
-
-            </div>
+             </div>
           </div>
-        </div>
-      </div>
+       </div>
     </section>
 
   </body>

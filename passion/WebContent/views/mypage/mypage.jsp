@@ -1,6 +1,7 @@
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
@@ -25,7 +26,7 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1 on">나의 정보</button></a>
+                <a href="Mypage.Info"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
                 <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>
@@ -53,6 +54,7 @@
               <h6 class="mypage-main-front_user">
                 <strong class="mypage-main-front-user-name"><%=loginMember.getMemName() %></strong>
                 님 반갑습니다.
+                <a href="CouponCount">쿠폰테스트</a>
               </h6>
               
             </div>
@@ -67,9 +69,10 @@
                 </strong>
               </p>
               <p>
+                <c:set var="couponCount" value="${couponCount }"/>
                 <h6>내 쿠폰</h6>
                 <strong class="mine-coupon-count">
-                  <a href="views/mypage/onclick/mypage_my_coupon.jsp" class="mine-mycoupon">2</a>
+                  <a href="MyCoupon" class="mine-mycoupon">${couponCount }</a>
                   <span>개</span>
                 </strong>
               </p>

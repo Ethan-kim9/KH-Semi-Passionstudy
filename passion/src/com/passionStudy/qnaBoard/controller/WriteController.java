@@ -30,6 +30,7 @@ public class WriteController extends HttpServlet {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		HttpSession session = req.getSession(false);
+		
 		MemberVo user  = (MemberVo)session.getAttribute("loginMember");			
 		String qnaWriter = null;
 		

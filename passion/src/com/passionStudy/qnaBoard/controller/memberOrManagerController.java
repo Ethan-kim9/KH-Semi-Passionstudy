@@ -19,43 +19,53 @@ public class memberOrManagerController extends HttpServlet {
 		// TODO Auto-generated method stub
 		process(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		process(req, resp);
 	}
-	
+
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		HttpSession session = req.getSession(false);
 		final String manager = "A";
-		final String user = "B";
+		final String user = "N";
 		String message = "로그인 안하면 페이지 안보여줌 숙5";
+
+		HttpSession session = req.getSession(false);
+
 		
-		MemberVo check = (MemberVo)session.getAttribute("loginMember");
 		
-//			if(manager.equals(check.getMemStatus())) {
-//				System.out.println("관리자임");
-//				req.setAttribute("user", user);
-//				RequestDispatcher rd = req.getRequestDispatcher("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
-//				rd.forward(req, resp);
-//			} else if (user.equals(check.getMemStatus())) {
-//				req.setAttribute("user", user);
-//				System.out.println("일반유저");
-//				RequestDispatcher rd = req.getRequestDispatcher("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
-//				rd.forward(req, resp);
-//			} else
-			
+		if (session != null) 
+		{
+			MemberVo check = (MemberVo)session.getAttribute("loginMember");
+			if(check != null) 
+			{
+				if(manager.equals(check.getMemStatus()))
+				{
+					System.out.println("관리자임");
+					req.setAttribute("user", user);
+				}
+				else if (user.equals(check.getMemStatus())) 
+				{
+					System.out.println("일반유저");
+					req.setAttribute("user", user);
+				}
+			}
+			else 
+			{
+				System.out.println("비회원");
+				req.setAttribute("msg", message);			
+			}
+		}
+		else
+		{
 			System.out.println("비회원");
 			req.setAttribute("msg", message);
-			RequestDispatcher rd = req.getRequestDispatcher("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
-			rd.forward(req, resp);
-			
-			
-		
-		
-		
-		
+		}
+		RequestDispatcher rd = req.getRequestDispatcher("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		rd.forward(req, resp);
+
 	}
+
 }
+

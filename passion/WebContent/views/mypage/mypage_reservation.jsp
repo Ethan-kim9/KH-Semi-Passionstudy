@@ -33,8 +33,7 @@
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="MyCoupon.do"><button class="btn4">설정</button></a>
-          		<!-- <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"> 테스트하는중-->
+              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
