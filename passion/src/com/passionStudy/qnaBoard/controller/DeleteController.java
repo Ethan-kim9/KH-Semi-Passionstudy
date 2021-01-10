@@ -31,6 +31,6 @@ public class DeleteController extends HttpServlet {
 		QnaDao qnaDao = QnaDao.getInstance();
 		qnaDao.delete(qnaNo);
 	
-		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		resp.sendRedirect("member.manager.check.do");
 	}
 }

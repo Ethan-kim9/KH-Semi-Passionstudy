@@ -40,7 +40,7 @@ public class ModifyContorller extends HttpServlet {
 		
 		qnaVo = qnaDao.modify(qnaVo);
 		
-		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		resp.sendRedirect("member.manager.check.do");
 		
 	}
 }

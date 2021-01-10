@@ -54,7 +54,7 @@ public class WriteController extends HttpServlet {
 		
 		int wResult = qnaDao.write(qnaVo);
 		
-		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		resp.sendRedirect("member.manager.check.do");
 		
 	}
 }
