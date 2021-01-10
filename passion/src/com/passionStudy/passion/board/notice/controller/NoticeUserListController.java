@@ -23,7 +23,7 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/board_notice")
-public class NoticeListController extends HttpServlet{
+public class NoticeUserListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//list?f=title&q=a

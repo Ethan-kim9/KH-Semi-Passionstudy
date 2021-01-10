@@ -62,7 +62,7 @@
               <td><input type="checkbox" name="del-id" value="${n.nno}" class="checkbox"></td>
               <td>${n.nno}</td>
               <td><a href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
-              <td>${n.mno}</td>
+              <td>관리자</td>
               <td>${n.regdate}</td>
               <td>${n.ncount}</td>
             </tr>

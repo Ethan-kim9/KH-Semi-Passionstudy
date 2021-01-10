@@ -36,7 +36,7 @@
       <div id="board">
         <div id="board_main">
           <div id="board_form">
-            <form id="board_form_title" action="board_notice_manager_modify" method="post">
+            <form id="board_form_title" action="board_notice_manager_modify?nno=${n.nno}" method="post">
               <input
                 type="text"
                 name="title"
