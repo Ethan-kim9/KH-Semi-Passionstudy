@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.member.model.service.MemberService;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/findId.do")
 public class MemberFindIdController extends HttpServlet {
@@ -26,23 +27,22 @@ public class MemberFindIdController extends HttpServlet {
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
 		
-		String findId = null;
-		try {
-			findId = new MemberService().findIdMember(memName, memPhone);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		if(findId.equals("")) {
-			request.setAttribute("result", "아이디찾기 실패!");
-			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
+		System.out.println(memName);
+		System.out.println(memPhone);
+		MemberVo findIdMember = new MemberService().findIdMember(memName, memPhone);
+		
+		// 뷰처리
+		if(findIdMember != null) {
+			// 계정있음
+			request.setAttribute("findIdMember", findIdMember);
+			request.setAttribute("memName", memName);
+			request.setAttribute("memPhone", memPhone);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/find_id_complete.jsp").forward(request, response);
+			
 			
 		}else {
-			request.setAttribute("result", "아이디찾기 성공!");
-			request.setAttribute("findId", findId);
-			request.setAttribute("memName", memName);
-			request.getRequestDispatcher("views/member/member_find.jsp").forward(request, response);
+			request.setAttribute("findIdFail", "정확한 정보를 입력해 주세요!");
+			request.getRequestDispatcher("index.jsp?inc=./views/member/find_id_complete.jsp").forward(request, response);
 		}
 		
 		

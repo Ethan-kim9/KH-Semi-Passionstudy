@@ -13,6 +13,8 @@
   
  <body>
  
+
+ 
   <div class="find_id_btn">
       <div class="login_wrap">
         <div class="tabtype">
@@ -36,8 +38,9 @@
               	비밀번호를 변경하실 수 있습니다.
             </p>
             <br/>
+
             
-           <form action="findId.do" method="post">
+           <form name="searchFrm" action="findId.do" method="POST">
             <div class="field_id_box">
               <section class="btn_id_push">
                 <div class="inpbx">
@@ -71,7 +74,6 @@
         		</div>
               </form>
 
-           <form action="" method="post">
             <div class="field_pwd_box">
               <section class="btn_password_push">
                   
@@ -115,7 +117,6 @@
 	        		</section>
 	              </section>
         		</div>
-              </form>
 
           </div>
         </div>
@@ -126,5 +127,6 @@
 
   </body>
   <script src="resources/JS/menubar.js"></script>
+  <script src="resources/JS/pagesjs/member_search.js"></script>
   <script src="resources/JS/pagesjs/member_find_click.js"></script>
 </html>
