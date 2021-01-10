@@ -159,7 +159,7 @@
 %> 
           <table class="table" id="main_table" width="50%">
             <tr>
-	            <th></th>
+	            <th><input type="checkbox" class="checkall" /></th>
 	            <th>카테고리</th>
 	            <th>제목</th>
 	            <th>작성자</th>
@@ -348,6 +348,17 @@ if(manager != null) {
     </section>
     </form>
   </body>
+  <script>
+  $(document).ready(function(){
+		$(".checkall").click(function(){
+			if($(".checkall").prop("checked")){
+				$("input[name=deletes]").prop("checked",true);
+			}else{
+				$("input[name=deletes]").prop("checked",false);
+			}
+		})
+	})
+  </script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

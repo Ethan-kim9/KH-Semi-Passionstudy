@@ -1,6 +1,5 @@
 package com.passionStudy.passion.member.controller;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +41,7 @@ public class MemberFindIdController extends HttpServlet {
 			
 		}else {
 			request.setAttribute("findIdFail", "정확한 정보를 입력해 주세요!");
-			request.getRequestDispatcher("index.jsp?inc=./views/member/find_id_complete.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/member_find.jsp").forward(request, response);
 		}
 		
 		

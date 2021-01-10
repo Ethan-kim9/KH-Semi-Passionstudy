@@ -88,7 +88,19 @@
   text-align: center;
   border-collapse: collapse;
   margin-top: 75px;
+ /*  width: 500px; */
 }
+
+.rv-first{
+	float: left;
+	height: 95px;
+}
+
+.rv-second{
+	float: right;
+	height: 95px;
+}
+
 .reservation-state_table th {
   height: 40px;
   line-height: 40px;
@@ -808,7 +820,7 @@
   font-size: 18px;
 }
 .coupon-item_due-date {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   color: #464646;
   padding-left: 6px;
 }
@@ -829,7 +841,7 @@
   text-align: center;
   border-radius: 6px;
   color: white;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .coupon-item_status-done {
   background-color: #505152;

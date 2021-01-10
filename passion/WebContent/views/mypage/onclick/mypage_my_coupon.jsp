@@ -86,7 +86,7 @@
 		                    <span class="coupon-item_price-won">원</span>
 		                  </div>
 		                  <div class="coupon-item_due-date">
-		                    <span>·${coupon.couponDate }</span>
+		                    <span>· ${coupon.couponDate }</span>
 		                  </div>
 		                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 		                  <div class="coupon-item_status-done"> 사용불가 </div>
@@ -150,7 +150,7 @@
 	                    <span class="coupon-item_price-won">원</span>
 	                  </div>
 	                  <div class="coupon-item_due-date">
-	                    <span>·${coupon.couponDate }</span>
+	                    <span>· ${coupon.couponDate }</span>
 	                  </div>
 	                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 	                  <div class="coupon-item_status-get" > 사용가능 </div>
