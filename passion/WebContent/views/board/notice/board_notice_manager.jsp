@@ -42,7 +42,8 @@
          <form action="board_notice_manager" method="post">
           <div id="buttons">
           	<a href="board_notice_manager_write" class="write_btn yb">글쓰기</a>
-            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/>
+          	<a href="board_notice_manager">
+            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/></a>
           </div>
           <table class="table" id="main_table" width="50%">
 	        <thead>
