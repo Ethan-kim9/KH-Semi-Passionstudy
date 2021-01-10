@@ -320,15 +320,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 			Connection conn = getConnection();
-=======
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
->>>>>>> Stashed changes
-=======
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
->>>>>>> Stashed changes
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, nno);
 			result = st.executeUpdate();	
