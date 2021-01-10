@@ -29,6 +29,19 @@
     </div>
 	
 	<div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <section>
@@ -68,7 +81,7 @@
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
-                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.FAQManagerList'">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.ManagerOrUser'">
               </div>
             </form>
           </div>

@@ -16,16 +16,16 @@
     </div>
 
     <div class="tabtype">
-	  <div class="tabtype_wrapper" style="text-align: center;">
+	<div class="tabtype_wrapper" style="text-align: center;">
         <ul>
           <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1">공지사항</button></a>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
           </li>
           <li>
-            <a href="faq.FAQManagerList"><button class="btn2 on">자주하는 질문</button></a>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
           </li>
           <li>
-            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
           </li>
         </ul>
       </div>
@@ -72,7 +72,7 @@
                   <button type="submit" class="write_btn yb">
                     등록하기
                   </button>
-                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.FAQManagerList'">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.ManagerOrUser'">
                   
               </div>
             </form>

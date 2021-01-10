@@ -87,13 +87,31 @@
 		result = stmt.executeQuery(sqlList);
 
 %>
+<%
+
+%>
     <div class="cont_header">
       <div class="cont_wrapper">
         <h1>커뮤니티</h1>
       </div>
     </div>
 
-<jsp:include page="../inc/board_head.jsp"/>
+    <div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href=""><button class="btn3 on">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
 <form id="delete" action="qna.checkBox.do" method="post">
     <section>

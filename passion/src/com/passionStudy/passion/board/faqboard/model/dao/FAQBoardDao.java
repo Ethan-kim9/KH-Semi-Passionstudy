@@ -244,6 +244,26 @@ public class FAQBoardDao {
 		return vo;
 	}
 	
-	//자주묻는질문 검색
+	//체크박스 선택 삭제
+	public String checkBoxDeletes(String[] deletes) {
+		conn = getConnect();
+		PreparedStatement pstmt = null; 
+		ResultSet rs = null;
+		String dummy = "삭제";
+		
+		try {
+			String sql = "DELETE FAQ_BOARD WHERE FAQ_NO = ?";
+			for(int i=0; i < deletes.length; i++) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, deletes[i]);
+				result = pstmt.executeUpdate();
+			}		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return dummy;
+	}
 	
 }

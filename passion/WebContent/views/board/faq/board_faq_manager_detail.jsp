@@ -1,17 +1,9 @@
-<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
-<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
-<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
-<%-- <%
-	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-%> --%>
+
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	int pg = Integer.parseInt(request.getParameter("pg"));
-	
 %>
 
 <!DOCTYPE html>
@@ -29,7 +21,21 @@
     </div>
 
     <div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
     </div>
+    
 	<form action="faq.FAQDelete?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
@@ -65,8 +71,8 @@
             </tr>
           </table>
           <div id="another_buttons">
-              <input type="button" value="수정" class="write_btn yb"  style="float: none; margin:20px 10px 0 270px"  OnClick="window.location='faq.FAQModifyWrite?idx=<%=idx%>&pg=<%=pg%>'">
-              <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQDelete?idx=<%=idx%>&pg=<%=pg%>'">
+              <input type="button" value="수정" class="write_btn yb"  style="float: none; margin:20px 10px 0 270px"  OnClick="window.location='faq.FAQModifyWrite?idx=<%=idx%>'">
+              <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='faq.FAQDelete?idx=<%=idx%>'">
           </div>
         </div>
       </div>
