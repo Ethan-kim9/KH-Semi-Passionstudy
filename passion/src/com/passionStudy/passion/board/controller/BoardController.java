@@ -27,7 +27,7 @@ public class BoardController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("faq.ManagerOrUser").forward(request, response);
+		request.getRequestDispatcher("board_notice").forward(request, response);
 	}
 
 	/**

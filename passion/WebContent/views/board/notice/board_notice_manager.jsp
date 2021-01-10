@@ -47,7 +47,7 @@
             <tr>
               <td><input type="checkbox" name="del-id" value="${n.nno}" class="checkbox"></td>
               <td>${n.nno}</td>
-              <td><a href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
+              <td><a style="text-decoration: none; color: black;" href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
               <td>관리자</td>
               <td>${n.regdate}</td>
               <td>${n.ncount}</td>
@@ -70,12 +70,12 @@
         <c:set var="page" value="${(empty param.p)?1:param.p}"/>
 		<c:set var="startNum" value="${page-(page-1)%5}"/>
 		<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10),'.')}"/>
-          <div class="indexer margin-top align-right">
+          <div class="indexer margin-top align-right" style="padding-left: 612px;">
 			<div styel="text-align:right;">
 				<span class="text-orange text-strong">${(empty param.p)?1:param.p}</span> / ${lastNum } pages</div>
 			</div>
           	<nav aria-label="Page navigation example">
-			  <ul class="pagination">
+			  <ul class="pagination" style="padding-left: 600px;">
 			    <li class="page-item">
 
 			      <a class="page-link" href="#" aria-label="Previous">
