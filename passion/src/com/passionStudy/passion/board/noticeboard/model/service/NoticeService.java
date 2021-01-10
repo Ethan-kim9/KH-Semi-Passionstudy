@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+import static com.passionStudy.passion.common.JDBCtemplate.getConnection;
 
 public class NoticeService {
 	//전체 삭제
@@ -22,12 +23,11 @@ public class NoticeService {
 	public int insertNotice(NoticeVo noticeVo){
 		int result = 0;
 		
-		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(?,?,?,SYSDATE)";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String sql = "INSERT INTO NOTICE(NOTICE_NO,NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(SEQ_NNO.NEXTVAL,?,?,?,SYSDATE)";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, noticeVo.getNtitle());
@@ -74,7 +74,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, noticeVo.getNtitle());
@@ -129,7 +129,7 @@ public class NoticeService {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
@@ -190,7 +190,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, "%"+query+"%");
@@ -225,7 +225,7 @@ public class NoticeService {
 	
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setInt(1, nno);
@@ -291,7 +291,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			Statement st = conn.createStatement();
 			
 			result = st.executeUpdate(sql);	
@@ -320,7 +320,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setInt(1, nno);
 			result = st.executeUpdate();	
