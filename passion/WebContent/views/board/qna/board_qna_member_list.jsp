@@ -31,6 +31,19 @@
   </head>
   <body>
 <%
+	final String nonMemberCheck = "비회원";
+	final String managerCheck = "관리자";
+	final String userCheck = "회원";
+
+	String nonMember = (String)request.getAttribute("nonMember");
+	String manager = (String)request.getAttribute("manager");
+	String user = (String)request.getAttribute("user");
+
+	out.print(nonMember);
+	out.print(manager);
+	out.print(user);
+	
+
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "passion";
@@ -205,6 +218,33 @@
 					%>
 					</td>
 			</tr>
+<%
+if(nonMember != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=nonMember %></p>
+			</tr>
+<%
+}
+%>
+<%
+if(user != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=user %></p>
+			</tr>
+<%
+}
+%>
+<%
+if(manager != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=nonMember %></p>
+			</tr>
+<%
+}
+%>
           </table>
         </div>
       </div>

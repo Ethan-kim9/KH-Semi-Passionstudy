@@ -27,45 +27,38 @@ public class memberOrManagerController extends HttpServlet {
 	}
 
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		final String manager = "A";
-		final String user = "N";
-		String message = "로그인 안하면 페이지 안보여줌 숙5";
+		String managerCheck = "A";
+		String userCheck = "N";
+		final String manager = "관리자";
+		final String user = "회원";
+		final String nonMember = "비회원";
 
 		HttpSession session = req.getSession(false);
 
 		
 		
-		if (session != null) 
-		{
+		if (session != null) {
 			MemberVo check = (MemberVo)session.getAttribute("loginMember");
-			if(check != null) 
-			{
-				if(manager.equals(check.getMemStatus()))
-				{
-					System.out.println("관리자임");
+			if(check != null) {
+				if(managerCheck.equals(check.getMemStatus())) {
+					System.out.println(manager);
+					req.setAttribute("manager", manager);
+				} else if (userCheck.equals(check.getMemStatus())) {
+					System.out.println(user);
 					req.setAttribute("user", user);
 				}
-				else if (user.equals(check.getMemStatus())) 
-				{
-					System.out.println("일반유저");
-					req.setAttribute("user", user);
-				}
+			} // if(check != null)
+			else {
+				System.out.println(nonMember);
+				req.setAttribute("nonMember", nonMember);			
 			}
-			else 
-			{
-				System.out.println("비회원");
-				req.setAttribute("msg", message);			
-			}
-		}
-		else
-		{
-			System.out.println("비회원");
-			req.setAttribute("msg", message);
+		} // if (session != null) 
+		else {
+			System.out.println(nonMember);
+			req.setAttribute("nonmember", nonMember);
 		}
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
 		rd.forward(req, resp);
-
 	}
-
 }
 
