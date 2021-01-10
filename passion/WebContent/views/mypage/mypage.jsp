@@ -29,7 +29,7 @@
                 <a href="Mypage.Info"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>
+                <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
                 <!-- 예약관리 컨트롤러서블릿?memNo=<loginMember.getMemNo>-->
             </li>
             <li>
@@ -54,7 +54,7 @@
               <h6 class="mypage-main-front_user">
                 <strong class="mypage-main-front-user-name"><%=loginMember.getMemName() %></strong>
                 님 반갑습니다.
-                <a href="CouponCount">쿠폰테스트</a>
+                <a href="MyReservation"> 예약 테스트</a>
               </h6>
               
             </div>

@@ -2,10 +2,13 @@ package com.passionStudy.passion.member.model.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import com.passionStudy.passion.member.model.dao.MyPageDao;
 import com.passionStudy.passion.member.model.vo.CouponVo;
+import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
+import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -83,10 +86,10 @@ public class MyPageService {
 	 */
 	
 	// 1on1 문의 내역
-	public Vector<QnaVo> getReservationList(String memberName) {
+	public Vector<QnaVo> getQnaList(String memberName) {
 		Connection conn = getConnection();
 		MyPageDao mdao = new MyPageDao();
-		Vector<QnaVo> qnalist = mdao.getReservationList(conn, memberName);
+		Vector<QnaVo> qnalist = mdao.getQnaList(conn, memberName);
 		
 		close(conn);
 		return qnalist;
@@ -121,8 +124,27 @@ public class MyPageService {
 		close(conn);
 		return couponCount;
 	}
-
 	
+	// 나의 예약 가져오기
+	public Vector<MyPageReservationVo> getMyReservation(int memberNo) {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		Vector<MyPageReservationVo> myres = mdao.getMyReservation(conn, memberNo);
+		
+		close(conn);
+		return myres;
+	}
+
+	// 나의 룸 정보 가져오기
+	public ArrayList<MyPageRoomVo> getMyRoom(ArrayList<Integer> productNums){
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		ArrayList<MyPageRoomVo> myroom = mdao.getMyRoom(conn, productNums);
+		
+		close(conn);
+		return myroom;
+		
+	}
 	
 	
 	

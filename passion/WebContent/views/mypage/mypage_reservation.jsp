@@ -1,11 +1,10 @@
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%-- <%
 	MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
-	
-
-%>
+%> --%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -73,22 +72,28 @@
               </tr>
             </thead>
             <tbody>
+            	<c:forEach var="res" items="${myres }">
               <tr>
-                <td>1</td>
-                <td>타오르는 열정</td>
-                <td>단체실</td>
-                <td>2020-12-10</td>
-                <td>16:00 ~ 20:00</td>
-                <td>예약</td>
-                <td>
-                  <button
-                    class="table-check-details-information"
-                    type="button"
-                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'" >
-                    상세조회
-                  </button>
-                </td>
+            <%-- <c:forEach var="room" items="${myroom }"> --%>
+	                <td>1</td>
+	                <td><%-- ${room.roomName } --%>name</td>
+	                <td><%-- ${room.roomType } --%>type</td>
+	            
+	                <td>${res.resDate }</td>
+	                <td>${res.resTime }시간</td>
+	                <td>${res.resCon }</td>
+	            
+	                <td>
+	                  <button
+	                    class="table-check-details-information"
+	                    type="button"
+	                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'" >
+	                    상세조회
+	                  </button>
+	                </td>
+            <%-- </c:forEach> --%>
               </tr>
+            	</c:forEach> 
             </tbody>
           </table>
 
@@ -148,7 +153,7 @@
               <span class="button-prev"><</span>
             </div>
             <ul>
-              <li><a class="page-number" href="#">1</a></li>
+              <li><a class="page-number" href="">1</a></li>
             </ul>
             <div>
               <span class="button-next">></span>

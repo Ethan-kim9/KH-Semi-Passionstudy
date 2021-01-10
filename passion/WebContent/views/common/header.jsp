@@ -66,7 +66,7 @@
               </li>
               <% if(loginMember.getAdminCheck().charAt(0)== 'N'){%>
           	  <li class="mypage">
-                <a href="<%= contextPath%>/menu.MyPage"><span>마이페이지</span></a>
+                <a href="<%= contextPath%>/Mypage.Info"><span>마이페이지</span></a>
               	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             	</li>
             <%}else{ %>
