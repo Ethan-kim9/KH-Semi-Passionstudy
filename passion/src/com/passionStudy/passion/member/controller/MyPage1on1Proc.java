@@ -36,7 +36,7 @@ public class MyPage1on1Proc extends HttpServlet {
 		
 		// 로직
 		MyPageService service = new MyPageService();
-		Vector<QnaVo> qnalist = service.getReservationList(memName);
+		Vector<QnaVo> qnalist = service.getQnaList(memName);
 		// 로직2(문의내역 카운트)
 		int count = service.getListCount(memName);
 		

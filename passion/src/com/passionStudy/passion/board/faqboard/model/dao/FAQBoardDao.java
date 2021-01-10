@@ -78,11 +78,6 @@ public class FAQBoardDao {
 		return cnt; 
 	}
 		
-	/*
-	 * public String pasing(String data) { try { data = new
-	 * String(data.getBytes("8859_1"), "euc-kr"); } catch (Exception e) { } return
-	 * data; }
-	 */
 
 	public ArrayList<FAQBoardVo> getFaqBoardList() {
 		conn = getConnect();
@@ -159,7 +154,7 @@ public class FAQBoardDao {
 		
 	}
 	
-	//view
+	//리스트 view
 	public FAQBoardVo getView(int faqNo) {
 		conn = getConnect();
 		PreparedStatement pstmt = null; 
@@ -225,7 +220,7 @@ public class FAQBoardDao {
 		}
 		return vo;
 	}
-	
+	//수정 후 리스트
 	public FAQBoardVo modifyView(int faqNo) {
 		conn = getConnect();
 		PreparedStatement pstmt = null; 

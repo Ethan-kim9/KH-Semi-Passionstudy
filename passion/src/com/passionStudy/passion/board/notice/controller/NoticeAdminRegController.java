@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.admin.notice;
+package com.passionStudy.passion.board.notice.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import com.passionStudy.passion.board.noticeboard.model.service.NoticeService;
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 
 @WebServlet("/board_notice_manager_write")
-public class RegController extends HttpServlet{
+public class NoticeAdminRegController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

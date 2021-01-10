@@ -30,7 +30,6 @@
             <div id="another_buttons">
                 <input type="button" value="수정" class="write_btn yb" style="float: none" OnClick="window.location='qna.modify.detail.do?idx=<%=idx %>'">
                 <input type="button" value="삭제" class="write_btn yb" style="float: none" OnClick="window.location='qna_delete.do?idx=<%=idx %>'">
-                <input type="button" value="답변달기" class="write_btn yb" style="float: none" OnClick="window.location='index.jsp?inc=./views/board/1on1/board_1on1_manager_write.jsp?idx='">
               </div>
           <table class="table" id="table_title">
             <tr>

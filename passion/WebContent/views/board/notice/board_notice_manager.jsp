@@ -20,21 +20,7 @@
       </div>
     </div>
 
-    <div class="tabtype">
-	   <div class="tabtype_wrapper" style="text-align: center;">        
-        <ul>
-          <li>
-            <a href="./board_notice"><button class="btn1 on">공지사항</button></a>
-          </li>
-          <li>
-            <a href="./faq.FAQManagerList"><button class="btn2">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="./board_1on1"><button class="btn3">1:1문의</button></a>
-          </li> <!-- 경로 찾아서 설정 -->
-        </ul>
-      </div>
-    </div>
+    <jsp:include page="../inc/board_head.jsp"/>
 
     <section>
       <div id="board">
@@ -42,7 +28,8 @@
          <form action="board_notice_manager" method="post">
           <div id="buttons">
           	<a href="board_notice_manager_write" class="write_btn yb">글쓰기</a>
-            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/>
+          	<a href="board_notice_manager">
+            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/></a>
           </div>
           <table class="table" id="main_table" width="50%">
 	        <thead>
@@ -61,7 +48,7 @@
               <td><input type="checkbox" name="del-id" value="${n.nno}" class="checkbox"></td>
               <td>${n.nno}</td>
               <td><a href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
-              <td>${n.mno}</td>
+              <td>관리자</td>
               <td>${n.regdate}</td>
               <td>${n.ncount}</td>
             </tr>

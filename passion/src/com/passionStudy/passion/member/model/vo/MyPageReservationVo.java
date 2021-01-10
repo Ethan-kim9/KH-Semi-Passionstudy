@@ -1,29 +1,29 @@
 package com.passionStudy.passion.member.model.vo;
 
-public class MyPageResVo {
+public class MyPageReservationVo {
 
-	private int resNo;
-	private int memNo;
-	private int proNo;
-	private String resName;
-	private String resEmail;
-	private String resPhone;
-	private int resPer;
-	private String resDate;
-	private String resTime;
-	private String payMethod;
-	private String payDate;
-	private int payPrice;
-	private String resCon;
-	private String payInfo;
-	private int resMon;
-	private int resCom;
-	private int resPro;
+	private int resNo;			//예약식별자
+	private int memNo;			//회원 식별자
+	private int proNo;			//상품 식별자
+	private String resName;		//예약자이름
+	private String resEmail;	//예약자 이메일(아이디)
+	private String resPhone;	//예약자 연락처
+	private int resPer;			//예약자 인원수
+	private String resDate;		//예약날짜
+	private String resTime;		//예약 시간
+	private String payMethod;	//결제 수단
+	private String payDate;		//결제 일시
+	private int payPrice;		//결제 금액
+	private String resCon;		//예약 상태	'Y'예약, 'C'취소, 'O'사용됨
+	private String payInfo;		//결제 정보	'C'카드, 'P'현금, 'T'무통장, 'D'현장
+	private int resMon;			//모니터
+	private int resCom;			//컴퓨터
+	private int resPro;			//프로젝터
 
-	public MyPageResVo() {
+	public MyPageReservationVo() {
 	}
 
-	public MyPageResVo(int memNo, int proNo, String resName, String resEmail, String resPhone, int resPer,
+	public MyPageReservationVo(int memNo, int proNo, String resName, String resEmail, String resPhone, int resPer,
 			String resData, String resTime, String payMethod, String payDate, int payPrice, String resCon,
 			String payInfo, int resMon, int resCom, int resPro) {
 		super();

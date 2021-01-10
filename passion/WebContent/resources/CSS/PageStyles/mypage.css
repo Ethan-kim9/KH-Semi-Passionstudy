@@ -746,11 +746,11 @@
   text-align: left;
 }
 .coupon-feed-register {
-  border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   margin: 50px 0 20px;
   height: 110px;
-  text-align: center;
+  text-align: left;
+  padding: 50px 0 0 10px;
 }
 .coupon-feed-register-title {
   display: inline-block;
@@ -758,13 +758,13 @@
   font-weight: bold;
   color: #505050;
 }
-.coupon-feed-register-input {
+/* .coupon-feed-register-input {
   width: 350px;
   height: 45px;
   border: 1px solid #c0bebe;
   margin: 35px 20px 35px 20px;
-}
-.coupon-feed-register-input::placeholder {
+} */
+/* .coupon-feed-register-input::placeholder {
   padding-left: 10px;
   color: #747171;
 }
@@ -774,7 +774,7 @@
   background-color: #444444;
   color: white;
   border-radius: 6px;
-}
+} */
 
 .coupon-mold {
   display: flex;
@@ -792,10 +792,12 @@
 .coupon-item_title {
   font-size: 23px;
   font-weight: bold;
+  padding-left: 6px;
 }
 .coupon-item_price {
   font-size: 30px;
   margin: 15px 0;
+  padding-left: 6px;
 }
 .coupon-item_price-number {
   font-weight: bold;
@@ -808,6 +810,7 @@
 .coupon-item_due-date {
   margin-bottom: 15px;
   color: #464646;
+  padding-left: 6px;
 }
 .coupon-item_due-date span {
   font-size: 16px;
@@ -820,7 +823,7 @@
 }
 .coupon-item_status-get {
   background-color: #5dbbf1;
-  margin: 23px 0;
+  margin: 40px 0px 0px 0px;
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -830,7 +833,7 @@
 }
 .coupon-item_status-done {
   background-color: #505152;
-  margin: 23px 0;
+  margin: 40px 0px 0px 0px;
   height: 40px;
   line-height: 40px;
   text-align: center;

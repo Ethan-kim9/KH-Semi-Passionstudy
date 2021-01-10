@@ -53,9 +53,6 @@
               <li class="guide">
               	<a href="<%= contextPath%>/menu.facilitiesExtra"><span>이용안내</span></a>
               </li>
-              <li class="reserve">
-                <a href="<%= contextPath%>/menu.Reservation"><span>예약/결제</span></a>
-              </li>
               <li class="community">
                 <a href="<%= contextPath%>/menu.Board"><span>커뮤니티</span></a>
               </li>
@@ -64,16 +61,19 @@
           		<a href="<%= contextPath%>/menu.Login"><span>로그인</span></a>
               </li>
           	<% }else{%>
-              <% if(loginMember.getAdminCheck().charAt(0)== 'A'){%>
+              <li class="reserve">
+                <a href="<%= contextPath%>/menu.Reservation"><span>예약/결제</span></a>
+              </li>
+              <% if(loginMember.getAdminCheck().charAt(0)== 'N'){%>
+          	  <li class="mypage">
+                <a href="<%= contextPath%>/Mypage.Info"><span>마이페이지</span></a>
+              	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
+            	</li>
+            <%}else{ %>
               <li class="mypage">
                <a href="<%= contextPath%>/menu.Manager"><span>관리 페이지</span></a>
               <!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
             </li>
-            <%}else{ %>
-          	  <li class="mypage">
-                <a href="<%= contextPath%>/menu.MyPage"><span>마이페이지</span></a>
-              	<!-- String managerCheck 관리자 유무(N, Y) 으로 바뀜 -->
-            	</li>
 	<%}%>
             	<li class="login">
           		<a href="<%= contextPath%>/menu.Logout"><span>로그아웃</span></a>

@@ -221,26 +221,23 @@ public class QnaDao {
 	}
 	
 	
-	
-	public int count() {
+	public String checkBoxDeletes(String[] deletes) {
 		conn = getConnect();
-		String sql = "SELECT COUNT(*) FROM QNA_BOARD";
-		
+		String dummy = "걍보내";
+		String sql = "DELETE QNA_BOARD WHERE QNA_NO = ?";
 		try {
+		for(int i=0; i < deletes.length; i++) {
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				result = rs.getInt(1);
-			}
-		
+			pstmt.setString(1, deletes[i]);
+			result = pstmt.executeUpdate();
+		}		
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			close(conn, pstmt, rs);
 		}
-		return result;
+		return dummy;
 	}
 
 

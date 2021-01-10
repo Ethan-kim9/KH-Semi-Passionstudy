@@ -14,27 +14,11 @@
       </div>
     </div>
 
-    <div class="tabtype">
-      <div class="tabtype_wrapper" style="text-align: center;">
-        <ul>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice_manager.jsp"><button class="btn1 on">공지사항</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/faq/board_faq_manager.jsp"><button class="btn2">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
     <section>
       <div id="board">
         <div id="board_main">
-            <div id="another_buttons" style="padding-bottom:10px; text-align:right;">
-                <a href="board_notice_manager_modify?nno=${n.nno}" class="remove_btn yb">수정</a>
+            <div id="another_buttons" style="padding-bottom:10px; padding-top:20px; text-align:right;">
+                <a href="board_notice_manager_modify?nno=${n.nno}" class="write_btn">수정</a>
                 <button type="button" class="remove_btn yb" style="float: none">
                   삭제
                 </button>

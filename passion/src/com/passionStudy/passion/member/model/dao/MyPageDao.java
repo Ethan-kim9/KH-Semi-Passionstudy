@@ -6,11 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Vector;
 
 import com.passionStudy.passion.member.model.vo.CouponVo;
-import com.passionStudy.passion.member.model.vo.MyPageResVo;
+import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
+import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -164,7 +166,7 @@ public class MyPageDao {
 	 */
 	
 	// 1대1 문의
-	public Vector<QnaVo> getReservationList(Connection conn, String memberName) {
+	public Vector<QnaVo> getQnaList(Connection conn, String memberName) {
 		// 리턴타입
 		Vector<QnaVo> qnalist = new Vector<>();
 		
@@ -266,5 +268,119 @@ public class MyPageDao {
 		}
 		return myCoupon;
 	} 
+	
+	// 내 쿠폰 갯수 가져오기
+	public int getCouponCount(Connection conn, int memberNo) {
+		// 리턴타입
+		int couponCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT(*) FROM COUPON WHERE MEMBER_NO = ? AND COUPON_VALID = 'O'";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				couponCount = rs.getInt(1);
+			}
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return couponCount;
+	}
+	
+	// 나의 예약 내역 가져오기
+	public Vector<MyPageReservationVo> getMyReservation(Connection conn, int memberNo) {
+		// 리턴타입
+		Vector<MyPageReservationVo> myres = new Vector<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM RESERVATION WHERE MEMBER_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MyPageReservationVo mvo = new MyPageReservationVo();
+				mvo.setResNo(rs.getInt(1));
+				mvo.setMemNo(rs.getInt(2));
+				mvo.setProNo(rs.getInt(3));
+				mvo.setResName(rs.getString(4));
+				mvo.setResEmail(rs.getString(5));
+				mvo.setResPhone(rs.getString(6));
+				mvo.setResPer(rs.getInt(7));
+				mvo.setResDate(rs.getString(8));
+				mvo.setResTime(rs.getString(9));
+				mvo.setPayMethod(rs.getString(10));
+				mvo.setPayDate(rs.getString(11));
+				mvo.setPayPrice(rs.getInt(12));
+				mvo.setResCon(rs.getString(13));
+				mvo.setPayInfo(rs.getString(14));
+				mvo.setResMon(rs.getInt(15));
+				mvo.setResCom(rs.getInt(16));
+				mvo.setResPro(rs.getInt(17));
+				
+				myres.add(mvo);
+			}
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myres;
+	}
+	
+	// 나의 룸 정보 가져오기
+	public ArrayList<MyPageRoomVo> getMyRoom(Connection conn, ArrayList<Integer> productNums){
+		// 리턴타입
+		ArrayList<MyPageRoomVo> myroom = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT PRODUCT.ROOM_NO, \r\n"
+				+ "        room.room_name, room.room_type, \r\n"
+				+ "        room.room_filepath, room.room_price\r\n"
+				+ "            from product inner join room \r\n"
+				+ "                on product.room_no = room.room_no where product_no = ?";
+		
+		/*ArrayList<Integer> nums = new ArrayList<>();*/
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			for(int num : productNums) {
+				pstmt.setInt(1, num);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					MyPageRoomVo vo = new MyPageRoomVo();
+					vo.setRoomNo(rs.getInt(1));
+					vo.setRoomName(rs.getString(2));
+					vo.setRoomType(rs.getString(3));
+					vo.setRoomFile(rs.getString(4));
+					vo.setRoomPrice(rs.getInt(5));
+					
+					myroom.add(vo);
+				}
+			}
+			close(rs);
+			close(pstmt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myroom;
+		
+	}
+	
 
 }

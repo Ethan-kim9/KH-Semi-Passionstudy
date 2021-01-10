@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.admin.notice;
+package com.passionStudy.passion.board.notice.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -24,7 +24,7 @@ import com.passionStudy.passion.member.model.service.MemberService;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/board_notice_manager")
-public class ListController extends HttpServlet{
+public class NoticeAdminListController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		      String[] delIds = request.getParameterValues("del-id");

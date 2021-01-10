@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
+import static com.passionStudy.passion.common.JDBCtemplate.getConnection;
 
 public class NoticeService {
 	//전체 삭제
@@ -22,12 +23,11 @@ public class NoticeService {
 	public int insertNotice(NoticeVo noticeVo){
 		int result = 0;
 		
-		String sql = "INSERT INTO NOTICE(NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(?,?,?,SYSDATE)";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String sql = "INSERT INTO NOTICE(NOTICE_NO,NOTICE_TITLE, NOTICE_CONTENT,MEMBER_NO, REGDATE) VALUES(SEQ_NNO.NEXTVAL,?,?,?,SYSDATE)";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, noticeVo.getNtitle());
@@ -56,23 +56,34 @@ public class NoticeService {
 	}
 	
 	//게시물 수정
-	public int updateNotice(NoticeVo noticeVo){
-		int result = 0;
+	public NoticeVo updateNotice(NoticeVo noticeVo){
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
 		
-		String sql = "UPDATE NOTICE SET NOTICE_TITLE=?, NOTICE_CONTENT=?, WHERE NOTICE_NO=?";
+		System.out.println("noticeVo.getNtitle() : "+noticeVo.getNtitle());
+		System.out.println("noticeVo.getNcontent() ? "+noticeVo.getNcontent());
+		System.out.println("noticeVo.getNno() : "+noticeVo.getNno());
+
+		int result = 0;
+		NoticeVo resultVo = new NoticeVo();
+		
+		String sql = "UPDATE NOTICE SET NOTICE_TITLE=?, NOTICE_CONTENT=? WHERE NOTICE_NO=?";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, noticeVo.getNtitle());
 			st.setString(2, noticeVo.getNcontent());
-			st.setInt(3, noticeVo.getMno());
+			st.setInt(3, noticeVo.getNno());
 			
 			result = st.executeUpdate();
 			
+			resultVo.setNcount(result);
 			st.close();
 			conn.close();
 		} catch (ClassNotFoundException e) {
@@ -83,7 +94,7 @@ public class NoticeService {
 			e.printStackTrace();
 		}
 		
-		return result;
+		return resultVo;
 	}
 	
 	
@@ -118,7 +129,7 @@ public class NoticeService {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setString(1, "%"+query+"%");
 			st.setInt(2, 1+(page-1)*10);
@@ -179,7 +190,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, "%"+query+"%");
@@ -214,7 +225,7 @@ public class NoticeService {
 	
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setInt(1, nno);
@@ -280,7 +291,7 @@ public class NoticeService {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection(url,"dbtest","1234");
+			Connection conn = getConnection();
 			Statement st = conn.createStatement();
 			
 			result = st.executeUpdate(sql);	
@@ -298,4 +309,32 @@ public class NoticeService {
 		return result;
 
 		}
+	
+	public int  viewCount(int nno) {
+		
+		
+		int result = 0;
+		
+		String sql = "UPDATE NOTICE SET NOTICE_COUNT = NOTICE_COUNT + 1 WHERE NOTICE_NO=?";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = getConnection();
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, nno);
+			result = st.executeUpdate();	
+			
+			st.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	}

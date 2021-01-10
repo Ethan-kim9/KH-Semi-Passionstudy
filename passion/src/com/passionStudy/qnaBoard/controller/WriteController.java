@@ -30,6 +30,7 @@ public class WriteController extends HttpServlet {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		HttpSession session = req.getSession(false);
+		
 		MemberVo user  = (MemberVo)session.getAttribute("loginMember");			
 		String qnaWriter = null;
 		
@@ -53,7 +54,7 @@ public class WriteController extends HttpServlet {
 		
 		int wResult = qnaDao.write(qnaVo);
 		
-		resp.sendRedirect("index.jsp?inc=./views/board/qna/board_qna_member_list.jsp");
+		resp.sendRedirect("member.manager.check.do");
 		
 	}
 }

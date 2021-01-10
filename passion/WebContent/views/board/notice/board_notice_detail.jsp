@@ -16,22 +16,6 @@
       </div>
     </div>
 
-    <div class="tabtype">
-      <div class="tabtype_wrapper" style="text-align: center;">
-        <ul>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_notice.jsp"><button class="btn1 on">공지사항</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_faq.jsp"><button class="btn2">자주하는 질문</button></a>
-          </li>
-          <li>
-            <a href="index.jsp?inc=./views/board/notice/board_1on1.jsp"><button class="btn3">1:1문의</button></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
     <section>
       <div id="board">
         <div id="board_main">

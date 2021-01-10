@@ -31,7 +31,7 @@
                 <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2">나의 예약 관리</button></a>
+                <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3 on">나의 활동</button></a>
@@ -84,10 +84,10 @@
     <section class="mypage-section myQuestion myQuestion_has_Question">
         
         <div class="mypage-inquery">
-	<c:forEach var="qna" items="${qnalist }">
           <ul>
             <!--li 1개당 답변완료 틀 1개-->
             <li id="12345">
+	<c:forEach var="qna" items="${qnalist }">
               <p class="state-complete" onclick="spread('hiddenContent');">
                 <strong>
                 	<c:choose>
@@ -121,9 +121,9 @@
                 </c:if>
               </ul>
               <!--  -->
+    </c:forEach>
              </li>
           </ul>
-    </c:forEach>
         </div>
 
         <div class="go-inquery">

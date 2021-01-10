@@ -10,27 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.qnaBoard.dao.QnaDao;
 
-@WebServlet("/qna_delete.do")
-public class DeleteController extends HttpServlet {
+@WebServlet ("/qna.checkBox.do")
+public class CheckBoxDeleteController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		process(req, resp);
+		prosess(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		process(req, resp);
+		prosess(req, resp);
+
 	}
-	
-	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		int qnaNo = Integer.parseInt(req.getParameter("idx"));
-		QnaDao qnaDao = QnaDao.getInstance();
-		qnaDao.delete(qnaNo);
-	
+
+	private void prosess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+		String delete = req.getParameter("delete");
+		System.out.println(delete);
+		if(delete != null) {
+			String[] deletes = req.getParameterValues("deletes");
+			System.out.println(deletes[0]);
+			if(deletes != null) {
+				QnaDao qnaDao = QnaDao.getInstance();
+				qnaDao.checkBoxDeletes(deletes);
+			}
+		}
 		resp.sendRedirect("member.manager.check.do");
-	}
+	}	
 }
+

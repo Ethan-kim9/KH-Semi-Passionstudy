@@ -23,7 +23,7 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/board_notice")
-public class NoticeListController extends HttpServlet{
+public class NoticeUserListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//list?f=title&q=a
@@ -61,10 +61,16 @@ public class NoticeListController extends HttpServlet{
 				request
 				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager.jsp")
 				.forward(request, response);
+				
+				System.out.println("@@@@@@@@@@@@@@관리자 로그인 @@@@@@@@@@@@@@");
+				
+				
 			}else { //관리자 아닌 화면.
 				request
 				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp")
 				.forward(request, response);
+				
+				System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ회원/비회원ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 			}
 	}
 }
