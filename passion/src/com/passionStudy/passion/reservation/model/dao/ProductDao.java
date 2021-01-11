@@ -28,12 +28,12 @@ public class ProductDao {
 		}
 	}
 	
-	public ProductVo checkReservationCon(Connection conn, int roomNo, int productData, String productCon) {
+	public ProductVo searchProductData(Connection conn, int roomNo, int productData, String productCon) {
 		ProductVo pv = null;
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = prop.getProperty("checkReservationCon");
+		String sql = prop.getProperty("searchProductData");
 		try {
 			pstmt = conn.prepareStatement(sql);
 
@@ -62,7 +62,7 @@ public class ProductDao {
 	public int productInsert(Connection conn, int roomNo, int productData) {
 		PreparedStatement pstmt = null;
 		int rs = 0;
-		String sql = prop.getProperty("insertReservation");
+		String sql = prop.getProperty("insertProductData");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setLong(1, roomNo);

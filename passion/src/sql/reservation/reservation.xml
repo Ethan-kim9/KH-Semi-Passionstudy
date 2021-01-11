@@ -3,6 +3,6 @@
 <properties>
 <!--예약 입력-->
 <entry key="insertReservation">
-INSERT INTO RESERVATION VALUES(SEQ_RENO.NEXTVAL, ?, SEQ_PRNO.CURRVAL, ?, ?, ?, ?, SYSDATE, ?, ?, SYSDATE, ?, 'Y', ?, ?, ?, ?, ?);
+INSERT INTO RESERVATION VALUES(SEQ_RENO.NEXTVAL, ?, (SELECT MAX(PRODUCT_NO) FROM PRODUCT), ?, ?, ?, ?, SYSDATE, ?, ?, SYSDATE, ?, 'Y', ?, ?, ?, ?, ?)
 </entry>
 </properties>

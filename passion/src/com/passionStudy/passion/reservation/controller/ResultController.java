@@ -23,35 +23,50 @@ public class ResultController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 
-		int memNo = Integer.parseInt(req.getParameter("member_no"));
-		int firstTimeDataInt = 0;
-		int secondTimeDataInt = 0;
-		int thirdTimeDataInt = 0;
-		int fourthTimeDataInt = 0;
-		int fifthTimeDataInt = 0;
-		int lastTimeDataInt = 0;
-		String firstTimeData = req.getParameter("firstTimeData");
-		String secondTimeData = req.getParameter("secondTimeData");
-		String thirdTimeData = req.getParameter("thirdTimeData");
-		String fourthTimeData = req.getParameter("fourthTimeData");
-		String fifthTimeData = req.getParameter("fifthTimeData");
-		String lastTimeData = req.getParameter("lastTimeData");
+		String memNo = req.getParameter("member_no");
+		int memNoInt = 0;
+		if (memNo != null) {
+			memNoInt = Integer.parseInt(memNo);
+		}
 
+		String roomNo = req.getParameter("room_no");
+		int roomNoInt = 0;
+		if (roomNo != null) {
+			roomNoInt = Integer.parseInt(roomNo);
+		}
+
+		String firstTimeData = req.getParameter("firstTimeData");
+		int firstTimeDataInt = 0;
 		if (firstTimeData != null) {
 			firstTimeDataInt = Integer.parseInt(firstTimeData);
 		}
+
+		String secondTimeData = req.getParameter("secondTimeData");
+		int secondTimeDataInt = 0;
 		if (secondTimeData != null) {
 			secondTimeDataInt = Integer.parseInt(secondTimeData);
 		}
+
+		String thirdTimeData = req.getParameter("thirdTimeData");
+		int thirdTimeDataInt = 0;
 		if (thirdTimeData != null) {
 			thirdTimeDataInt = Integer.parseInt(thirdTimeData);
 		}
+
+		String fourthTimeData = req.getParameter("fourthTimeData");
+		int fourthTimeDataInt = 0;
 		if (fourthTimeData != null) {
 			fourthTimeDataInt = Integer.parseInt(fourthTimeData);
 		}
+
+		String fifthTimeData = req.getParameter("fifthTimeData");
+		int fifthTimeDataInt = 0;
 		if (fifthTimeData != null) {
 			fifthTimeDataInt = Integer.parseInt(fifthTimeData);
 		}
+
+		String lastTimeData = req.getParameter("lastTimeData");
+		int lastTimeDataInt = 0;
 		if (lastTimeData != null) {
 			lastTimeDataInt = Integer.parseInt(lastTimeData);
 		}
@@ -66,7 +81,13 @@ public class ResultController extends HttpServlet {
 		String resName = (String) req.getParameter("reservationName");
 		String resEmail = (String) req.getParameter("email_total");
 		String resPhone = (String) req.getParameter("tel_total");
-		int resProson = Integer.parseInt(req.getParameter("countUsers"));
+
+		String resProson = req.getParameter("countUsers");
+		int resProsonInt = 0;
+		if (resProson != null) {
+			resProsonInt = Integer.parseInt(resProson);
+		}
+
 		// time부분에 timedata를 넣을것인가? 1 2 3 4 5 6 넣음
 		String resMet = (String) req.getParameter("resMet");// 결제형식 P 아니면 C
 
@@ -82,58 +103,69 @@ public class ResultController extends HttpServlet {
 		}
 		int totalPrice = resPriceInt - usePointInt;
 		String resInfo = (String) req.getParameter("resInfo");// 결제형식 C O P현장결제
-		int resMon = Integer.parseInt(req.getParameter("monitor"));
-		int resCom = Integer.parseInt(req.getParameter("computer"));
-		int resPro = Integer.parseInt(req.getParameter("projector"));
+
+		String resMon = req.getParameter("resMon");
+		int resMonInt = 0;
+		if (resMon != null) {
+			resMonInt = Integer.parseInt(resMon);
+		}
+
+		String resCom = req.getParameter("resCom");
+		int resComInt = 0;
+		if (resCom != null) {
+			resComInt = Integer.parseInt(resCom);
+		}
+
+		String resPro = req.getParameter("resPro");
+		int resProInt = 0;
+		if (resPro != null) {
+			resProInt = Integer.parseInt(resPro);
+		}
+
 		String resMsg = (String) req.getParameter("userMsg");
 
-		System.out.println(firstTimeData);
-		System.out.println(secondTimeData);
-		System.out.println(thirdTimeData);
-		System.out.println(fourthTimeData);
-		System.out.println(fifthTimeData);
-		System.out.println(lastTimeData);
+		System.out.println(roomNoInt);
 		System.out.println(firstTimeDataInt);
 		System.out.println(secondTimeDataInt);
 		System.out.println(thirdTimeDataInt);
 		System.out.println(fourthTimeDataInt);
 		System.out.println(fifthTimeDataInt);
 		System.out.println(lastTimeDataInt);
-		System.out.println(resProson);
-		System.out.println(resPriceInt);
-		System.out.println(usePointInt);
-		System.out.println(totalPrice);
-		System.out.println(resMon);
-		System.out.println(resCom);
-		System.out.println(resPro);
-		if(firstTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, firstTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, one, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);
+		
+		if (firstTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, firstTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, one, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-		if(secondTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, secondTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, two, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);			
+		if (secondTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, secondTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, two, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-		if(thirdTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, thirdTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, three, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);
+		if (thirdTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, thirdTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, three, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-		if(fourthTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, fourthTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, four, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);
+		if (fourthTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, fourthTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, four, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-		if(fifthTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, fifthTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, five, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);
+		if (fifthTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, fifthTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, five, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-		if(lastTimeDataInt != 0) {
-			int result1 = new ProductService().insertProductData(memNo, lastTimeDataInt);
-			int result2 = new ReservationService().reservationInsert(memNo, resName, resEmail, resPhone, resProson, six, resMet, totalPrice, resInfo, resMon, resCom, resPro, resMsg);
+		if (lastTimeDataInt != 0) {
+			int result1 = new ProductService().insertProductData(roomNoInt, lastTimeDataInt);
+			int result2 = new ReservationService().reservationInsert(memNoInt, resName, resEmail, resPhone,
+					resProsonInt, six, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
 
