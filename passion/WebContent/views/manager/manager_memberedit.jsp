@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.manager.model.vo.ManagerCouponVo"%>
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.passionStudy.passion.manager.model.vo.ManagerMemberVo"%>
@@ -6,7 +7,8 @@
   
   <%
   		ArrayList<ManagerMemberVo> list = (ArrayList<ManagerMemberVo>)request.getAttribute("list"); 
-		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+  		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+		
   %>
 
 <!DOCTYPE html>
@@ -138,7 +140,7 @@
               aria-label="Recipient's username"
               aria-describedby="button-addon2" />
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-toggle="modal"data-target=".bd-example-modal-lg"> EDIT </button>
+              <button class="btn btn-outline-secondary btnCoupon" type="submit" id="button-addon2"> EDIT </button>
             </div>
           </div>
 
@@ -173,8 +175,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      	비밀번호를 12345678로 변경합니다.
+      <div class="modal-body"> 비밀번호를 12345678로 변경합니다.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>        
@@ -195,7 +196,7 @@
         </button>
       </div>
       <div class="modal-body">
-      	<input type= 'text' placeholder="포인트값을 입력하세요" id="Point" />
+      	<input type= 'text' placeholder="포인트값을 입력하세요" id="Point" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>        
@@ -204,56 +205,6 @@
     </div>
   </div>
 </div>
-
-
-<!-- 쿠폰 편집용 변경용 모달 -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">쿠폰 설정</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-      
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">선택</th>
-      <th scope="col">쿠폰이름</th>
-      <th scope="col">사용 가능 여부</th>
-      <th scope="col">유효기한</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td><input type= "checkbox"  id="pick" /></td>
-      <td>3000원 쿠폰</td>
-      <td>사용가능</td>
-      <td>2021-01-15까지</td>
-    </tr>
-  </tbody>
-</table>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="btnCoupon1">3000 쿠폰 추가</button>
-        <button type="button" class="btn btn-secondary" id="btnCoupon2">5000 쿠폰 추가</button>        
-        <button type="button" class="btn btn-secondary"id="btnCouponDel">선택 쿠폰 삭제</button>        
-        <button type="submit" class="btn btn-primary" value="확인" id="btnPoint" data-dismiss="modal" >확인</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 
 <!-- 블랙리스트 추가용 모달 -->
 <div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -342,18 +293,17 @@
 		});
 	});
   
-  $('#btnBlack').on('click', function(){
-	  var value = $('input:checkbox[id="Black"]').is(":checked");
+  
+  $('.btnCoupon').on('click', function(){
 		$.ajax({
 			type : 'post',
-			url  : 'manager.Coupon',
+			url  : 'manager.listCoupon',
 			<%if(!list.isEmpty()){%>
-			data : {memno 	  : "<%=list.get(0).getMemNo()%>",
-					memStatus : value},
-			
+			data : {memno 	    : "<%=list.get(0).getMemNo()%>",
+					memname   	: "<%=list.get(0).getMemName() %>",
+					memphone  	: "<%=list.get(0).getMemPhone() %>"},
 			success  : function(){
-				alert('회원의 상태가 변경되었습니다.');
-				location.href="manager.MemberSearch2?name=<%=list.get(0).getMemName()%>&phone=<%=list.get(0).getMemPhone()%>";
+				location.href="manager.listCoupon?memno=<%=list.get(0).getMemNo()%>&memname=<%=list.get(0).getMemName()%>&memphone=<%=list.get(0).getMemPhone()%>";
 				<%}%>
 			},
 			error    : function(){
@@ -361,6 +311,7 @@
 			}  		
 		});
 	});
+
 
   </script>
   </html>

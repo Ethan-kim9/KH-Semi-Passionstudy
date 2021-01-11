@@ -17,7 +17,7 @@ public class ManagerCouponDao {
 	private Properties prop = new Properties();
 	
 	public ManagerCouponDao() {
-		String fileName = ManagerCouponDao.class.getResource("sql/manager/managerCoupon-mapper.xml").getPath();
+		String fileName = ManagerCouponDao.class.getResource("/sql/manager/managerCoupon-mapper.xml").getPath();
 		
 		try {
 			prop.loadFromXML(new FileInputStream(fileName));
@@ -39,6 +39,7 @@ public class ManagerCouponDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memNo);
+			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -47,9 +48,9 @@ public class ManagerCouponDao {
 				mcv.setMemNo(rs.getInt("MEMBER_NO"));
 				mcv.setCouponName(rs.getString("COUPON_NAME"));
 				mcv.setCouponValid(rs.getString("COUPON_VALID"));
-				mcv.setCouponDate(rs.getDate("Member_Date"));
+				mcv.setCouponDate(rs.getDate("COUPON_DATE"));
+				list.add(mcv);
 			}
-			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -59,5 +60,40 @@ public class ManagerCouponDao {
 		
 		return list;
 	}
-	
+
+
+	public int insertCoupon3(Connection conn, String memNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("couponInsert3000");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memNo);
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+	}
+
+
+	public int insertCoupon5(Connection conn, String memNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("couponInsert5000");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memNo);
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+	}
 }

@@ -20,4 +20,20 @@ public class ManagerCouponService {
 		close(conn);
 		return list;
 	}
+
+	public int insertCoupon3(String memNo) {
+		Connection conn = getConnection();
+		int result = new ManagerCouponDao().insertCoupon3(conn,memNo);
+		if(result >0)commit(conn);
+		else rollback(conn);
+		return result;
+	}
+
+	public int insertCoupon5(String memNo) {
+		Connection conn = getConnection();
+		int result = new ManagerCouponDao().insertCoupon5(conn,memNo);
+		if(result >0)commit(conn);
+		else rollback(conn);
+		return result;
+	}
 }

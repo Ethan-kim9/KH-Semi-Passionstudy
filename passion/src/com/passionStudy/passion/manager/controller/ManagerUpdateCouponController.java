@@ -1,8 +1,6 @@
 package com.passionStudy.passion.manager.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,39 +8,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.manager.model.service.ManagerCouponService;
-import com.passionStudy.passion.manager.model.vo.ManagerCouponVo;
 
 /**
- * Servlet implementation class ManagerCouponColtroller
+ * Servlet implementation class ManagerUpdateCouponController
  */
-@WebServlet("/manager.listCoupon")
-public class ManagerCouponController extends HttpServlet {
+@WebServlet("/manager.UpdateCoupon")
+public class ManagerUpdateCouponController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerCouponController() {
+    public ManagerUpdateCouponController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memNo = (String)request.getParameter("memno");
-		String memName = (String)request.getParameter("memname");
-		String memPhone = (String)request.getParameter("memphone");
 		
-		ArrayList<ManagerCouponVo> list = new ManagerCouponService().listCoupon(memNo);
-		request.setAttribute("list", list);
-		request.setAttribute("memName", memName);
-		request.setAttribute("memNo", memNo);
-		request.setAttribute("memPhone",memPhone);
-		System.out.println(list.toString());
-		request.getRequestDispatcher("views/manager/manager_coupon.jsp").forward(request, response);
-
+		String memNo = (String)request.getParameter("memno");
+		String toDo  = (String)request.getParameter("pushedbtn");
+		System.out.println("멤버 번호" + memNo);
+		System.out.println("누른 버튼" + toDo);
+		int result = 0;
+		switch (toDo) {
+		case "1":
+				result = new ManagerCouponService().insertCoupon3(memNo);
+			break;
+		case "2":
+				result = new ManagerCouponService().insertCoupon5(memNo);
+			break;
+		}
+		if(result >0) {
+			System.out.println("성공");
+		}else
+			System.out.println("망");
 	}
 
 	/**
