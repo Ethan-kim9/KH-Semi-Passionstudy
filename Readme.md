@@ -6,12 +6,11 @@
 - OS : Windows 7/10
 - Version Control : [GitHub](https://github.com/Ethan-kim9/KH_PassionStudy)
 - FW : Servlet / Bootstrap
-- Front-end : javascript / jQuery(예정) / AJAX / JSON / HTML5 / CSS3
-- Back-end : java8 / MyBatis(예정)
+- Front-end : javascript / jQuery / AJAX / JSON / HTML5 / CSS3
+- Back-end : java8
 - WAS : Apache Tomcat9.0
 - DB : Oracle
 - Developer Tools : STS / EclipesEE / VS Code / SqlDeveloper
-- 사용 API : kakao API (예정)/ NAVER(네아로)API (예정)
 
 
 ### TodoList After 12.29

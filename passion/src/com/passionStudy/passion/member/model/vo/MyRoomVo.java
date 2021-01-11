@@ -2,7 +2,7 @@ package com.passionStudy.passion.member.model.vo;
 
 public class MyRoomVo {	
 	
-	private int roomNo;			//룸명
+	private int roomNo;			//룸번호
 	private int proNo;			//상품 식별자
 	
 	private int resNo;			//예약식별자

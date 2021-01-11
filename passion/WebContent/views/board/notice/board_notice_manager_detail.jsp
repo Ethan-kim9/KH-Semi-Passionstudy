@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -17,11 +18,11 @@
     <section>
       <div id="board">
         <div id="board_main">
+        <form action="board_notice_manager_detail" method="post">
             <div id="another_buttons" style="padding-bottom:10px; padding-top:20px; text-align:right;">
                 <a href="board_notice_manager_modify?nno=${n.nno}" class="write_btn">수정</a>
-                <button type="button" class="remove_btn yb" style="float: none">
-                  삭제
-                </button>
+                <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"
+                OnClick="window.location='board_notice_manager_detail?'nno=${n.nno}"/>
               </div>
           <table class="table" id="table_title">
             <tr>
@@ -40,7 +41,7 @@
               <th>작성일</th>
               <td>${n.regdate}</td>
               <th>조회수</th>
-              <td>${n.ncount}</td>
+              <td><fmt:formatNumber value="${n.ncount}"/></td>
             </tr>
             <!-- 두번째 줄 끝-->
             <tr>
@@ -55,6 +56,7 @@
              ${n.ncontent}
             </p>
           </div>
+          </form>
         </div>
       </div>
     </section>

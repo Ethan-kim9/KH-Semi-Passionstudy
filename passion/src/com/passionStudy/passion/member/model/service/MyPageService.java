@@ -159,15 +159,25 @@ public class MyPageService {
 	}
 	
 	// 한 회원의 정보 가져오기
-	public MemberVo getOneSelect(int memberNo) {
+	/*
+	 * public MemberVo getOneSelect(int memberNo) { Connection conn =
+	 * getConnection(); MyPageDao mdao = new MyPageDao(); MemberVo mine =
+	 * mdao.getOneSelect(conn, memberNo);
+	 * 
+	 * close(conn); return mine; }
+	 */
+	
+	
+	// 구매내역 상세조회에 필요한 데이터 가져오기
+	public MyRoomVo getRoomInfo(int memNo, int roomNo) {
 		Connection conn = getConnection();
 		MyPageDao mdao = new MyPageDao();
-		MemberVo mine = mdao.getOneSelect(conn, memberNo);
+		MyRoomVo receipt = mdao.getRoomInfo(conn, memNo, roomNo);	
 		
 		close(conn);
-		return mine;
+		return receipt;
+		
 	}
-	
 	
 	
 	
