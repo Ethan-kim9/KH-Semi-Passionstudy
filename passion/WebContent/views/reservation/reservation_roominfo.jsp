@@ -8,7 +8,7 @@
 	RoomVo roomData = (RoomVo)request.getAttribute("rv");
 
 	System.out.println(roomData.toString());
-	
+
 %>
 <!DOCTYPE html>
 <html>
