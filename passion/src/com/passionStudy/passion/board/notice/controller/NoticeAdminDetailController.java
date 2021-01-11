@@ -31,6 +31,7 @@ public class NoticeAdminDetailController extends HttpServlet{
 		 noticeVo = service.getNotice(nno);
 		 
 		 
+		 service.deleteNotice(nno);
 		 request.setAttribute("n", noticeVo);
 		
 		

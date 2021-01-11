@@ -43,7 +43,7 @@
           <div id="buttons">
           	<a href="board_notice_manager_write" class="write_btn yb">글쓰기</a>
           	<a href="board_notice_manager">
-            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/></a>
+            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none" onclick="return confirm('정말로 삭제하시겠습니까?')"/></a>
           </div>
           <table class="table" id="main_table" width="50%">
 	        <thead>
