@@ -58,11 +58,9 @@
 </entry>
 
 <entry key="deleteCoupon">
-	UPDATE 
+	DELETE
 	    COUPON 
-	        SET     
-	        		COPON_VALID = ? 
 	        WHERE   
-	        		COUPON_NO 	= ?
+	        		COUPON_NO IN (?)
 </entry>
 </properties>

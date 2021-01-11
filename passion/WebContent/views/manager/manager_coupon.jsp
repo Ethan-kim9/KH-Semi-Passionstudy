@@ -44,24 +44,20 @@ height: 1000px;
   </thead>
   <tbody>
   <% if(!list.isEmpty()){
-	  int i = 0;
+	  int i = 1;
 	  String valid = null;
   	for(ManagerCouponVo mcv :list){
   		if(mcv.getCouponValid().equals("O")){
   			valid = "사용가능";
-  		}else{
-  			continue;
-  		}
-  	i++;
   %>
     <tr>
       <th scope="row"><%=i %></th>
-      <td><input type= "checkbox"  id="pickCoupon<%=i %>" /></td>
+      <td><input type= "checkbox"  class="pickCoupon" value="<%=mcv.getCouponNo() %>" /></td>
       <td><%=mcv.getCouponName() %></td>
       <td><%=valid %></td>
       <td><%=mcv.getCouponDate().toString() %>까지</td>
     </tr>
-    <%} }%>
+    <%i++;}}}%>
   </tbody>
 </table>
 <hr>
@@ -105,11 +101,16 @@ $('#btnCoupon2').on('click', function(){
 });
 
 $('#btnCouponDel').on('click', function(){
+	var checkboxArr = [];
+	$('.pickCoupon:checked').each(function(){
+		checkboxArr.push($(this).val());
+	})
+	
 	$.ajax({
 		type : 'post',
 		url  : 'manager.DelCoupon',
-		data : {memno 	    : "<%=memNo%>",
-				pushedbtn	: "del"},
+		data : {delarr		: checkboxArr}
+		,
 		success  : function(){
 			location.href="manager.listCoupon?memno=<%=memNo%>&memname=<%=memName%>&memphone=<%=memPhone%>";
 		},

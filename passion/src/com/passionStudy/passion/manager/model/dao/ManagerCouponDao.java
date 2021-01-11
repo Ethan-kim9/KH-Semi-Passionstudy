@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -94,6 +95,26 @@ public class ManagerCouponDao {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);
+		}return result;
+	}
+
+
+	public int deleteCoupon(Connection conn, String target) {
+		
+		int result = 0;
+		
+		Statement stmt = null;
+		
+		String sql = "UPDATE COUPON SET COUPON_VALID = 'X' WHERE COUPON_NO IN ("+target+")";
+		System.out.println(sql);
+		try {
+			stmt = conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			System.out.println(result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(stmt);
 		}return result;
 	}
 }

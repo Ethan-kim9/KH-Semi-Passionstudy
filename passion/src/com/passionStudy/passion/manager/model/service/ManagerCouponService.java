@@ -36,4 +36,15 @@ public class ManagerCouponService {
 		else rollback(conn);
 		return result;
 	}
+
+	public int deleteCoupon(String target) {
+		Connection conn = getConnection();
+		
+		int result = new ManagerCouponDao().deleteCoupon(conn,target);
+		if(result > 0)
+			commit(conn);
+		else 
+			rollback(conn);
+		return result;
+	}
 }

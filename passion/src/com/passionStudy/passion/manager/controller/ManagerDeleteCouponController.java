@@ -1,7 +1,6 @@
 package com.passionStudy.passion.manager.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.manager.model.service.ManagerCouponService;
-import com.passionStudy.passion.manager.model.vo.ManagerCouponVo;
 
 /**
- * Servlet implementation class ManagerCouponColtroller
+ * Servlet implementation class ManagerDeleteCouponController
  */
-@WebServlet("/manager.listCoupon")
-public class ManagerCouponController extends HttpServlet {
+@WebServlet("/manager.DelCoupon")
+public class ManagerDeleteCouponController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerCouponController() {
+    public ManagerDeleteCouponController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +29,21 @@ public class ManagerCouponController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memNo = (String)request.getParameter("memno");
-		String memName = (String)request.getParameter("memname");
-		String memPhone = (String)request.getParameter("memphone");
+		String [] delarr = request.getParameterValues("delarr[]");
+		String target = "";
 		
-		ArrayList<ManagerCouponVo> list = new ManagerCouponService().listCoupon(memNo);
-		request.setAttribute("list", list);
-		request.setAttribute("memName", memName);
-		request.setAttribute("memNo", memNo);
-		request.setAttribute("memPhone",memPhone);
-		request.getRequestDispatcher("views/manager/manager_coupon.jsp").forward(request, response);
-
+		
+		for(int i = 0; i<delarr.length; i++) {
+			target +=delarr[i];
+			if(i<delarr.length-1) {
+				target+=",";
+			}
+		}
+		int result = new ManagerCouponService().deleteCoupon(target);
+		if(result>0) {
+			System.out.println("성공");
+		}else
+			System.out.println("망");
 	}
 
 	/**
