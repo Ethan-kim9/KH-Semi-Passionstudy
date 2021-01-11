@@ -63,7 +63,7 @@
               <p>
                 <h6>열정스터디카페 포인트</h6>
                 <strong class="mine-point">
-                  <a href="views/mypage/onclick/mypage_point.jsp" class="mine-mypoint" style="cursor:not-allowed; pointer-events:none;"><%=loginMember.getMemPoint() %></a>
+                  <a href="views/mypage/onclick/mypage_point.jsp" class="mine-mypoint"><%=loginMember.getMemPoint() %></a>
                   <span>P</span>
                 </strong>
               </p>

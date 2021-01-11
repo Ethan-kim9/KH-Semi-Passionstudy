@@ -50,8 +50,39 @@
               </div>
 			  
               <button type="submit" class="btn_login">로그인하기 </button>
-            <div class="inpbx"></div>
             
+
+            <div class="sns_login">
+              <h3>다른 방법으로 로그인하기</h3>
+              <div class="sns_btn">
+                <ruler-social-login-naver titletext="네이버로 로그인하기">
+                  <div
+                    id="naverIdLogin"
+                    style="display: none"
+                    class="image-inserted"
+                  >
+                    <a id="naverIdLogin_loginButton" href="#">
+                      <img
+                        src="https://static.nid.naver.com/oauth/big w.PNG?version=js-2.0.0"
+                        height="50"
+                      />
+                    </a>
+                  </div>
+                  <div class="container image-inserted">
+                    <button class="button_naverLogin">
+                      네이버로 로그인하기
+                    </button>
+                  </div>
+                </ruler-social-login-naver>
+                <ruler-sicial-login-kakao titletext="카카오로 로그인하기">
+                  <div class="container image-inserted">
+                    <button class="button_kakaoLogin">
+                      카카오로 로그인하기
+                    </button>
+                  </div>
+                </ruler-sicial-login-kakao>
+              </div>
+            </div>
             <a href="index.jsp?inc=./views/member/member_signin.jsp" class="member_go">계정이 없으신가요? 간편가입하기</a>
             <ul class="linkarea">
               <li><a href="index.jsp?inc=./views/member/member_find.jsp">아이디 (이메일) 찾기</a></li>

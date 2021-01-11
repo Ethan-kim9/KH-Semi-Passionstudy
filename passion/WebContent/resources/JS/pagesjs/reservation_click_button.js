@@ -36,12 +36,12 @@ var reservation_click_button = function() {
 
 	var setinterval = 1;
 
-	firstTimeData.value = '';
-	secondTimeData.value = '';
-	thirdTimeData.value = '';
-	fourthTimeData.value = '';
-	fifthTimeData.value = '';
-	lastTimeData.value = '';
+	firstTimeData.value = '0';
+	secondTimeData.value = '0';
+	thirdTimeData.value = '0';
+	fourthTimeData.value = '0';
+	fifthTimeData.value = '0';
+	lastTimeData.value = '0';
 
 	reservation_check_click_time()
 
@@ -64,14 +64,14 @@ var reservation_click_button = function() {
 		if ((firstBtnCheck - thisTimeInt) < setinterval) {
 			first_time_btn.classList.add('break_time');
 			first_time_btn.onclick = function() {
-				firstTimeData.value = '';
+				firstTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			first_time_btn.onclick = function() {
 				if (first_time_btn.classList.contains('time_button_checked')) {
 					first_time_btn.classList.remove('time_button_checked');
-					firstTimeData.value = '';
+					firstTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {
@@ -88,14 +88,14 @@ var reservation_click_button = function() {
 		if ((secondBtnCheck - thisTimeInt) < setinterval) {
 			second_time_btn.classList.add('break_time');
 			second_time_btn.onclick = function() {
-				secondTimeData.value = '';
+				secondTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			second_time_btn.onclick = function() {
 				if (second_time_btn.classList.contains('time_button_checked')) {
 					second_time_btn.classList.remove('time_button_checked');
-					secondTimeData.value = '';
+					secondTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {
@@ -112,14 +112,14 @@ var reservation_click_button = function() {
 		if ((thirdBtnCheck - thisTimeInt) < setinterval) {
 			third_time_btn.classList.add('break_time');
 			third_time_btn.onclick = function() {
-				thirdTimeData.value = '';
+				thirdTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			third_time_btn.onclick = function() {
 				if (third_time_btn.classList.contains('time_button_checked')) {
 					third_time_btn.classList.remove('time_button_checked');
-					thirdTimeData.value = '';
+					thirdTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {
@@ -136,14 +136,14 @@ var reservation_click_button = function() {
 		if ((fourthBtnCheck - thisTimeInt) < setinterval) {
 			fourth_time_btn.classList.add('break_time');
 			fourth_time_btn.onclick = function() {
-				fourthTimeData.value = '';
+				fourthTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			fourth_time_btn.onclick = function() {
 				if (fourth_time_btn.classList.contains('time_button_checked')) {
 					fourth_time_btn.classList.remove('time_button_checked');
-					fourthTimeData.value = '';
+					fourthTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {
@@ -160,14 +160,14 @@ var reservation_click_button = function() {
 		if ((fifthBtnCheck - thisTimeInt) < setinterval) {
 			fifth_time_btn.classList.add('break_time');
 			fifth_time_btn.onclick = function() {
-				fifthTimeData.value = '';
+				fifthTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			fifth_time_btn.onclick = function() {
 				if (fifth_time_btn.classList.contains('time_button_checked')) {
 					fifth_time_btn.classList.remove('time_button_checked');
-					fifthTimeData.value = '';
+					fifthTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {
@@ -184,14 +184,14 @@ var reservation_click_button = function() {
 		if ((lastBtnCheck - thisTimeInt) < setinterval) {
 			last_time_btn.classList.add('break_time');
 			last_time_btn.onclick = function() {
-				lastTimeData.value = '';
+				lastTimeData.value = '0';
 				reservation_check_click_time()
 			}
 		} else {
 			last_time_btn.onclick = function() {
 				if (last_time_btn.classList.contains('time_button_checked')) {
 					last_time_btn.classList.remove('time_button_checked');
-					lastTimeData.value = '';
+					lastTimeData.value = '0';
 					reservation_check_click_time()
 				}
 				else {

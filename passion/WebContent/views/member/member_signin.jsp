@@ -10,8 +10,7 @@
     
 
 	<!-- 이용약관 동의 체크 부분 -->
-	<form class="form_wrap_signup" id="signincheckform" name="MemberSignin" method="post" action="signin.do" >
-
+	<form class="form_wrap_signup" id="signincheckform" name="MemberSignin" method="post" action="signin.do">
 		<section class="signin_sction signin_sction1">
 			<div class="signup_wrap">
 						<h2 class="title_signup">간편가입</h2>
@@ -25,7 +24,7 @@
 									</h3>
 										<div class="checkbox_group">
 											<div class="ckjoinbox">
-												<input type="checkbox" id="all_admit" name="admit" value="Y"/>
+												<input type="checkbox" id="all_admit" value="Y"/>
 												<label for="all_admit" title="모두 동의 (선택 정보 포함)"> 
 													모두 동의 (선택 정보 포함) </label>
 											</div>
@@ -243,10 +242,9 @@
 									
 							</ul>
 						</div>
-
 						<button type="submit" id="agreeBtn" class="btn_next_step sign_btn_1">
 							동의하고 가입하기</button>
-						
+
 			</div>
 		</section>
 	<!-- form 태그로 다 감쌀건지 말건지 확인.. -->
@@ -273,14 +271,15 @@
                                          name="userid" 
                                          placeholder="아이디 (이메일) 입력" 
                                          autocorrect="off" 
-                                         class="from-control"
+                                         class="field_signupbox_id"
                                          required/>
                               <!---->
-                              </div>
-                          <p class="field_vali" id="email_check">
+                            </div>
+                          <p class="field_vali">
                             <span class="signup_wrap" id="email_check"><!--msg--></span>
                           </p>
-                        </div>  
+                      </div>
+
                       <button type="submit" class="btn_next_step sign_btn_2">다음</button>
 
                   </li>
@@ -314,7 +313,7 @@
                                         required/>
                               <!---->
                           </div>
-                          <p class="field_vali" id="name_check">
+                          <p class="field_vali">
                             <span class="signup_wrap" id="name_check"><!--msg--></span>
                         </p>
                       </div>
@@ -329,7 +328,7 @@
                               <!---->
                           </div>
 
-                          <p class="field_vali" id="name_check">
+                          <p class="field_vali">
                             <span class="signup_wrap" id="phone_check"><!--msg--></span>
                         </p>
                       </div>
@@ -371,7 +370,7 @@
 	                                  <!---->
 	                             </div>
 	
-	                             <p class="field_vali" id="pw_check">
+	                             <p class="field_vali">
 	                                 <span class="signup_wrap" id="pw_check"><!--영문포함--></span>
 	                             </p>
 	                         </div>
@@ -386,7 +385,7 @@
 	                                 <!---->
 	                             </div>
 	
-	                             <p class="field_vali" id="pw_confirm_check">
+	                             <p class="field_vali">
 	                                 <span class="signup_wrap" id="pw_confirm_check"><!--비밀번호 일치--></span>
 	                             </p>
 	                         </div>
@@ -396,15 +395,111 @@
 	             </ul>
 	         </div>
 	       </div>
-	     </div>
+	 </div>
+	
 	 </section>
-</form>
+	
+	<!--추천인 입력 선택 -->
+	<section class="signin_sction signin_sction5">
+	  <div class="signup_wrap">
+	      <div class="form_wrap_signup">
+	          <h2 class="title_signup">간편가입</h2>
+	          <div class="step_wrap">
+	              <i class="step4_event"></i>
+	              <ul class="signup_step">
+	                  <li>
+	                      <div class="verify_info">
+	                          <h3>
+	                              <span class="eventbox_title">추천인 입력하고</span>
+	                              <br/>
+	                              혜택을 받으세요
+	                          </h3>
+	                          <ul class="signup_event_info">
+	                              <li>
+	                                  신규 가입시 추천인 입력하면
+	                                  <br/>
+	                                  추천자, 추천인 모두에게 1000포인트 지급
+	                              </li>
+	                          </ul>
+	                        <button type="submit" class="btn_next_step on verify_info btn_fix sign_btn_6" >
+	                                  혜택 없이 계속 가입하기
+	                        </button>
+	                        <button type="button" class="btn_next_step on verify_info sign_btn_5">
+	                                  추천인 입력하고 혜택받기
+	                        </button>
+	                      </div>
+	                  </li>
+	              </ul>
+	          </div>
+	        </div>
+	  </div>
+	 </section>
+	
+	<!--추천인 아이디 입력 -->
+	<section class="signin_sction signin_sction6">
+	  	<div class="signup_wrap">
+	          <h2 class="title_signup">간편가입</h2>
+	          	<div class="step_wrap">
+	              <i class="step5_event_info"></i>
+	              	<ul class="signup_step">
+	                  <li>
+	                      <h3>추천인을 입력해주세요.</h3>
+	                      <div class="signup_step_box">
+	                          <label for="user_event_input" class="blind signup_step"></label>
+	                          <div class="field signup_step_box">
+	                              <div class="inpbx">
+	                                  <input type="text" id="user_eventid" placeholder="추천인 아이디" />
+	                              </div>
+	                          </div>
+	                      </div>
 
-
+	                      <button type="submit" class="btn_next_step sign_btn_7">다음</button>
+	                  </li>
+	             	 </ul>
+	          	</div>
+	       </div>
+	  </section>
 	
 
+	<!--입력 완료 시 쿠폰표시 화면 -->
+	<section class="signin_sction signin_sction7">
+	  <div class="signup_wrap">
+          <h2 class="title_signup">간편가입</h2>
+          <div class="step_wrap">
+              <i class="step6_welcome"></i>
+              <ul class="signup_step">
+                  <li>
+                      <div class="join_ly">
+                          <h3>WELCOME
+                              <br/>
+                              COUPON
+                          </h3>
+                          <div class="coupon_dsc">
+                              <img class="user_coupon_img" src="https://www.flaticon.com/svg/static/icons/svg/612/612844.svg">
+                              <img class="user_coupon_img" src="https://www.flaticon.com/svg/static/icons/svg/612/612844.svg">
+
+                              <p>
+                                  + 쿠폰 상세 내용은
+                                  <a href="./mypage/coupon">마이 > 쿠폰</a>
+                                  <!-- 마이페이지 링크 연결 -->
+                                  에서 확인하세요.
+                              </p>
+                          </div>
+                          <div class="login_dsc">
+                              <!-- 로그인 화면 링크 -->
+                              <a href="index.jsp?inc=./views/member/member_login.jsp" class="member_go">
+                                  <button type="button" class="btn_next_step" >로그인 하기</button>
+                              </a>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          	</div>
+      	</div>
+  	</section>
+  
+ </form>
 </body>
-  <script src="resources/JS/pagesjs/member_signin_onvalid.js"></script>
   <script src="resources/JS/pagesjs/member_signin_click.js"></script>
   <script src="resources/JS/pagesjs/member_signin.js"></script>
 </html>

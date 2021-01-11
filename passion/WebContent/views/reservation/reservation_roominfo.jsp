@@ -8,7 +8,7 @@
 	RoomVo roomData = (RoomVo)request.getAttribute("rv");
 
 	System.out.println(roomData.toString());
-
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -426,7 +426,7 @@
 	</div>
 
 	<section class="section">
-		<form name='formSqlData' method='post' action="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
+		<form name='formSqlData' method='post' action="reservation.userinfo">
 		<div class="result">
 			<h4 class="choose_room">
 			<%if(roomData != null) { %>
@@ -684,12 +684,12 @@
 			</tr>
 			</table>
 			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
-			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
-			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
-			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
-			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
-			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+			<input type='text' id='firstTimeData' name='firstTimeData' value='0' />
+			<input type='text' id='secondTimeData' name='secondTimeData' value='0' />
+			<input type='text' id='thirdTimeData' name='thirdTimeData' value='0' />
+			<input type='text' id='fourthTimeData' name='fourthTimeData' value='0' />
+			<input type='text' id='fifthTimeData' name='fifthTimeData' value='0' />
+			<input type='text' id='lastTimeData' name='lastTimeData' value='0' />
 			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
 			<input type='text' id='member_no' name='member_no' value=<%if(loginMember != null) { %><%= loginMember.getMemNo() %><%} %> />
 			<input type='text' id='reservationName' name='reservationName' value=<%if(loginMember != null) { %><%= loginMember.getMemName() %><%} %> />

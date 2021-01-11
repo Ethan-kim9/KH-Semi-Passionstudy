@@ -48,7 +48,7 @@
     </div>
 
     <section class="section">
-	<form name='formInfoData' method='post' action='index.jsp?inc=./views/reservation/reservation_payment.jsp'>
+	<form name='formInfoData' method='post' action='reservation.payment'>
       <div class="container">
         <div class="reservation_space">
           <h5 class="reservation_space_title">예약공간</h5>

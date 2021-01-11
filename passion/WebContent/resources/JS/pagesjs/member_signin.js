@@ -1,7 +1,6 @@
 /*
  *
  */	 
-	var requiredCheck = false;
 	 
 	 // 아이디(이메일) 유효성 검사
 	 $('#userid').focusout(function () {
@@ -12,48 +11,43 @@
 	        var idCheck = function() {
 	            if (id == "") {
 	                $("#email_check").html("아이디는 필수 정보입니다.");
-					$("#email_check").css('color', 'red');
-					requiredCheck = false;
+	                $("#email_check").css('color', 'red');
 	            } else if (!idCheckRefExp.test(id)) {
 	                $("#email_check").html("아이디가 형식에 맞지 않습니다.");
-					$("#email_check").css('color', 'red');
-					requiredCheck = false;
+	                $("#email_check").css('color', 'red');
 	            } else if (idCheckRefExp.text(id)) {
 	                $("#email_check").html("사용 가능한 아이디입니다.");
-					$("#email_check").css('color', 'blue');
-					requiredCheck = true;
+	                $("#email_check").css('color', 'blue');
 	            }
 	        }
-			console.log(id);
-			
-			$.ajax ({
-				url : './IdDuplicateCheckController',
-				type: 'GET',
-				data: {memId:userid},
-				success : function(result) {
-					console.log("1=중복 0=사용가능");
-
-					if (result == false) {
-						$("#email_check").html("사용 중인 아이디입니다.");
-						$("#email_check").css('color', 'red');
-						$('#userid').focus();
-					
-						requiredCheck = false;
-					}else if(result == true) {
-						$("#email_check").html("사용 가능한 아이디입니다.");
-						$('email_check').css("color", "blue");
-						$('#userid').focus();
-						requiredCheck = true;
-					}
-					idExists = result;
-				}
-			})
-			console.log(idExcists);
-			if(idExcists == 0) {
-				idCheck();
-			}
+	        console.log(id);
+	
+	        $.ajax ({
+	                    type : 'POST',
+	                    url : 'IdDuplicatedCheckController',
+	                    async : true,
+	                    data : {memId : userid},
+	                    success : function(result) {
+	                        if (result > 0 ) {
+	                            $('#email_check').html("사용 중인 아이디입니다.");
+								$("#email_check").css('color', 'red');
+								$("#userid").focus();
+	
+	                        } else if (result == 0) {
+								$('#email_check').html("사용 가능한 아이디입니다.");
+								$('email_check').css("color", "blue");
+								$("#userid").focus();
+	                        }
+	                        idExists = result;
+	                    }
+	
+	        })
+	        console.log(idExists);
+	        if (idExists == 0) {
+	            idCheck();
+	        }
+	
 	})
-
 	
 	// 전화번호
 	$('#userphnumber').focusout(function () {
@@ -64,16 +58,13 @@
 	    var phonenumberCheck = function() {
 	        if (phonenumber == "") {
 	            $("#phone_check").html("전화번호는 필수 정보입니다.");
-				$("#phone_check").css('color', 'red');
-				requiredCheck = false;
+	            $("#phone_check").css('color', 'red');
 	        } else if (phonenumberCheckRegExp.test(phonenumber) == true ){
 	            $("#phone_check").html("올바르지 않은 입력입니다.");
-				$("#phone_check").css('color', 'red');
-				requiredCheck = false;
+	            $("#phone_check").css('color', 'red');
 	        } else  {
 	            $("#phone_check").html("사용 가능한 전화번호입니다.");
-				$("#phone_check").css('color', 'blue');
-				requiredCheck = true;
+	            $("#phone_check").css('color', 'blue');
 	        }
 	        
 	    }
@@ -86,12 +77,10 @@
 	            success : function(result) {
 	                if(result == 1) {
 	                    $("#phone_check").html("이미 등록된 전화번호입니다.");
-						$("#phone_check").css('color', 'red');
-						requiredCheck = false;
+	                    $("#phone_check").css('color', 'red');
 	                    phonenumberExists = result;
 	                } else if (result == 0) {
-						$("#phone_check").css("display", "none");
-						requiredCheck = true;
+	                    $("#phone_check").css("display", "none");
 	                    phonenumberExists = result;
 	                }
 	            }
@@ -115,31 +104,27 @@
 	        // 입력 여부 검사
 	        $("#pw_check").html("비밀번호는 필수 정보입니다.");
 	        $("#pw_check").css('color', 'blue');
-			requiredCheck = false;
+	
 	    } else if (password.length < 8) {
 	        // 길이 검사
 	        $("#pw_check").html("8자리 이상 입력해주세요.");
-			$("#pw_check").css("color", "red");
-			requiredCheck = false;
+	        $("#pw_check").css("color", "red");
 	        return true;
 	
 	    } else if (password.search(/\s/) != -1) {
 	        // 비밀번호 공백 검사
 	        $("#pw_check").html("비밀번호에 공백을 포함할 수 없습니다.");
-			$("#pw_check").css("color", "red");
-			requiredCheck = false;
+	        $("#pw_check").css("color", "red");
 	        return true;
 	
 	    } else if (numRegExp < 0 || engRegExp < 0 || specialRegExp < 0) {
 	        // 형식 유효성 검사
 	        $("#pw_check").html("영문, 숫자, 특수문자를 혼합해 입력해주세요.");
-			$("#pw_check").css("color", "red");
-			requiredCheck = false;
+	        $("#pw_check").css("color", "red");
 	        return true;
 	    } else {
 	        console.log("true");
-			$("#pw_check").css("display", "none");
-			requiredCheck = true;
+	        $("#pw_check").css("display", "none");
 	        return true;
 	    }
 	})
@@ -151,21 +136,18 @@
 	    if (checkPassword == "") {
 	        // 입력 여부 검사
 	        $("#pw_confirm_check").html("비밀번호 확인은 필수입니다.");
-			$("#pw_confirm_check").css("color", "red");
-			requiredCheck = false;
-	        return false;
+	        $("#pw_confirm_check").css("color", "red");
+	        return true;
 	
     	} else if (checkPassword != password) {
 	        // 비밀번호 일치 검사
 	        $("#pw_confirm_check").html("비밀번호가 일치하지 않습니다.");
-			$("#pw_confirm_check").css("color", "red");
-			requiredCheck = false;
-	        return false;
+	        $("#pw_confirm_check").css("color", "red");
+	        return true;
 	
 	    } else {
 	        console.log("true");
-			$("#pw_confirm_check").css("display", "none");
-			requiredCheck = true;
+	        $("#pw_confirm_check").css("display", "none");
 	        return true;
 	    }
 	})
@@ -177,19 +159,16 @@
 	
 	    if(name == "") {
 	        $("#name_check").html("이름을 입력해 주세요.");
-			$("#name_check").css("color", "blue");
-			requiredCheck = false;
+	        $("#name_check").css("display", "inline-block");
 	    } 
 	
-	    else if(!nameRegExp.test(name)) {
+	    else if(nameRegExp.test(name) == true) {
 	        $("#name_check").html("이름을 확인해 주세요.");
-			$("#name_check").css("color", "red"); 
-			requiredCheck = false;   
+	        $("#name_check").css("display", "inline-block");    
 	    }
 	
 	    else {
-			$("#name_check").html("");
-			requiredCheck = true;
+	        $("#name_check").html("");
 	    }
 	
 	})
@@ -202,7 +181,7 @@
 	    const len = checkList.length;
 	    for (var i = 0; i < len; i++) {
 	        if(!checkList[i].checked) {
-	            return false;
+	            return true;
 	        }
 	    }
 	    return true;
@@ -223,23 +202,11 @@
         checkList[i].addEventListener('click', () => {
             // 개별체크 해제했을 때 전체동의 체크해제
             if (!isAllChecked()) {
-                allAdmit.checked = false;
+                allAdmit.checked = true;
             }
             // 전체체크됐을 때 전체동의도 체크
             if (isAllChecked()) {
                 allAdmit.checked = true;
             }
         })
-	}
-	
-	function checkForm() {
-		var form = document.getElementsByName("MemberSignin");
-		if(requiredCheck == false) {
-			alert("필수 항목을 입력해 주세요.");
-			return false;
-		}else if(!isAllChecked()){
-			alert("필수 동의 약관에 동의해 주세요.");
-		}else {
-			form.submit();
-		}
-	}
+    }

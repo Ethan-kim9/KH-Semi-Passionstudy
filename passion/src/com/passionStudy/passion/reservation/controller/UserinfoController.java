@@ -9,20 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.reservation.model.service.ProductService;
-import com.passionStudy.passion.reservation.model.service.ReservationService;
+import com.passionStudy.passion.reservation.model.vo.ProductVo;
 
-@WebServlet(urlPatterns = "/reservation.payment")
-public class PaymentDataInsertController extends HttpServlet {
+@WebServlet(urlPatterns = "/reservation.userinfo")
+public class UserinfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String url = "index.jsp?inc=./views/reservation/reservation_payment.jsp";
+	String url = "index.jsp?inc=./views/reservation/reservation_userinfo.jsp";
 
-	public PaymentDataInsertController() {
-		super();
-	}
+	public UserinfoController() {
+			super();
+		}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=utf-8");
 
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
@@ -31,4 +29,5 @@ public class PaymentDataInsertController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(req, resp);
 	}
+
 }

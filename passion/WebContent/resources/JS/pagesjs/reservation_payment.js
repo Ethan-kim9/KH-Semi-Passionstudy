@@ -54,9 +54,9 @@ $(document).ready(function() {
 });
 
 // 결제하기 클릭 시
-$(document).ready(function() {
-    $('.payment').click(function(){
-        alert("결제가 완료되었습니다.")
-    });
-});
+//$(document).ready(function() {
+//    $('.payment').click(function(){
+//        alert("결제가 완료되었습니다.")
+//    });
+//});
 
