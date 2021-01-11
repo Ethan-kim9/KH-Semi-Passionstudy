@@ -185,8 +185,8 @@
 %>					
 					<tr>
 						<td><%=no %></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=category%></a></td>
-						<td><%=title %></td>
+						<td><%=category%></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=title %></a></td>
 						<td><%=date%></td>
 						
 					</tr>
@@ -199,8 +199,8 @@
 %>					
 					<tr>
 						<td><input type="checkbox" name="deletes" value="<%=no %>" /></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>"><%=category %></a></td>
-						<td><%=title %></td>
+						<td><%=category %></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>"><%=title %></a></td>
 						<td><%=date %></td>
 						
 					</tr>

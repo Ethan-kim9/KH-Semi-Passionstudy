@@ -27,7 +27,7 @@
                 <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2 on">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2 on">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
@@ -62,7 +62,7 @@
             <thead>
               <tr>
                 <th class="table-num">
-                	번호
+                	방번호
                 </th>
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
@@ -74,28 +74,58 @@
             </thead>
             
             <tbody>
-            	<c:forEach var="res" items="${myres }">
-           		<c:forEach var="room" items="${myroom }">
-              <tr>
-	                <td>1</td>
-	                <td> ${room.roomName }name</td>
-	                <td>${room.roomType }type</td>
+            	<c:forEach var="list" items="${myroomList }">
+            	<c:if test="${list.resCon eq 'Y' || list.resCon eq 'O' }">
+              	<tr>
+	                <td>${list.roomNo }번</td>
+	                <td> ${list.roomName }</td>
+	                <td>${list.roomType }type</td>
 	            
-	                <td>${res.resDate }</td>
-	                <td>${res.resTime }시간</td>
-	                <td>${res.resCon }</td>
+	                <td>${list.resDate }</td>
+	                <td>	<!-- 시간 설정 -->
+	                	<c:choose>
+	                		<c:when test="${list.resTime eq '1' }">
+	                			08:00 ~ 10:00
+	                		</c:when>
+	                		<c:when test="${list.resTime eq '2' }">
+	                			10:00 ~ 12:00
+	                		</c:when>
+	                		<c:when test="${list.resTime eq '3' }">
+	                			12:00 ~ 14:00
+	                		</c:when>
+	                		<c:when test="${list.resTime eq '4' }">
+	                			15:00 ~ 17:00
+	                		</c:when>
+	                		<c:when test="${list.resTime eq '5' }">
+	                			17:00 ~ 19:00
+	                		</c:when>
+	                		<c:otherwise>
+	                			19:00 ~ 21:00
+	                		</c:otherwise>
+	                	</c:choose>
+	                </td>
+	                <td>
+	                	<c:choose>
+	                		<c:when test="${list.resCon eq 'Y'}">
+	                			예약
+	                		</c:when>
+	                		<c:otherwise>
+	                			사용됨
+	                		</c:otherwise>
+	                	</c:choose>
+	                </td>
 	            
 	                <td>
 	                  <button
 	                    class="table-check-details-information"
 	                    type="button"
-	                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'" >
+	                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'" >
 	                    상세조회
 	                  </button>
 	                </td>
               </tr>
+              </c:if>
             </c:forEach>
-            	</c:forEach> 
             </tbody>
           </table> 
           
@@ -125,28 +155,32 @@
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
                 <th class="table-date">예약일</th>
-                <th class="table-time">취소일</th>
+                <!-- <th class="table-time">취소일</th> -->
                 <th class="table-state">상태</th>
                 <th class="table-lookup">조회</th>
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="list" items="${myroomList }">
+            <c:if test="${list.resCon eq 'C'}">
               <tr>
-                <td>1</td>
-                <td>열정만수르</td>
-                <td>단체실</td>
-                <td>2020-12-10</td>
-                <td>2020-11-02</td>
+                <td>${list.roomNo }번</td>
+                <td>${list.roomName }</td>
+                <td>${list.roomType }</td>
+                <td>${list.resDate }</td>
+                <!-- <td>2020-11-02</td> -->
                 <td class="reservation-state-cancel">취소</td>
                 <td>
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'">
+                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'">
                     상세조회
                   </button>
                 </td>
               </tr>
+            </c:if>
+            </c:forEach>
             </tbody>
           </table>
 

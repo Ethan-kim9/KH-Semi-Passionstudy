@@ -231,7 +231,7 @@
               <tr>
                 <th class="reseller_information_subtitle">요청사항</th>
                 <td class="reseller_information_textbox">
-                  <textarea name="feedback" rows="10" cols="100" placeholder="남기고 싶은 말을 적어주세요."></textarea>
+                  <textarea id='feedback' name="feedback" rows="10" cols="100" placeholder="남기고 싶은 말을 적어주세요."></textarea>
                 </td>
               </tr>
             </table>
