@@ -29,7 +29,7 @@
                 <a href="Mypage.Info"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2">나의 예약 관리</button></a>
                 <!-- 예약관리 컨트롤러서블릿?memNo=<loginMember.getMemNo>-->
             </li>
             <li>

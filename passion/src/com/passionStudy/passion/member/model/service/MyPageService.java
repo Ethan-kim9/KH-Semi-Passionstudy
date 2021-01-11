@@ -7,8 +7,10 @@ import java.util.Vector;
 
 import com.passionStudy.passion.member.model.dao.MyPageDao;
 import com.passionStudy.passion.member.model.vo.CouponVo;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
 import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
+import com.passionStudy.passion.member.model.vo.MyRoomVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -126,25 +128,46 @@ public class MyPageService {
 	}
 	
 	// 나의 예약 가져오기
-	public Vector<MyPageReservationVo> getMyReservation(int memberNo) {
-		Connection conn = getConnection();
-		MyPageDao mdao = new MyPageDao();
-		Vector<MyPageReservationVo> myres = mdao.getMyReservation(conn, memberNo);
-		
-		close(conn);
-		return myres;
-	}
+	/*
+	 * public Vector<MyPageReservationVo> getMyReservation(int memberNo) {
+	 * Connection conn = getConnection(); MyPageDao mdao = new MyPageDao();
+	 * Vector<MyPageReservationVo> myres = mdao.getMyReservation(conn, memberNo);
+	 * 
+	 * close(conn); return myres; }
+	 */
 
 	// 나의 룸 정보 가져오기
-	public ArrayList<MyPageRoomVo> getMyRoom(ArrayList<Integer> productNums){
+	/*
+	 * public ArrayList<MyPageRoomVo> getMyRoom(ArrayList<Integer> productNums){
+	 * Connection conn = getConnection(); MyPageDao mdao = new MyPageDao();
+	 * ArrayList<MyPageRoomVo> myroom = mdao.getMyRoom(conn, productNums);
+	 * 
+	 * close(conn); return myroom;
+	 * 
+	 * }
+	 */
+	
+	// my room 가져오기 (테스트) 성공
+	public ArrayList<MyRoomVo> getMyReceipt(int memberNo){
 		Connection conn = getConnection();
 		MyPageDao mdao = new MyPageDao();
-		ArrayList<MyPageRoomVo> myroom = mdao.getMyRoom(conn, productNums);
+		ArrayList<MyRoomVo> myroomList= mdao.getMyReceipt(conn, memberNo);
 		
 		close(conn);
-		return myroom;
+		return myroomList;
 		
 	}
+	
+	// 한 회원의 정보 가져오기
+	public MemberVo getOneSelect(int memberNo) {
+		Connection conn = getConnection();
+		MyPageDao mdao = new MyPageDao();
+		MemberVo mine = mdao.getOneSelect(conn, memberNo);
+		
+		close(conn);
+		return mine;
+	}
+	
 	
 	
 	

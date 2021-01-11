@@ -30,7 +30,7 @@
                 <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>

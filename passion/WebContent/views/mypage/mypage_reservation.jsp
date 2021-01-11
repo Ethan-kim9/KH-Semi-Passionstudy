@@ -62,7 +62,7 @@
             <thead>
               <tr>
                 <th class="table-num">
-                	번호
+                	방번호
                 </th>
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
@@ -74,16 +74,25 @@
             </thead>
             
             <tbody>
-            	<c:forEach var="res" items="${myres }">
-           		<c:forEach var="room" items="${myroom }">
-              <tr>
-	                <td>1</td>
-	                <td> ${room.roomName }name</td>
-	                <td>${room.roomType }type</td>
+            	<c:forEach var="list" items="${myroomList }">
+            	<c:if test="${list.resCon eq 'Y' || list.resCon eq 'O' }">
+              	<tr>
+	                <td>${list.roomNo }번</td>
+	                <td> ${list.roomName }</td>
+	                <td>${list.roomType }type</td>
 	            
-	                <td>${res.resDate }</td>
-	                <td>${res.resTime }시간</td>
-	                <td>${res.resCon }</td>
+	                <td>${list.resDate }</td>
+	                <td>${list.resTime }시간</td>
+	                <td>
+	                	<c:choose>
+	                		<c:when test="${list.resCon eq 'Y'}">
+	                			예약
+	                		</c:when>
+	                		<c:otherwise>
+	                			사용됨
+	                		</c:otherwise>
+	                	</c:choose>
+	                </td>
 	            
 	                <td>
 	                  <button
@@ -94,8 +103,8 @@
 	                  </button>
 	                </td>
               </tr>
+              </c:if>
             </c:forEach>
-            	</c:forEach> 
             </tbody>
           </table> 
           
@@ -125,18 +134,20 @@
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
                 <th class="table-date">예약일</th>
-                <th class="table-time">취소일</th>
+                <!-- <th class="table-time">취소일</th> -->
                 <th class="table-state">상태</th>
                 <th class="table-lookup">조회</th>
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="list" items="${myroomList }">
+            <c:if test="${list.resCon eq 'C'}">
               <tr>
-                <td>1</td>
-                <td>열정만수르</td>
-                <td>단체실</td>
-                <td>2020-12-10</td>
-                <td>2020-11-02</td>
+                <td>${list.roomNo }번</td>
+                <td>${list.roomName }</td>
+                <td>${list.roomType }</td>
+                <td>${list.resDate }</td>
+                <!-- <td>2020-11-02</td> -->
                 <td class="reservation-state-cancel">취소</td>
                 <td>
                   <button
@@ -147,6 +158,8 @@
                   </button>
                 </td>
               </tr>
+            </c:if>
+            </c:forEach>
             </tbody>
           </table>
 

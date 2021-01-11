@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Vector;
 
+
 import com.passionStudy.passion.member.model.vo.CouponVo;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
 import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
+import com.passionStudy.passion.member.model.vo.MyRoomVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -381,6 +384,104 @@ public class MyPageDao {
 		return myroom;
 		
 	}
+	
+	// 나의 구매내역 가져오기
+	public ArrayList<MyRoomVo> getMyReceipt(Connection conn, int memberNo){
+		// 리턴
+		ArrayList<MyRoomVo> myroomList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM RESERVATION NATURAL JOIN PRODUCT NATURAL JOIN ROOM WHERE RESERVATION.MEMBER_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MyRoomVo myroom = new MyRoomVo();
+				
+				myroom.setRoomNo(rs.getInt(1));
+				myroom.setProNo(rs.getInt(2));
+				myroom.setResNo(rs.getInt(3));
+				myroom.setMemNo(rs.getInt(4));
+				
+				myroom.setResName(rs.getString(5));
+				myroom.setResEmail(rs.getString(6));
+				myroom.setResPhone(rs.getString(7));
+				
+				myroom.setResPer(rs.getInt(8));
+				
+				myroom.setResDate(rs.getString(9));
+				myroom.setResTime(rs.getString(10));
+				myroom.setPayMethod(rs.getString(11));
+				myroom.setPayDate(rs.getString(12));
+				
+				myroom.setPayPrice(rs.getInt(13));
+				
+				myroom.setResCon(rs.getString(14));
+				myroom.setPayInfo(rs.getString(15));
+				
+				myroom.setResMon(rs.getInt(16));
+				myroom.setResCom(rs.getInt(17));
+				myroom.setResPro(rs.getInt(18));
+				
+				myroom.setProData(rs.getInt(19));
+				
+				myroom.setProCon(rs.getString(20));
+				
+				myroom.setRoomName(rs.getString(21));
+				myroom.setRoomType(rs.getString(22));
+				
+				myroom.setRoomCapMin(rs.getInt(23));
+				
+				myroom.setRoomInfo(rs.getString(24));
+				myroom.setRoomFile(rs.getString(25));
+				
+				myroom.setRoomPrice(rs.getInt(26));
+				myroom.setRoomCapMax(rs.getInt(27));
+				
+				myroomList.add(myroom);
+				
+			}
+			close(rs);
+			close(pstmt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myroomList;
+	}
+	
+	// 한 회원의 정보 가져오기
+	public MemberVo getOneSelect(Connection conn, int memberNo) {
+		// 리턴 
+		MemberVo mine = new MemberVo();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM MEMBER WHERE MEMBER_NO =? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	
 
 }
