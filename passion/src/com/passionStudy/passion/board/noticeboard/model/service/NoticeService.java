@@ -52,7 +52,31 @@ public class NoticeService {
 
 	//게시물 삭제
 	public int deleteNotice(int nno){
-		return 0;
+		int result = 0;
+		
+		
+		String sql = "DELETE NOTICE WHERE NOTICE_NO=?";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection conn = getConnection();
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, nno);
+			
+			result = st.executeUpdate();	
+			
+			st.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	//게시물 수정

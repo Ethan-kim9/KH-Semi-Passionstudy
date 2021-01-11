@@ -186,7 +186,7 @@
 					<tr>
 						<td><%=no %></td>
 						<td><%=category%></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=title %></a></td>
+						<td style="text-align:left !important;"><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=title %></a></td>
 						<td><%=date%></td>
 						
 					</tr>
