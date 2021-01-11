@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.controller;
+package com.passionStudy.passion.board.faqboard.controller;
 
 import java.io.IOException;
 import java.sql.Connection;

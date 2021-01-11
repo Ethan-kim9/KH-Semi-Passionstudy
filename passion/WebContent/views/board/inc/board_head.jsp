@@ -12,20 +12,7 @@
             <a href="./board_notice"><button class="btn1 ">공지사항</button></a>
           </li>
           <li>
-          <%
-          MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-          if(loginMember==null || !"A".equals(loginMember.getAdminCheck())  ){%>
- 
-          	<%-- 일반 사용자 faq 화면 --%>
-            <a href="./faq.FAQUserList"><button class="btn2">자주하는 질문</button></a>
-          <%
-          }else{
-          %>
-          	<%-- 관리자  사용자 faq 화면 --%>
-          	<a href="./faq.FAQManagerList"><button class="btn2">자주하는 질문</button></a>
-          <%
-          }
-          %>
+          	<a href="./faq.ManagerOrUser"><button class="btn2">자주하는 질문</button></a>
           </li>
           <li>
             <a href="./member.manager.check.do"><button class="btn3">1:1문의</button></a>

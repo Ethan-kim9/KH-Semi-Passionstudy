@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.controller;
+package com.passionStudy.passion.board.faqboard.controller;
 
 import java.io.IOException;
 
@@ -19,8 +19,7 @@ public class FAQManagerOrUserController extends HttpServlet {
        
    
     public FAQManagerOrUserController() {
-        super();
-        // TODO Auto-generated constructor stub
+        super(); 
     }
 
     @Override
@@ -36,7 +35,8 @@ public class FAQManagerOrUserController extends HttpServlet {
 		final String user = "회원";
 		final String nonMember = "비회원";
 		
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession(false); 
+		//request의 get Session()메서드의 파라미터로 false를 전달하면, 이미 생성된 세션이 있을 때 그 세션을 반환하고, 없으면 null을 반환한다.
 		
 		if (session != null) {
 			MemberVo check = (MemberVo)session.getAttribute("loginMember");
