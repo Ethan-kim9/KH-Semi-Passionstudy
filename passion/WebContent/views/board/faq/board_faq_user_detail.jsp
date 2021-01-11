@@ -20,8 +20,22 @@
     </div>
 
     <div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
     </div>
-	<form action="faq.FAQUserDetail?idx=<%=idx %>" method="post">
+    
+	<form action="faq.ManagerOrUser?idx=<%=idx %>" method="post">
     <section>
       <div id="board">
         <div id="board_main">
