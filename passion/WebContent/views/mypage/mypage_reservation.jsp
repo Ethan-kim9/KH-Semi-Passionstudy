@@ -27,7 +27,7 @@
                 <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2 on">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2 on">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
@@ -98,7 +98,7 @@
 	                  <button
 	                    class="table-check-details-information"
 	                    type="button"
-	                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'" >
+	                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'" >
 	                    상세조회
 	                  </button>
 	                </td>
@@ -153,7 +153,7 @@
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'">
+                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'">
                     상세조회
                   </button>
                 </td>
