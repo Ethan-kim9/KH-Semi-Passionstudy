@@ -30,8 +30,8 @@
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="/passion/index.jsp?inc=./views/mypage/mypage_reservation.jsp">
-              <button class="reservation-back-button on" onclick="location.href='MyReceipt'">돌아가기</button>
+              <a href="<%=contextPath %>/MyReceipt">
+              <button class="reservation-back-button on">돌아가기</button>
               </a>
             </li>
           </ul>
