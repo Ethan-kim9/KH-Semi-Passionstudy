@@ -17,7 +17,6 @@ public class FAQCheckBoxController extends HttpServlet {
        
     public FAQCheckBoxController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     @Override
