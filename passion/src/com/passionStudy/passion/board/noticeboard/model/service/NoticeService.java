@@ -57,15 +57,7 @@ public class NoticeService {
 	
 	//게시물 수정
 	public NoticeVo updateNotice(NoticeVo noticeVo){
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-		
-		System.out.println("noticeVo.getNtitle() : "+noticeVo.getNtitle());
-		System.out.println("noticeVo.getNcontent() ? "+noticeVo.getNcontent());
-		System.out.println("noticeVo.getNno() : "+noticeVo.getNno());
-
+	
 		int result = 0;
 		NoticeVo resultVo = new NoticeVo();
 		
@@ -310,6 +302,7 @@ public class NoticeService {
 
 		}
 	
+	// 조회수 증가
 	public int  viewCount(int nno) {
 		
 		
