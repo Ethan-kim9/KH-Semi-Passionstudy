@@ -30,8 +30,6 @@ public class ManagerUpdateCouponController extends HttpServlet {
 		
 		String memNo = (String)request.getParameter("memno");
 		String toDo  = (String)request.getParameter("pushedbtn");
-		System.out.println("멤버 번호" + memNo);
-		System.out.println("누른 버튼" + toDo);
 		int result = 0;
 		switch (toDo) {
 		case "1":

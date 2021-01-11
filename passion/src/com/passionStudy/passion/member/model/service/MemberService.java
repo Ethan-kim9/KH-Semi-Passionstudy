@@ -25,7 +25,6 @@ public class MemberService {
 	 */
 	public MemberVo loginMember(String memId, String memPwd) {
 		Connection conn = getConnection();
-		System.out.println("DB접속 성공");
 			MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
 		close(conn);
 		return mv;

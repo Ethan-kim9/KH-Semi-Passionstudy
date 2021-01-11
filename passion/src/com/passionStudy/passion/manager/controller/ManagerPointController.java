@@ -32,9 +32,6 @@ public class ManagerPointController extends HttpServlet {
 		
 		String memNo = (String)request.getParameter("memno");
 		String newPoint =(String)request.getParameter("memPoint");
-		System.out.println("변경 멤버번호 : "+memNo);
-		System.out.println("수정 포인트    : " +newPoint);
-		
 		int result = (int)new ManagerMemberService().changePoint(memNo,newPoint);
 		if(result >0) {
 			System.out.println("성공");

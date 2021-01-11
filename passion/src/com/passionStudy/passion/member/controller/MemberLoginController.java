@@ -29,9 +29,6 @@ public class MemberLoginController extends HttpServlet {
 		String memId = request.getParameter("userid");
 		String memPwd = request.getParameter("userpwd");
 		
-		System.out.println("유저 입력 아이디 : " + memId);
-		System.out.println("유저 입력 비밀번호 : " + memPwd);
-		
 		MemberVo loginMember = new MemberService().loginMember(memId, memPwd); //데이터가 담긴 MemberVo 객체
 
 		if(loginMember == null) { 

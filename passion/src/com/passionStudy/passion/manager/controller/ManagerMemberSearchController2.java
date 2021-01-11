@@ -35,9 +35,6 @@ public class ManagerMemberSearchController2 extends HttpServlet {
 		String searchName =  (String)request.getParameter("name");
 		String searchPhone =  (String)request.getParameter("phone");
 		
-		System.out.println("관리자가 찾을 이름 : "+searchName);
-		System.out.println(searchName+"의 번호 : "+searchPhone);
-		
 		ArrayList<ManagerMemberVo> list =  new ManagerMemberService().memberSearch(searchName,searchPhone);
 		
 		request.setAttribute("list", list);
