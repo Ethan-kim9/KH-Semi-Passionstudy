@@ -54,6 +54,14 @@ public class MemberService {
 		return result;
 	}
 
+	
+	public int phoneDuplicatedCheck(String memPhone) {
+		Connection conn = getConnection();
+		int count = new MemberDao().phoneDuplicatedCheck(conn, memPhone);
+		close(conn);
+		return count;
+	}
+
 	/**
 	 * 아이디 찾기
 	 * 
@@ -78,9 +86,20 @@ public class MemberService {
 	 */
 	public MemberVo findPwdMember(String memId, String memName, String memPhone) {
 		Connection conn = getConnection();
+
 		System.out.println("DB접속 성공");
 		MemberVo mv = new MemberDao().findPwdMember(conn, memId, memName, memPhone);
 		close(conn);
 		return mv;
 	}
+	
+	public MemberVo idDuplicatedCheck(String memId) {
+		Connection conn = getConnection();
+		System.out.println("DB접속 성공");
+		MemberVo mv = new MemberDao().idDuplicatedCheck(conn, memId);
+		close(conn);
+		return mv;
+
+	}
+
 }

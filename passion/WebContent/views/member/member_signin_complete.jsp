@@ -9,52 +9,57 @@ String username = (String)request.getAttribute("memName");
 %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-  .welcome-message {
-	text-align:center;
-	padding-top:150px;
-	}
-  .signin-and-gotomain {
- 	text-align:center;
- 	padding-top:50px;
-	}
-  .goLogin, .goMain {
-  display: inline-block;
-  line-height: 30px;
-  text-align: center;
-  background-color: black;
-  border: 1px solid black;
-  color: #fff;
-  margin-left: 2px;
-  font-size: 13px;
-  border-radius: 3px;
-	}
-  .goLogin:hover, .goMain:hover {
-  border: 1px solid #ffcc00;
-  background-color: #ffcc00;
-  color: white;
-	}
-	.yourids{
-	padding-top:50px;
-	}
-</style>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome Passion StudyCafe~!</title>
+    <link rel="stylesheet" href="resources/CSS/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity = "sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+  </head>
 <body>
-	 <div class="login_wrap">
-        <div class="welcome-message" >
-            <h2 class="member_title">회원가입이 완료되었습니다.</h2>
-            <div class="youridis">
-                <!-- jsp에서 회원가입한 아이디 db에서 가져오자-->
-                <span>회원님의 아이디는 <b><%= request.getAttribute("memId") %></b>입니다.</span>
-            </div>
-        </div>
-        <div class="signin-and-gotomain">
-            <input type="button" class="goLogin" value="로그인하기" onclick="location.href='menu.Login'"/>
-            <input type="button" class="goMain" value="메인으로 이동" onclick="location.href='index.jsp'" />
-        </div>
-    </div>
+<section class="signin_sction signin_sction7">
+	  <div class="signup_wrap">
+          <h2 class="title_signup">간편가입</h2>
+          <div class="step_wrap">
+              <i class="step6_welcome"></i>
+              <ul class="signup_step">
+                  <li>
+                      <div class="join_ly">
+                          <h3>WELCOME
+                              <br/>
+                              COUPON
+                          </h3>
+                          <div class="coupon_dsc">
+                              <img class="user_coupon_img" src="https://www.flaticon.com/svg/static/icons/svg/612/612844.svg">
+                              <img class="user_coupon_img" src="https://www.flaticon.com/svg/static/icons/svg/612/612844.svg">
+
+                              <p>
+                                  + 쿠폰 상세 내용은
+                                  <a href="./mypage/coupon">마이 > 쿠폰</a>
+                                  <!-- 마이페이지 링크 연결 -->
+                                  에서 확인하세요.
+                              </p>
+                          </div>
+                          <div class="welcome-message">
+            					<div class="youridis">
+                					<!-- jsp에서 회원가입한 아이디 db에서 가져오자-->
+                					<span>회원님의 아이디는 <b><%= request.getAttribute("memId") %></b>입니다.</span>
+					            </div>
+					      </div>
+                          
+                          <div class="login_dsc">
+                              <!-- 로그인 화면 링크 -->
+                                <div class="login_wrap">  
+                                  <button type="button" class="btn btn_me active" onclick="location.href='menu.Login'">로그인 하기</button>
+									<button type="button" value="hidden"></button>
+                              	  <button type="button" class="btn btn_me active" onclick="location.href='index.jsp'">메인으로 가기</button>
+                                </div>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          	</div>
+      	</div>
+  	</section>
 </body>
 </html>

@@ -1,14 +1,14 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.passionStudy.passion.member.model.dao.MemberDao;
+import com.passionStudy.passion.member.model.service.MemberService;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 
 @WebServlet("/IdDuplicatedCheckController")
 public class IdDuplicatedCheckController extends HttpServlet{
@@ -32,10 +32,15 @@ public class IdDuplicatedCheckController extends HttpServlet{
 		String memId = request.getParameter("userid");
 		System.out.println(memId); // 입력받은 값 들어오는지 확인 
 		
-		
-		MemberDao dao = new MemberDao();
-		response.getWriter().write(dao.idDuplicatedCheck(memId)+ "");
+		MemberVo idDuplicatedCheck = new MemberService().idDuplicatedCheck(memId);
 				
+		if(idDuplicatedCheck == null) {
+			request.setAttribute("result", true);
+		}else {
+			request.setAttribute("result", false);
+		}
+		request.setAttribute("memId", memId);
+		request.getRequestDispatcher("/views/member/member_signin.jsp").forward(request, response);
 		
 	}	
 }

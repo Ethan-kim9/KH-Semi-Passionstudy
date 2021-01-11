@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import com.passionStudy.passion.member.controller.MemberFindIdController;
 import com.passionStudy.passion.member.model.vo.MemberVo;
 
 public class MemberDao {
@@ -100,8 +99,9 @@ public class MemberDao {
 		return result;		
 	}
 	
-	public int idDuplicatedCheck(String memId) {
-		int result = 0;
+	// 아이디 중복체크
+	public MemberVo idDuplicatedCheck(Connection conn, String memId) {
+		MemberVo mv = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -112,20 +112,35 @@ public class MemberDao {
 			
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				result = rs.getInt(1);
+			if(rs.next()) {
+				mv = new MemberVo
+						(rs.getInt("MEMBER_NO"),
+						 rs.getString("MEMBER_ID"),
+						 rs.getString("MEMBER_PWD"),
+						 rs.getString("MEMBER_NAME"),
+						 rs.getString("MEMBER_PHONE"),
+						 rs.getDate("MEMBER_DATE"),
+						 rs.getString("ADMIN_CHECK"),
+						 rs.getInt("RECOM_COUNT"),
+						 rs.getString("MEMBER_STATUS"),
+						 rs.getString("AD_AGREE"),
+						 rs.getString("RECOM_CODE"),
+						 rs.getInt("MEMBER_POINT"),
+						 rs.getString("TOKEN1"),
+						 rs.getString("TOKEN2")
+						);
 			}
-			System.out.println(result);		// 0이면 사용가능. 1이면 중복
+				
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		return result;
+		return mv;
 	}
 	
-	public int phoneDuplicatedCheck(String memPhone) {
+	public int phoneDuplicatedCheck(Connection conn, String memPhone) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -289,5 +304,6 @@ public class MemberDao {
 		}
 		return vo;
 	}
+
 
 }
