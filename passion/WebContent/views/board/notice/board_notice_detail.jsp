@@ -9,7 +9,6 @@
     <title>Welcome Passion StudyCafe~!</title>
   </head>
   <body>
-
 <div class="cont_header">
       <div class="cont_wrapper">
         <h1>커뮤니티</h1>
@@ -19,6 +18,7 @@
     <section>
       <div id="board">
         <div id="board_main">
+        <form action="board_notice_detail" method="post" style="padding-top:70px;">
           <table class="table" id="table_title">
             <tr>
               <th>제　목</th>
@@ -27,17 +27,14 @@
               <td></td>
             </tr>
             <tr>
-              <!-- 첫번째 줄 시작-->
               <th>작성자</th>
               <td>${n.mno}</td>
               <td></td>
               <td></td>
             </tr>
-            <!-- 첫번째 줄 끝-->
             <tr>
-              <!-- 두번째 줄 시작-->
               <th>작성일</th>
-              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/></td> 
+              <td>${n.regdate}</td>
               <th>조회수</th>
               <td><fmt:formatNumber value="${n.ncount}"/></td>
             </tr>
@@ -50,13 +47,15 @@
             </tr>
           </table>
           <div class="table_inner">
-            <p>
-            ${n.ncontent}
+            <p style="padding-left:50px;"><!-- 내용content -->
+             ${n.ncontent}
             </p>
           </div>
+          </form>
         </div>
       </div>
     </section>
 
 </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

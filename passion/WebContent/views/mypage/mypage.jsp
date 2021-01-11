@@ -29,14 +29,14 @@
                 <a href="Mypage.Info"><button class="btn1 on">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2">나의 예약 관리</button></a>
                 <!-- 예약관리 컨트롤러서블릿?memNo=<loginMember.getMemNo>-->
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
+              <a href="MyInfoEditProc"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
@@ -63,7 +63,7 @@
               <p>
                 <h6>열정스터디카페 포인트</h6>
                 <strong class="mine-point">
-                  <a href="views/mypage/onclick/mypage_point.jsp" class="mine-mypoint"><%=loginMember.getMemPoint() %></a>
+                  <a href="views/mypage/onclick/mypage_point.jsp" class="mine-mypoint" style="cursor:not-allowed; pointer-events:none;"><%=loginMember.getMemPoint() %></a>
                   <span>P</span>
                 </strong>
               </p>

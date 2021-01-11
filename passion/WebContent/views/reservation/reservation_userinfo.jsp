@@ -48,7 +48,7 @@
     </div>
 
     <section class="section">
-	<form name='formInfoData' method='post' action='index.jsp?inc=./views/reservation/reservation_payment.jsp'>
+	<form name='formInfoData' method='post' action='reservation.payment'>
       <div class="container">
         <div class="reservation_space">
           <h5 class="reservation_space_title">예약공간</h5>
@@ -231,7 +231,7 @@
               <tr>
                 <th class="reseller_information_subtitle">요청사항</th>
                 <td class="reseller_information_textbox">
-                  <textarea name="feedback" rows="10" cols="100" placeholder="남기고 싶은 말을 적어주세요."></textarea>
+                  <textarea id='feedback' name="feedback" rows="10" cols="100" placeholder="남기고 싶은 말을 적어주세요."></textarea>
                 </td>
               </tr>
             </table>
@@ -307,31 +307,31 @@
                   </textarea>
               </li>
             </ul>
-			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
-			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
-			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
-			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
-			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
-			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
-			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
-			<input type='text' id='member_no' name='member_no' value='${param.member_no }'/>
-			<input type='text' id='reservationName' name='reservationName' value='${param.reservationName }'/>
-			<input type='text' id='tel_first' name='tel_first' value='${param.tel_first }' />
-			<input type='text' id='tel_second' name='tel_second' value='${param.tel_second }' />
-			<input type='text' id='tel_third' name='tel_third' value='${param.tel_third }' />
-			<input type='text' id='email_id' name='email_id' value='${param.email_id }' />
-			<input type='text' id='email_dns' name='email_dns' value='${param.email_dns }' />
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
-			<input type='text' id='roomName' name='roomName' value='${param.roomName }' />
-			<input type='text' id='roomMin' name='roomMin' value='${param.roomMin }' />
-			<input type='text' id='roomMax' name='roomMax' value='${param.roomMax }' />
-			<input type='text' id='roomPrice' name='roomPrice' value='${param.roomPrice }' />
-			<input type='text' id='countUsers' name='countUsers' value='${param.countUsers }' />
-			<input type='text' id='monitor' name='monitor' value='${param.monitor }' />
-			<input type='text' id='computer' name='computer' value='${param.computer }' />
-			<input type='text' id='projector' name='projector' value='${param.projector }' />
-			<input type='text' id='memPoint' name='memPoint' value='${param.memPoint }' />
+			<input type='hidden' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='hidden' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
+			<input type='hidden' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
+			<input type='hidden' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
+			<input type='hidden' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
+			<input type='hidden' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
+			<input type='hidden' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+			<input type='hidden' id='total_time' name='total_time' value='${param.total_time }' />
+			<input type='hidden' id='member_no' name='member_no' value='${param.member_no }'/>
+			<input type='hidden' id='reservationName' name='reservationName' value='${param.reservationName }'/>
+			<input type='hidden' id='tel_first' name='tel_first' value='${param.tel_first }' />
+			<input type='hidden' id='tel_second' name='tel_second' value='${param.tel_second }' />
+			<input type='hidden' id='tel_third' name='tel_third' value='${param.tel_third }' />
+			<input type='hidden' id='email_id' name='email_id' value='${param.email_id }' />
+			<input type='hidden' id='email_dns' name='email_dns' value='${param.email_dns }' />
+			<input type='hidden' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='hidden' id='roomName' name='roomName' value='${param.roomName }' />
+			<input type='hidden' id='roomMin' name='roomMin' value='${param.roomMin }' />
+			<input type='hidden' id='roomMax' name='roomMax' value='${param.roomMax }' />
+			<input type='hidden' id='roomPrice' name='roomPrice' value='${param.roomPrice }' />
+			<input type='hidden' id='countUsers' name='countUsers' value='${param.countUsers }' />
+			<input type='hidden' id='monitor' name='monitor' value='${param.monitor }' />
+			<input type='hidden' id='computer' name='computer' value='${param.computer }' />
+			<input type='hidden' id='projector' name='projector' value='${param.projector }' />
+			<input type='hidden' id='memPoint' name='memPoint' value='${param.memPoint }' />
         </div>
         <div class="next_button">
           <button class="next" id='userinfo_to_payment'>다음단계</button>

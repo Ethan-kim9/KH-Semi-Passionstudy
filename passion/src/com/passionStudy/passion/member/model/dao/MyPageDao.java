@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Vector;
 
+
 import com.passionStudy.passion.member.model.vo.CouponVo;
+import com.passionStudy.passion.member.model.vo.MemberVo;
 import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
 import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
+import com.passionStudy.passion.member.model.vo.MyRoomVo;
 import com.passionStudy.qnaBoard.vo.QnaVo;
 
 import static com.passionStudy.passion.common.JDBCtemplate.*;
@@ -381,6 +384,187 @@ public class MyPageDao {
 		return myroom;
 		
 	}
+	
+	// 나의 구매내역 가져오기
+	public ArrayList<MyRoomVo> getMyReceipt(Connection conn, int memberNo){
+		// 리턴
+		ArrayList<MyRoomVo> myroomList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM RESERVATION NATURAL JOIN PRODUCT NATURAL JOIN ROOM WHERE RESERVATION.MEMBER_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MyRoomVo myroom = new MyRoomVo();
+				
+				myroom.setRoomNo(rs.getInt(1));
+				myroom.setProNo(rs.getInt(2));
+				myroom.setResNo(rs.getInt(3));
+				myroom.setMemNo(rs.getInt(4));
+				
+				myroom.setResName(rs.getString(5));
+				myroom.setResEmail(rs.getString(6));
+				myroom.setResPhone(rs.getString(7));
+				
+				myroom.setResPer(rs.getInt(8));
+				
+				myroom.setResDate(rs.getString(9));
+				myroom.setResTime(rs.getString(10));
+				myroom.setPayMethod(rs.getString(11));
+				myroom.setPayDate(rs.getString(12));
+				
+				myroom.setPayPrice(rs.getInt(13));
+				
+				myroom.setResCon(rs.getString(14));
+				myroom.setPayInfo(rs.getString(15));
+				
+				myroom.setResMon(rs.getInt(16));
+				myroom.setResCom(rs.getInt(17));
+				myroom.setResPro(rs.getInt(18));
+				
+				myroom.setProData(rs.getInt(19));
+				
+				myroom.setProCon(rs.getString(20));
+				
+				myroom.setRoomName(rs.getString(21));
+				myroom.setRoomType(rs.getString(22));
+				
+				myroom.setRoomCapMin(rs.getInt(23));
+				
+				myroom.setRoomInfo(rs.getString(24));
+				myroom.setRoomFile(rs.getString(25));
+				
+				myroom.setRoomPrice(rs.getInt(26));
+				myroom.setRoomCapMax(rs.getInt(27));
+				
+				myroomList.add(myroom);
+				
+			}
+			close(rs);
+			close(pstmt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(myroomList);
+		return myroomList;
+	}
+	
+	// 한 회원의 정보 가져오기
+	public MemberVo getOneSelect(Connection conn, int memberNo) {
+		// 리턴 
+		MemberVo mine = new MemberVo();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM MEMBER WHERE MEMBER_NO =? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			
+			mine.setMemNo(rs.getInt(1));
+			mine.setMemId(rs.getString(2));
+			mine.setMemPwd(rs.getString(3));
+			mine.setMemName(rs.getString(4));
+			mine.setMemPhone(rs.getString(5));
+			mine.setMemDate(rs.getDate(6));
+			mine.setAdminCheck(rs.getString(7));
+			mine.setMemRecomCount(rs.getInt(8));
+			mine.setMemStatus(rs.getString(9));
+			mine.setMemAdAgree(rs.getString(10));
+			mine.setMemRecomCode(rs.getString(11));
+			mine.setMemPoint(rs.getInt(12));
+			mine.setMemToken1(rs.getString(13));
+			mine.setMemToken2(rs.getString(14));
+			
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mine;
+	}
+	
+	
+	// 구매한 방에 대한 상세조회 데이터
+	public MyRoomVo getRoomInfo( Connection conn, int memberNo, int roomNo) {
+		// 리턴
+		MyRoomVo receipt = new MyRoomVo();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM RESERVATION NATURAL JOIN PRODUCT NATURAL JOIN ROOM WHERE RESERVATION.MEMBER_NO = ? AND ROOM_NO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, roomNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				receipt.setRoomNo(rs.getInt(1));
+				receipt.setProNo(rs.getInt(2));
+				receipt.setResNo(rs.getInt(3));
+				receipt.setMemNo(rs.getInt(4));
+				
+				receipt.setResName(rs.getString(5));
+				receipt.setResEmail(rs.getString(6));
+				receipt.setResPhone(rs.getString(7));
+				
+				receipt.setResPer(rs.getInt(8));
+				
+				receipt.setResDate(rs.getString(9));
+				receipt.setResTime(rs.getString(10));
+				receipt.setPayMethod(rs.getString(11));
+				receipt.setPayDate(rs.getString(12));
+				
+				receipt.setPayPrice(rs.getInt(13));
+				
+				receipt.setResCon(rs.getString(14));
+				receipt.setPayInfo(rs.getString(15));
+				
+				receipt.setResMon(rs.getInt(16));
+				receipt.setResCom(rs.getInt(17));
+				receipt.setResPro(rs.getInt(18));
+				
+				receipt.setProData(rs.getInt(19));
+				
+				receipt.setProCon(rs.getString(20));
+				
+				receipt.setRoomName(rs.getString(21));
+				receipt.setRoomType(rs.getString(22));
+				
+				receipt.setRoomCapMin(rs.getInt(23));
+				
+				receipt.setRoomInfo(rs.getString(24));
+				receipt.setRoomFile(rs.getString(25));
+				
+				receipt.setRoomPrice(rs.getInt(26));
+				receipt.setRoomCapMax(rs.getInt(27));
+			}
+			
+			close(rs);
+			close(pstmt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return receipt;
+		
+	}
+	
+	
 	
 
 }

@@ -5,4 +5,9 @@
 <entry key="searchProductData">
 SELECT * FROM PRODUCT WHERE ROOM_NO = ? AND PRODUCT_DATA = ? AND PRODUCT_CONDITION = ?
 </entry>
+
+<!--방정보 입력-->
+<entry key="insertProductData">
+INSERT INTO PRODUCT VALUES(SEQ_PRNO.NEXTVAL, ?, ?, 'O')
+</entry>
 </properties>

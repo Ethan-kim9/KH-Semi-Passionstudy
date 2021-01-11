@@ -53,8 +53,8 @@
 	        <c:forEach var="n" items="${list}" >
             <tr>
               <td>${n.nno}</td>
-              <td><a style="text-decoration: none; color: black;" href="board_notice_detail?nno=${n.nno}">${n.ntitle}</a></td>
-              <td>${n.mno}</td>
+              <td style="text-align:left !important;" ><a style="text-decoration: none; color: black;" href="board_notice_detail?nno=${n.nno}">${n.ntitle}</a></td>
+              <td>관리자</td>
               <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/></td>
               <td>${n.ncount}</td>
             </tr>

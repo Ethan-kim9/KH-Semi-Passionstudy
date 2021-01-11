@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
     <title>Welcome Passion StudyCafe~!</title>
 	<script src="/passion/resources/JS/pagesjs/reservation_change_page.js"></script>
+	<script src="/passion/resources/JS/pagesjs/reservation_change_payradio.js"></script>
 	<script src="resources/JS/pagesjs/reservation_point_check.js"></script>
   </head>
 <%
@@ -32,12 +33,12 @@
         <div class="tabtype_wrapper">
           <ul>
             <li style="width: 33%;">
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+              <a href="reservation.room">
                 <button class="btn1">예약하기</button>
               </a>
             </li>
             <li style="width: 33%;">
-              <a href="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
+              <a href="reservation.userinfo">
               <button class="btn2">예약자 정보입력</button>
             </a>
           </li>
@@ -48,6 +49,7 @@
         </div>
       </div>
 
+   <form method='post' action='reservation.result'>
     <section class="section payment_section">
       <div class="container">
         <div class="refund_regulations">
@@ -143,32 +145,6 @@
           </div>
         </div>
 
-
-        <div class="coupon_use">
-          <h5 class="coupon_use_title">
-            쿠폰 사용
-            <span class="title_coupon_number">(0장)</span>
-          </h5>
-          <hr class="line">
-          <div class="coupon_use_content">
-            <ul>
-              <br>
-              <li class="info_list">
-                <input type="radio" name="radio_coupon" value="code_coupon">
-                <strong class="coupon_title"> 쿠폰코드</strong>
-                <input type="text" name="insert_coupon_code" id="insert_coupon_code" class="data">
-                <button type="button" class="submit_coupon_code">확인</button>
-              </li>
-              <hr class="subline">
-              <li class="info_list">
-                <input type="radio" name="radio_coupon" value="code_coupon">
-                <strong class="coupon_title"> 사용 안함</strong>
-              </li>
-              <hr class="subline">
-            </ul>
-          </div>
-        </div>
-
         <div class="point_use">
           <h5 class="point_use_title">포인트 사용</h5>
           <hr class="line">
@@ -204,11 +180,6 @@
               </li>
               <hr class="subline">
               <li class="info_list">
-                <strong class="title">쿠폰 할인</strong>
-                <span class="data">(-) 0,000원</span>
-              </li>
-              <hr class="subline">
-              <li class="info_list">
                 <strong class="title">포인트 할인</strong>
                 <span class="data">(-) <input type="text" id='use_point_show' name='use_point_show' style="width: 120px; background-color:transparent; border:0 solid black; text-align:right;" value='0' readonly disabled />원</span>
               </li>
@@ -230,19 +201,15 @@
               <ul class="payment_method_list">
                 <li class="card">
                   <img src="resources/images/icon/credit-card.png" class="payment_method_img" >
-                  <input type="radio" class="card_payment_method" name="payment" value="card" onclick="div_onoff(this.value,'con');"/>  카드결제
+                  <input type="radio" class="card_payment_method" id='payCard' name="payment" value="card" onclick="div_onoff(this.value,'con');" required/>  카드결제
                 </li>
                 <li class="mobile">
                   <img src="resources/images/icon/mobile-payment.png" class="payment_method_img" >
-                  <input type="radio" class="mobile_payment_method" name="payment" value="mobile" />  무통장입금
+                  <input type="radio" class="mobile_payment_method" id='payMobile' name="payment" value="mobile" />  무통장입금
                 </li>
                 <li class="scene">
                   <img src="resources/images/icon/scene.png" class="payment_method_img" >
-                  <input type="radio" class="scene_payment_method" name="payment" value="scene"/>  현장결제
-                </li>
-                <li class="point">
-                  <img src="resources/images/icon/money.png" class="payment_method_img" >
-                  <input type="radio" class="money_payment_method" name="payment" value="money"/>  현금결제
+                  <input type="radio" class="scene_payment_method" id='payScene' name="payment" value="scene"/>  현장결제
                 </li>
               </ul>
               <div id="con" style="display: none;">
@@ -291,7 +258,7 @@
                   <ul class="clearfix">
                     <li>
                       이용자 약관 전체 동의
-                      <input type="checkbox" name="chkAll" id="check_all" class="chkAll">
+                      <input type="checkbox" name="chkAll" id="check_all" class="chkAll"/>
                     </li>
                   </ul>
                 </li>
@@ -300,7 +267,7 @@
                     <li>
                       예약조건 확인 및 결제진행 동의
                       <span class="txt_required">(필수)</span>
-                      <input type="checkbox" name="chk" class="checkBtn">
+                      <input type="checkbox" name="chk" class="checkBtn" required/>
                     </li>
                   </ul>
                 </li>
@@ -309,7 +276,7 @@
                     <li>
                       환불규정 안내에 대한 동의
                       <span class="txt_required">(필수)</span>
-                      <input type="checkbox" name="chk" class="checkBtn">
+                      <input type="checkbox" name="chk" class="checkBtn" required/>
                     </li>
                   </ul>
                 </li>
@@ -318,39 +285,47 @@
           <div class="next_button btn_payment">
             <div>
               <a href="index.jsp?inc=./views/reservation/reservation.jsp"><button class="cancel"> 취소하기 </button></a>
-              <button class="payment"> 결제하기 </button>
+	          		<button class="payment"> 결제하기 </button>
             </div>
           </div>
         </div>
-
-
-        
       </div>
     </section>
-			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
-			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
-			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
-			<input type='text' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
-			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
-			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
-			<input type='text' id='member_no' name='member_no' value='${param.member_no }'/>
-			<input type='text' id='reservationName' name='reservationName' value='${param.reservationName }'/>
-			<input type='text' id='tel_first' name='tel_first' value='${param.tel_first }' />
-			<input type='text' id='tel_second' name='tel_second' value='${param.tel_second }' />
-			<input type='text' id='tel_third' name='tel_third' value='${param.tel_third }' />
-			<input type='text' id='email_id' name='email_id' value='${param.email_id }' />
-			<input type='text' id='email_dns' name='email_dns' value='${param.email_dns }' />
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
-			<input type='text' id='roomName' name='roomName' value='${param.roomName }' />
-			<input type='text' id='roomMin' name='roomMin' value='${param.roomMin }' />
-			<input type='text' id='roomMax' name='roomMax' value='${param.roomMax }' />
-			<input type='text' id='totalPrice' name='totalPrice' value='${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}' />
-			<input type='text' id='memPoint' name='memPoint' value='${param.memPoint }' />
-			<input type='text' id='usePoint' name='usePoint' value='${param.usePoint }' />
+	<input type='hidden' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+	<input type='hidden' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
+	<input type='hidden' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
+	<input type='hidden' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
+	<input type='hidden' id='fourthTimeData' name='fourthTimeData' value='${param.fourthTimeData }' />
+	<input type='hidden' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
+	<input type='hidden' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
+	<input type='hidden' id='member_no' name='member_no' value='${param.member_no }'/>
+	<input type='hidden' id='reservationName' name='reservationName' value='${param.reservationName }'/>
+	<input type='hidden' id='tel_first' name='tel_first' value='${param.tel_first }' />
+	<input type='hidden' id='tel_second' name='tel_second' value='${param.tel_second }' />
+	<input type='hidden' id='tel_third' name='tel_third' value='${param.tel_third }' />
+	<input type='hidden' id='tel_total' name='tel_total' value='${param.tel_first}${param.tel_second}${param.tel_third }' />
+	<input type='hidden' id='email_id' name='email_id' value='${param.email_id }' />
+	<input type='hidden' id='email_dns' name='email_dns' value='${param.email_dns }' />
+	<input type='hidden' id='email_total' name='email_total' value='${param.email_id}@${param.email_dns }' />
+	<input type='hidden' id='room_no' name='room_no' value='${param.room_no }' />
+	<input type='hidden' id='roomName' name='roomName' value='${param.roomName }' />
+	<input type='hidden' id='roomMin' name='roomMin' value='${param.roomMin }' />
+	<input type='hidden' id='roomMax' name='roomMax' value='${param.roomMax }' />
+	<input type='hidden' id='totalPrice' name='totalPrice' value='${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}' />
+	<input type='hidden' id='memPoint' name='memPoint' value='${param.memPoint }' />
+	<input type='hidden' id='usePoint' name='usePoint' value='0' />
+	<input type='hidden' id='countUsers' name='countUsers' value='${param.countUsers }' />
+	<input type='hidden' id='monitor' name='monitor' value='${param.monitor }' />
+	<input type='hidden' id='computer' name='computer' value='${param.computer }' />
+	<input type='hidden' id='projector' name='projector' value='${param.projector }' />
+	<input type='hidden' id='userMsg' name='userMsg' value='${param.feedback }' />
+	<input type='hidden' id='resMet' name='resMet' value='' />
+	<input type='hidden' id='resInfo' name='resInfo' value='' />
+</form>
   </body>
 <script>
 reservation_change_page()
+reservation_change_payradio()
 </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="resources/JS/pagesjs/reservation_payment.js"></script>

@@ -27,13 +27,13 @@
                 <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="MyReservation"><button class="btn2 on">나의 예약 관리</button></a>
+                <a href="MyReceipt"><button class="btn2 on">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
+              <a href="MyInfoEditProc"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
@@ -62,7 +62,7 @@
             <thead>
               <tr>
                 <th class="table-num">
-                	번호
+                	방번호
                 </th>
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
@@ -74,28 +74,59 @@
             </thead>
             
             <tbody>
-            	<c:forEach var="res" items="${myres }">
-           		<c:forEach var="room" items="${myroom }">
-              <tr>
-	                <td>1</td>
-	                <td> ${room.roomName }name</td>
-	                <td>${room.roomType }type</td>
+            	<c:forEach var="list" items="${myroomList }">
+            	<c:if test="${list.resCon eq 'Y' || list.resCon eq 'O' }">
+              	<tr>
+	                <td>${list.roomNo }번</td>
+	                <td> ${list.roomName }</td>
+	                <td>${list.roomType }type</td>
 	            
-	                <td>${res.resDate }</td>
-	                <td>${res.resTime }시간</td>
-	                <td>${res.resCon }</td>
+	                <td>${list.resDate }</td>
+	                <td>${list.resTime }시간</td>
+	                <td>
+	                	<c:choose>
+	                		<c:when test="${list.resCon eq 'Y'}">
+	                			예약
+	                		</c:when>
+	                		<c:otherwise>
+	                			사용됨
+	                		</c:otherwise>
+	                	</c:choose>
+	                </td>
 	            
 	                <td>
 	                  <button
 	                    class="table-check-details-information"
 	                    type="button"
-	                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'" >
+	                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'" >
 	                    상세조회
 	                  </button>
 	                </td>
               </tr>
+              </c:if>
             </c:forEach>
-            	</c:forEach> 
+            
+            <c:set var="my" value="${myroomList }"/>
+            	<c:if test="${my eq '[]' }">
+            <tr>
+            	<td colspan="7" class="reservation-nothing">
+            		 <svg
+		            id="Capa_1"
+		            enable-background="new 0 0 551.13 551.13"
+		            height="130"
+		            viewBox="0 0 551.13 551.13"
+		            width="130"
+		            xmlns="http://www.w3.org/2000/svg">
+		            <path
+		              d="m275.565 0c-151.944 0-275.565 123.621-275.565 275.565s123.621 275.565 275.565 275.565 275.565-123.621 275.565-275.565-123.621-275.565-275.565-275.565zm0 516.685c-132.955 0-241.119-108.164-241.119-241.119s108.164-241.12 241.119-241.12 241.12 108.164 241.12 241.119-108.165 241.12-241.12 241.12z"
+		            />
+		            <path d="m258.342 378.902h34.446v34.446h-34.446z" />
+		            <path d="m258.344 137.783h34.444v206.674h-34.444z" />
+		          </svg>
+		          <p> 예약 내역이 없습니다.</p>
+            	</td>
+            </tr>
+            </c:if>
             </tbody>
           </table> 
           
@@ -114,6 +145,8 @@
       </div>
     </section>
 
+	<!-- --------------------------------------------------------- -->
+
     <!-- 예약 취소-->
     <section class="section mypage_reservation mypage_reservation2">
       <div class="mypage-container">
@@ -125,28 +158,55 @@
                 <th class="table-room">스터디룸명</th>
                 <th class="table-type">스터디룸 타입</th>
                 <th class="table-date">예약일</th>
-                <th class="table-time">취소일</th>
+                <!-- <th class="table-time">취소일</th> -->
                 <th class="table-state">상태</th>
                 <th class="table-lookup">조회</th>
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="list" items="${myroomList }">
+            <c:if test="${list.resCon eq 'C'}">
               <tr>
-                <td>1</td>
-                <td>열정만수르</td>
-                <td>단체실</td>
-                <td>2020-12-10</td>
-                <td>2020-11-02</td>
+                <td>${list.roomNo }번</td>
+                <td>${list.roomName }</td>
+                <td>${list.roomType }</td>
+                <td>${list.resDate }</td>
+                <!-- <td>2020-11-02</td> -->
                 <td class="reservation-state-cancel">취소</td>
                 <td>
                   <button
                     class="table-check-details-information"
                     type="button"
-                    onclick="location.href='views/mypage/onclick/mypage_reservation_detail.jsp'">
+                    onclick="location.href='MyreceiptDetail?roomNo=${list.roomNo }'">
                     상세조회
                   </button>
                 </td>
               </tr>
+            </c:if>
+            </c:forEach>
+            
+            <c:set var="my" value="${myroomList }"/>
+            	<c:if test="${my eq '[]' }">
+            <tr>
+            	<td colspan="7" class="reservation-nothing">
+            		 <svg
+		            id="Capa_1"
+		            enable-background="new 0 0 551.13 551.13"
+		            height="130"
+		            viewBox="0 0 551.13 551.13"
+		            width="130"
+		            xmlns="http://www.w3.org/2000/svg">
+		            <path
+		              d="m275.565 0c-151.944 0-275.565 123.621-275.565 275.565s123.621 275.565 275.565 275.565 275.565-123.621 275.565-275.565-123.621-275.565-275.565-275.565zm0 516.685c-132.955 0-241.119-108.164-241.119-241.119s108.164-241.12 241.119-241.12 241.12 108.164 241.12 241.119-108.165 241.12-241.12 241.12z"
+		            />
+		            <path d="m258.342 378.902h34.446v34.446h-34.446z" />
+		            <path d="m258.344 137.783h34.444v206.674h-34.444z" />
+		          </svg>
+		          <p> 취소 내역이 없습니다.</p>
+            	</td>
+            </tr>
+            </c:if>
+            
             </tbody>
           </table>
 

@@ -43,7 +43,7 @@
           <div id="buttons">
           	<a href="board_notice_manager_write" class="write_btn yb">글쓰기</a>
           	<a href="board_notice_manager">
-            <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/></a>
+            <input type="submit" class="write_btn yb" name="cmd" value="삭제" style="float: none" onclick="return confirm('정말로 삭제하시겠습니까?')"/></a>
           </div>
           <table class="table" id="main_table" width="50%">
 	        <thead>
@@ -53,7 +53,7 @@
 	           <th>제목</th>
 	           <th>작성자</th>
 	           <th>작성일</th>
-	           <th>조회</th>
+	           <th>조회수</th>
 	        </tr>
 	        </thead>
 	        <tbody>
@@ -61,7 +61,7 @@
             <tr>
               <td><input type="checkbox" name="del-id" value="${n.nno}" class="checkbox"></td>
               <td>${n.nno}</td>
-              <td><a style="text-decoration: none; color: black;" href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
+              <td style="text-align:left !important;"><a style="text-decoration: none; color: black;" href="board_notice_manager_detail?nno=${n.nno}">${n.ntitle}</a></td>
               <td>관리자</td>
               <td>${n.regdate}</td>
               <td>${n.ncount}</td>

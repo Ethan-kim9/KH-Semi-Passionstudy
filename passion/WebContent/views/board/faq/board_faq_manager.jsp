@@ -185,8 +185,8 @@
 %>					
 					<tr>
 						<td><%=no %></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=category%></a></td>
-						<td><%=title %></td>
+						<td><%=category%></td>
+						<td style="text-align:left !important;"><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=title %></a></td>
 						<td><%=date%></td>
 						
 					</tr>
@@ -199,8 +199,8 @@
 %>					
 					<tr>
 						<td><input type="checkbox" name="deletes" value="<%=no %>" /></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>"><%=category %></a></td>
-						<td><%=title %></td>
+						<td><%=category %></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>"><%=title %></a></td>
 						<td><%=date %></td>
 						
 					</tr>
@@ -288,7 +288,7 @@ if(manager != null) {
 					<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
 					<input type="button" class="write_btn yb" style="float: none; margin-left: 550px;"
 						value="글쓰기"
-						onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_write.jsp'">
+						onClick="window.location='faq.FAQWrite'">
 					</input>
 					<!-- </a> -->
 					<button type="submit" form="delete" name="delete" value="delete" class="write_btn yb" style="float: none">

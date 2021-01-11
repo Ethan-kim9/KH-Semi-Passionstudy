@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String contextPath = request.getContextPath();
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../../resources/CSS/styles.css" />
+    <link rel="stylesheet" href="../../../<%=contextPath %>/resources/CSS/styles.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,11 +24,13 @@
 
   <body>
     <section class="mypage-section mypage-reservation-secion-pop">
+    
+    <c:set var="my" value="${receipt }"/>
       <div class="mypage-container">
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="/passion/index.jsp?inc=./views/mypage/mypage_reservation.jsp">
+              <a href="<%=contextPath %>/MyReceipt">
               <button class="reservation-back-button on">돌아가기</button>
               </a>
             </li>
@@ -31,6 +38,7 @@
         </div>
         
         <div class="reservation-state_container">
+        
           <table class="reservation-state_table">
             <thead>
               <tr>
@@ -41,38 +49,52 @@
                 <th class="table-state">진행현황</th>
               </tr>
             </thead>
+            
             <tbody>
+          	  <%-- <c:forEach var="my" items="${receipt }"> --%>
               <tr>
                 <td rowspan="2">
-                  <img src="../../../images/rooms/12_Room01.jpg" />
+                  <img src="${my.roomFile }" />
                 </td>
-                <td colspan="2" class="table-body-title">열정과다</td>
-                <td rowspan="2">2020-10-24</td>
-                <td rowspan="2">10:00 ~ 15:00</td>
+                <td colspan="2" class="table-body-title">${my.roomName }</td>
+                <td rowspan="2">${my.resDate }</td>
+                <td rowspan="2">${my.resTime }시간</td>
                 <td rowspan="2">
-                  70,000
+                  ${my.payPrice }
                   <p>원</p>
                 </td>
                 <td rowspan="2" class="table-check-state-information">
-                  결제
-                </td> <!--결제 / 취소 (취소인 경우 red)-->
+                 <c:choose>
+                 	<c:when test="${my.resCon eq 'Y' }">
+                 		예약
+                 	</c:when>
+                 	<c:when test="${my.resCon eq 'C' }">
+                 		취소
+                 	</c:when>
+                 	<c:otherwise>
+                 		사용됨
+                 	</c:otherwise>
+                 </c:choose>
+                </td>
               </tr>
               <tr>
                 <td colspan="2" class="table-body-explanation">
-                  스페이스(개인실), 허브티 무료
+                  ${my.roomInfo }
                 </td>
               </tr>
+         <%--  </c:forEach> --%>
             </tbody>
           </table>
         </div>
-        
+      
+     <%-- <c:forEach var="my" items="${receipt }">    --%>
         <div class="reservation-order-information">
           <h3 class="reservation-order-information title">주문 정보</h3>
         </div>
         <table class="reservation-order_table">
           <thead>
             <tr>
-              <th class="table-order-num">주문번호</th>
+              <th class="table-order-num">상품번호</th>
               <th class="table-order-date">주문일자</th>
               <th class="table-order-customer">주문자</th>
               <th class="table-order-phone">연락처</th>
@@ -81,11 +103,11 @@
           </thead>
           <tbody>
             <tr>
-              <td>1234567</td>
-              <td>2020-10-12</td>
-              <td>강미선</td>
-              <td>010-1234-5678</td>
-              <td>tired@abc.com</td>
+              <td> ${my.roomNo }</td>
+              <td> ${my.payDate }</td>
+              <td> ${my.resName }</td>
+              <td> ${my.resPhone }</td>
+              <td> ${my.resEmail }</td>
             </tr>
           </tbody>
         </table>
@@ -106,33 +128,50 @@
           <tbody>
             <tr>
               <td>
-                70,000
+                ${my.roomPrice }
                 <p>원</p>
               </td>
               <td>
-                -5,000
+                0
                 <p>원</p>
               </td>
               <td>
-                -2,500
+                0
                 <p>원</p>
               </td>
               <td>
-                62,500
+                 ${my.payPrice}
                 <p>원</p>
               </td>
-              <td>신용카드</td>
+              <td>
+				<c:choose>
+					<c:when test="${my.payInfo eq 'C' }">
+						신용카드
+					</c:when>
+					<c:when test="${my.payInfo eq 'P' }">
+						현금결제
+					</c:when>
+					<c:when test="${my.payInfo eq 'T' }">
+						무통장입금
+					</c:when>
+					<c:otherwise>
+						현장결제
+					</c:otherwise>
+				</c:choose>
+			  </td>
             </tr>
           </tbody>
         </table>
-        <div class="reservation-get-point">
+        <!-- <div class="reservation-get-point">
           <h4>열정스터디카페 포인트 예상 적립:</h4>
           <span>
             500
             <p>P</p>
           </span>
-        </div>
+        </div> -->
+    
       </div>
+      
     </section>
   <script src="../../../resources/JS/menubar.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

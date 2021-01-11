@@ -66,18 +66,19 @@ pageEncoding="UTF-8"%>
             <li class="product">
               <a href="">Space</a>
               <ul class="sub-depth">
-                <li>
+                <!--  <li>
                   <a href="">여기</a>
                 </li>
                 <li>
                   <a href="">에</a>
-                </li>
+                </li> -->
               </ul>
             </li>
 
             <li>
               <a href="">Mentoring</a>
               <ul class="sub-depth">
+              	<!--
                 <li>
                   <a href="">무</a>
                 </li>
@@ -90,12 +91,14 @@ pageEncoding="UTF-8"%>
                 <li>
                   <a href="">?</a>
                 </li>
+                -->
               </ul>
             </li>
 
             <li>
               <a href="">Connect</a>
               <ul class="sub-depth">
+              <!-- 
                 <li>
                   <a href="">넣</a>
                 </li>
@@ -108,6 +111,7 @@ pageEncoding="UTF-8"%>
                 <li>
                   <a href="">요</a>
                 </li>
+                -->
               </ul>
             </li>
           </ul>

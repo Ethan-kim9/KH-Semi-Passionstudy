@@ -38,14 +38,14 @@
     <header class="PassionStudy_header">
       <div class="header_inner">
         <div class="logo_img">
-          <a href="<%= contextPath%>">🔥 열정 스터디</a>
+          <a href="index.jsp">🔥 열정 스터디</a>
         </div>
 
         <div class="menu_wrapper">
           <nav id="PassionStudy_header_menu">
             <ul id="menu-main" class="menu menu-main">
               <li class="main on">	
-              	<a href="<%= contextPath%>"><span>메인</span></a>
+              	<a href="index.jsp"><span>메인</span></a>
               </li>
               <li class="roomlist">	
               	<a href="<%= contextPath%>/menu.facilitiesRooms"><span>시설소개</span></a>
