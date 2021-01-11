@@ -12,7 +12,7 @@
 	FROM 
 		ROOM
             WHERE 
-            	<![CDATA[ROOM_NO  <= 31]]>
+            	<![CDATA[ROOM_NO  <= 10]]>
             ORDER BY 
             	ROOM_NO ASC
 
