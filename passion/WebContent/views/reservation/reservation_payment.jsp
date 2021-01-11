@@ -339,8 +339,10 @@
 			<input type='text' id='tel_first' name='tel_first' value='${param.tel_first }' />
 			<input type='text' id='tel_second' name='tel_second' value='${param.tel_second }' />
 			<input type='text' id='tel_third' name='tel_third' value='${param.tel_third }' />
+			<input type='text' id='tel_total' name='tel_total' value='${param.tel_first}${param.tel_second}${param.tel_third }' />
 			<input type='text' id='email_id' name='email_id' value='${param.email_id }' />
 			<input type='text' id='email_dns' name='email_dns' value='${param.email_dns }' />
+			<input type='text' id='email_total' name='email_total' value='${param.email_id}@${param.email_dns }' />
 			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
 			<input type='text' id='roomName' name='roomName' value='${param.roomName }' />
 			<input type='text' id='roomMin' name='roomMin' value='${param.roomMin }' />

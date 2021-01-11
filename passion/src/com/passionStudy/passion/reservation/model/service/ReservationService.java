@@ -10,13 +10,15 @@ import java.sql.Connection;
 import com.passionStudy.passion.reservation.model.dao.ReservationDao;
 import com.passionStudy.passion.reservation.model.vo.ReservationVo;
 
-//public class ReservationService {
-//	public ReservationVo 이름정해(체워야함) {
-//		Connection conn = getConnection();
-//		System.out.println("DB접속 성공");
-//		ReservationVo rv = new ReservationDao().체워야함(conn, 체워야함);
-//		close(conn);
-//		return rv;
-//	}
-//
-//}
+public class ReservationService {
+
+	public int reservationInsert(int memNo, String resName, String resEmail, String resPhone, int resProson, String resTime, String resMet, int resPrice, String resInfo, int resMon, int resCom, int resPro, String resMsg) {
+
+		Connection conn = getConnection();
+		int rs = new ReservationDao().reservationInsert(conn, memNo, resName, resEmail, resPhone, resProson, resTime, resMet, resPrice, resInfo, resMon, resCom, resPro, resMsg);
+		if(rs >0)commit(conn);
+		else rollback(conn);
+		
+		return rs;
+	}
+}
