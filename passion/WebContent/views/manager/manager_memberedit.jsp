@@ -138,15 +138,13 @@
               aria-label="Recipient's username"
               aria-describedby="button-addon2" />
             <div class="input-group-append">
-             <a href ="manager.EditPiont" class = "editPoint">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2" > EDIT </button>
-              </a>
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-toggle="modal"data-target=".bd-example-modal-lg"> EDIT </button>
             </div>
           </div>
 
           <!-- 블랙리스트 설정 -->
 
-          <div class="input-group mb-3">
+<div class="input-group mb-3">
             <input
               type="text"
               class="form-control"
@@ -170,7 +168,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">비밀번호 변경</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -191,7 +189,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">포인트 변경</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -207,12 +205,62 @@
   </div>
 </div>
 
+
+<!-- 쿠폰 편집용 변경용 모달 -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">쿠폰 설정</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+      
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">선택</th>
+      <th scope="col">쿠폰이름</th>
+      <th scope="col">사용 가능 여부</th>
+      <th scope="col">유효기한</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><input type= "checkbox"  id="pick" /></td>
+      <td>3000원 쿠폰</td>
+      <td>사용가능</td>
+      <td>2021-01-15까지</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnCoupon1">3000 쿠폰 추가</button>
+        <button type="button" class="btn btn-secondary" id="btnCoupon2">5000 쿠폰 추가</button>        
+        <button type="button" class="btn btn-secondary"id="btnCouponDel">선택 쿠폰 삭제</button>        
+        <button type="submit" class="btn btn-primary" value="확인" id="btnPoint" data-dismiss="modal" >확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- 블랙리스트 추가용 모달 -->
 <div class="modal fade" id="staticBackdrop3" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">블랙리스트 설정</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -279,6 +327,26 @@
 		$.ajax({
 			type : 'post',
 			url  : 'manager.Black',
+			<%if(!list.isEmpty()){%>
+			data : {memno 	  : "<%=list.get(0).getMemNo()%>",
+					memStatus : value},
+			
+			success  : function(){
+				alert('회원의 상태가 변경되었습니다.');
+				location.href="manager.MemberSearch2?name=<%=list.get(0).getMemName()%>&phone=<%=list.get(0).getMemPhone()%>";
+				<%}%>
+			},
+			error    : function(){
+				alert(status);
+			}  		
+		});
+	});
+  
+  $('#btnBlack').on('click', function(){
+	  var value = $('input:checkbox[id="Black"]').is(":checked");
+		$.ajax({
+			type : 'post',
+			url  : 'manager.Coupon',
 			<%if(!list.isEmpty()){%>
 			data : {memno 	  : "<%=list.get(0).getMemNo()%>",
 					memStatus : value},

@@ -40,7 +40,7 @@ public class MemberFindIdController extends HttpServlet {
 			
 			
 		}else {
-			request.setAttribute("findIdFail", "정확한 정보를 입력해 주세요!");
+			request.setAttribute("msg", "찾기 실패! 정확한 정보를 입력해 주세요.");
 			request.getRequestDispatcher("index.jsp?inc=./views/member/member_find.jsp").forward(request, response);
 		}
 		
