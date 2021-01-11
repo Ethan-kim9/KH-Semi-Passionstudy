@@ -680,27 +680,27 @@
 				</td>
 			</tr>
 			</table>
-			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='firstTimeData' name='firstTimeData' value='0' />
-			<input type='text' id='secondTimeData' name='secondTimeData' value='0' />
-			<input type='text' id='thirdTimeData' name='thirdTimeData' value='0' />
-			<input type='text' id='fourthTimeData' name='fourthTimeData' value='0' />
-			<input type='text' id='fifthTimeData' name='fifthTimeData' value='0' />
-			<input type='text' id='lastTimeData' name='lastTimeData' value='0' />
-			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
-			<input type='text' id='member_no' name='member_no' value=<%if(loginMember != null) { %><%= loginMember.getMemNo() %><%} %> />
-			<input type='text' id='reservationName' name='reservationName' value=<%if(loginMember != null) { %><%= loginMember.getMemName() %><%} %> />
-			<input type='text' id='tel_first' name='tel_first' value=<%= tel_first %> />
-			<input type='text' id='tel_second' name='tel_second' value=<%= tel_second %> />
-			<input type='text' id='tel_third' name='tel_third' value=<%= tel_third %> />
-			<input type='text' id='email_id' name='email_id' value=<%= email_id %> />
-			<input type='text' id='email_dns' name='email_dns' value=<%= email_dns %> />
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
-			<input type='text' id='roomName' name='roomName' value='<%if(roomData != null) { %><%=roomData.getRoomName()%><%} %>' />
-			<input type='text' id='roomMin' name='roomMin' value='<%if(roomData != null) { %><%=roomData.getRoomCapMin()%><%} %>' />
-			<input type='text' id='roomMax' name='roomMax' value='<%if(roomData != null) { %><%=roomData.getRoomCapMax()%><%} %>' />
-			<input type='text' id='roomPrice' name='roomPrice' value='<%if(roomData != null) { %><%=roomData.getRoomPrice()%><%} %>' />
-			<input type='text' id='memPoint' name='memPoint' value='<%if(loginMember != null) { %><%=loginMember.getMemPoint()%><%} %>' />
+			<input type='hidden' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
+			<input type='hidden' id='firstTimeData' name='firstTimeData' value='0' />
+			<input type='hidden' id='secondTimeData' name='secondTimeData' value='0' />
+			<input type='hidden' id='thirdTimeData' name='thirdTimeData' value='0' />
+			<input type='hidden' id='fourthTimeData' name='fourthTimeData' value='0' />
+			<input type='hidden' id='fifthTimeData' name='fifthTimeData' value='0' />
+			<input type='hidden' id='lastTimeData' name='lastTimeData' value='0' />
+			<input type='hidden' id='total_time' name='total_time' value='${param.total_time }' />
+			<input type='hidden' id='member_no' name='member_no' value=<%if(loginMember != null) { %><%= loginMember.getMemNo() %><%} %> />
+			<input type='hidden' id='reservationName' name='reservationName' value=<%if(loginMember != null) { %><%= loginMember.getMemName() %><%} %> />
+			<input type='hidden' id='tel_first' name='tel_first' value=<%= tel_first %> />
+			<input type='hidden' id='tel_second' name='tel_second' value=<%= tel_second %> />
+			<input type='hidden' id='tel_third' name='tel_third' value=<%= tel_third %> />
+			<input type='hidden' id='email_id' name='email_id' value=<%= email_id %> />
+			<input type='hidden' id='email_dns' name='email_dns' value=<%= email_dns %> />
+			<input type='hidden' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='hidden' id='roomName' name='roomName' value='<%if(roomData != null) { %><%=roomData.getRoomName()%><%} %>' />
+			<input type='hidden' id='roomMin' name='roomMin' value='<%if(roomData != null) { %><%=roomData.getRoomCapMin()%><%} %>' />
+			<input type='hidden' id='roomMax' name='roomMax' value='<%if(roomData != null) { %><%=roomData.getRoomCapMax()%><%} %>' />
+			<input type='hidden' id='roomPrice' name='roomPrice' value='<%if(roomData != null) { %><%=roomData.getRoomPrice()%><%} %>' />
+			<input type='hidden' id='memPoint' name='memPoint' value='<%if(loginMember != null) { %><%=loginMember.getMemPoint()%><%} %>' />
 			
 		</form>
 	</section>

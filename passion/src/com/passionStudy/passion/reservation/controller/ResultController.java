@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.reservation.model.service.PointService;
 import com.passionStudy.passion.reservation.model.service.ProductService;
 import com.passionStudy.passion.reservation.model.service.ReservationService;
 
@@ -70,6 +71,13 @@ public class ResultController extends HttpServlet {
 		if (lastTimeData != null) {
 			lastTimeDataInt = Integer.parseInt(lastTimeData);
 		}
+		
+		String memPoint = req.getParameter("memPoint");
+		int memPointInt = 0;
+		if (memPoint != null) {
+			memPointInt = Integer.parseInt(memPoint);
+		}
+		
 
 		String one = "1";
 		String two = "2";
@@ -101,6 +109,9 @@ public class ResultController extends HttpServlet {
 		if (usePoint != null) {
 			usePointInt = Integer.parseInt(usePoint);
 		}
+		
+		int remainPoint = memPointInt - usePointInt;
+		
 		int totalPrice = resPriceInt - usePointInt;
 		String resInfo = (String) req.getParameter("resInfo");// 결제형식 C O P현장결제
 
@@ -168,7 +179,9 @@ public class ResultController extends HttpServlet {
 					resProsonInt, six, resMet, totalPrice, resInfo, resMonInt, resComInt, resProInt, resMsg);
 			System.out.println(result1 + result2);
 		}
-
+		int result = new PointService().pointUpdate(remainPoint, memNoInt);
+		System.out.println(result);
+		
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 
