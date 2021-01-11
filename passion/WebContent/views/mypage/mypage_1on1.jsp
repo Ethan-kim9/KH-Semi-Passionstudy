@@ -47,7 +47,7 @@
                 <a href="MyPage1on1Proc.do"><button class="btn3 on">나의 활동</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
+              <a href="MyInfoEditProc"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
@@ -137,7 +137,7 @@
         </div>
 
         <div class="go-inquery">
-          <a href="index.jsp?inc=./views/board/1on1/board_1on1.jsp" class="go-inquery_button">
+          <a href="member.manager.check.do" class="go-inquery_button">
             1:1문의하기
           </a>
         </div>

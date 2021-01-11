@@ -17,7 +17,7 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 import com.passionStudy.passion.member.model.vo.MyPageReservationVo;
 import com.passionStudy.passion.member.model.vo.MyPageRoomVo;
 
-
+// 실패한 서블릿(페기처분할 것)
 @WebServlet("/MyReservation")
 public class MypageReservationProc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,8 +38,10 @@ public class MypageReservationProc extends HttpServlet {
 		int memNo = loginMember.getMemNo();
 		
 		// 나의 예약 내역
-		MyPageService service = new MyPageService();
-		Vector<MyPageReservationVo> myres = service.getMyReservation(memNo);
+		/*
+		 * MyPageService service = new MyPageService(); Vector<MyPageReservationVo>
+		 * myres = service.getMyReservation(memNo);
+		 */
 		
 		// 상품식별자
 		ArrayList<Integer> productNums = new ArrayList(); 
@@ -50,11 +52,12 @@ public class MypageReservationProc extends HttpServlet {
 		System.out.println(productNums);
 		
 		// 나의 룸 정보 가져오기
-		MyPageService proService = new MyPageService();
-		ArrayList<MyPageRoomVo> myroom = proService.getMyRoom(productNums);
-		
-		request.setAttribute("myres", myres);
-		request.setAttribute("myroom", myroom);
+		/*
+		 * MyPageService proService = new MyPageService(); ArrayList<MyPageRoomVo>
+		 * myroom = proService.getMyRoom(productNums);
+		 * 
+		 * request.setAttribute("myres", myres); request.setAttribute("myroom", myroom);
+		 */
 		
 		RequestDispatcher dis = request.getRequestDispatcher("index.jsp?inc=./views/mypage/mypage_reservation.jsp");
 		dis.forward(request, response);

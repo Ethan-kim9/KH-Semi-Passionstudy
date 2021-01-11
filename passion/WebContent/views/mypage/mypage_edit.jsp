@@ -4,9 +4,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
+<%-- <%
 	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
-%>
+%> --%>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1">나의 정보</button></a>
+                <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
                 <a href="MyReceipt"><button class="btn2">나의 예약 관리</button></a>
@@ -36,7 +36,7 @@
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4 on">설정</button></a>
+              <a href="MyInfoEditProc"><button class="btn4 on">설정</button></a>
           </li>
           </ul>
       </div>
@@ -49,7 +49,7 @@
         <div class="container_mypage-management edit_btns">
           <ul>
             <li>
-                <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_edit.jsp'" class="edit-button1 on">회원정보 수정 </button>
+                <button onclick="location.href='MyInfoEditProc'" class="edit-button1 on">회원정보 수정 </button>
             </li>
             <li>
                 <button onclick="location.href='index.jsp?inc=./views/mypage/mypage_pwdForm.jsp'" class="edit-button2">비밀번호 변경 </button>
@@ -74,17 +74,17 @@
           <form class="edit-user-set" action="MemberEditProc" method="POST" name="form-tag">
             <div class="edit-user-form">
               <label class="edit-user-form_name">이름</label>
-              <input class="edit-user-form_name-text" type="text" name="name" value="<%=loginMember.getMemName() %>" readonly/>
+              <input class="edit-user-form_name-text" type="text" name="name" value="${memName }" readonly/>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_email">이메일</label>
-              <input class="edit-user-form_email-text1" type="email" name="email1" value="<%=loginMember.getMemId() %>" readonly/>
+              <input class="edit-user-form_email-text1" type="email" name="email1" value="${email }" readonly/>
               <!--  @<input class="edit-user-form_email-text2" type="text" name="email2"readonly/> -->
               <p class="edit-user-form-email-warn">이메일 변경을 원하실 경우 관리자에게 문의 바랍니다.</p>
             </div>
             <div class="edit-user-form">
               <label class="edit-user-form_phone">휴대폰번호</label>
-              <input class="edit-user-form_phone-text" type="text" name="phone" value="<%=loginMember.getMemPhone()%>"/>
+              <input class="edit-user-form_phone-text" type="number" name="phone" value="${phone }"/>
             </div>
             <div class="edit-user-form-ad">
               <p>광고성 정보 수신 동의</p>

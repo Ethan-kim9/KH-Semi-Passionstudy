@@ -36,7 +36,7 @@
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
             </li>
             <li>
-              <a href="index.jsp?inc=./views/mypage/mypage_edit.jsp"><button class="btn4">설정</button></a>
+              <a href="MyInfoEditProc"><button class="btn4">설정</button></a>
           </li>
           </ul>
       </div>
