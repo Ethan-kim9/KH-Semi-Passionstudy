@@ -25,13 +25,12 @@
   <body>
     <section class="mypage-section mypage-reservation-secion-pop">
     
-    <c:set var="my" value="${receipt }"/>
       <div class="mypage-container">
         <div class="container_mypage-management">
           <ul>
             <li class="mypage-single-menu">
-              <a href="/passion/index.jsp?inc=./views/mypage/mypage_reservation.jsp">
-              <button class="reservation-back-button on" onclick="location.href='MyReceipt'">돌아가기</button>
+              <a href="MyReceipt">
+              <button class="reservation-back-button on">돌아가기</button>
               </a>
             </li>
           </ul>
@@ -41,6 +40,7 @@
         
           <table class="reservation-state_table">
             <thead>
+    		<c:set var="my" value="${receipt }"/>
               <tr>
                 <th colspan="3" class="table-room">스터디룸명</th>
                 <th class="table-date">예약일</th>
@@ -58,7 +58,28 @@
                 </td>
                 <td colspan="2" class="table-body-title">${my.roomName }</td>
                 <td rowspan="2">${my.resDate }</td>
-                <td rowspan="2">${my.resTime }시간</td>
+                <td rowspan="2">
+                <c:choose>
+	                		<c:when test="${my.resTime eq '1' }">
+	                			08:00 ~ 10:00
+	                		</c:when>
+	                		<c:when test="${my.resTime eq '2' }">
+	                			10:00 ~ 12:00
+	                		</c:when>
+	                		<c:when test="${my.resTime eq '3' }">
+	                			12:00 ~ 14:00
+	                		</c:when>
+	                		<c:when test="${my.resTime eq '4' }">
+	                			15:00 ~ 17:00
+	                		</c:when>
+	                		<c:when test="${my.resTime eq '5' }">
+	                			17:00 ~ 19:00
+	                		</c:when>
+	                		<c:otherwise>
+	                			19:00 ~ 21:00
+	                		</c:otherwise>
+	                	</c:choose>
+                </td>
                 <td rowspan="2">
                   ${my.payPrice }
                   <p>원</p>
