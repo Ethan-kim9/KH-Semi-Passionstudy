@@ -453,6 +453,7 @@ public class MyPageDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(myroomList);
 		return myroomList;
 	}
 	
