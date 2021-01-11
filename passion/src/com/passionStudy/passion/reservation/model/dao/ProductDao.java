@@ -58,4 +58,22 @@ public class ProductDao {
 		}
 		return pv;
 	}
+	
+	public int productInsert(Connection conn, int roomNo, int productData) {
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		String sql = prop.getProperty("insertReservation");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, roomNo);
+			pstmt.setLong(2, productData);
+			rs = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return rs;
+	}
 }

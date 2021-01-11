@@ -52,15 +52,6 @@ $(document).ready(function() {
 	});
 	//return false;
 });
-// 현금결제 선택 시
-$(document).ready(function() {
-	$('.money_payment_method').click(function(){
-	    if(!$('#money_payment').is(':checked')){
-	    alert("메일로 보내주기 준비 중...")
-	    } 
-	});
-	return false;
-});
 
 // 결제하기 클릭 시
 $(document).ready(function() {
@@ -68,3 +59,4 @@ $(document).ready(function() {
         alert("결제가 완료되었습니다.")
     });
 });
+
