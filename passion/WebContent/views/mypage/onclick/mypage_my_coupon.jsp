@@ -57,7 +57,7 @@
 		                  <div class="coupon-item_due-date">
 		                    <span>· ${coupon.couponDate }</span>
 		                  </div>
-		                  <a class="coupon-item_studyroom-list" href="javascript:alert('이미 사용하신 쿠폰입니다.')">적용상품 보기 ></a>
+		                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 		                  <div class="coupon-item_status-done"> 사용불가 </div>
 		                </div>
                </c:if>
@@ -91,7 +91,7 @@
 	                  <div class="coupon-item_due-date">
 	                    <span>· ${coupon.couponDate }</span>
 	                  </div>
-	                  <a class="coupon-item_studyroom-list" href="javascript:alert('전상품 적용가능합니다.')" >적용상품 보기 ></a>
+	                  <a class="coupon-item_studyroom-list" href="#">적용상품 보기 ></a>
 	                  <div class="coupon-item_status-get" > 사용가능 </div>
 	               	</div>
 

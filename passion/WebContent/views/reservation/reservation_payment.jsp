@@ -33,12 +33,12 @@
         <div class="tabtype_wrapper">
           <ul>
             <li style="width: 33%;">
-              <a href="index.jsp?inc=./views/reservation/reservation_roominfo.jsp">
+              <a href="reservation.room">
                 <button class="btn1">예약하기</button>
               </a>
             </li>
             <li style="width: 33%;">
-              <a href="index.jsp?inc=./views/reservation/reservation_userinfo.jsp">
+              <a href="reservation.userinfo">
               <button class="btn2">예약자 정보입력</button>
             </a>
           </li>
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-   <form action="/reservation.do.payment" method='post'>
+   <form method='post' action='reservation.result'>
     <section class="section payment_section">
       <div class="container">
         <div class="refund_regulations">
@@ -286,7 +286,6 @@
             <div>
               <a href="index.jsp?inc=./views/reservation/reservation.jsp"><button class="cancel"> 취소하기 </button></a>
 	          		<button class="payment"> 결제하기 </button>
-
             </div>
           </div>
         </div>
@@ -314,7 +313,7 @@
 	<input type='text' id='roomMax' name='roomMax' value='${param.roomMax }' />
 	<input type='text' id='totalPrice' name='totalPrice' value='${(param.roomPrice * param.total_time) + ((param.computer + param.projector) * 2000)}' />
 	<input type='text' id='memPoint' name='memPoint' value='${param.memPoint }' />
-	<input type='text' id='usePoint' name='usePoint' value='${param.usePoint }' />
+	<input type='text' id='usePoint' name='usePoint' value='0' />
 	<input type='text' id='countUsers' name='countUsers' value='${param.countUsers }' />
 	<input type='text' id='monitor' name='monitor' value='${param.monitor }' />
 	<input type='text' id='computer' name='computer' value='${param.computer }' />

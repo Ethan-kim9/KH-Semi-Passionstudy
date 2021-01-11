@@ -72,7 +72,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='1'/>
             		<button>예약하기</button>
             	</form>
@@ -81,7 +81,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='2'/>
             		<button>예약하기</button>
             	</form>
@@ -90,7 +90,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='3'/>
             		<button>예약하기</button>
             	</form>
@@ -120,7 +120,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='4'/>
             		<button>예약하기</button>
             	</form>
@@ -130,7 +130,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='5'/>
             		<button>예약하기</button>
             	</form>
@@ -160,7 +160,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='6'/>
             		<button>예약하기</button>
             	</form>
@@ -170,7 +170,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='7'/>
             		<button>예약하기</button>
             	</form>
@@ -209,7 +209,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='8'/>
             		<button>예약하기</button>
             	</form>
@@ -219,7 +219,7 @@
               <a href="index.jsp?inc=./views/facilities/facilities_rooms.jsp"><button class="facilities_introduction">시설소개</button></a>
             </li>
             <li>
-            	<form method='post' action="reservation.do">
+            	<form method='post' action="reservation.room">
             		<input type='hidden' id='room_no' name='room_no' value='9'/>
             		<button>예약하기</button>
             	</form>

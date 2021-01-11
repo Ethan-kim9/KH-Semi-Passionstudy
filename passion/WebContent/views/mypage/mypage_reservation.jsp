@@ -82,28 +82,7 @@
 	                <td>${list.roomType }type</td>
 	            
 	                <td>${list.resDate }</td>
-	                <td>	<!-- 시간 설정 -->
-	                	<c:choose>
-	                		<c:when test="${list.resTime eq '1' }">
-	                			08:00 ~ 10:00
-	                		</c:when>
-	                		<c:when test="${list.resTime eq '2' }">
-	                			10:00 ~ 12:00
-	                		</c:when>
-	                		<c:when test="${list.resTime eq '3' }">
-	                			12:00 ~ 14:00
-	                		</c:when>
-	                		<c:when test="${list.resTime eq '4' }">
-	                			15:00 ~ 17:00
-	                		</c:when>
-	                		<c:when test="${list.resTime eq '5' }">
-	                			17:00 ~ 19:00
-	                		</c:when>
-	                		<c:otherwise>
-	                			19:00 ~ 21:00
-	                		</c:otherwise>
-	                	</c:choose>
-	                </td>
+	                <td>${list.resTime }시간</td>
 	                <td>
 	                	<c:choose>
 	                		<c:when test="${list.resCon eq 'Y'}">

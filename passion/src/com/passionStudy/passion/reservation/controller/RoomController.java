@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.passionStudy.passion.reservation.model.service.RoomService;
 import com.passionStudy.passion.reservation.model.vo.RoomVo;
 
-@WebServlet(urlPatterns = "/reservation.do")
-public class RoomController extends HttpServlet{
+@WebServlet(urlPatterns = "/reservation.room")
+public class RoomController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String url = "index.jsp?inc=./views/reservation/reservation_roominfo.jsp";
-	
+
 	public RoomController() {
 		super();
 	}
@@ -24,13 +24,13 @@ public class RoomController extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		int room_no = Integer.parseInt(req.getParameter("room_no"));
-		
+
 		System.out.println("방번호 : " + room_no);
-		
+
 		RoomVo rv = new RoomService().selectRoomData(room_no);
-		
+
 		req.setAttribute("rv", rv);
-		
+
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
 
@@ -38,8 +38,5 @@ public class RoomController extends HttpServlet{
 		// TODO Auto-generated method stub
 		doGet(req, resp);
 	}
-	
-	
-	
-	
+
 }

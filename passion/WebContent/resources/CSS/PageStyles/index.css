@@ -16,24 +16,27 @@
 .mainExplanations {
   box-sizing: border-box;
   float: left;
-  height: 350px;
+  height: 400px;
   width: 300px;
-  background-color: lightgray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  background-color: #FFE57F;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   padding-top: 30px;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 100px;
 }
 
 .mainExplanations > h2 {
+  margin-top: 30px;
   text-align: center;
 }
 
 .mainExplanations > img {
-  height: 50px;
-  width: 50px;
-  padding-left: 95px;
+  height: 70px;
+  width: 95px;
+  float:center;
+  margin: 5px 70px 0 70px;
 }
 
 .mainFloatLeft {
@@ -157,6 +160,6 @@
 #mainHowToComeExplanations {
   box-sizing: border-box;
   padding: 30px;
-  background-color: lightgray;
+  background-color: #FFE57F;
   line-height: 15px;
 }

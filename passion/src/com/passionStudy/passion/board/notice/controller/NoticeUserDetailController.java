@@ -21,8 +21,8 @@ import com.passionStudy.passion.board.noticeboard.model.vo.NoticeVo;
 public class NoticeUserDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+		throws ServletException, IOException {
+		
 		int nno = Integer.parseInt(request.getParameter("nno"));
 		
 		 NoticeService service = new NoticeService();
