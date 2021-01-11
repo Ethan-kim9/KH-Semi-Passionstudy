@@ -288,7 +288,7 @@ if(manager != null) {
 					<!-- <a href="index.jsp?inc=./views/board/faq/board_faq_write.jsp"> -->
 					<input type="button" class="write_btn yb" style="float: none; margin-left: 550px;"
 						value="글쓰기"
-						onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_write.jsp'">
+						onClick="window.location='board_faq_manager_write.jsp'">
 					</input>
 					<!-- </a> -->
 					<button type="submit" form="delete" name="delete" value="delete" class="write_btn yb" style="float: none">
