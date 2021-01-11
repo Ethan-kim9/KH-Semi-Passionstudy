@@ -1,23 +1,26 @@
-package com.passionStudy.passion.board.controller;
+package com.passionStudy.passion.manager.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.passionStudy.passion.manager.model.service.ManagerCouponService;
+
 /**
- * Servlet implementation class FAQUserListController
+ * Servlet implementation class ManagerDeleteCouponController
  */
-@WebServlet("/faq.FAQUserList")
-public class FAQUserListController extends HttpServlet {
+@WebServlet("/manager.DelCoupon")
+public class ManagerDeleteCouponController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FAQUserListController() {
+    public ManagerDeleteCouponController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +29,21 @@ public class FAQUserListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq.jsp").forward(request, response);
+		String [] delarr = request.getParameterValues("delarr[]");
+		String target = "";
+		
+		
+		for(int i = 0; i<delarr.length; i++) {
+			target +=delarr[i];
+			if(i<delarr.length-1) {
+				target+=",";
+			}
+		}
+		int result = new ManagerCouponService().deleteCoupon(target);
+		if(result>0) {
+			System.out.println("성공");
+		}else
+			System.out.println("망");
 	}
 
 	/**

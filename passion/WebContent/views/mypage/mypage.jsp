@@ -54,7 +54,6 @@
               <h6 class="mypage-main-front_user">
                 <strong class="mypage-main-front-user-name"><%=loginMember.getMemName() %></strong>
                 님 반갑습니다.
-                <a href="MyReservation"> 예약 테스트</a>
               </h6>
               
             </div>

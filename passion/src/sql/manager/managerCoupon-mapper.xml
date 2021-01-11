@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="selectCoupon">
+	SELECT 
+            	coupon_no
+            ,	member_no
+            ,	coupon_name
+            ,	coupon_valid
+            ,	coupon_date
+            FROM
+            		COUPON
+            WHERE
+            		member_no = ?
+</entry>
+<entry key="couponInsert3000">
+	INSERT INTO 
+        	COUPON
+            (
+            	coupon_no
+            ,	member_no
+            ,	coupon_name
+            ,	coupon_valid
+            ,	coupon_price
+            ,	coupon_date
+            ) 
+            	VALUES
+			            (
+			            	SEQ_CNO.nextval
+			            ,	?
+			            ,	'3000원 쿠폰'
+			            ,	'O'
+			            ,	3000
+			            ,	SYSDATE+30
+			            )
+</entry>
+
+<entry key="couponInsert5000">
+	INSERT INTO 
+        	COUPON
+            (
+            	coupon_no
+            ,	member_no
+            ,	coupon_name
+            ,	coupon_valid
+            ,	coupon_price
+            ,	coupon_date
+            ) 
+            	VALUES
+			            (
+			            	SEQ_CNO.nextval
+			            ,	?
+			            ,	'5000원 쿠폰'
+			            ,	'O'
+			            ,	5000
+			            ,	SYSDATE+30
+			            )
+</entry>
+
+<entry key="deleteCoupon">
+	DELETE
+	    COUPON 
+	        WHERE   
+	        		COUPON_NO IN (?)
+</entry>
+</properties>

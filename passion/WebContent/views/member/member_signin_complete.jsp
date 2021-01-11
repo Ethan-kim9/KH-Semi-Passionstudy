@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String result = (String)request.getAttribute("result"); // 성공! 실패.... 문구
+String result = (String)request.getAttribute("result");
 
 String userid = (String)request.getAttribute("memId");
 String username = (String)request.getAttribute("memName");

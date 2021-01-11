@@ -39,13 +39,6 @@ public class NoticeAdminModifyController extends HttpServlet{
 			noticeVo.setNtitle(title);
 			noticeVo.setNcontent(content);
 			noticeVo.setNno(nno);
-
-			System.out.println("aaaaaaaaaaaaaaaaaaaaa");
-			System.out.println("aaaaaaaaaaaaaaaaaaaaa");
-			System.out.println("aaaaaaaaaaaaaaaaaaaaa");
-			System.out.println(noticeVo.getNtitle());
-			System.out.println(noticeVo.getNcontent());
-			System.out.println(noticeVo.getNno());
 			
 			NoticeService service = new NoticeService();
 			NoticeVo resultVo = service.updateNotice(noticeVo);

@@ -7,35 +7,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.passionStudy.passion.manager.model.service.ManagerMemberService;
+import com.passionStudy.passion.manager.model.service.ManagerCouponService;
 
 /**
- * Servlet implementation class ManagerPointController
+ * Servlet implementation class ManagerUpdateCouponController
  */
-@WebServlet("/manager.Point")
-public class ManagerPointController extends HttpServlet {
+@WebServlet("/manager.UpdateCoupon")
+public class ManagerUpdateCouponController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagerPointController() {
+    public ManagerUpdateCouponController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		String memNo = (String)request.getParameter("memno");
-		String newPoint =(String)request.getParameter("memPoint");
-		int result = (int)new ManagerMemberService().changePoint(memNo,newPoint);
+		String toDo  = (String)request.getParameter("pushedbtn");
+		int result = 0;
+		switch (toDo) {
+		case "1":
+				result = new ManagerCouponService().insertCoupon3(memNo);
+			break;
+		case "2":
+				result = new ManagerCouponService().insertCoupon5(memNo);
+			break;
+		}
 		if(result >0) {
 			System.out.println("성공");
-		}else System.out.println("망");
+		}else
+			System.out.println("망");
 	}
 
 	/**

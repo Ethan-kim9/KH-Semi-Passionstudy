@@ -19,7 +19,21 @@
       </div>
     </div>
 
-    <jsp:include page="../inc/board_head.jsp"/>
+   <div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1 on">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <section>
       <div id="board">
@@ -39,7 +53,7 @@
 	        <c:forEach var="n" items="${list}" >
             <tr>
               <td>${n.nno}</td>
-              <td><a href="board_notice_detail?nno=${n.nno}">${n.ntitle}</a></td>
+              <td><a style="text-decoration: none; color: black;" href="board_notice_detail?nno=${n.nno}">${n.ntitle}</a></td>
               <td>${n.mno}</td>
               <td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}"/></td>
               <td>${n.ncount}</td>
@@ -62,12 +76,12 @@
         <c:set var="page" value="${(empty param.p)?1:param.p}"/>
 		<c:set var="startNum" value="${page-(page-1)%5}"/>
 		<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(count/10),'.')}"/>
-          <div class="indexer margin-top align-right">
+          <div class="indexer margin-top align-right" style="padding-left: 612px;">
 			<div styel="text-align:right;">
 				<span class="text-orange text-strong">${(empty param.p)?1:param.p}</span> / ${lastNum } pages</div>
 			</div>
           	<nav aria-label="Page navigation example">
-			  <ul class="pagination">
+			  <ul class="pagination" style="padding-left: 600px;">
 			    <li class="page-item">
 
 			      <a class="page-link" href="#" aria-label="Previous">

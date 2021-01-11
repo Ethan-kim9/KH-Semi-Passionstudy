@@ -36,8 +36,6 @@ public class ManagerSalesViewBetweenController extends HttpServlet {
 	String fromDate = 	(String)request.getParameter("fromDate");
 	String toDate = 	(String)request.getParameter("toDate");
 	
-	System.out.println("시작 날짜? : "+ fromDate.toString());
-	System.out.println("끝    날짜? : "+toDate.toString());
 	
 	ArrayList<ManagerSalesVo> list = new ManagerSalesService().salesSearchBewteen(fromDate,toDate);
    

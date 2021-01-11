@@ -14,6 +14,7 @@ import com.passionStudy.passion.member.model.vo.MemberVo;
 public class MemberService {
 
 
+
 	/**
 	 * 로그인
 	 * 
@@ -24,7 +25,6 @@ public class MemberService {
 	 */
 	public MemberVo loginMember(String memId, String memPwd) {
 		Connection conn = getConnection();
-		System.out.println("DB접속 성공");
 			MemberVo mv = new MemberDao().loginMember(conn, memId, memPwd);
 		close(conn);
 		return mv;
@@ -60,12 +60,14 @@ public class MemberService {
 	 * @param memName
 	 * @param memPhone
 	 * @return
+	 * @throws SQLException
 	 */
-	public String findIdMember(String memName, String memPhone) throws SQLException {
+	public MemberVo findIdMember(String memName, String memPhone) {
 		Connection conn = getConnection();
-		String findId = new MemberDao().findIdMember(conn, memName, memPhone);
-		conn.close();
-		return findId;
+		System.out.println("DB접속 성공");
+		MemberVo mv = new MemberDao().findIdMember(conn, memName, memPhone);
+		close(conn);
+		return mv;
 	}
 
 	/**
@@ -74,10 +76,11 @@ public class MemberService {
 	 * 앞 문자 4개만 보여주고 뒤는 * 처리
 	 * 
 	 */
-	public String findPwdMember(MemberVo mv) throws SQLException {
+	public MemberVo findPwdMember(String memId, String memName, String memPhone) {
 		Connection conn = getConnection();
-		String findPwd = new MemberDao().findPwdMember(conn, mv);
-		conn.close();
-		return findPwd;
+		System.out.println("DB접속 성공");
+		MemberVo mv = new MemberDao().findPwdMember(conn, memId, memName, memPhone);
+		close(conn);
+		return mv;
 	}
 }

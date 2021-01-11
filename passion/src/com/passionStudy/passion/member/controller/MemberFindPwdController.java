@@ -1,7 +1,6 @@
 package com.passionStudy.passion.member.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,24 +24,21 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=UTF-8");
 
+		String memId = request.getParameter("userid");
 		String memName = request.getParameter("username");
 		String memPhone = request.getParameter("userphnumber");
-		String memId = request.getParameter("userid");
 		
-		MemberVo mv = new MemberVo();
-		mv.setMemName(memName);
-		mv.setMemPhone(memPhone);
-		mv.setMemId(memId);
+		MemberVo findPwdMember = new MemberService().findPwdMember(memId, memName, memPhone);
 		
-		int memNo = new MemberService().findPwdMember(mv);
-		
-		if(memNo > 0) {
-			request.setAttribute("result", "비밀번호 변경");
+		if(findPwdMember != null) {
+			request.setAttribute("findPwdMember", findPwdMember);
 			request.setAttribute("memId", memId);
-			request.getRequestDispatcher("view/member/find_pwd_complete/jsp").forward(request, response);
+			request.setAttribute("memName", memName);
+			request.setAttribute("memPhone", memPhone);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/find_pwd_complete.jsp").forward(request, response);
 		}else {
-			request.setAttribute("result", "비밀번호 찾기 실패!");
-			request.getRequestDispatcher("view/member/find_pwd_complete/jsp").forward(request, response);
+			request.setAttribute("msg", "찾기 실패! 정확한 정보를 입력해 주세요.");
+			request.getRequestDispatcher("index.jsp?inc=./views/member/member_find.jsp").forward(request, response);
 		}
 		
 	}

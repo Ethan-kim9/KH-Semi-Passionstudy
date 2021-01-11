@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String msg = (String)request.getAttribute("msg");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -12,6 +15,8 @@
   </head>
   
  <body>
+ 
+
  
   <div class="find_id_btn">
       <div class="login_wrap">
@@ -36,8 +41,9 @@
               	비밀번호를 변경하실 수 있습니다.
             </p>
             <br/>
+
             
-           <form action="findId.do" method="post">
+          <form name="searchIdFrm" action="findId.do" method="POST">
             <div class="field_id_box">
               <section class="btn_id_push">
                 <div class="inpbx">
@@ -64,6 +70,13 @@
                   />
                 </div>
                 
+		        <div class = "inpbx" style="color:red; text-align: left;">
+		     	    <!-- 오류시 출력문구 입력 -->
+		           	<% if(msg != null){ %>
+		           		<label id="failmsg"><%= msg %></label>
+		           	<% } %>
+		        </div>
+              
 	                <section>
 	          			<button type="submit" class="btn btn_me active">본인인증 하기</button>
 	        		</section>
@@ -71,7 +84,7 @@
         		</div>
               </form>
 
-           <form action="" method="post">
+		  <form name="searchPwdFrm" action="findPwd.do" method="POST">
             <div class="field_pwd_box">
               <section class="btn_password_push">
                   
@@ -84,39 +97,50 @@
                       autocorrect="off"
                       autocapitalize="none"
                       required
+                      autofocus
                     />
                   </div>
+                  
                   <div class="inpbx">
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="이름"
-                    autocorrect="off"
-                    autocapitalize="none"
-                    required
-                    autofocus
-                  />
-                </div>
-                <div class="inpbx">
-                  <input
-                    type="text"
-                    id="userphnumber"
-                    name="userphnumber"
-                    placeholder="연락처(전화번호)"
-                    autocorrect="off"
-                    autocapitalize="none"
-                    required
-                  />
-                </div>
+	                  <input
+	                    type="text"
+	                    id="username"
+	                    name="username"
+	                    placeholder="이름"
+	                    autocorrect="off"
+	                    autocapitalize="none"
+	                    required
+	                    
+	                  />
+                  </div>
+                
+	                <div class="inpbx">
+	                  <input
+	                    type="text"
+	                    id="userphnumber"
+	                    name="userphnumber"
+	                    placeholder="연락처(전화번호)"
+	                    autocorrect="off"
+	                    autocapitalize="none"
+	                    required
+	                  />
+	                </div>
+	                
+			        <div class = "inpbx" style="color:red; text-align: left;">
+			     	    <!-- 오류시 출력문구 입력 -->
+			           	<% if(msg != null){ %>
+			           		<label id="failmsg"><%= msg %></label>
+			           	<% } %>
+			        </div>
                   
 					<section>
 	          			<button type="submit" class="btn btn_me active">본인인증 하기</button>
 	        		</section>
 	              </section>
         		</div>
-              </form>
-
+			  </form>
+			  
+			  
           </div>
         </div>
 
@@ -126,5 +150,6 @@
 
   </body>
   <script src="resources/JS/menubar.js"></script>
+  <script src="resources/JS/pagesjs/member_search.js"></script>
   <script src="resources/JS/pagesjs/member_find_click.js"></script>
 </html>

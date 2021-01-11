@@ -63,16 +63,16 @@
                 />
               </td>
               <td class="room_title">
-                <h5 class="room_person_number">xx인실</h5>
+                <h5 class="room_person_number">${param.roomMin } ~ ${param.roomMax }인실</h5>
                 <h5 class="room_time_price">총 ${param.total_time } 시간</h5>
               </td>
             </tr>
             <tr>
               <td class="room_introduce">
                 <p>
-                  xx인 테이블입니다.
+                  ${param.roomMin }인 테이블입니다.
                   <br />
-                  책상 없이 의자만 추가하면 최대 xx인까지 이용 가능합니다:)
+                  책상 없이 의자만 추가하면 최대 ${param.roomMax }인까지 이용 가능합니다:)
                   <br />
                   추가적인 필수 주문사항 없습니다.
                   <br />
@@ -308,8 +308,6 @@
               </li>
             </ul>
 			<input type='text' id='selectCalendarDate' name='selectCalendarDate' value='${param.selectCalendarDate }'/>
-			<input type='text' id='member_no' name='member_no' value='${param.member_no }' />
-			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
 			<input type='text' id='firstTimeData' name='firstTimeData' value='${param.firstTimeData }' />
 			<input type='text' id='secondTimeData' name='secondTimeData' value='${param.secondTimeData }' />
 			<input type='text' id='thirdTimeData' name='thirdTimeData' value='${param.thirdTimeData }' />
@@ -317,10 +315,23 @@
 			<input type='text' id='fifthTimeData' name='fifthTimeData' value='${param.fifthTimeData }' />
 			<input type='text' id='lastTimeData' name='lastTimeData' value='${param.lastTimeData }' />
 			<input type='text' id='total_time' name='total_time' value='${param.total_time }' />
-			<input type='text' name='countUsers' value='${param.countUsers }'/>
-			<input type='text' name='monitor' value='${param.monitor }'/>
-			<input type='text' name='computer' value='${param.computer }'/>
-			<input type='text' name='projector' value='${param.projector }'/>
+			<input type='text' id='member_no' name='member_no' value='${param.member_no }'/>
+			<input type='text' id='reservationName' name='reservationName' value='${param.reservationName }'/>
+			<input type='text' id='tel_first' name='tel_first' value='${param.tel_first }' />
+			<input type='text' id='tel_second' name='tel_second' value='${param.tel_second }' />
+			<input type='text' id='tel_third' name='tel_third' value='${param.tel_third }' />
+			<input type='text' id='email_id' name='email_id' value='${param.email_id }' />
+			<input type='text' id='email_dns' name='email_dns' value='${param.email_dns }' />
+			<input type='text' id='room_no' name='room_no' value='${param.room_no }' />
+			<input type='text' id='roomName' name='roomName' value='${param.roomName }' />
+			<input type='text' id='roomMin' name='roomMin' value='${param.roomMin }' />
+			<input type='text' id='roomMax' name='roomMax' value='${param.roomMax }' />
+			<input type='text' id='roomPrice' name='roomPrice' value='${param.roomPrice }' />
+			<input type='text' id='countUsers' name='countUsers' value='${param.countUsers }' />
+			<input type='text' id='monitor' name='monitor' value='${param.monitor }' />
+			<input type='text' id='computer' name='computer' value='${param.computer }' />
+			<input type='text' id='projector' name='projector' value='${param.projector }' />
+			<input type='text' id='memPoint' name='memPoint' value='${param.memPoint }' />
         </div>
         <div class="next_button">
           <button class="next" id='userinfo_to_payment'>다음단계</button>

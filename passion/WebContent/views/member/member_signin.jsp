@@ -424,7 +424,7 @@
 	                        <button type="submit" class="btn_next_step on verify_info btn_fix sign_btn_6" >
 	                                  혜택 없이 계속 가입하기
 	                        </button>
-	                        <button type="submit" class="btn_next_step on verify_info sign_btn_5">
+	                        <button type="button" class="btn_next_step on verify_info sign_btn_5">
 	                                  추천인 입력하고 혜택받기
 	                        </button>
 	                      </div>

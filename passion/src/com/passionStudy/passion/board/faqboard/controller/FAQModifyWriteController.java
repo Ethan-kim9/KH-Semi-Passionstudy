@@ -1,4 +1,4 @@
-package com.passionStudy.passion.board.controller;
+package com.passionStudy.passion.board.faqboard.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,45 +9,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao;
 import com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo;
+import com.passionStudy.qnaBoard.dao.QnaDao;
+import com.passionStudy.qnaBoard.vo.QnaVo;
 
-/**
- * Servlet implementation class FAQUserDetailController
- */
-@WebServlet("/faq.FAQUserDetail")
-public class FAQUserDetailController extends HttpServlet {
+
+@WebServlet("/faq.FAQModifyWrite")
+public class FAQModifyWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FAQUserDetailController() {
+
+    public FAQModifyWriteController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);	
-		
+		doPost(request, response);
     }
-
-    @Override
+    
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-    	int faqNo = Integer.parseInt(request.getParameter("idx"));
+
+		int faqNo = Integer.parseInt(request.getParameter("idx"));
 		
 		FAQBoardDao dao = FAQBoardDao.getInstance();
 		FAQBoardVo vo = new FAQBoardVo();
 		
-		vo = dao.getView(faqNo);
+		vo = dao.modifyView(faqNo);
 		
 		request.setAttribute("vo", vo);
 		
+		System.out.println(vo.getFaqTitle());
+		System.out.println(vo.getFaqContent());
 		
-		
-		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_detail.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp?inc=./views/board/faq/board_faq_manager_modifyWrite.jsp").forward(request, response);	}
 
 	}
 
-}
+

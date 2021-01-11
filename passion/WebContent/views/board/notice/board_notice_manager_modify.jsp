@@ -35,7 +35,7 @@
                   rows="10"
                   name="content"
                   required
-                >${n.ncontent }</textarea>
+                >${n.ncontent}</textarea>
               </div>
               <div class="board_write_btn">
                 <input type="submit" class="write_btn yb" value="수정"/>

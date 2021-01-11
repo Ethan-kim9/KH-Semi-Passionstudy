@@ -1,3 +1,4 @@
+<%@page import="com.passionStudy.passion.manager.model.vo.ManagerCouponVo"%>
 <%@page import="com.passionStudy.passion.member.model.vo.MemberVo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.passionStudy.passion.manager.model.vo.ManagerMemberVo"%>
@@ -6,7 +7,8 @@
   
   <%
   		ArrayList<ManagerMemberVo> list = (ArrayList<ManagerMemberVo>)request.getAttribute("list"); 
-		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+  		MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
+		
   %>
 
 <!DOCTYPE html>
@@ -138,15 +140,13 @@
               aria-label="Recipient's username"
               aria-describedby="button-addon2" />
             <div class="input-group-append">
-             <a href ="manager.EditPiont" class = "editPoint">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2" > EDIT </button>
-              </a>
+              <button class="btn btn-outline-secondary btnCoupon" type="submit" id="button-addon2"> EDIT </button>
             </div>
           </div>
 
           <!-- 블랙리스트 설정 -->
 
-          <div class="input-group mb-3">
+<div class="input-group mb-3">
             <input
               type="text"
               class="form-control"
@@ -170,13 +170,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">비밀번호 변경</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      	비밀번호를 12345678로 변경합니다.
+      <div class="modal-body"> 비밀번호를 12345678로 변경합니다.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>        
@@ -191,13 +190,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">포인트 변경</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      	<input type= 'text' placeholder="포인트값을 입력하세요" id="Point" />
+      	<input type= 'text' placeholder="포인트값을 입력하세요" id="Point" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>        
@@ -212,7 +211,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">블랙리스트 설정</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -293,6 +292,26 @@
 			}  		
 		});
 	});
+  
+  
+  $('.btnCoupon').on('click', function(){
+		$.ajax({
+			type : 'post',
+			url  : 'manager.listCoupon',
+			<%if(!list.isEmpty()){%>
+			data : {memno 	    : "<%=list.get(0).getMemNo()%>",
+					memname   	: "<%=list.get(0).getMemName() %>",
+					memphone  	: "<%=list.get(0).getMemPhone() %>"},
+			success  : function(){
+				location.href="manager.listCoupon?memno=<%=list.get(0).getMemNo()%>&memname=<%=list.get(0).getMemName()%>&memphone=<%=list.get(0).getMemPhone()%>";
+				<%}%>
+			},
+			error    : function(){
+				alert(status);
+			}  		
+		});
+	});
+
 
   </script>
   </html>

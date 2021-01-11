@@ -62,15 +62,12 @@ public class NoticeUserListController extends HttpServlet{
 				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice_manager.jsp")
 				.forward(request, response);
 				
-				System.out.println("@@@@@@@@@@@@@@관리자 로그인 @@@@@@@@@@@@@@");
-				
 				
 			}else { //관리자 아닌 화면.
 				request
 				.getRequestDispatcher("index.jsp?inc=./views/board/notice/board_notice.jsp")
 				.forward(request, response);
-				
-				System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ회원/비회원ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+
 			}
 	}
 }

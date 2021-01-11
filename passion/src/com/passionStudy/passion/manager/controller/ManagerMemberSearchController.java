@@ -34,8 +34,6 @@ public class ManagerMemberSearchController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String searchName =  (String)request.getParameter("SearchName");
 		
-		System.out.println("관리자가 찾을 이름 : "+searchName);
-		
 		ArrayList<ManagerMemberVo> list =  new ManagerMemberService().memberSearch(searchName);
 		
 		if(list.size() > 0) {

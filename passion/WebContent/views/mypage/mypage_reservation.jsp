@@ -10,6 +10,7 @@
   <head>
       <title>mypage-예약관리</title>
       <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
   </head>
   <body>
 
@@ -23,10 +24,10 @@
       <div class="tabtype_wrapper mypage_tabtype_wrapper">
           <ul>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage.jsp"><button class="btn1">나의 정보</button></a>
+                <a href="Mypage.Info"><button class="btn1">나의 정보</button></a>
             </li>
             <li>
-                <a href="index.jsp?inc=./views/mypage/mypage_reservation.jsp"><button class="btn2 on">나의 예약 관리</button></a>
+                <a href="MyReservation"><button class="btn2 on">나의 예약 관리</button></a>
             </li>
             <li>
                 <a href="MyPage1on1Proc.do"><button class="btn3">나의 활동</button></a>
@@ -57,7 +58,7 @@
     <section class="section mypage_reservation mypage_reservation1">
       <div class="mypage-container">
         <div class="reservation-state_container">
-          <table class="reservation-state_table">
+         <table class="reservation-state_table">
             <thead>
               <tr>
                 <th class="table-num">
@@ -71,13 +72,14 @@
                 <th class="table-lookup">조회</th>
               </tr>
             </thead>
+            
             <tbody>
             	<c:forEach var="res" items="${myres }">
+           		<c:forEach var="room" items="${myroom }">
               <tr>
-            <%-- <c:forEach var="room" items="${myroom }"> --%>
 	                <td>1</td>
-	                <td><%-- ${room.roomName } --%>name</td>
-	                <td><%-- ${room.roomType } --%>type</td>
+	                <td> ${room.roomName }name</td>
+	                <td>${room.roomType }type</td>
 	            
 	                <td>${res.resDate }</td>
 	                <td>${res.resTime }시간</td>
@@ -91,12 +93,12 @@
 	                    상세조회
 	                  </button>
 	                </td>
-            <%-- </c:forEach> --%>
               </tr>
+            </c:forEach>
             	</c:forEach> 
             </tbody>
-          </table>
-
+          </table> 
+          
           <div class="reservation-management-pages-count">
             <div>
               <span class="button-prev"><</span>
@@ -107,7 +109,7 @@
             <div>
               <span class="button-next">></span>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </section>

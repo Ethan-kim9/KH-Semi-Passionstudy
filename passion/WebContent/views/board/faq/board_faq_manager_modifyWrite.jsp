@@ -1,14 +1,7 @@
-<%@page import="com.passionStudy.passion.board.noticeboard.model.vo.MemberVo"%>
-<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
-<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
-<jsp:useBean id="vo1" class="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"/>
-<%-- <%
-	MemberVo loginMember 	= (MemberVo)session.getAttribute("loginMember");
-%> --%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -29,6 +22,19 @@
     </div>
 	
 	<div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <section>
@@ -68,7 +74,7 @@
               </div>
               <div class="board_write_btn">
                   <input type="submit" value="수정" class="write_btn yb" style="margin:10px 10px 0 20px">
-                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.FAQManagerList'">
+                  <input type="button" value="취소" class="write_btn yb" OnClick="window.location='faq.ManagerOrUser'">
               </div>
             </form>
           </div>

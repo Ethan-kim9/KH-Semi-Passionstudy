@@ -1,11 +1,7 @@
-<%@page import="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"%>
-<%@page import="com.passionStudy.passion.board.faqboard.model.vo.FAQBoardVo"%>
-<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.passionStudy.passion.board.faqboard.model.*" %>
-<jsp:useBean id="dao" class="com.passionStudy.passion.board.faqboard.model.dao.FAQBoardDao"/>
 
 <%
 	final int ROWSIZE = 8;
@@ -96,8 +92,22 @@
 		</div>
 	</div>
 
-	<jsp:include page="../inc/board_head.jsp"/>
-
+	<div class="tabtype">
+	<div class="tabtype_wrapper" style="text-align: center;">
+        <ul>
+          <li>
+            <a href="board_notice"><button class="btn1">공지사항</button></a>
+          </li>
+          <li>
+            <a href="faq.ManagerOrUser"><button class="btn2 on">자주하는 질문</button></a>
+          </li>
+          <li>
+            <a href="member.manager.check.do"><button class="btn3">1:1문의</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+<form id="delete" action="faq.FAQCheckBox" method="post">
 	<section>
 		<div id="board">
 			<div id="board_main">
@@ -167,15 +177,15 @@
 								String category = result.getString(2); // faq_category
 								String title = result.getString(3); // faq_title
 								String content = result.getString(4); // faq_content
-								String date = result.getString(4); // faq_date	
+								String date = result.getString(5); // faq_date	
 					%>
 <%
 			//유저나 비회원에게 보이는 화면
 			if(nonMemberCheck.equals(nonMember) || userCheck.equals(user)) {
 %>					
 					<tr>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>&pg=<%=pg%>"><%=no %></td>
-						<td><%=category%></a></td>
+						<td><%=no %></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQUserDetail?idx=<%=no%>"><%=category%></a></td>
 						<td><%=title %></td>
 						<td><%=date%></td>
 						
@@ -188,15 +198,17 @@
 			if(managerCheck.equals(manager)) {
 %>					
 					<tr>
-						<td><input type="checkbox" class="checkbox" data-faqNo="${vo.faqNo }"/></td>
-						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>&pg=<%=pg%>"><%=category %></a></td>
+						<td><input type="checkbox" name="deletes" value="<%=no %>" /></td>
+						<td><a style="text-decoration: none; color: black;" href="faq.FAQManagerDetail?idx=<%=no%>"><%=category %></a></td>
 						<td><%=title %></td>
 						<td><%=date %></td>
 						
 					</tr>
 <%
 	}
-%>					
+%>	
+
+
 <%			
 		} //while
 	} // else
@@ -240,6 +252,33 @@
 							 %>
 						</td>
 					</tr>
+<%
+if(nonMember != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=nonMember %></p>
+			</tr>
+<%
+}
+%>
+<%
+if(user != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=user %></p>
+			</tr>
+<%
+}
+%>
+<%
+if(manager != null) {
+%>
+			<tr>
+				<p>현재상태 : <%=manager %></p>
+			</tr>
+<%
+}
+%>
 				</table>
 <%
 			//관리자에게 보이는 화면
@@ -252,8 +291,9 @@
 						onClick="window.location='index.jsp?inc=./views/board/faq/board_faq_manager_write.jsp'">
 					</input>
 					<!-- </a> -->
-					<button type="button" class="remove_btn yb"
-						style="float: right;" data-faqNo="${vo.faqNo }">삭제</button>
+					<button type="submit" form="delete" name="delete" value="delete" class="write_btn yb" style="float: none">
+	               	삭제
+	               </button> 
 				</div>
 <%
 			}
@@ -261,6 +301,7 @@
 			</div>
 		</div>
 	</section>
+</form>
 </body>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script>
@@ -278,28 +319,6 @@
 	  $(".checkbox").click(function(){
 			$(".check_all").prop("checked",false);
 	  });
-	//선택 삭제 버튼
-	$(".remove_btn yb").click(function(){
-		var confirm_val = confirm("정말 삭제하시겠습니까?");
-
-		if(confirm_val) {
-			var checkArr = new Array();
-
-			$("input[class="checkbox"]:checked").each(function(){
-				checkArr.push($(this).attr("data-faqNo"));
-			});
-
-			$.ajax({
-			    url : "/shop/deleteCart",
-			    type : "post",
-			    data : { chbox : checkArr },
-			    success : function(){
-			     location.href = "/faq/board_faq_manager";
-			    }
-			});
-
-			}
-		});
 		 
   </script>
 </html>

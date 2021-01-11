@@ -37,10 +37,6 @@ public class ManagerSalesViewController extends HttpServlet {
 		String[] input = searchTime.split(" ");
 		String 	month = input[0];
 		String 	year  = input[1];
-		
-		System.out.println("검색할 년: " + year);
-		System.out.println("검색할 월: " + month);
-		
 
         switch(month){
             case "January":
