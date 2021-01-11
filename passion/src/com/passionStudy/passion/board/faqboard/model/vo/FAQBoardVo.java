@@ -98,10 +98,4 @@ public class FAQBoardVo {
 	}
 
 	
-	
-	
-	
-
-	
-	
 }
