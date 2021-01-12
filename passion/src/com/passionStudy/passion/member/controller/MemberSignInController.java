@@ -52,11 +52,12 @@ public class MemberSignInController extends HttpServlet {
 			request.setAttribute("memId", memId);
 			request.setAttribute("memName", memName);
 			
-			request.getRequestDispatcher("/views/member/member_signin_complete.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/member_signin_complete.jsp").forward(request, response);
 		}else {
 			// 회원가입 실패
 			request.setAttribute("result", "회원가입 실패");
-			request.getRequestDispatcher("/views/member/member_signin.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?inc=./views/member/member_signin.jsp").forward(request, response);
+
 			
 		}
 	

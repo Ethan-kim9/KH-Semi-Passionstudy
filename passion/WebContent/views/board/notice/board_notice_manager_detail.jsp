@@ -21,8 +21,7 @@
         <form action="board_notice_manager_detail" method="post">
             <div id="another_buttons" style="padding-bottom:10px; padding-top:20px; text-align:right;">
                 <a href="board_notice_manager_modify?nno=${n.nno}" class="write_btn">수정</a>
-                <input type="submit" class="write_btn yb" name="cmd" value="삭제" style="float: none"
-                OnClick="window.location='board_notice_manager_detail?'nno=${n.nno}"/>
+                <input type="submit" class="remove_btn yb" name="cmd" value="삭제" style="float: none"/>
               </div>
           <table class="table" id="table_title">
             <tr>
